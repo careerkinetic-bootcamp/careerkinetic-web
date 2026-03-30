@@ -5,13 +5,20 @@ import CoursesPage from './components/CoursesPage';
 import RoadmapsPage from './components/RoadmapsPage';
 import TakeTestPage from './components/TakeTestPage';
 import AboutUsPage from './components/AboutUsPage';
-import ContactUsPage from './components/ContactUsPage';
+import FaqPage from './components/FaqPage';
 import MentorshipPage from './components/MentorshipPage';
 import OpportunitiesPage from './components/OpportunitiesPage';
+import DashboardPage from './components/DashboardPage';
+import { useAuth } from './context/AuthContext';
 import './App.css';
 
 function App() {
+  const { isLoggedIn, isAuthReady, logout } = useAuth();
   const [currentPage, setCurrentPage] = useState('home');
+
+  if (!isAuthReady) {
+    return <div style={{ height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}><h1 className="text-gradient">Verifying Session...</h1></div>;
+  }
 
   return (
     <>
@@ -21,9 +28,10 @@ function App() {
       </div>
       
       <div className="app-container">
-        <Navbar currentPage={currentPage} onPageChange={setCurrentPage} />
+        {/* Pass down isLoggedIn status to Navbar to handle tab visibility */}
+        <Navbar currentPage={currentPage} onPageChange={setCurrentPage} isLoggedIn={isLoggedIn} onLogout={logout} />
         <main className="content-wrapper">
-          {currentPage === 'home' && <AuthSplitLayout defaultIsLogin={false} onPageChange={setCurrentPage} />}
+          {currentPage === 'home' && <DashboardPage />}
           {currentPage === 'login' && <AuthSplitLayout defaultIsLogin={true} onPageChange={setCurrentPage} />}
           {currentPage === 'courses' && <CoursesPage />}
           {currentPage === 'roadmaps' && <RoadmapsPage />}
@@ -31,7 +39,7 @@ function App() {
           {currentPage === 'mentorship' && <MentorshipPage />}
           {currentPage === 'opportunities' && <OpportunitiesPage />}
           {currentPage === 'about' && <AboutUsPage />}
-          {currentPage === 'contact' && <ContactUsPage />}
+          {currentPage === 'faqs' && <FaqPage />}
         </main>
       </div>
     </>

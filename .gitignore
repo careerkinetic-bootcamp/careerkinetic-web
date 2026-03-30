@@ -27,3 +27,6 @@ dist-ssr
 .eslintcache
 .vite/
 node_modules/.cache/
+
+# environment
+.env
