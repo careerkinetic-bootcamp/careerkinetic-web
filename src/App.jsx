@@ -36,8 +36,8 @@ function App() {
           {currentPage === 'courses' && <CoursesPage />}
           {currentPage === 'roadmaps' && <RoadmapsPage />}
           {currentPage === 'test' && <TakeTestPage />}
-          {currentPage === 'mentorship' && <MentorshipPage />}
-          {currentPage === 'opportunities' && <OpportunitiesPage />}
+          {currentPage === 'mentorship' && (isLoggedIn ? <MentorshipPage /> : <DashboardPage />)}
+          {currentPage === 'opportunities' && (isLoggedIn ? <OpportunitiesPage /> : <DashboardPage />)}
           {currentPage === 'about' && <AboutUsPage />}
           {currentPage === 'faqs' && <FaqPage />}
         </main>

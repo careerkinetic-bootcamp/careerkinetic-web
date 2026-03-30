@@ -30,16 +30,21 @@ const Navbar = ({ currentPage = 'home', onPageChange = () => {}, isLoggedIn = fa
                onMouseEnter={e => { e.target.style.background = 'rgba(255,255,255,0.05)'; e.target.style.color = 'var(--primary)'; }}
                onMouseLeave={e => { e.target.style.background = 'transparent'; e.target.style.color = currentPage === 'roadmaps' ? 'var(--primary)' : 'var(--text-light)'; }}
                onClick={(e) => { e.preventDefault(); onPageChange('roadmaps'); }}>Roadmaps</a>
-            <a href="#" 
-               style={{ display: 'block', padding: '0.8rem 1.2rem', color: currentPage === 'mentorship' ? 'var(--primary)' : 'var(--text-light)', textDecoration: 'none', fontSize: '0.95rem' }} 
-               onMouseEnter={e => { e.target.style.background = 'rgba(255,255,255,0.05)'; e.target.style.color = 'var(--primary)'; }}
-               onMouseLeave={e => { e.target.style.background = 'transparent'; e.target.style.color = currentPage === 'mentorship' ? 'var(--primary)' : 'var(--text-light)'; }}
-               onClick={(e) => { e.preventDefault(); onPageChange('mentorship'); }}>Mentorship</a>
-            <a href="#" 
-               style={{ display: 'block', padding: '0.8rem 1.2rem', color: currentPage === 'opportunities' ? 'var(--primary)' : 'var(--text-light)', textDecoration: 'none', fontSize: '0.95rem' }} 
-               onMouseEnter={e => { e.target.style.background = 'rgba(255,255,255,0.05)'; e.target.style.color = 'var(--primary)'; }}
-               onMouseLeave={e => { e.target.style.background = 'transparent'; e.target.style.color = currentPage === 'opportunities' ? 'var(--primary)' : 'var(--text-light)'; }}
-               onClick={(e) => { e.preventDefault(); onPageChange('opportunities'); }}>Opportunities</a>
+            
+            {isLoggedIn && (
+              <>
+                <a href="#" 
+                   style={{ display: 'block', padding: '0.8rem 1.2rem', color: currentPage === 'mentorship' ? 'var(--primary)' : 'var(--text-light)', textDecoration: 'none', fontSize: '0.95rem' }} 
+                   onMouseEnter={e => { e.target.style.background = 'rgba(255,255,255,0.05)'; e.target.style.color = 'var(--primary)'; }}
+                   onMouseLeave={e => { e.target.style.background = 'transparent'; e.target.style.color = currentPage === 'mentorship' ? 'var(--primary)' : 'var(--text-light)'; }}
+                   onClick={(e) => { e.preventDefault(); onPageChange('mentorship'); }}>Mentorship</a>
+                <a href="#" 
+                   style={{ display: 'block', padding: '0.8rem 1.2rem', color: currentPage === 'opportunities' ? 'var(--primary)' : 'var(--text-light)', textDecoration: 'none', fontSize: '0.95rem' }} 
+                   onMouseEnter={e => { e.target.style.background = 'rgba(255,255,255,0.05)'; e.target.style.color = 'var(--primary)'; }}
+                   onMouseLeave={e => { e.target.style.background = 'transparent'; e.target.style.color = currentPage === 'opportunities' ? 'var(--primary)' : 'var(--text-light)'; }}
+                   onClick={(e) => { e.preventDefault(); onPageChange('opportunities'); }}>Opportunities</a>
+              </>
+            )}
           </div>
         </li>
         <li>

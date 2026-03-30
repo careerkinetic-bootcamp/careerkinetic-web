@@ -1,7 +1,9 @@
 import React from 'react';
+import { useAuth } from '../context/AuthContext';
 import './CoursesPage.css';
 
 const DashboardPage = () => {
+  const { isLoggedIn } = useAuth();
   return (
     <div className="courses-page fade-in-up delay-1" style={{ maxWidth: '1200px', margin: '0 auto', width: '100%', paddingBottom: '4rem' }}>
       
@@ -22,7 +24,7 @@ const DashboardPage = () => {
       {/* Subscribed / Suggested Courses */}
       <div className="fade-in-up delay-3" style={{ marginTop: '2.5rem' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '0.8rem' }}>
-          <h2 className="text-gradient" style={{ fontSize: '1.8rem', margin: 0 }}>subscribed courses / suggested courses</h2>
+          <h2 className="text-gradient" style={{ fontSize: '1.8rem', margin: 0 }}>{isLoggedIn ? 'Suggested Courses' : 'All Courses'}</h2>
           <button className="btn btn-text" style={{ padding: '0 1rem' }}>View All →</button>
         </div>
         <div style={{ display: 'flex', gap: '1.5rem', overflowX: 'auto', paddingBottom: '1rem' }}>
@@ -47,7 +49,7 @@ const DashboardPage = () => {
       {/* Subscribed / Suggested Roadmaps */}
       <div className="fade-in-up delay-4" style={{ marginTop: '2rem' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '0.8rem' }}>
-          <h2 className="text-gradient" style={{ fontSize: '1.8rem', margin: 0 }}>subscribed roadmap / suggest roadmap</h2>
+          <h2 className="text-gradient" style={{ fontSize: '1.8rem', margin: 0 }}>{isLoggedIn ? 'Suggested Roadmaps' : 'All Roadmaps'}</h2>
           <button className="btn btn-text" style={{ padding: '0 1rem' }}>View All →</button>
         </div>
         <div style={{ display: 'flex', gap: '1.5rem', overflowX: 'auto', paddingBottom: '1rem' }}>
