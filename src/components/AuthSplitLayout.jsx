@@ -31,6 +31,23 @@ const AuthSplitLayout = ({ onPageChange, defaultIsLogin = false }) => {
 
   useEffect(() => {
     setIsLogin(defaultIsLogin);
+
+    const handleReset = () => {
+      setAuthStep('default');
+      setIsLogin(true);
+      setApiError('');
+      setApiSuccess('');
+      setErrors({});
+      setEmail('');
+      setPassword('');
+      setOldPassword('');
+      setNewPassword('');
+      setConfirmPassword('');
+      setOtp('');
+    };
+    
+    window.addEventListener('reset-auth-step', handleReset);
+    return () => window.removeEventListener('reset-auth-step', handleReset);
   }, [defaultIsLogin]);
 
   // -- Helpers --
@@ -273,9 +290,9 @@ const AuthSplitLayout = ({ onPageChange, defaultIsLogin = false }) => {
       case 'forgot_password_init':
         return (
           <form className="auth-form fade-in-up delay-1" onSubmit={handleForgotRequestOTP}>
-            <button type="button" onClick={() => setAuthStep('default')} style={{ background: 'none', border: 'none', color: 'var(--primary)', cursor: 'pointer', textAlign: 'left', marginBottom: '1.5rem', padding: 0 }}>← Back to Login</button>
+            <button type="button" onClick={() => { setAuthStep('default'); clearMessages(); }} style={{ background: 'none', border: 'none', color: 'var(--primary)', cursor: 'pointer', textAlign: 'left', marginBottom: '1.5rem', padding: 0 }}>← Back to Login</button>
             <h2 style={{ color: '#fff', fontSize: '1.8rem', marginBottom: '0.5rem' }}>Reset Password</h2>
-            <p className="text-muted" style={{ marginBottom: '2rem' }}>Enter your registered Email or Phone number to receive a secure OTP code.</p>
+            <p className="text-muted" style={{ marginBottom: '2rem' }}>Enter your registered Email to receive a secure OTP code.</p>
             {renderInteractiveError()}
             {renderSuccess()}
             <div className="input-group">
@@ -290,9 +307,9 @@ const AuthSplitLayout = ({ onPageChange, defaultIsLogin = false }) => {
       case 'forgot_password_otp':
         return (
           <form className="auth-form fade-in-up delay-1" onSubmit={handleForgotVerifyOTP}>
-            <button type="button" onClick={() => setAuthStep('forgot_password_init')} style={{ background: 'none', border: 'none', color: 'var(--primary)', cursor: 'pointer', textAlign: 'left', marginBottom: '1.5rem', padding: 0 }}>← Back</button>
+            <button type="button" onClick={() => { setAuthStep('forgot_password_init'); clearMessages(); }} style={{ background: 'none', border: 'none', color: 'var(--primary)', cursor: 'pointer', textAlign: 'left', marginBottom: '1.5rem', padding: 0 }}>← Back</button>
             <h2 style={{ color: '#fff', fontSize: '1.8rem', marginBottom: '0.5rem' }}>Enter OTP</h2>
-            <p className="text-muted" style={{ marginBottom: '2rem' }}>We sent a secure code to your contact.</p>
+            <p className="text-muted" style={{ marginBottom: '2rem' }}>We sent a secure code to your Email.</p>
             {renderInteractiveError()}
             {renderSuccess()}
             <div className="input-group">
@@ -300,7 +317,10 @@ const AuthSplitLayout = ({ onPageChange, defaultIsLogin = false }) => {
               <input type="text" className={`form-control ${errors.otp ? 'error' : ''}`} placeholder="Enter 6-digit OTP" value={otp} onChange={e => {setOtp(e.target.value); setErrors({...errors, otp: null});}} style={{ letterSpacing: '4px', textAlign: 'center', fontSize: '1.2rem', fontWeight: 'bold' }} />
               {errors.otp && <span className="error-text">{errors.otp}</span>}
             </div>
-            <button type="submit" className="btn btn-primary" style={{ marginTop: '1.5rem', width: '100%' }} disabled={isLoading}>Verify Origin</button>
+            <div style={{ textAlign: 'right', marginTop: '0.5rem' }}>
+              <button type="button" onClick={handleForgotRequestOTP} style={{ background: 'none', border: 'none', color: 'var(--primary)', padding: 0, cursor: 'pointer', fontSize: '0.85rem' }}>Resend OTP</button>
+            </div>
+            <button type="submit" className="btn btn-primary" style={{ marginTop: '1.5rem', width: '100%' }} disabled={isLoading}>Verify OTP</button>
           </form>
         );
 
@@ -331,9 +351,9 @@ const AuthSplitLayout = ({ onPageChange, defaultIsLogin = false }) => {
       case 'change_password':
         return (
           <form className="auth-form fade-in-up delay-1" onSubmit={handleChangePasswordSubmit}>
-            <button type="button" onClick={() => setAuthStep('default')} style={{ background: 'none', border: 'none', color: 'var(--primary)', cursor: 'pointer', textAlign: 'left', marginBottom: '1.5rem', padding: 0 }}>← Back to Login</button>
-            <h2 style={{ color: '#fff', fontSize: '1.8rem', marginBottom: '0.5rem' }}>Modify Credentials</h2>
-            <p className="text-muted" style={{ marginBottom: '2rem' }}>Rotate your current valid key signature.</p>
+            <button type="button" onClick={() => { setAuthStep('default'); clearMessages(); }} style={{ background: 'none', border: 'none', color: 'var(--primary)', cursor: 'pointer', textAlign: 'left', marginBottom: '1.5rem', padding: 0 }}>← Back to Login</button>
+            <h2 style={{ color: '#fff', fontSize: '1.8rem', marginBottom: '0.5rem' }}>Change Password</h2>
+            <p className="text-muted" style={{ marginBottom: '2rem' }}>Securely update your account password.</p>
             {renderInteractiveError()}
             {renderSuccess()}
             {errors.cp && <span className="error-text" style={{ marginBottom: '1rem', display: 'block' }}>{errors.cp}</span>}
@@ -361,7 +381,7 @@ const AuthSplitLayout = ({ onPageChange, defaultIsLogin = false }) => {
               <input type="password" className="form-control" placeholder="Match new password" value={confirmPassword} onChange={e => setConfirmPassword(e.target.value)} />
             </div>
             
-            <button type="submit" className="btn btn-primary" style={{ marginTop: '2rem', width: '100%' }} disabled={isLoading}>Issue Key Replacement</button>
+            <button type="submit" className="btn btn-primary" style={{ marginTop: '2rem', width: '100%' }} disabled={isLoading}>Submit</button>
           </form>
         );
 
@@ -457,9 +477,9 @@ const AuthSplitLayout = ({ onPageChange, defaultIsLogin = false }) => {
     <div className="glass-panel fade-in-up" style={{ width: '100%', maxWidth: '1000px', margin: '4rem auto', minHeight: '600px', position: 'relative' }}>
       
       {isLoading && (
-        <div className="overlay-loader fade-in">
-          <div className="spinner"></div>
-          <p className="text-gradient" style={{ fontSize: '1.2rem', fontWeight: 'bold' }}>Synchronizing Nodes...</p>
+        <div className="overlay-loader fade-in" style={{ background: 'rgba(10, 10, 20, 0.3)', backdropFilter: 'blur(3px)' }}>
+          <div className="spinner" style={{ width: '36px', height: '36px', borderWidth: '3px', marginBottom: '0.5rem' }}></div>
+          <p className="text-muted" style={{ fontSize: '0.9rem' }}>Loading...</p>
         </div>
       )}
 

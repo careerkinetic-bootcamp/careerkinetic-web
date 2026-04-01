@@ -71,7 +71,7 @@ const Navbar = ({ currentPage = 'home', onPageChange = () => {}, isLoggedIn = fa
           </a>
         </li>
         {!isLoggedIn ? (
-          <li><a href="#login" className="btn btn-primary" style={{ padding: '0.5rem 1.4rem', borderRadius: '30px', textDecoration: 'none', color: '#fff', fontSize: '0.9rem', fontWeight: 500 }} onClick={(e) => { e.preventDefault(); onPageChange('login'); }}>Sign in</a></li>
+          <li><a href="#login" className="btn btn-primary" style={{ padding: '0.5rem 1.4rem', borderRadius: '30px', textDecoration: 'none', color: '#fff', fontSize: '0.9rem', fontWeight: 500 }} onClick={(e) => { e.preventDefault(); if (currentPage === 'login') window.dispatchEvent(new Event('reset-auth-step')); onPageChange('login'); }}>Sign in</a></li>
         ) : (
           <li style={{ marginLeft: '1rem' }}>
             <a href="#logout" className="nav-link" onClick={(e) => { e.preventDefault(); onLogout(); onPageChange('home'); }} style={{ color: 'var(--error)', border: '1px solid rgba(255,100,100,0.3)', padding: '0.4rem 1.2rem', borderRadius: '20px' }}>Logout</a>
