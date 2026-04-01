@@ -68,6 +68,7 @@ export const AuthProvider = ({ children }) => {
   const value = {
     user,              // The pure decoded JWT payload (e.g. email, role, background)
     isLoggedIn: !!user,// Boolean flag simply determining if valid session exists
+    isAdmin: user?.email === 'pyjaapp@gmail.com', // Explicit hardcoded admin
     token,             // The raw JWT string used for Axios authorization headers
     login,
     logout,

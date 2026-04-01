@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Navbar = ({ currentPage = 'home', onPageChange = () => {}, isLoggedIn = false, onLogout = () => {} }) => {
+const Navbar = ({ currentPage = 'home', onPageChange = () => {}, isLoggedIn = false, isAdmin = false, onLogout = () => {} }) => {
   return (
     <nav className="navbar fade-in-up">
       <a href="#" className="nav-logo" onClick={(e) => { e.preventDefault(); onPageChange('home'); }}>
@@ -52,18 +52,26 @@ const Navbar = ({ currentPage = 'home', onPageChange = () => {}, isLoggedIn = fa
             Take a test
           </a>
         </li>
-        <li>
-          <a href="#" className={`nav-link ${currentPage === 'about' ? 'active' : ''}`} onClick={(e) => { e.preventDefault(); onPageChange('about'); }}>
-            About us
-          </a>
-        </li>
+        {isAdmin ? (
+          <li>
+            <a href="#admin" className={`nav-link ${currentPage === 'admin' ? 'active' : ''}`} onClick={(e) => { e.preventDefault(); onPageChange('admin'); }} style={{ color: 'var(--primary)', fontWeight: '600' }}>
+              Admin
+            </a>
+          </li>
+        ) : (
+          <li>
+            <a href="#about" className={`nav-link ${currentPage === 'about' ? 'active' : ''}`} onClick={(e) => { e.preventDefault(); onPageChange('about'); }}>
+              About us
+            </a>
+          </li>
+        )}
         <li>
           <a href="#" className={`nav-link ${currentPage === 'faqs' ? 'active' : ''}`} onClick={(e) => { e.preventDefault(); onPageChange('faqs'); }}>
             FAQs
           </a>
         </li>
         {!isLoggedIn ? (
-          <li><a href="#login" className={`nav-link ${currentPage === 'login' ? 'active' : ''}`} onClick={(e) => { e.preventDefault(); onPageChange('login'); }}>Login/Register</a></li>
+          <li><a href="#login" className="btn btn-primary" style={{ padding: '0.5rem 1.4rem', borderRadius: '30px', textDecoration: 'none', color: '#fff', fontSize: '0.9rem', fontWeight: 500 }} onClick={(e) => { e.preventDefault(); onPageChange('login'); }}>Sign in</a></li>
         ) : (
           <li style={{ marginLeft: '1rem' }}>
             <a href="#logout" className="nav-link" onClick={(e) => { e.preventDefault(); onLogout(); onPageChange('home'); }} style={{ color: 'var(--error)', border: '1px solid rgba(255,100,100,0.3)', padding: '0.4rem 1.2rem', borderRadius: '20px' }}>Logout</a>

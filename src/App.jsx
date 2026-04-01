@@ -9,11 +9,12 @@ import FaqPage from './components/FaqPage';
 import MentorshipPage from './components/MentorshipPage';
 import OpportunitiesPage from './components/OpportunitiesPage';
 import DashboardPage from './components/DashboardPage';
+import AdminDashboard from './components/AdminDashboard';
 import { useAuth } from './context/AuthContext';
 import './App.css';
 
 function App() {
-  const { isLoggedIn, isAuthReady, logout } = useAuth();
+  const { isLoggedIn, isAdmin, isAuthReady, logout } = useAuth();
   const [currentPage, setCurrentPage] = useState('home');
 
   if (!isAuthReady) {
@@ -29,7 +30,7 @@ function App() {
       
       <div className="app-container">
         {/* Pass down isLoggedIn status to Navbar to handle tab visibility */}
-        <Navbar currentPage={currentPage} onPageChange={setCurrentPage} isLoggedIn={isLoggedIn} onLogout={logout} />
+        <Navbar currentPage={currentPage} onPageChange={setCurrentPage} isLoggedIn={isLoggedIn} isAdmin={isAdmin} onLogout={logout} />
         <main className="content-wrapper">
           {currentPage === 'home' && <DashboardPage />}
           {currentPage === 'login' && <AuthSplitLayout defaultIsLogin={true} onPageChange={setCurrentPage} />}
@@ -39,6 +40,7 @@ function App() {
           {currentPage === 'mentorship' && (isLoggedIn ? <MentorshipPage /> : <DashboardPage />)}
           {currentPage === 'opportunities' && (isLoggedIn ? <OpportunitiesPage /> : <DashboardPage />)}
           {currentPage === 'about' && <AboutUsPage />}
+          {currentPage === 'admin' && (isAdmin ? <AdminDashboard /> : <DashboardPage />)}
           {currentPage === 'faqs' && <FaqPage />}
         </main>
       </div>
