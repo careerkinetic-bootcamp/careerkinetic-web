@@ -10,6 +10,7 @@ import MentorshipPage from './components/MentorshipPage';
 import OpportunitiesPage from './components/OpportunitiesPage';
 import DashboardPage from './components/DashboardPage';
 import AdminDashboard from './components/AdminDashboard';
+import ProfilePage from './components/ProfilePage';
 import { useAuth } from './context/AuthContext';
 import './App.css';
 
@@ -41,6 +42,7 @@ function App() {
           {currentPage === 'opportunities' && (isLoggedIn ? <OpportunitiesPage /> : <DashboardPage />)}
           {currentPage === 'about' && <AboutUsPage />}
           {currentPage === 'admin' && (isAdmin ? <AdminDashboard /> : <DashboardPage />)}
+          {currentPage === 'profile' && <ProfilePage onPageChange={setCurrentPage} />}
           {currentPage === 'faqs' && <FaqPage />}
         </main>
       </div>

@@ -1,28 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { GoogleLogin } from '@react-oauth/google';
 import { useAuth } from '../context/AuthContext';
 import './AuthSplitLayout.css';
 
-const BASE_URL = import.meta.env.VITE_API_URL || 'https://93a7h43145.execute-api.us-east-1.amazonaws.com';
-const API_URL = `${BASE_URL}/api/auth`;
-
 const AuthSplitLayout = ({ onPageChange, defaultIsLogin = false }) => {
-  const { login } = useAuth();
+  const { signInWithEmail, signUpWithEmail, signInWithGoogle, resetPassword } = useAuth();
   const [isLogin, setIsLogin] = useState(defaultIsLogin);
   
-  // States: 'default', 'google_setup', 'forgot_password_init', 'forgot_password_otp', 'forgot_password_reset', 'change_password'
+  // States: 'default', 'forgot_password_init'
   const [authStep, setAuthStep] = useState('default'); 
   const [showPassword, setShowPassword] = useState(false);
-  const [tempGoogleToken, setTempGoogleToken] = useState('');
   
   // Unified Input States
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [oldPassword, setOldPassword] = useState('');
-  const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const [otp, setOtp] = useState('');
   
   const [errors, setErrors] = useState({});
   const [apiError, setApiError] = useState('');
@@ -40,10 +31,7 @@ const AuthSplitLayout = ({ onPageChange, defaultIsLogin = false }) => {
       setErrors({});
       setEmail('');
       setPassword('');
-      setOldPassword('');
-      setNewPassword('');
       setConfirmPassword('');
-      setOtp('');
     };
     
     window.addEventListener('reset-auth-step', handleReset);
@@ -51,14 +39,6 @@ const AuthSplitLayout = ({ onPageChange, defaultIsLogin = false }) => {
   }, [defaultIsLogin]);
 
   // -- Helpers --
-  const handleGlobalCatch = (err, defaultMsg) => {
-    if (!err.response || err.response.status >= 500) {
-      setApiError("It's not you, it's us. Our servers are experiencing difficulties right now.");
-    } else {
-      setApiError(err.response?.data?.detail || defaultMsg);
-    }
-  };
-
   const clearMessages = () => {
     setApiError('');
     setApiSuccess('');
@@ -84,143 +64,63 @@ const AuthSplitLayout = ({ onPageChange, defaultIsLogin = false }) => {
     return Object.keys(newErrors).length === 0;
   };
 
-  // -- Standard Submit (Email/Phone + Password) --
+  // -- Standard Submit (Email + Password) --
   const handleSubmit = async (e) => {
     e.preventDefault();
     clearMessages();
     if (validateForm()) {
       setIsLoading(true);
       try {
-        const payload = { email, password };
-        const endpoint = isLogin ? '/login' : '/register';
-        const response = await axios.post(`${API_URL}${endpoint}`, payload);
-        if (response.data && response.data.access_token) {
-          login(response.data.access_token);
+        if (isLogin) {
+          const { error } = await signInWithEmail(email, password);
+          if (error) throw error;
           onPageChange('home');
+        } else {
+          const { data, error } = await signUpWithEmail(email, password);
+          if (error) throw error;
+          if (data?.session) {
+            onPageChange('home');
+          } else {
+            setApiSuccess('Registration successful! Please check your email for a verification link.');
+          }
         }
       } catch (err) {
-        handleGlobalCatch(err, 'API Connection Failed: Ensure your credentials are correct.');
+        setApiError(err.message || 'Authentication failed. Please check your credentials.');
       } finally {
         setIsLoading(false);
       }
     }
   };
 
-  // -- Google Handlers --
-  const handleGoogleSuccess = async (credentialResponse) => {
+  // -- Google Sign In --
+  const handleGoogleLogin = async () => {
     setIsLoading(true);
     clearMessages();
     try {
-      const response = await axios.post(`${API_URL}/google`, { token: credentialResponse.credential });
-      if (response.data) {
-        if (response.data.requires_password) {
-           setTempGoogleToken(response.data.access_token);
-           setAuthStep('google_setup'); 
-        } else if (response.data.access_token) {
-           login(response.data.access_token);
-           onPageChange('home');
-        }
-      }
+      const { error } = await signInWithGoogle();
+      if (error) throw error;
     } catch (err) {
-      handleGlobalCatch(err, 'Google verification failed. Check your API route.');
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  const handleGoogleSetupSubmit = async (e) => {
-    e.preventDefault();
-    clearMessages();
-    if (password.trim().length < 6) {
-      setErrors({ password: 'Password must be at least 6 characters' });
-      return;
-    }
-    setIsLoading(true);
-    try {
-      const response = await axios.put(`${API_URL}/profile`, { password }, {
-        headers: { Authorization: `Bearer ${tempGoogleToken}` }
-      });
-      if (response.data && response.data.access_token) {
-        login(response.data.access_token);
-        onPageChange('home');
-      }
-    } catch (err) {
-      handleGlobalCatch(err, 'Failed to verify profile.');
-    } finally {
+      setApiError(err.message || 'Google authentication failed.');
       setIsLoading(false);
     }
   };
 
   // -- Forgot Password Flow --
-  const handleForgotRequestOTP = async (e) => {
+  const handleForgotRequest = async (e) => {
     e.preventDefault();
     clearMessages();
-    if (!email) return setErrors({ email: 'Enter your Email to receive OTP.' });
+    if (!email) return setErrors({ email: 'Enter your Email to initiate reset.' });
     setIsLoading(true);
     try {
-      await axios.post(`${API_URL}/forgot-password`, { email });
-      setAuthStep('forgot_password_otp');
-      setApiSuccess('OTP has been dispatched securely to your email!');
+      const { error } = await resetPassword(email);
+      if (error) throw error;
+      setApiSuccess('A password reset link has been dispatched to your email!');
     } catch (err) {
-      handleGlobalCatch(err, 'Failed to send OTP. Is your account registered?');
-    } finally { setIsLoading(false); }
-  };
-
-  const handleForgotVerifyOTP = async (e) => {
-    e.preventDefault();
-    clearMessages();
-    if (!otp || otp.length < 4) return setErrors({ otp: 'Enter the verification code.' });
-    setIsLoading(true);
-    try {
-      await axios.post(`${API_URL}/verify-otp`, { email, otp });
-      setAuthStep('forgot_password_reset');
-      setApiSuccess('OTP Verified! Create a new master password now.');
-    } catch (err) {
-      handleGlobalCatch(err, 'Invalid OTP or expired. Please try again.');
-    } finally { setIsLoading(false); }
-  };
-
-  const handleForgotResetPassword = async (e) => {
-    e.preventDefault();
-    clearMessages();
-    if (newPassword.length < 6 || newPassword !== confirmPassword) {
-       return setErrors({ reset: 'Passwords must match and be at least 6 characters.' });
+      setApiError(err.message || 'Failed to send reset link.');
+    } finally {
+      setIsLoading(false);
     }
-    setIsLoading(true);
-    try {
-      await axios.post(`${API_URL}/reset-password`, { email, newPassword });
-      setAuthStep('default');
-      setIsLogin(true);
-      setPassword('');
-      setNewPassword('');
-      setConfirmPassword('');
-      setApiSuccess('Password updated successfully! Sign in with your new credentials.');
-    } catch (err) {
-      handleGlobalCatch(err, 'Failed to secure your new password.');
-    } finally { setIsLoading(false); }
   };
-
-  // -- Change Password Flow (From Login Page) --
-  const handleChangePasswordSubmit = async (e) => {
-    e.preventDefault();
-    clearMessages();
-    if (!email || oldPassword.length < 6 || newPassword.length < 6 || newPassword !== confirmPassword) {
-       return setErrors({ cp: 'Please fill all fields. New passwords must match.' });
-    }
-    setIsLoading(true);
-    try {
-      await axios.post(`${API_URL}/change-password`, { email, oldPassword, newPassword });
-      setAuthStep('default');
-      setIsLogin(true);
-      setOldPassword('');
-      setNewPassword('');
-      setConfirmPassword('');
-      setApiSuccess('Your password was successfully changed. You may log in.');
-    } catch (err) {
-      handleGlobalCatch(err, 'Failed to change password. Is your old password correct?');
-    } finally { setIsLoading(false); }
-  };
-
 
   // -- View Renders --
   const renderInteractiveError = () => {
@@ -267,32 +167,12 @@ const AuthSplitLayout = ({ onPageChange, defaultIsLogin = false }) => {
 
   const getFormJSX = () => {
     switch (authStep) {
-      case 'google_setup':
-        return (
-          <form className="auth-form fade-in-up delay-1" onSubmit={handleGoogleSetupSubmit} style={{ textAlign: 'center' }}>
-            <h2 style={{ color: '#fff', fontSize: '1.8rem', marginBottom: '0.5rem' }}>Secure Your Account</h2>
-            <p className="text-muted" style={{ marginBottom: '2rem' }}>Please attach a master password to your Google configuration.</p>
-            {renderInteractiveError()}
-            <div className="input-group" style={{ textAlign: 'left' }}>
-              <label className="input-label">Create a Password:</label>
-              <div style={{ position: 'relative' }}>
-                <input type={showPassword ? "text" : "password"} className={`form-control ${errors.password ? 'error' : ''}`} placeholder="Set your new password" value={password} onChange={e => { setPassword(e.target.value); setErrors({...errors, password: null}); }} style={{ width: '100%', paddingRight: '2.5rem' }} />
-                <EyeToggle visible={showPassword} setVisible={setShowPassword} />
-              </div>
-              {errors.password && <span className="error-text">{errors.password}</span>}
-            </div>
-            <button type="submit" className="btn btn-primary" style={{ marginTop: '2rem', width: '100%' }} disabled={isLoading}>
-              Complete Registration
-            </button>
-          </form>
-        );
-
       case 'forgot_password_init':
         return (
-          <form className="auth-form fade-in-up delay-1" onSubmit={handleForgotRequestOTP}>
+          <form className="auth-form fade-in-up delay-1" onSubmit={handleForgotRequest}>
             <button type="button" onClick={() => { setAuthStep('default'); clearMessages(); }} style={{ background: 'none', border: 'none', color: 'var(--primary)', cursor: 'pointer', textAlign: 'left', marginBottom: '1.5rem', padding: 0 }}>← Back to Login</button>
             <h2 style={{ color: '#fff', fontSize: '1.8rem', marginBottom: '0.5rem' }}>Reset Password</h2>
-            <p className="text-muted" style={{ marginBottom: '2rem' }}>Enter your registered Email to receive a secure OTP code.</p>
+            <p className="text-muted" style={{ marginBottom: '2rem' }}>Enter your registered Email to receive a secure reset link.</p>
             {renderInteractiveError()}
             {renderSuccess()}
             <div className="input-group">
@@ -300,88 +180,7 @@ const AuthSplitLayout = ({ onPageChange, defaultIsLogin = false }) => {
               <input type="email" className={`form-control ${errors.email ? 'error' : ''}`} placeholder="Enter your email" value={email} onChange={e => {setEmail(e.target.value); setErrors({...errors, email: null});}} />
               {errors.email && <span className="error-text">{errors.email}</span>}
             </div>
-            <button type="submit" className="btn btn-primary" style={{ marginTop: '1.5rem', width: '100%' }} disabled={isLoading}>Send OTP</button>
-          </form>
-        );
-
-      case 'forgot_password_otp':
-        return (
-          <form className="auth-form fade-in-up delay-1" onSubmit={handleForgotVerifyOTP}>
-            <button type="button" onClick={() => { setAuthStep('forgot_password_init'); clearMessages(); }} style={{ background: 'none', border: 'none', color: 'var(--primary)', cursor: 'pointer', textAlign: 'left', marginBottom: '1.5rem', padding: 0 }}>← Back</button>
-            <h2 style={{ color: '#fff', fontSize: '1.8rem', marginBottom: '0.5rem' }}>Enter OTP</h2>
-            <p className="text-muted" style={{ marginBottom: '2rem' }}>We sent a secure code to your Email.</p>
-            {renderInteractiveError()}
-            {renderSuccess()}
-            <div className="input-group">
-              <label className="input-label">Secure Code:</label>
-              <input type="text" className={`form-control ${errors.otp ? 'error' : ''}`} placeholder="Enter 6-digit OTP" value={otp} onChange={e => {setOtp(e.target.value); setErrors({...errors, otp: null});}} style={{ letterSpacing: '4px', textAlign: 'center', fontSize: '1.2rem', fontWeight: 'bold' }} />
-              {errors.otp && <span className="error-text">{errors.otp}</span>}
-            </div>
-            <div style={{ textAlign: 'right', marginTop: '0.5rem' }}>
-              <button type="button" onClick={handleForgotRequestOTP} style={{ background: 'none', border: 'none', color: 'var(--primary)', padding: 0, cursor: 'pointer', fontSize: '0.85rem' }}>Resend OTP</button>
-            </div>
-            <button type="submit" className="btn btn-primary" style={{ marginTop: '1.5rem', width: '100%' }} disabled={isLoading}>Verify OTP</button>
-          </form>
-        );
-
-      case 'forgot_password_reset':
-        return (
-          <form className="auth-form fade-in-up delay-1" onSubmit={handleForgotResetPassword}>
-            <h2 style={{ color: '#fff', fontSize: '1.8rem', marginBottom: '0.5rem' }}>Finalize Password</h2>
-            <p className="text-muted" style={{ marginBottom: '2rem' }}>The origin was verified securely. Please issue a new master key.</p>
-            {renderInteractiveError()}
-            {renderSuccess()}
-            {errors.reset && <span className="error-text" style={{ marginBottom: '1rem', display: 'block' }}>{errors.reset}</span>}
-
-            <div className="input-group">
-              <label className="input-label">New Password:</label>
-              <div style={{ position: 'relative' }}>
-                <input type={showPassword ? "text" : "password"} className="form-control" placeholder="Strong password" value={newPassword} onChange={e => setNewPassword(e.target.value)} style={{ width: '100%', paddingRight: '2.5rem' }} />
-                <EyeToggle visible={showPassword} setVisible={setShowPassword} />
-              </div>
-            </div>
-            <div className="input-group" style={{ marginTop: '1rem' }}>
-              <label className="input-label">Confirm New Password:</label>
-              <input type="password" className="form-control" placeholder="Match new password" value={confirmPassword} onChange={e => setConfirmPassword(e.target.value)} />
-            </div>
-            <button type="submit" className="btn btn-primary" style={{ marginTop: '1.5rem', width: '100%' }} disabled={isLoading}>Lock In Password</button>
-          </form>
-        );
-
-      case 'change_password':
-        return (
-          <form className="auth-form fade-in-up delay-1" onSubmit={handleChangePasswordSubmit}>
-            <button type="button" onClick={() => { setAuthStep('default'); clearMessages(); }} style={{ background: 'none', border: 'none', color: 'var(--primary)', cursor: 'pointer', textAlign: 'left', marginBottom: '1.5rem', padding: 0 }}>← Back to Login</button>
-            <h2 style={{ color: '#fff', fontSize: '1.8rem', marginBottom: '0.5rem' }}>Change Password</h2>
-            <p className="text-muted" style={{ marginBottom: '2rem' }}>Securely update your account password.</p>
-            {renderInteractiveError()}
-            {renderSuccess()}
-            {errors.cp && <span className="error-text" style={{ marginBottom: '1rem', display: 'block' }}>{errors.cp}</span>}
-
-            <div className="input-group">
-              <label className="input-label">Email Address:</label>
-              <input type="email" className="form-control" placeholder="Account email" value={email} onChange={e => setEmail(e.target.value)} />
-            </div>
-            <div className="input-group" style={{ marginTop: '1rem' }}>
-              <label className="input-label" style={{ display: 'flex', justifyContent: 'space-between' }}>
-                <span>Old Password:</span>
-                <a href="#forgot" onClick={(e) => { e.preventDefault(); setAuthStep('forgot_password_init'); }} style={{ color: 'var(--primary)', fontSize: '0.85rem', textDecoration: 'none' }}>Forgot password?</a>
-              </label>
-              <div style={{ position: 'relative' }}>
-                <input type={showPassword ? "text" : "password"} className="form-control" placeholder="Verify old password" value={oldPassword} onChange={e => setOldPassword(e.target.value)} style={{ width: '100%', paddingRight: '2.5rem' }} />
-                <EyeToggle visible={showPassword} setVisible={setShowPassword} />
-              </div>
-            </div>
-            <div className="input-group" style={{ marginTop: '1rem' }}>
-              <label className="input-label">New Password:</label>
-              <input type="password" className="form-control" placeholder="Rotate password" value={newPassword} onChange={e => setNewPassword(e.target.value)} />
-            </div>
-            <div className="input-group" style={{ marginTop: '1rem' }}>
-              <label className="input-label">Confirm New Password:</label>
-              <input type="password" className="form-control" placeholder="Match new password" value={confirmPassword} onChange={e => setConfirmPassword(e.target.value)} />
-            </div>
-            
-            <button type="submit" className="btn btn-primary" style={{ marginTop: '2rem', width: '100%' }} disabled={isLoading}>Submit</button>
+            <button type="submit" className="btn btn-primary" style={{ marginTop: '1.5rem', width: '100%' }} disabled={isLoading}>Send Reset Link</button>
           </form>
         );
 
@@ -447,12 +246,6 @@ const AuthSplitLayout = ({ onPageChange, defaultIsLogin = false }) => {
                 {isLogin ? 'Sign In' : 'Sign Up'}
               </button>
             </div>
-            
-            {isLogin && (
-              <div style={{ textAlign: 'center', marginTop: '1.2rem' }}>
-                 <button type="button" onClick={() => setAuthStep('change_password')} style={{ background: 'none', border: 'none', color: 'var(--text-muted)', fontSize: '0.85rem', cursor: 'pointer', textDecoration: 'underline' }}>Change Password</button>
-              </div>
-            )}
 
             <div style={{ display: 'flex', alignItems: 'center', margin: '1.5rem 0', color: 'var(--text-muted)' }}>
               <div style={{ flex: 1, height: '1px', background: 'var(--glass-border)' }}></div>
@@ -460,13 +253,34 @@ const AuthSplitLayout = ({ onPageChange, defaultIsLogin = false }) => {
               <div style={{ flex: 1, height: '1px', background: 'var(--glass-border)' }}></div>
             </div>
 
-            <div style={{ display: 'flex', justifyContent: 'center' }}>
-              <GoogleLogin 
-                onSuccess={handleGoogleSuccess} 
-                onError={() => handleGlobalCatch({}, 'Google Login popup closed or failed.')} 
-                theme="filled_black"
-                shape="pill"
-              />
+            <div style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
+              <button 
+                type="button" 
+                onClick={handleGoogleLogin} 
+                className="btn btn-outline" 
+                style={{ 
+                  display: 'flex', 
+                  alignItems: 'center', 
+                  justifyContent: 'center', 
+                  gap: '10px', 
+                  width: '100%', 
+                  maxWidth: '320px',
+                  borderRadius: '50px',
+                  padding: '0.75rem 1.5rem',
+                  fontSize: '0.95rem',
+                  fontWeight: '600',
+                  letterSpacing: '0.5px'
+                }}
+                disabled={isLoading}
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                  <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                  <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" fill="#FBBC05"/>
+                  <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                </svg>
+                Sign in with Google
+              </button>
             </div>
           </form>
         );
@@ -497,9 +311,9 @@ const AuthSplitLayout = ({ onPageChange, defaultIsLogin = false }) => {
                 <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
               </svg>
             </div>
-            <h1 className="text-gradient">PyJaApp Intro</h1>
+            <h1 className="text-gradient">CareerKinetic Intro</h1>
             <p>
-              Welcome to PyJaApp—your gateway to personalized learning! Discover interactive skill assessments, connect with expert mentors, and follow dynamic roadmaps tailored specifically to your tech career goals.
+              Welcome to CareerKinetic—your gateway to personalized learning! Discover interactive skill assessments, connect with expert mentors, and follow dynamic roadmaps tailored specifically to your tech career goals.
             </p>
           </div>
         </div>

@@ -1,10 +1,28 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { useAuth } from '../context/AuthContext';
 
 const Navbar = ({ currentPage = 'home', onPageChange = () => {}, isLoggedIn = false, isAdmin = false, onLogout = () => {} }) => {
+  const { user } = useAuth();
+  const [showDropdown, setShowDropdown] = useState(false);
+  const dropdownRef = useRef(null);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setShowDropdown(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  const profileImageUrl = user?.profile_data?.profilePic || user?.profile_data?.picture || user?.picture || `https://ui-avatars.com/api/?name=${user?.email || 'User'}&background=8a2be2&color=fff`;
+
   return (
     <nav className="navbar fade-in-up">
       <a href="#" className="nav-logo" onClick={(e) => { e.preventDefault(); onPageChange('home'); }}>
-        <span className="text-gradient">PyJa App</span>
+        <span className="text-gradient">CareerKinetic</span>
       </a>
       
       <ul className="nav-links">
@@ -73,8 +91,25 @@ const Navbar = ({ currentPage = 'home', onPageChange = () => {}, isLoggedIn = fa
         {!isLoggedIn ? (
           <li><a href="#login" className="btn btn-primary" style={{ padding: '0.5rem 1.4rem', borderRadius: '30px', textDecoration: 'none', color: '#fff', fontSize: '0.9rem', fontWeight: 500 }} onClick={(e) => { e.preventDefault(); if (currentPage === 'login') window.dispatchEvent(new Event('reset-auth-step')); onPageChange('login'); }}>Sign in</a></li>
         ) : (
-          <li style={{ marginLeft: '1rem' }}>
-            <a href="#logout" className="nav-link" onClick={(e) => { e.preventDefault(); onLogout(); onPageChange('home'); }} style={{ color: 'var(--error)', border: '1px solid rgba(255,100,100,0.3)', padding: '0.4rem 1.2rem', borderRadius: '20px' }}>Logout</a>
+          <li className="nav-profile-wrapper" ref={dropdownRef}>
+            <img 
+              src={profileImageUrl} 
+              alt="Profile" 
+              className="nav-avatar" 
+              onClick={() => setShowDropdown(!showDropdown)}
+            />
+            {showDropdown && (
+              <div className="nav-dropdown">
+                <div className="nav-dropdown-item" onClick={() => { setShowDropdown(false); onPageChange('profile'); }}>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                  Profile Settings
+                </div>
+                <div className="nav-dropdown-item logout" onClick={() => { setShowDropdown(false); onLogout(); onPageChange('home'); }}>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                  Logout
+                </div>
+              </div>
+            )}
           </li>
         )}
       </ul>

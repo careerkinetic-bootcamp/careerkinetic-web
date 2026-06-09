@@ -1,6 +1,7 @@
-# PyJa App (Frontend)
+# CareerKinetic (Frontend)
 
-This is the modern React frontend application for the PyJa learning platform, featuring a premium glassmorphism aesthetic, rich customized page layouts, and client-side routing.
+This is the modern React frontend application for the CareerKinetic learning platform, featuring a premium glassmorphism aesthetic, rich customized page layouts, and client-side routing.
+
 
 ## Installation & Setup
 
@@ -10,7 +11,7 @@ Follow these instructions to get the project running on your local development m
 Make sure you have [Node.js](https://nodejs.org/) installed on your system (which includes `npm`).
 
 ### 1. Install Dependencies
-Open your terminal, navigate directly into the project folder (`pyjaap-web`), and install all the necessary dependencies by running:
+Open your terminal, navigate directly into the project folder (`careerkinetic-web`), and install all the necessary dependencies by running:
 
 ```bash
 npm install

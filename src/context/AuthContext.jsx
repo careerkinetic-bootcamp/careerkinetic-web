@@ -1,8 +1,8 @@
 import React, { createContext, useState, useEffect, useContext } from 'react';
+import { supabase } from '../lib/supabase';
 import axios from 'axios';
-import { jwtDecode } from 'jwt-decode';
 
-const BASE_URL = import.meta.env.VITE_API_URL || 'https://93a7h43145.execute-api.us-east-1.amazonaws.com';
+const BASE_URL = import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000';
 const API_URL = `${BASE_URL.replace(/\/$/, '')}/api/auth`;
 
 // Create Context
@@ -11,68 +11,97 @@ const AuthContext = createContext();
 export const useAuth = () => useContext(AuthContext);
 
 export const AuthProvider = ({ children }) => {
-  const [token, setToken] = useState(localStorage.getItem('token') || null);
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(null);       // public.users profile from FastAPI
+  const [session, setSession] = useState(null);  // Supabase session
   const [isAuthReady, setIsAuthReady] = useState(false);
 
-  useEffect(() => {
-    const initializeAuth = async () => {
-      // If we mount with a token from storage, decode it instantly to check expiration
-      if (token && !user) {
-        try {
-          const decoded = jwtDecode(token);
-
-          if (decoded.exp < (Date.now() / 1000)) {
-            logout();
-          } else {
-            // Token is still valid! Explicitly fetch the User JSON object from AWS 
-            const resp = await axios.get(`${API_URL}/`, {
-              headers: { Authorization: `Bearer ${token}` }
-            });
-            setUser(resp.data); // This locks in the id, email, role, and profile_data
-          }
-        } catch (e) {
-          logout();
-        }
-      }
-      setIsAuthReady(true);
-    };
-
-    initializeAuth();
-  }, [token]);
-
-  // Login handler
-  const login = async (jwtToken) => {
-    localStorage.setItem('token', jwtToken);
-
+  // Sync Supabase user → public.users profile table via FastAPI
+  const syncProfile = async (accessToken) => {
     try {
-      // Explicitly hit your GET /api/auth/ endpoint using the newly acquired token string
-      const resp = await axios.get(`${API_URL}/`, {
-        headers: { Authorization: `Bearer ${jwtToken}` }
+      const resp = await axios.post(`${API_URL}/sync`, {}, {
+        headers: { Authorization: `Bearer ${accessToken}` }
       });
-
-      setToken(jwtToken);
-      setUser(resp.data); // Stores { id, email, role, profile_data } globally
+      setUser(resp.data);
     } catch (e) {
-      logout();
+      console.error('Profile sync failed:', e);
     }
   };
 
-  // Logout handler
-  const logout = () => {
-    localStorage.removeItem('token');
-    setToken(null);
+  useEffect(() => {
+    // 1. Get initial session on mount
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setSession(session);
+      if (session) {
+        syncProfile(session.access_token);
+      }
+      setIsAuthReady(true);
+    });
+
+    // 2. Listen for auth state changes (login, logout, token refresh)
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(
+      async (event, session) => {
+        setSession(session);
+        if (session) {
+          await syncProfile(session.access_token);
+        } else {
+          setUser(null);
+        }
+      }
+    );
+
+    return () => subscription.unsubscribe();
+  }, []);
+
+  // Auth methods — all delegate to Supabase
+  const signInWithEmail = (email, password) =>
+    supabase.auth.signInWithPassword({ email, password });
+
+  const signUpWithEmail = (email, password) =>
+    supabase.auth.signUp({ email, password });
+
+  const signInWithGoogle = () =>
+    supabase.auth.signInWithOAuth({
+      provider: 'google',
+      options: { redirectTo: window.location.origin }
+    });
+
+  const resetPassword = (email) =>
+    supabase.auth.resetPasswordForEmail(email, {
+      redirectTo: `${window.location.origin}/reset-password`
+    });
+
+  const logout = async () => {
+    await supabase.auth.signOut();
     setUser(null);
+    setSession(null);
+  };
+
+  // Refresh profile from FastAPI (not Supabase)
+  const refreshUser = async () => {
+    if (!session) return;
+    try {
+      const resp = await axios.get(`${API_URL}/`, {
+        headers: { Authorization: `Bearer ${session.access_token}` }
+      });
+      setUser(resp.data);
+    } catch (e) {
+      console.error('Failed to refresh user:', e);
+    }
   };
 
   const value = {
-    user,              // The pure decoded JWT payload (e.g. email, role, background)
-    isLoggedIn: !!user,// Boolean flag simply determining if valid session exists
-    isAdmin: user?.email === 'pyjaapp@gmail.com', // Explicit hardcoded admin
-    token,             // The raw JWT string used for Axios authorization headers
-    login,
+    user,
+    session,
+    token: session?.access_token || null,
+    isLoggedIn: !!user,
+    isAdmin: user?.email === 'careerkinetic27@gmail.com',
+    isAuthReady,
+    signInWithEmail,
+    signUpWithEmail,
+    signInWithGoogle,
+    resetPassword,
     logout,
-    isAuthReady        // Ensure we don't flash login/logout content before loading local token
+    refreshUser,
   };
 
   return (

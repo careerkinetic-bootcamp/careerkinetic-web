@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import './CoursesPage.css';
 
 const faqs = [
-  { question: "For whom is Pyja App designed?", answer: "PyJa App is expertly tailored for both technical and non-technical individuals looking to pivot, grow, or launch their careers through curated bootcamps and customized roadmaps." },
-  { question: "Is there any prerequisite for starting a bootcamp?", answer: "No strictly enforced prerequisites! Once you select a professional background upon registering, PyJa App dynamically tailors your starting point to match your experience level." },
+  { question: "For whom is CareerKinetic designed?", answer: "CareerKinetic is expertly tailored for both technical and non-technical individuals looking to pivot, grow, or launch their careers through curated bootcamps and customized roadmaps." },
+  { question: "Is there any prerequisite for starting a bootcamp?", answer: "No strictly enforced prerequisites! Once you select a professional background upon registering, CareerKinetic dynamically tailors your starting point to match your experience level." },
   { question: "How does the Mentorship system work?", answer: "Mentors are direct industry experts assigned to you specifically. They review your bootcamp progress, answer questions natively inside the platform, and provide direct career advice on your path." },
   { question: "Are the courses free?", answer: "Many foundational onboarding courses are completely free. Premium bootcamps and customized mentorship roadmaps require a subscription plan which unlocks full job opportunities globally." }
 ];
