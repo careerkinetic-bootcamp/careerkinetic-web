@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useAuth } from '../context/AuthContext';
+import { User, Globe, Check, Shield } from 'lucide-react';
 
 const ProfilePage = ({ onPageChange }) => {
   const { user, token, refreshUser } = useAuth();
@@ -84,9 +85,12 @@ const ProfilePage = ({ onPageChange }) => {
   };
 
   return (
-    <div className="glass-panel fade-in-up" style={{ width: '100%', maxWidth: '900px', margin: '2rem auto', padding: '3rem' }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem' }}>
-        <h1 className="text-gradient" style={{ fontSize: '2.5rem' }}>Profile Settings</h1>
+    <div className="glass-panel fade-in-up" style={{ width: '100%', maxWidth: '900px', margin: '2rem auto', padding: 'clamp(1.2rem, 4vw, 3rem)' }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem', flexWrap: 'wrap', gap: '1rem' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+          <User size={26} style={{ color: 'var(--primary)' }} />
+          <h1 className="text-gradient" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', margin: 0 }}>Profile Settings</h1>
+        </div>
         <button onClick={() => onPageChange('home')} className="btn-text" style={{ fontSize: '1rem' }}>← Back to Home</button>
       </div>
 
@@ -117,11 +121,11 @@ const ProfilePage = ({ onPageChange }) => {
           </div>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem' }}>
+        <div className="profile-grid">
           {/* Left Column */}
           <div className="profile-section">
             <h3 style={{ marginBottom: '1.5rem', color: 'var(--primary)', fontSize: '1.2rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-              <span style={{ width: '8px', height: '8px', background: 'var(--primary)', borderRadius: '50%' }}></span>
+              <Shield size={18} style={{ color: 'var(--primary)' }} />
               General Information
             </h3>
             
@@ -133,7 +137,7 @@ const ProfilePage = ({ onPageChange }) => {
             <div className="input-group">
               <label className="input-label" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                 Email:
-                {isEmailVerified && <span style={{ color: 'var(--success)', display: 'flex', alignItems: 'center' }} title="Verified Email"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>}
+                {isEmailVerified && <span style={{ color: 'var(--success)', display: 'flex', alignItems: 'center' }} title="Verified Email"><Check size={16} strokeWidth={3} /></span>}
               </label>
               <div style={{ display: 'flex', gap: '10px', flexDirection: 'column' }}>
                 <input value={user?.email || ''} readOnly className="form-control" style={{ opacity: 0.7, cursor: 'not-allowed' }} />
@@ -169,7 +173,10 @@ const ProfilePage = ({ onPageChange }) => {
 
           {/* Right Column */}
           <div className="profile-section">
-            <h3 style={{ marginBottom: '1.5rem', color: 'var(--primary)', fontSize: '1.2rem' }}>Social & Additional Details</h3>
+            <h3 style={{ marginBottom: '1.5rem', color: 'var(--primary)', fontSize: '1.2rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              <Globe size={18} style={{ color: 'var(--primary)' }} />
+              Social & Additional Details
+            </h3>
             
             <div className="input-group">
               <label className="input-label">Github URL:</label>
@@ -203,7 +210,7 @@ const ProfilePage = ({ onPageChange }) => {
           </div>
         </div>
 
-        <div style={{ display: 'flex', justifyContent: 'center', gap: '1.5rem', marginTop: '3rem', borderTop: '1px solid var(--glass-border)', paddingTop: '2.5rem' }}>
+        <div style={{ display: 'flex', justifyContent: 'center', gap: '1.5rem', marginTop: '3rem', borderTop: '1px solid var(--glass-border)', paddingTop: '2.5rem', flexWrap: 'wrap' }}>
           <button type="button" onClick={() => onPageChange('home')} className="btn btn-outline" style={{ minWidth: '140px' }} disabled={isLoading}>Cancel</button>
           <button type="submit" className="btn btn-primary" style={{ minWidth: '140px' }} disabled={isLoading}>
             {isLoading ? 'Saving...' : 'Save Changes'}

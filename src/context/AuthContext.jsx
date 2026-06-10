@@ -1,6 +1,8 @@
 import React, { createContext, useState, useEffect, useContext } from 'react';
-import { supabase } from '../lib/supabase';
 import axios from 'axios';
+
+// Enable withCredentials globally for cookie exchange
+axios.defaults.withCredentials = true;
 
 const BASE_URL = import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000';
 const API_URL = `${BASE_URL.replace(/\/$/, '')}/api/auth`;
@@ -11,95 +13,110 @@ const AuthContext = createContext();
 export const useAuth = () => useContext(AuthContext);
 
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null);       // public.users profile from FastAPI
-  const [session, setSession] = useState(null);  // Supabase session
+  const [user, setUser] = useState(null);
   const [isAuthReady, setIsAuthReady] = useState(false);
 
-  // Sync Supabase user → public.users profile table via FastAPI
-  const syncProfile = async (accessToken) => {
+  // 1. Google redirect trigger
+  const signInWithGoogle = async () => {
     try {
-      const resp = await axios.post(`${API_URL}/sync`, {}, {
-        headers: { Authorization: `Bearer ${accessToken}` }
-      });
-      setUser(resp.data);
+      const resp = await axios.get(`${API_URL}/google/url`);
+      if (resp.data?.url) {
+        window.location.href = resp.data.url;
+      } else {
+        throw new Error('Google authorization URL was not returned.');
+      }
     } catch (e) {
-      console.error('Profile sync failed:', e);
+      console.error('Failed to initiate Google sign in:', e);
+      throw e;
     }
   };
 
-  useEffect(() => {
-    // 1. Get initial session on mount
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setSession(session);
-      if (session) {
-        syncProfile(session.access_token);
+  // 2. GitHub redirect trigger
+  const signInWithGitHub = async () => {
+    try {
+      const resp = await axios.get(`${API_URL}/github/url`);
+      if (resp.data?.url) {
+        window.location.href = resp.data.url;
+      } else {
+        throw new Error('GitHub authorization URL was not returned.');
       }
-      setIsAuthReady(true);
-    });
+    } catch (e) {
+      console.error('Failed to initiate GitHub sign in:', e);
+      throw e;
+    }
+  };
 
-    // 2. Listen for auth state changes (login, logout, token refresh)
-    const { data: { subscription } } = supabase.auth.onAuthStateChange(
-      async (event, session) => {
-        setSession(session);
-        if (session) {
-          await syncProfile(session.access_token);
-        } else {
+  // 3. Logout trigger
+  const logout = async () => {
+    try {
+      await axios.post(`${API_URL}/logout`);
+    } catch (e) {
+      console.error('Logout request failed:', e);
+    } finally {
+      setUser(null);
+    }
+  };
+
+  // 4. Refresh / Retrieve profile trigger
+  const refreshUser = async () => {
+    try {
+      const resp = await axios.get(`${API_URL}/`);
+      setUser(resp.data);
+    } catch (e) {
+      console.error('Failed to refresh user profile:', e);
+      setUser(null);
+    }
+  };
+
+  // 5. Auth validation and code exchange on mount
+  useEffect(() => {
+    const handleAuth = async () => {
+      const params = new URLSearchParams(window.location.search);
+      const code = params.get('code');
+      const state = params.get('state'); // google or github
+
+      if (code && state) {
+        // Clean URL search parameters instantly
+        const cleanUrl = window.location.protocol + "//" + window.location.host + window.location.pathname;
+        window.history.replaceState({}, document.title, cleanUrl);
+
+        try {
+          const resp = await axios.post(`${API_URL}/callback`, { code, provider: state });
+          setUser(resp.data);
+        } catch (e) {
+          console.error('OAuth callback exchange failed:', e);
+        } finally {
+          setIsAuthReady(true);
+        }
+      } else {
+        // No OAuth query parameters: check for existing HttpOnly cookie session
+        try {
+          const resp = await axios.get(`${API_URL}/`);
+          setUser(resp.data);
+        } catch (e) {
+          // 401 response expected if not logged in
           setUser(null);
+        } finally {
+          setIsAuthReady(true);
         }
       }
-    );
+    };
 
-    return () => subscription.unsubscribe();
+    handleAuth();
   }, []);
-
-  // Auth methods — all delegate to Supabase
-  const signInWithEmail = (email, password) =>
-    supabase.auth.signInWithPassword({ email, password });
-
-  const signUpWithEmail = (email, password) =>
-    supabase.auth.signUp({ email, password });
-
-  const signInWithGoogle = () =>
-    supabase.auth.signInWithOAuth({
-      provider: 'google',
-      options: { redirectTo: window.location.origin }
-    });
-
-  const resetPassword = (email) =>
-    supabase.auth.resetPasswordForEmail(email, {
-      redirectTo: `${window.location.origin}/reset-password`
-    });
-
-  const logout = async () => {
-    await supabase.auth.signOut();
-    setUser(null);
-    setSession(null);
-  };
-
-  // Refresh profile from FastAPI (not Supabase)
-  const refreshUser = async () => {
-    if (!session) return;
-    try {
-      const resp = await axios.get(`${API_URL}/`, {
-        headers: { Authorization: `Bearer ${session.access_token}` }
-      });
-      setUser(resp.data);
-    } catch (e) {
-      console.error('Failed to refresh user:', e);
-    }
-  };
 
   const value = {
     user,
-    session,
-    token: session?.access_token || null,
+    session: null, // Deprecated, left for compatibility
+    token: null,   // Deprecated, cookie-based session
     isLoggedIn: !!user,
     isAdmin: user?.email === 'careerkinetic27@gmail.com',
     isAuthReady,
-    signInWithEmail,
-    signUpWithEmail,
+    signInWithEmail: () => Promise.resolve({ error: { message: "Email/password registration is deprecated." } }),
+    signUpWithEmail: () => Promise.resolve({ error: { message: "Email/password registration is deprecated." } }),
     signInWithGoogle,
-    resetPassword,
+    signInWithGitHub,
+    resetPassword: () => Promise.resolve({ error: { message: "Password reset is deprecated." } }),
     logout,
     refreshUser,
   };

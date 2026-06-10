@@ -1,4 +1,5 @@
 import React from 'react';
+import { Search, ChevronLeft, ChevronRight } from 'lucide-react';
 import './CoursesPage.css';
 
 const CoursesPage = () => {
@@ -16,11 +17,8 @@ const CoursesPage = () => {
         <h1 className="text-gradient">Courses</h1>
         <div className="search-bar">
           <input type="text" className="form-control" placeholder="Search a course..." />
-          <button className="btn btn-primary search-btn">
-             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-               <circle cx="11" cy="11" r="8"></circle>
-               <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-             </svg>
+          <button className="btn btn-primary search-btn" style={{ padding: '0 1.25rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+             <Search size={20} />
           </button>
         </div>
       </div>
@@ -75,8 +73,8 @@ const CoursesPage = () => {
 
       {/* Pagination */}
       <div className="pagination fade-in-up delay-4">
-        <button className="btn btn-text prev-next">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        <button className="btn btn-text prev-next" style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
+          <ChevronLeft size={16} />
           Prev
         </button>
         <div className="page-numbers">
@@ -87,9 +85,9 @@ const CoursesPage = () => {
           <button className="page-item">5</button>
           <span className="page-dots">...</span>
         </div>
-        <button className="btn btn-text prev-next">
+        <button className="btn btn-text prev-next" style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
           Next
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          <ChevronRight size={16} />
         </button>
       </div>
     </div>
