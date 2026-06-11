@@ -17,9 +17,9 @@ provider "google" {
   region  = var.gcp_region
 }
 
-# --- Dev Frontend GCS Bucket ---
-resource "google_storage_bucket" "dev_frontend" {
-  name                        = "${var.app_name}-dev-frontend"
+# --- Frontend GCS Bucket ---
+resource "google_storage_bucket" "frontend" {
+  name                        = "${var.app_name}-${var.environment}-frontend"
   location                    = var.gcp_region
   force_destroy               = true
   storage_class               = "STANDARD"
@@ -38,39 +38,9 @@ resource "google_storage_bucket" "dev_frontend" {
   }
 }
 
-# Grant public access to dev bucket
-resource "google_storage_bucket_iam_binding" "public_dev" {
-  bucket = google_storage_bucket.dev_frontend.name
-  role   = "roles/storage.objectViewer"
-  members = [
-    "allUsers",
-  ]
-}
-
-# --- Prod Frontend GCS Bucket ---
-resource "google_storage_bucket" "prod_frontend" {
-  name                        = "${var.app_name}-prod-frontend"
-  location                    = var.gcp_region
-  force_destroy               = true
-  storage_class               = "STANDARD"
-  uniform_bucket_level_access = true
-
-  website {
-    main_page_suffix = "index.html"
-    not_found_page   = "index.html"
-  }
-
-  cors {
-    origin          = ["*"]
-    method          = ["GET", "HEAD"]
-    response_header = ["*"]
-    max_age_seconds = 3600
-  }
-}
-
-# Grant public access to prod bucket
-resource "google_storage_bucket_iam_binding" "public_prod" {
-  bucket = google_storage_bucket.prod_frontend.name
+# Grant public access to frontend bucket
+resource "google_storage_bucket_iam_binding" "public" {
+  bucket = google_storage_bucket.frontend.name
   role   = "roles/storage.objectViewer"
   members = [
     "allUsers",
@@ -78,12 +48,8 @@ resource "google_storage_bucket_iam_binding" "public_prod" {
 }
 
 # --- Outputs ---
-output "dev_gcs_url" {
-  value       = "https://storage.googleapis.com/${google_storage_bucket.dev_frontend.name}"
-  description = "The public GCS URL of the Dev bucket"
+output "gcs_url" {
+  value       = "https://storage.googleapis.com/${google_storage_bucket.frontend.name}"
+  description = "The public GCS URL of the frontend bucket"
 }
 
-output "prod_gcs_url" {
-  value       = "https://storage.googleapis.com/${google_storage_bucket.prod_frontend.name}"
-  description = "The public GCS URL of the Prod bucket"
-}

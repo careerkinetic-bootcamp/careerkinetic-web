@@ -14,3 +14,9 @@ variable "app_name" {
   type        = string
   default     = "careerkinetic"
 }
+
+variable "environment" {
+  description = "Target deployment environment (dev or prod)"
+  type        = string
+}
+
