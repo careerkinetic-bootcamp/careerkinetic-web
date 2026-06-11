@@ -19,10 +19,11 @@ provider "google" {
 
 # --- Dev Frontend GCS Bucket ---
 resource "google_storage_bucket" "dev_frontend" {
-  name          = "${var.app_name}-dev-frontend"
-  location      = var.gcp_region
-  force_destroy = true
-  storage_class = "STANDARD"
+  name                        = "${var.app_name}-dev-frontend"
+  location                    = var.gcp_region
+  force_destroy               = true
+  storage_class               = "STANDARD"
+  uniform_bucket_level_access = true
 
   website {
     main_page_suffix = "index.html"
@@ -48,10 +49,11 @@ resource "google_storage_bucket_iam_binding" "public_dev" {
 
 # --- Prod Frontend GCS Bucket ---
 resource "google_storage_bucket" "prod_frontend" {
-  name          = "${var.app_name}-prod-frontend"
-  location      = var.gcp_region
-  force_destroy = true
-  storage_class = "STANDARD"
+  name                        = "${var.app_name}-prod-frontend"
+  location                    = var.gcp_region
+  force_destroy               = true
+  storage_class               = "STANDARD"
+  uniform_bucket_level_access = true
 
   website {
     main_page_suffix = "index.html"
