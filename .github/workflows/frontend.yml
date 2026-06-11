@@ -55,7 +55,7 @@ jobs:
         run: |
           cd terraform
           terraform init -backend-config="prefix=state/frontend/${{ env.ENV }}"
-          terraform apply -auto-approve -var="gcp_project_id=${{ secrets.GCP_PROJECT_ID }}" -var="app_name=careerkinetic"
+          terraform apply -auto-approve -var="gcp_project_id=${{ secrets.GCP_PROJECT_ID }}" -var="app_name=careerkinetic" -var="environment=${{ env.ENV }}"
 
       # Build frontend React App
       - name: Set up Node.js
