@@ -6,7 +6,8 @@ on:
       - dev
       - main
     paths:
-      - 'careerkinetic-web/**'
+      - 'src/**'
+      - 'terraform/**'
       - '.github/workflows/frontend.yml'
 
 permissions:
@@ -52,7 +53,7 @@ jobs:
 
       - name: Terraform Init & Apply
         run: |
-          cd careerkinetic-web/terraform
+          cd terraform
           terraform init -backend-config="prefix=state/frontend/${{ env.ENV }}"
           terraform apply -auto-approve -var="gcp_project_id=${{ secrets.GCP_PROJECT_ID }}" -var="app_name=careerkinetic"
 
@@ -62,11 +63,10 @@ jobs:
         with:
           node-version: 20
           cache: 'npm'
-          cache-dependency-path: 'careerkinetic-web/package-lock.json'
+          cache-dependency-path: 'package-lock.json'
 
       - name: Install dependencies & Build
         run: |
-          cd careerkinetic-web
           npm ci
           VITE_API_URL=${{ env.VITE_API_URL }} npm run build
 
@@ -74,14 +74,13 @@ jobs:
       - name: Upload assets to GCS
         run: |
           # Sync all assets with public-read cache rules, making sure index.html has no-cache
-          gcloud storage rsync -R careerkinetic-web/dist/ gs://${{ env.GCS_BUCKET }}
+          gcloud storage rsync -R dist/ gs://${{ env.GCS_BUCKET }}
           # Set correct metadata headers for index.html to avoid version caching
           gcloud storage objects update gs://${{ env.GCS_BUCKET }}/index.html --cache-control="no-store, no-cache, must-revalidate, max-age=0"
 
       # Deploy Cloudflare Worker routing proxy
       - name: Deploy Cloudflare Worker
         run: |
-          cd careerkinetic-web
           npx wrangler deploy worker.js \
             --name "careerkinetic-${{ env.ENV }}-worker" \
             --compatibility-date "2026-06-11" \
