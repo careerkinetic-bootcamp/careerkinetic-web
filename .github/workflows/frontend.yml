@@ -1,0 +1,92 @@
+name: Deploy Frontend
+
+on:
+  push:
+    branches:
+      - dev
+      - main
+    paths:
+      - 'careerkinetic-web/**'
+      - '.github/workflows/frontend.yml'
+
+permissions:
+  contents: 'read'
+  id-token: 'write'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      # Determine environment variables based on the branch
+      - name: Set Environment Variables
+        run: |
+          if [ "${{ github.ref }}" = "refs/heads/main" ]; then
+            echo "ENV=prod" >> $GITHUB_ENV
+            echo "GCS_BUCKET=careerkinetic-prod-frontend" >> $GITHUB_ENV
+            echo "VITE_API_URL=${{ secrets.PROD_API_URL }}" >> $GITHUB_ENV
+            echo "CF_ROUTE=careerkinetic.com" >> $GITHUB_ENV
+          else
+            echo "ENV=dev" >> $GITHUB_ENV
+            echo "GCS_BUCKET=careerkinetic-dev-frontend" >> $GITHUB_ENV
+            echo "VITE_API_URL=${{ secrets.DEV_API_URL }}" >> $GITHUB_ENV
+            echo "CF_ROUTE=dev.careerkinetic.com" >> $GITHUB_ENV
+          fi
+
+      # Authenticate to GCP using Workload Identity Federation
+      - name: Authenticate to GCP
+        uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: ${{ secrets.GCP_WORKLOAD_PROVIDER }}
+          service_account: ${{ secrets.GCP_SERVICE_ACCOUNT }}
+
+      - name: Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@v2
+
+      # Setup Terraform for GCS Buckets provision
+      - name: Set up Terraform
+        uses: hashicorp/setup-terraform@v3
+
+      - name: Terraform Init & Apply
+        run: |
+          cd careerkinetic-web/terraform
+          terraform init -backend-config="prefix=state/frontend/${{ env.ENV }}"
+          terraform apply -auto-approve -var="gcp_project_id=${{ secrets.GCP_PROJECT_ID }}" -var="app_name=careerkinetic"
+
+      # Build frontend React App
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+          cache-dependency-path: 'careerkinetic-web/package-lock.json'
+
+      - name: Install dependencies & Build
+        run: |
+          cd careerkinetic-web
+          npm ci
+          VITE_API_URL=${{ env.VITE_API_URL }} npm run build
+
+      # Sync files to Google Cloud Storage Bucket
+      - name: Upload assets to GCS
+        run: |
+          # Sync all assets with public-read cache rules, making sure index.html has no-cache
+          gcloud storage rsync -R careerkinetic-web/dist/ gs://${{ env.GCS_BUCKET }}
+          # Set correct metadata headers for index.html to avoid version caching
+          gcloud storage objects update gs://${{ env.GCS_BUCKET }}/index.html --cache-control="no-store, no-cache, must-revalidate, max-age=0"
+
+      # Deploy Cloudflare Worker routing proxy
+      - name: Deploy Cloudflare Worker
+        run: |
+          cd careerkinetic-web
+          npx wrangler deploy worker.js \
+            --name "careerkinetic-${{ env.ENV }}-worker" \
+            --compatibility-date "2026-06-11" \
+            --var GCS_BUCKET_NAME:${{ env.GCS_BUCKET }} \
+            --routes "${{ env.CF_ROUTE }}/*"
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
