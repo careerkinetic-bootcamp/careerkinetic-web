@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Settings, PlusCircle, BookOpen, Compass, Users } from 'lucide-react';
 
 const AdminDashboard = () => {
   const [activeTab, setActiveTab] = useState('course'); // 'course', 'roadmap', 'mentor'
@@ -30,30 +31,45 @@ const AdminDashboard = () => {
   };
 
   return (
-    <div className="fade-in-up" style={{ padding: '2rem', maxWidth: '1000px', margin: '0 auto' }}>
-      <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-        <h1 className="text-gradient" style={{ fontSize: '2.5rem', marginBottom: '0.5rem' }}>Admin Control Center</h1>
+    <div className="fade-in-up" style={{ padding: 'clamp(1rem, 3vw, 2rem)', maxWidth: '1000px', margin: '0 auto' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', marginBottom: '3rem' }}>
+        <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.5rem' }}>
+          <Settings size={28} style={{ color: 'var(--primary)' }} />
+          <h1 className="text-gradient" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', margin: 0 }}>Admin Control Center</h1>
+        </div>
         <p className="text-muted">Manage core platform content natively. Only accessible to verified system administrators.</p>
       </div>
 
       <div style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap' }}>
         
         {/* Sidebar Nav */}
-        <div style={{ flex: '1', minWidth: '250px' }}>
+        <div style={{ flex: '1', minWidth: '240px' }}>
           <div className="glass-panel" style={{ padding: '1.5rem', borderRadius: '16px' }}>
-             <h3 style={{ color: '#fff', marginBottom: '1.5rem' }}>Management Tools</h3>
+             <h3 style={{ color: 'var(--card-title-color)', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <PlusCircle size={18} style={{ color: 'var(--primary)' }} />
+                Management Tools
+             </h3>
              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
-                <button onClick={() => { setActiveTab('course'); setSuccessMsg(''); }} className={`btn ${activeTab === 'course' ? 'btn-primary' : 'btn-outline'}`} style={{ width: '100%', textAlign: 'left', borderRadius: '8px' }}>+ Add Course</button>
-                <button onClick={() => { setActiveTab('roadmap'); setSuccessMsg(''); }} className={`btn ${activeTab === 'roadmap' ? 'btn-primary' : 'btn-outline'}`} style={{ width: '100%', textAlign: 'left', borderRadius: '8px' }}>+ Add Roadmap</button>
-                <button onClick={() => { setActiveTab('mentor'); setSuccessMsg(''); }} className={`btn ${activeTab === 'mentor' ? 'btn-primary' : 'btn-outline'}`} style={{ width: '100%', textAlign: 'left', borderRadius: '8px' }}>+ Add Mentor</button>
+                <button onClick={() => { setActiveTab('course'); setSuccessMsg(''); }} className={`btn ${activeTab === 'course' ? 'btn-primary' : 'btn-outline'}`} style={{ width: '100%', textAlign: 'left', borderRadius: '8px', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  <BookOpen size={16} />
+                  Add Course
+                </button>
+                <button onClick={() => { setActiveTab('roadmap'); setSuccessMsg(''); }} className={`btn ${activeTab === 'roadmap' ? 'btn-primary' : 'btn-outline'}`} style={{ width: '100%', textAlign: 'left', borderRadius: '8px', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  <Compass size={16} />
+                  Add Roadmap
+                </button>
+                <button onClick={() => { setActiveTab('mentor'); setSuccessMsg(''); }} className={`btn ${activeTab === 'mentor' ? 'btn-primary' : 'btn-outline'}`} style={{ width: '100%', textAlign: 'left', borderRadius: '8px', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  <Users size={16} />
+                  Add Mentor
+                </button>
              </div>
           </div>
         </div>
 
         {/* Main Form Display */}
-        <div style={{ flex: '2', minWidth: '300px' }}>
-           <div className="glass-panel fade-in-up" style={{ padding: '2.5rem', borderRadius: '16px' }}>
-              <h2 style={{ color: '#fff', marginBottom: '1.5rem' }}>
+        <div style={{ flex: '2', minWidth: '280px' }}>
+           <div className="glass-panel fade-in-up" style={{ padding: 'clamp(1.5rem, 4vw, 2.5rem)', borderRadius: '16px' }}>
+              <h2 style={{ color: 'var(--card-title-color)', marginBottom: '1.5rem', fontSize: 'clamp(1.4rem, 3vw, 1.8rem)' }}>
                  {activeTab === 'course' && 'Register New Course'}
                  {activeTab === 'roadmap' && 'Design Global Roadmap'}
                  {activeTab === 'mentor' && 'Register Verified Mentor'}

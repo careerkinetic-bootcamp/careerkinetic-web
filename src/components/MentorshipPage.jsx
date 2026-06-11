@@ -1,4 +1,5 @@
 import React from 'react';
+import { Zap, BookOpen, Users } from 'lucide-react';
 import './CoursesPage.css'; // Reusing global styling structure
 
 const MentorshipPage = () => {
@@ -7,25 +8,30 @@ const MentorshipPage = () => {
       
       {/* Subscribed Bootcamp Section */}
       <div className="fade-in-up delay-2" style={{ marginTop: '1rem' }}>
-        <h2 className="text-gradient" style={{ fontSize: '2rem', marginBottom: '1.5rem', textDecoration: 'underline' }}>Subscribed Bootcamp</h2>
+        <h2 className="text-gradient" style={{ fontSize: 'clamp(1.5rem, 3.5vw, 2rem)', marginBottom: '1.5rem', textDecoration: 'underline' }}>Subscribed Bootcamp</h2>
         <div style={{ display: 'flex', gap: '1.5rem', overflowX: 'auto', paddingBottom: '1rem', alignItems: 'center' }}>
           {[1, 2].map((i) => (
             <div key={i} className="glass-panel" style={{ minWidth: '150px', height: '150px', flex: '0 0 auto', padding: '1.5rem', borderRadius: '16px', display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', transition: 'transform 0.3s ease', cursor: 'pointer' }} onMouseOver={e => e.currentTarget.style.transform='translateY(-5px)'} onMouseOut={e => e.currentTarget.style.transform='translateY(0)'}>
-              <div style={{ width: '60px', height: '60px', borderRadius: '50%', background: 'linear-gradient(135deg, rgba(138,43,226,0.3), rgba(65,105,225,0.3))', marginBottom: '1rem', border: '1px solid rgba(255,255,255,0.1)' }}></div>
-              <p style={{ margin: 0, fontWeight: '500', color: '#fff' }}>Bootcamp {i}</p>
+              <div style={{ width: '60px', height: '60px', borderRadius: '50%', background: 'var(--gradient-card)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1rem', border: '1px solid var(--border)' }}>
+                <BookOpen size={24} style={{ color: 'var(--primary)' }} />
+              </div>
+              <p style={{ margin: 0, fontWeight: '500', color: 'var(--text-main)' }}>Bootcamp {i}</p>
             </div>
           ))}
           <div style={{ color: 'var(--text-muted)', fontSize: '1.5rem', letterSpacing: '4px', margin: '0 1rem' }}>- - -</div>
-          <button className="btn btn-outline" style={{ borderRadius: '50%', width: '50px', height: '50px', padding: 0, display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: '1.2rem', borderColor: 'var(--glass-border)' }}>&gt;</button>
+          <button className="btn btn-outline" style={{ borderRadius: '50%', width: '50px', height: '50px', padding: 0, display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: '1.2rem', borderColor: 'var(--border)', flexShrink: 0 }}>&gt;</button>
         </div>
       </div>
 
       {/* Bootcamps Listing Section */}
       <div className="fade-in-up delay-3" style={{ marginTop: '3rem' }}>
-        <h2 className="text-gradient" style={{ fontSize: '2.2rem', marginBottom: '1rem', textDecoration: 'underline' }}>Bootcamps</h2>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
+          <Zap size={24} style={{ color: 'var(--primary)' }} />
+          <h2 className="text-gradient" style={{ fontSize: 'clamp(1.6rem, 4vw, 2.2rem)', margin: 0, textDecoration: 'underline' }}>Bootcamps</h2>
+        </div>
         
         {/* Controls */}
-        <div style={{ display: 'flex', gap: '2rem', marginBottom: '2rem', alignItems: 'flex-end', flexWrap: 'wrap' }}>
+        <div style={{ display: 'flex', gap: '1.5rem', marginBottom: '2rem', alignItems: 'flex-end', flexWrap: 'wrap' }}>
           <div className="control-group">
             <label className="input-label" style={{textTransform:'lowercase'}}>Sort</label>
             <select className="form-control" style={{ width: '150px' }}>
@@ -45,14 +51,16 @@ const MentorshipPage = () => {
         </div>
 
         {/* Bootcamps Grid */}
-        <div className="courses-grid" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))' }}>
+        <div className="courses-grid" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))' }}>
           {[1, 2, 3, 4, 5, 6].map((i) => (
             <div key={i} className="course-card glass-panel" style={{ padding: '0', display: 'flex', flexDirection: 'column' }}>
-              <div style={{ height: '140px', background: 'linear-gradient(135deg, rgba(65, 105, 225, 0.15), rgba(138, 43, 226, 0.1))', borderBottom: '1px solid var(--glass-border)' }}></div>
+              <div style={{ height: '140px', background: 'var(--gradient-card)', borderBottom: '1px solid var(--border)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <Users size={32} style={{ color: 'var(--primary)', opacity: 0.7 }} />
+              </div>
               <div style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', flex: 1 }}>
-                <h3 style={{ fontSize: '1.3rem', marginBottom: '0.5rem', color: '#fff' }}>Premium Bootcamp {i}</h3>
+                <h3 style={{ fontSize: '1.3rem', marginBottom: '0.5rem', color: 'var(--card-title-color)' }}>Premium Bootcamp {i}</h3>
                 <p className="text-muted" style={{ marginBottom: '1.5rem', fontSize: '0.9rem', flex: 1 }}>Intensive 12-week mentorship program designed to rapidly accelerate your career.</p>
-                <button className="btn btn-primary btn-sm" style={{ width: '100%', marginTop: 'auto' }}>Enroll Now</button>
+                <button className="btn btn-primary btn-sm" style={{ width: '100%', marginTop: 'auto', borderRadius: '9999px' }}>Enroll Now</button>
               </div>
             </div>
           ))}

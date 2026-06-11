@@ -8,7 +8,7 @@
 }
 
 .auth-panel, .intro-panel {
-  padding: 3rem;
+  padding: clamp(1.2rem, 4vw, 3rem);
   display: flex;
   flex-direction: column;
 }
@@ -20,8 +20,9 @@
 .auth-header h2 {
   font-size: 2rem;
   margin-bottom: 0.5rem;
-  background: linear-gradient(135deg, #fff, #a0a0ab);
+  background: linear-gradient(135deg, var(--text-main), var(--text-muted));
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -49,7 +50,7 @@
 .intro-panel {
   background: linear-gradient(135deg, rgba(138, 43, 226, 0.1), rgba(65, 105, 225, 0.1));
   justify-content: center;
-  border-left: 2px solid rgba(255, 255, 255, 0.05);
+  border-left: 2px solid var(--glass-border);
 }
 
 .intro-content {
@@ -111,6 +112,10 @@
 @media (max-width: 900px) {
   .split-layout {
     grid-template-columns: 1fr;
+  }
+  .intro-panel {
+    border-left: none;
+    border-top: 1px solid var(--glass-border);
   }
 }
 
