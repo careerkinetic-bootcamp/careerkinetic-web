@@ -3,32 +3,31 @@ import { useAuth } from '../context/AuthContext';
 import { BookOpen, Compass, Zap, Trophy, Sparkles, ArrowRight } from 'lucide-react';
 import './CoursesPage.css';
 
+import fresherJobsPoster from '../assets/fresher-jobs-2026.png';
+import hiringPlacementGapPoster from '../assets/hiring-placement-gap-2026.png';
+import fresherHiringLandscapePoster from '../assets/fresher-hiring-landscape-2026.png';
+
 const DashboardPage = () => {
   const { isLoggedIn } = useAuth();
   const [activeSlide, setActiveSlide] = useState(0);
 
-  const slides = [
-    {
-      tag: 'TRENDING',
-      title: 'How AI is Transforming Modern Learning Algorithms',
-      desc: 'Explore the computational models backing CareerKinetic\'s dynamic paths.',
-    },
-    {
-      tag: 'CAREER EXPLORATION',
-      title: 'Demystifying Fullstack Engineering Paths in 2026',
-      desc: 'Which frameworks, libraries, and core patterns are leading modern engineering hubs?',
-    },
-    {
-      tag: 'DESIGN PATHWAYS',
-      title: 'Psychological Principles Behind Conversion-Driven UI',
-      desc: 'Master the cognitive laws governing intuitive layouts and interactive user flows.',
-    },
-    {
-      tag: 'BOOTCAMP EXCLUSIVES',
-      title: 'Continuous Industry Mentor-Led Learning Frameworks',
-      desc: 'How assigned tech leaders accelerate bootcamps from concept to global hire-ready.',
-    }
-  ];
+const slides = [
+  {
+    type: 'image',
+    image: fresherJobsPoster,
+    alt: 'Fresher Jobs 2026'
+  },
+  {
+    type: 'image',
+    image: hiringPlacementGapPoster,
+    alt: 'The Hiring-Placement Gap'
+  },
+  {
+    type: 'image',
+    image: fresherHiringLandscapePoster,
+    alt: 'Fresher Hiring Landscape 2026'
+  }
+];
 
   const featuredCourses = [
     {
@@ -88,38 +87,43 @@ const DashboardPage = () => {
     <div className="courses-page fade-in-up delay-1" style={{ maxWidth: '1200px', margin: '0 auto', width: '100%', paddingBottom: '4rem' }}>
       
       {/* Hero Section Container with Auto-Rotating Carousel */}
-      <div 
-        className="glass-panel fade-in-up delay-2" 
-        style={{ 
-          padding: 'clamp(1.5rem, 5vw, 3.5rem)', 
-          borderRadius: 'var(--radius-hero)', 
-          textAlign: 'center', 
-          position: 'relative', 
-          overflow: 'hidden', 
-          minHeight: '320px', 
-          display: 'flex', 
-          flexDirection: 'column', 
-          justifyContent: 'center', 
-          background: 'var(--gradient-card)', 
-          border: '1px solid var(--border)',
-          boxShadow: 'var(--shadow-soft)'
-        }}
-      >
-        <div style={{ position: 'absolute', inset: 0, background: 'var(--gradient-primary)', opacity: 0.04, pointerEvents: 'none' }}></div>
+<div
+  className="fade-in-up delay-2"
+  style={{
+    width: '100%',
+    textAlign: 'center',
+    position: 'relative',
+    overflow: 'hidden'
+  }}
+>
+
         
-        {/* Carousel Content */}
-        <div key={activeSlide} className="fade-in" style={{ animationDuration: '0.5s' }}>
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', background: 'var(--secondary)', border: '1px solid var(--border)', padding: '0.4rem 1rem', borderRadius: '9999px', marginBottom: '1.25rem', fontSize: '0.75rem', fontWeight: 600, letterSpacing: '1px', color: 'var(--primary)' }}>
-            <Sparkles size={12} />
-            {slides[activeSlide].tag}
-          </div>
-          <h1 className="text-gradient" style={{ fontSize: 'clamp(1.8rem, 4.5vw, 2.8rem)', marginBottom: '1rem', fontFamily: 'var(--font-display)', fontWeight: 700, lineHeight: 1.15 }}>
-            {slides[activeSlide].title}
-          </h1>
-          <p className="text-muted" style={{ fontSize: 'clamp(0.95rem, 2vw, 1.15rem)', maxWidth: '750px', margin: '0 auto', lineHeight: 1.6 }}>
-            {slides[activeSlide].desc}
-          </p>
-        </div>
+{/* Carousel Content */}
+<div
+  key={activeSlide}
+  className="fade-in"
+  style={{
+    animationDuration: '0.5s',
+    width: '100%',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center'
+  }}
+>
+<img
+  src={slides[activeSlide].image}
+  alt={slides[activeSlide].alt}
+  style={{
+    display: 'block',
+    width: '100%',
+    maxWidth: '920px',
+    height: 'auto',
+    objectFit: 'contain',
+    borderRadius: '16px',
+    margin: '0 auto'
+  }}
+/>
+</div>
         
         {/* Carousel Indicators */}
         <div style={{ display: 'flex', justifyContent: 'center', gap: '0.6rem', marginTop: '2.5rem', zIndex: 2 }}>
