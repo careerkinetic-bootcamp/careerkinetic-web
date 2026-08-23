@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
-import { AlertCircle, CheckCircle, GraduationCap } from 'lucide-react';
+import { AlertCircle, CheckCircle } from 'lucide-react';
+import Logo from './Logo';
 import './AuthSplitLayout.css';
 
 const AuthSplitLayout = () => {
@@ -168,11 +169,8 @@ const AuthSplitLayout = () => {
         {/* Right Column: Introduction */}
         <div className="intro-panel glass-panel fade-in-up delay-2">
           <div className="intro-content">
-            <div className="icon-wrapper">
-              <GraduationCap size={36} style={{ color: 'var(--primary)' }} />
-            </div>
-            <h1 className="text-gradient" style={{ fontWeight: '800' }}>CareerKinetic</h1>
-            <p>
+            <Logo size={100} vertical={true} />
+            <p style={{ marginTop: '1.5rem' }}>
               Welcome to CareerKinetic—your gateway to personalized technology learning! Discover interactive skill assessments, connect with industry experts, and follow dynamic roadmaps tailored specifically to your tech career goals.
             </p>
           </div>
