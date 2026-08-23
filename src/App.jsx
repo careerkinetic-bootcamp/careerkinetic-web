@@ -39,15 +39,15 @@ function App() {
       />
       
       <main className="max-w-7xl mx-auto px-6 py-12">
-        {currentPage === 'home' && <DashboardPage />}
+        {currentPage === 'home' && <DashboardPage onPageChange={setCurrentPage} />}
         {currentPage === 'login' && <AuthSplitLayout defaultIsLogin={true} onPageChange={setCurrentPage} />}
         {currentPage === 'courses' && <CoursesPage />}
         {currentPage === 'roadmaps' && <RoadmapsPage />}
         {currentPage === 'test' && <TakeTestPage onPageChange={setCurrentPage} />}
-        {currentPage === 'mentorship' && (isLoggedIn ? <MentorshipPage /> : <DashboardPage />)}
-        {currentPage === 'opportunities' && (isLoggedIn ? <OpportunitiesPage /> : <DashboardPage />)}
+        {currentPage === 'mentorship' && <MentorshipPage onPageChange={setCurrentPage} />}
+        {currentPage === 'opportunities' && (isLoggedIn ? <OpportunitiesPage /> : <DashboardPage onPageChange={setCurrentPage} />)}
         {currentPage === 'about' && <AboutUsPage />}
-        {currentPage === 'admin' && (isAdmin ? <AdminDashboard /> : <DashboardPage />)}
+        {currentPage === 'admin' && (isAdmin ? <AdminDashboard /> : <DashboardPage onPageChange={setCurrentPage} />)}
         {currentPage === 'profile' && <ProfilePage onPageChange={setCurrentPage} />}
         {currentPage === 'faqs' && <FaqPage />}
       </main>

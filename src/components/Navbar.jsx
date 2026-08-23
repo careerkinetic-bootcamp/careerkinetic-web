@@ -49,13 +49,9 @@ const Navbar = ({ currentPage = 'home', onPageChange = () => { }, isLoggedIn = f
               className={`nav-submenu-item ${currentPage === 'roadmaps' ? 'active' : ''}`}
               onClick={(e) => { e.preventDefault(); onPageChange('roadmaps'); }}>Roadmaps</a>
 
-            {isLoggedIn && (
-              <>
-                <a href="#"
-                  className={`nav-submenu-item ${currentPage === 'mentorship' ? 'active' : ''}`}
-                  onClick={(e) => { e.preventDefault(); onPageChange('mentorship'); }}>Mentorship</a>
-              </>
-            )}
+            <a href="#"
+              className={`nav-submenu-item ${currentPage === 'mentorship' ? 'active' : ''}`}
+              onClick={(e) => { e.preventDefault(); onPageChange('mentorship'); }}>Mentorship</a>
           </div>
         </li>
         <li>
@@ -176,19 +172,15 @@ const Navbar = ({ currentPage = 'home', onPageChange = () => { }, isLoggedIn = f
               Roadmaps
             </a>
           </li>
-          {isLoggedIn && (
-            <>
-              <li>
-                <a
-                  href="#"
-                  className={`mobile-submenu-link ${currentPage === 'mentorship' ? 'active' : ''}`}
-                  onClick={(e) => { e.preventDefault(); onPageChange('mentorship'); setIsMobileMenuOpen(false); }}
-                >
-                  Mentorship
-                </a>
-              </li>
-            </>
-          )}
+          <li>
+            <a
+              href="#"
+              className={`mobile-submenu-link ${currentPage === 'mentorship' ? 'active' : ''}`}
+              onClick={(e) => { e.preventDefault(); onPageChange('mentorship'); setIsMobileMenuOpen(false); }}
+            >
+              Mentorship
+            </a>
+          </li>
         </ul>
       </li>
       <li>
