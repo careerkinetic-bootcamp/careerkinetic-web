@@ -2,13 +2,10 @@ import React, { useState, useEffect, useMemo } from 'react';
 import {
   Brain,
   Terminal,
-  Search,
   CheckCircle2,
   ChevronDown,
   ChevronUp,
-  Cpu,
   Layers,
-  Shield,
   Sparkles,
   RotateCcw,
   CheckCheck
@@ -19,7 +16,6 @@ import './InteractiveRoadmapView.css';
 
 const InteractiveRoadmapView = ({ initialTrack = 'aiml', onBack }) => {
   const [activeTrackId, setActiveTrackId] = useState(initialTrack);
-  const [searchQuery, setSearchQuery] = useState('');
   const [activeFilter, setActiveFilter] = useState('all'); // 'all', 'completed', 'pending'
   const [expandedParts, setExpandedParts] = useState({});
   const [completedModules, setCompletedModules] = useState({});
@@ -99,24 +95,17 @@ const InteractiveRoadmapView = ({ initialTrack = 'aiml', onBack }) => {
 
   const progressPercentage = allModules.length > 0 ? Math.round((completedCount / allModules.length) * 100) : 0;
 
-  // Filter modules based on search and status
+  // Filter modules based on status
   const filteredParts = useMemo(() => {
     return currentTrack.parts
       .map((part) => {
         const matchingModules = part.modules.filter((mod) => {
-          const matchesQuery =
-            searchQuery.trim() === '' ||
-            mod.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            mod.desc.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            mod.tags.some((t) => t.toLowerCase().includes(searchQuery.toLowerCase()));
-
           const isCompleted = !!completedModules[mod.id];
-          const matchesFilter =
+          return (
             activeFilter === 'all' ||
             (activeFilter === 'completed' && isCompleted) ||
-            (activeFilter === 'pending' && !isCompleted);
-
-          return matchesQuery && matchesFilter;
+            (activeFilter === 'pending' && !isCompleted)
+          );
         });
 
         return {
@@ -124,8 +113,8 @@ const InteractiveRoadmapView = ({ initialTrack = 'aiml', onBack }) => {
           filteredModules: matchingModules
         };
       })
-      .filter((part) => part.filteredModules.length > 0 || searchQuery.trim() === '');
-  }, [currentTrack.parts, searchQuery, activeFilter, completedModules]);
+      .filter((part) => part.filteredModules.length > 0);
+  }, [currentTrack.parts, activeFilter, completedModules]);
 
   const TrackIcon = currentTrack.icon;
 
@@ -149,7 +138,6 @@ const InteractiveRoadmapView = ({ initialTrack = 'aiml', onBack }) => {
                 <TrackIcon size={16} />
                 {currentTrack.badge}
               </span>
-              <span style={{ fontSize: '0.85rem', color: 'var(--muted-foreground)' }}>{currentTrack.schedule}</span>
             </div>
             <h1 className="text-gradient" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', margin: '0.4rem 0' }}>
               {currentTrack.title}
@@ -215,40 +203,9 @@ const InteractiveRoadmapView = ({ initialTrack = 'aiml', onBack }) => {
         </div>
       </div>
 
-      {/* Methodological Framework & Student Contract */}
-      <div className="fade-in-up delay-1">
-        <h2 style={{ fontSize: '1.3rem', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.6rem', color: 'var(--foreground)' }}>
-          <Shield size={20} style={{ color: 'var(--primary)' }} />
-          Methodological Framework & Student Contract
-        </h2>
-        <div className="contract-banner">
-          {currentTrack.contract.map((rule, idx) => {
-            const RuleIcon = rule.icon;
-            return (
-              <div key={idx} className="contract-card">
-                <div className="contract-card-header">
-                  <RuleIcon size={18} />
-                  <span>{rule.title}</span>
-                </div>
-                <p>{rule.desc}</p>
-              </div>
-            );
-          })}
-        </div>
-      </div>
 
-      {/* Controls: Search, Filter, Expand/Collapse */}
-      <div className="roadmap-controls fade-in-up delay-2">
-        <div className="search-input-wrapper">
-          <Search size={18} />
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Search topics, tools, or concepts (e.g. GraphRAG, PyTorch, FastAPI, Docker)..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-          />
-        </div>
+      {/* Controls: Filter, Expand/Collapse */}
+      <div className="roadmap-controls fade-in-up delay-2" style={{ justifyContent: 'space-between' }}>
 
         <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', flexWrap: 'wrap' }}>
           <div className="filter-pills">
@@ -372,50 +329,7 @@ const InteractiveRoadmapView = ({ initialTrack = 'aiml', onBack }) => {
         })}
       </div>
 
-      {/* Signature Production Blueprints / Architectural Reference Systems */}
-      <div className="fade-in-up delay-4" style={{ marginTop: '2rem' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem' }}>
-          <Cpu size={24} style={{ color: 'var(--primary)' }} />
-          <div>
-            <h2 style={{ fontSize: '1.5rem', margin: 0, color: 'var(--foreground)' }}>
-              {activeTrackId === 'aiml' ? '5 Signature Production Blueprints' : '4 Core Workspace Architectural Projects'}
-            </h2>
-            <p className="text-muted" style={{ fontSize: '0.9rem', margin: 0 }}>
-              {activeTrackId === 'aiml'
-                ? 'Massive production-scale pipelines developed with out-of-core memory streaming, mixed-precision, and containerized agent swarms.'
-                : 'Enterprise-grade reference applications designed from wireframes to cloud scaling and microservice meshes.'}
-            </p>
-          </div>
-        </div>
 
-        <div className="blueprints-grid">
-          {currentTrack.blueprints.map((bp, idx) => (
-            <div key={idx} className="blueprint-card">
-              <div className="blueprint-header">
-                <span className="blueprint-badge">{bp.number} • {bp.track}</span>
-              </div>
-              <h3>{bp.title}</h3>
-              <p>{bp.desc}</p>
-              
-              <div style={{ display: 'flex', gap: '0.4rem', flexWrap: 'wrap' }}>
-                {bp.tech.map((t, tIdx) => (
-                  <span key={tIdx} className="module-tag" style={{ background: 'rgba(255,255,255,0.06)' }}>
-                    {t}
-                  </span>
-                ))}
-              </div>
-
-              <div className="blueprint-footer">
-                <div className="blueprint-visual-note">
-                  <Sparkles size={14} />
-                  <span>{bp.visualFoundation}</span>
-                </div>
-                <span style={{ fontSize: '0.8rem', color: 'var(--primary)', fontWeight: 600 }}>Production Grade</span>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
 
       {/* High-Level Design (HLD) 30 Global Case Studies Section */}
       <div className="fade-in-up delay-4" style={{ marginTop: '2.5rem' }}>
