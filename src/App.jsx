@@ -42,7 +42,7 @@ function App() {
         {currentPage === 'home' && <DashboardPage onPageChange={setCurrentPage} />}
         {currentPage === 'login' && <AuthSplitLayout defaultIsLogin={true} onPageChange={setCurrentPage} />}
         {currentPage === 'courses' && <CoursesPage />}
-        {currentPage === 'roadmaps' && <RoadmapsPage />}
+        {currentPage === 'roadmaps' && <RoadmapsPage onPageChange={setCurrentPage} />}
         {currentPage === 'test' && <TakeTestPage onPageChange={setCurrentPage} />}
         {currentPage === 'mentorship' && <MentorshipPage onPageChange={setCurrentPage} />}
         {currentPage === 'opportunities' && (isLoggedIn ? <OpportunitiesPage /> : <DashboardPage onPageChange={setCurrentPage} />)}

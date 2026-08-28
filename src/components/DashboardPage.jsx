@@ -72,19 +72,16 @@ const slides = [
 
   const roadmaps = [
     {
-      title: 'Full-Stack Developer Roadmap',
-      desc: 'A complete step-by-step path to master modern web architecture.',
-      gradient: 'linear-gradient(135deg, oklch(0.7 0.22 295 / 0.15), oklch(0.72 0.22 330 / 0.15))'
+      id: 'aiml',
+      title: 'Artificial Intelligence & Machine Learning',
+      desc: 'Master out-of-core data architecture, neural networks, Transformers, agentic systems, 5 blueprints, and 30 HLD case studies.',
+      gradient: 'linear-gradient(135deg, oklch(0.7 0.22 295 / 0.2), oklch(0.72 0.22 330 / 0.2))'
     },
     {
-      title: 'AI & ML Engineer Roadmap',
-      desc: 'Master mathematics, deep learning, NLP, and computer vision models.',
-      gradient: 'linear-gradient(135deg, oklch(0.58 0.22 295 / 0.15), oklch(0.41 0.15 240 / 0.15))'
-    },
-    {
-      title: 'UX/UI Designer Roadmap',
-      desc: 'Learn visual design, cognitive principles, wireframing, and research.',
-      gradient: 'linear-gradient(135deg, oklch(0.72 0.22 330 / 0.15), oklch(0.65 0.22 27 / 0.15))'
+      id: 'swe',
+      title: 'Software Engineering (SWE) Course',
+      desc: 'Production resilience, software observability, CS fundamentals, FastAPI backend, 4 core architectural systems, and 30 HLD cases.',
+      gradient: 'linear-gradient(135deg, oklch(0.58 0.22 295 / 0.2), oklch(0.41 0.15 240 / 0.2))'
     }
   ];
 
@@ -94,6 +91,14 @@ const slides = [
     }, 4500);
     return () => clearInterval(interval);
   }, [slides.length]);
+
+  const handleExploreRoadmap = () => {
+    if (!isLoggedIn) {
+      onPageChange('login');
+    } else {
+      onPageChange('roadmaps');
+    }
+  };
 
   return (
     <div className="courses-page fade-in-up delay-1" style={{ maxWidth: '1200px', margin: '0 auto', width: '100%', paddingBottom: '4rem' }}>
@@ -222,28 +227,29 @@ const slides = [
               {isLoggedIn ? 'Suggested Roadmaps' : 'All Roadmaps'}
             </h2>
           </div>
-          <button className="btn btn-text" style={{ padding: '0 1rem', display: 'flex', alignItems: 'center', gap: '0.25rem', fontWeight: 600 }}>
+          <button onClick={handleExploreRoadmap} className="btn btn-text" style={{ padding: '0 1rem', display: 'flex', alignItems: 'center', gap: '0.25rem', fontWeight: 600 }}>
             View All <ArrowRight size={14} />
           </button>
         </div>
-        <div style={{ display: 'flex', gap: '1.5rem', overflowX: 'auto', paddingBottom: '1rem' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '1.5rem' }}>
           {roadmaps.map((map, idx) => (
-            <div key={idx} className="course-card glass-panel" style={{ minWidth: '280px', flex: '0 0 auto', padding: '1.5rem', borderRadius: 'var(--radius-card)', display: 'flex', flexDirection: 'column', border: '1px solid var(--border)' }}>
-              <div style={{ height: '120px', background: 'var(--gradient-card)', borderRadius: 'var(--radius-base)', marginBottom: '1.25rem', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid var(--border)', opacity: 0.9 }}>
-                <Compass size={24} style={{ color: 'var(--primary)', opacity: 0.7 }} />
+            <div key={idx} className="course-card glass-panel" style={{ padding: '1.75rem', borderRadius: 'var(--radius-card)', display: 'flex', flexDirection: 'column', border: '1px solid var(--border)' }}>
+              <div style={{ height: '130px', background: map.gradient, borderRadius: 'var(--radius-base)', marginBottom: '1.25rem', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid var(--border)' }}>
+                <Compass size={28} style={{ color: 'var(--primary)' }} />
               </div>
-              <h3 style={{ color: 'var(--card-title-color)', fontSize: '1.15rem', marginBottom: '0.5rem', fontWeight: 600 }}>
+              <h3 style={{ color: 'var(--card-title-color)', fontSize: '1.2rem', marginBottom: '0.5rem', fontWeight: 600 }}>
                 {map.title}
               </h3>
-              <p className="text-muted" style={{ fontSize: '0.85rem', marginBottom: '1.25rem', lineHeight: 1.5 }}>
+              <p className="text-muted" style={{ fontSize: '0.88rem', marginBottom: '1.5rem', lineHeight: 1.6, flex: 1 }}>
                 {map.desc}
               </p>
-              <button className="btn btn-outline btn-sm" style={{ width: '100%', marginTop: 'auto', borderRadius: '9999px' }}>Continue Path</button>
+              <button onClick={handleExploreRoadmap} className="btn btn-primary btn-sm" style={{ width: '100%', marginTop: 'auto', borderRadius: '9999px' }}>
+                Explore Roadmap →
+              </button>
             </div>
           ))}
         </div>
       </div>
-      
     </div>
   );
 };
