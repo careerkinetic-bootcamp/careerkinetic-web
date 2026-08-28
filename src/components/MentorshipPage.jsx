@@ -1,16 +1,20 @@
 import React from 'react';
 import { Zap, BookOpen, Users } from 'lucide-react';
+import { useAuth } from '../context/AuthContext';
 import './CoursesPage.css'; // Reusing global styling structure
 
-const MentorshipPage = () => {
+const MentorshipPage = ({ onPageChange = () => {} }) => {
+  const { isLoggedIn } = useAuth();
+
   return (
     <div className="courses-page fade-in-up delay-1" style={{ maxWidth: '1200px', margin: '0 auto', width: '100%', paddingBottom: '4rem' }}>
       
       {/* Subscribed Bootcamp Section */}
-      <div className="fade-in-up delay-2" style={{ marginTop: '1rem' }}>
-        <h2 className="text-gradient" style={{ fontSize: 'clamp(1.5rem, 3.5vw, 2rem)', marginBottom: '1.5rem', textDecoration: 'underline' }}>Subscribed Bootcamp</h2>
-        <div style={{ display: 'flex', gap: '1.5rem', overflowX: 'auto', paddingBottom: '1rem', alignItems: 'center' }}>
-          {[1, 2].map((i) => (
+      {isLoggedIn && (
+        <div className="fade-in-up delay-2" style={{ marginTop: '1rem' }}>
+          <h2 className="text-gradient" style={{ fontSize: 'clamp(1.5rem, 3.5vw, 2rem)', marginBottom: '1.5rem', textDecoration: 'underline' }}>Subscribed Bootcamp</h2>
+          <div style={{ display: 'flex', gap: '1.5rem', overflowX: 'auto', paddingBottom: '1rem', alignItems: 'center' }}>
+            {[1, 2].map((i) => (
             <div key={i} className="glass-panel" style={{ minWidth: '150px', height: '150px', flex: '0 0 auto', padding: '1.5rem', borderRadius: '16px', display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', transition: 'transform 0.3s ease', cursor: 'pointer' }} onMouseOver={e => e.currentTarget.style.transform='translateY(-5px)'} onMouseOut={e => e.currentTarget.style.transform='translateY(0)'}>
               <div style={{ width: '60px', height: '60px', borderRadius: '50%', background: 'var(--gradient-card)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1rem', border: '1px solid var(--border)' }}>
                 <BookOpen size={24} style={{ color: 'var(--primary)' }} />
@@ -22,6 +26,7 @@ const MentorshipPage = () => {
           <button className="btn btn-outline" style={{ borderRadius: '50%', width: '50px', height: '50px', padding: 0, display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: '1.2rem', borderColor: 'var(--border)', flexShrink: 0 }}>&gt;</button>
         </div>
       </div>
+      )}
 
       {/* Bootcamps Listing Section */}
       <div className="fade-in-up delay-3" style={{ marginTop: '3rem' }}>
@@ -60,7 +65,17 @@ const MentorshipPage = () => {
               <div style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', flex: 1 }}>
                 <h3 style={{ fontSize: '1.3rem', marginBottom: '0.5rem', color: 'var(--card-title-color)' }}>Premium Bootcamp {i}</h3>
                 <p className="text-muted" style={{ marginBottom: '1.5rem', fontSize: '0.9rem', flex: 1 }}>Intensive 12-week mentorship program designed to rapidly accelerate your career.</p>
-                <button className="btn btn-primary btn-sm" style={{ width: '100%', marginTop: 'auto', borderRadius: '9999px' }}>Enroll Now</button>
+                <button 
+                  className="btn btn-primary btn-sm" 
+                  style={{ width: '100%', marginTop: 'auto', borderRadius: '9999px' }}
+                  onClick={() => {
+                    if (!isLoggedIn) {
+                      onPageChange('login');
+                    }
+                  }}
+                >
+                  Enroll Now
+                </button>
               </div>
             </div>
           ))}

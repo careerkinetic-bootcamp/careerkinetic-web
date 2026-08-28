@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
-import { BookOpen, Compass, Zap, Trophy, Sparkles, ArrowRight } from 'lucide-react';
+import { BookOpen, Compass, Zap, Trophy, Sparkles, ArrowRight, Users } from 'lucide-react';
 import './CoursesPage.css';
 
 import fresherJobsPoster from '../assets/fresher-jobs-2026.png';
 import hiringPlacementGapPoster from '../assets/hiring-placement-gap-2026.png';
 import fresherHiringLandscapePoster from '../assets/fresher-hiring-landscape-2026.png';
 
-const DashboardPage = () => {
+const DashboardPage = ({ onPageChange = () => {} }) => {
   const { isLoggedIn } = useAuth();
   const [activeSlide, setActiveSlide] = useState(0);
 
@@ -29,31 +29,43 @@ const slides = [
   }
 ];
 
-  const featuredCourses = [
+  const bootcamps = [
     {
-      title: 'Full-Stack Engineering',
-      desc: 'Master frontend, backend, SSR rendering, database scaling, and DevOps pipelines.',
+      title: 'Premium Bootcamp 1',
+      desc: 'Intensive 12-week mentorship program designed to rapidly accelerate your career.',
       gradient: 'linear-gradient(135deg, #8b5cf6, #d946ef)',
-      isEnrolled: true,
+      isEnrolled: isLoggedIn ? true : false,
       progress: 75
     },
     {
-      title: 'Product Design Mastery',
-      desc: 'Explore psychological principles, design systems, Figma, and conversion-driven UI.',
+      title: 'Premium Bootcamp 2',
+      desc: 'Intensive 12-week mentorship program designed to rapidly accelerate your career.',
       gradient: 'linear-gradient(135deg, #ec4899, #f43f5e)',
-      isEnrolled: false
-    },
-    {
-      title: 'Data Science with Python',
-      desc: 'Learn data analytics, statistical modeling, pandas, numpy, and predictive mathematics.',
-      gradient: 'linear-gradient(135deg, #6366f1, #3b82f6)',
-      isEnrolled: true,
+      isEnrolled: isLoggedIn ? true : false,
       progress: 50
     },
     {
-      title: 'AI & Machine Learning',
-      desc: 'Understand transformers, neural networks, PyTorch, LLMs, and model deployment.',
+      title: 'Premium Bootcamp 3',
+      desc: 'Intensive 12-week mentorship program designed to rapidly accelerate your career.',
+      gradient: 'linear-gradient(135deg, #6366f1, #3b82f6)',
+      isEnrolled: false
+    },
+    {
+      title: 'Premium Bootcamp 4',
+      desc: 'Intensive 12-week mentorship program designed to rapidly accelerate your career.',
       gradient: 'linear-gradient(135deg, #d946ef, #7c3aed)',
+      isEnrolled: false
+    },
+    {
+      title: 'Premium Bootcamp 5',
+      desc: 'Intensive 12-week mentorship program designed to rapidly accelerate your career.',
+      gradient: 'linear-gradient(135deg, #10b981, #059669)',
+      isEnrolled: false
+    },
+    {
+      title: 'Premium Bootcamp 6',
+      desc: 'Intensive 12-week mentorship program designed to rapidly accelerate your career.',
+      gradient: 'linear-gradient(135deg, #f59e0b, #d97706)',
       isEnrolled: false
     }
   ];
@@ -146,45 +158,55 @@ const slides = [
         </div>
       </div>
 
-      {/* Suggested/All Courses */}
+      {/* Suggested/All Bootcamps */}
       <div className="fade-in-up delay-3" style={{ marginTop: '3.5rem' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem', borderBottom: '1px solid var(--border)', paddingBottom: '0.8rem' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-            <BookOpen size={20} style={{ color: 'var(--primary)' }} />
+            <Users size={20} style={{ color: 'var(--primary)' }} />
             <h2 style={{ fontSize: 'clamp(1.35rem, 3vw, 1.75rem)', margin: 0, fontFamily: 'var(--font-display)' }}>
-              {isLoggedIn ? 'Suggested Courses' : 'All Courses'}
+              {isLoggedIn ? 'Suggested Bootcamps' : 'All Bootcamps'}
             </h2>
           </div>
-          <button className="btn btn-text" style={{ padding: '0 1rem', display: 'flex', alignItems: 'center', gap: '0.25rem', fontWeight: 600 }}>
+          <button 
+            className="btn btn-text" 
+            style={{ padding: '0 1rem', display: 'flex', alignItems: 'center', gap: '0.25rem', fontWeight: 600 }}
+            onClick={() => onPageChange(isLoggedIn ? 'mentorship' : 'login')}
+          >
             View All <ArrowRight size={14} />
           </button>
         </div>
         <div style={{ display: 'flex', gap: '1.5rem', overflowX: 'auto', paddingBottom: '1rem' }}>
-          {featuredCourses.map((course, idx) => (
+          {bootcamps.map((bootcamp, idx) => (
             <div key={idx} className="course-card glass-panel" style={{ minWidth: '280px', flex: '0 0 auto', padding: '1.5rem', borderRadius: 'var(--radius-card)', display: 'flex', flexDirection: 'column', border: '1px solid var(--border)' }}>
-              {/* Unique tailwind gradient overlays */}
-              <div style={{ height: '130px', background: course.gradient, borderRadius: 'var(--radius-base)', marginBottom: '1.25rem', opacity: 0.85, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: '1.5rem', fontWeight: 'bold' }}>
-                <Sparkles size={28} style={{ opacity: 0.6 }} />
+              {/* Unique gradient overlays */}
+              <div style={{ height: '130px', background: bootcamp.gradient, borderRadius: 'var(--radius-base)', marginBottom: '1.25rem', opacity: 0.85, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: '1.5rem', fontWeight: 'bold' }}>
+                <Users size={32} style={{ opacity: 0.9 }} />
               </div>
               <h3 style={{ color: 'var(--card-title-color)', fontSize: '1.15rem', marginBottom: '0.5rem', fontWeight: 600 }}>
-                {course.title}
+                {bootcamp.title}
               </h3>
               <p className="text-muted" style={{ fontSize: '0.85rem', marginBottom: '1.25rem', flex: 1, lineHeight: 1.5 }}>
-                {course.desc}
+                {bootcamp.desc}
               </p>
               
-              {course.isEnrolled ? (
+              {bootcamp.isEnrolled ? (
                 <div style={{ marginTop: 'auto' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.75rem', marginBottom: '0.4rem', color: 'var(--muted-foreground)' }}>
                     <span>Progress</span>
-                    <span>{course.progress}%</span>
+                    <span>{bootcamp.progress}%</span>
                   </div>
                   <div style={{ width: '100%', height: '6px', background: 'var(--secondary)', borderRadius: '3px', overflow: 'hidden' }}>
-                    <div style={{ width: `${course.progress}%`, height: '100%', background: 'var(--primary)' }}></div>
+                    <div style={{ width: `${bootcamp.progress}%`, height: '100%', background: 'var(--primary)' }}></div>
                   </div>
                 </div>
               ) : (
-                <button className="btn btn-outline btn-sm" style={{ marginTop: 'auto', width: '100%', borderRadius: '9999px' }}>Enroll Now</button>
+                <button 
+                  className="btn btn-outline btn-sm" 
+                  style={{ marginTop: 'auto', width: '100%', borderRadius: '9999px' }}
+                  onClick={() => onPageChange(isLoggedIn ? 'mentorship' : 'login')}
+                >
+                  Enroll Now
+                </button>
               )}
             </div>
           ))}

@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { useTheme } from '../context/ThemeContext';
 import { Sparkles, Sun, Moon, Menu, X, ChevronDown, User, LogOut } from 'lucide-react';
+import Logo from './Logo';
 
 const Navbar = ({ currentPage = 'home', onPageChange = () => { }, isLoggedIn = false, isAdmin = false, onLogout = () => { } }) => {
   const { user } = useAuth();
@@ -26,22 +27,10 @@ const Navbar = ({ currentPage = 'home', onPageChange = () => { }, isLoggedIn = f
   return (
     <>
       <nav className="navbar fade-in-up">
-        {/* Logo with Gradient Square & Sparkles icon */}
-        <a href="#" className="nav-logo" onClick={(e) => { e.preventDefault(); onPageChange('home'); }}>
-          <div style={{
-            background: 'var(--gradient-primary)',
-            width: '32px',
-            height: '32px',
-            borderRadius: '8px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            boxShadow: 'var(--shadow-glow)'
-          }}>
-          <Sparkles size={16} style={{ color: '#fff' }} />
-        </div>
-        <span className="text-gradient" style={{ fontFamily: 'var(--font-display)', fontWeight: 700 }}>CareerKinetic</span>
-      </a>
+        {/* Brand Logo Component */}
+        <a href="#" className="nav-logo" onClick={(e) => { e.preventDefault(); onPageChange('home'); }} style={{ display: 'inline-flex', textDecoration: 'none' }}>
+          <Logo size={32} />
+        </a>
 
       <ul className="nav-links">
         <li>
@@ -57,22 +46,12 @@ const Navbar = ({ currentPage = 'home', onPageChange = () => { }, isLoggedIn = f
           </a>
           <div className="nav-submenu">
             <a href="#"
-              className={`nav-submenu-item ${currentPage === 'courses' ? 'active' : ''}`}
-              onClick={(e) => { e.preventDefault(); onPageChange('courses'); }}>Courses</a>
-            <a href="#"
               className={`nav-submenu-item ${currentPage === 'roadmaps' ? 'active' : ''}`}
               onClick={(e) => { e.preventDefault(); onPageChange('roadmaps'); }}>Roadmaps</a>
 
-            {isLoggedIn && (
-              <>
-                <a href="#"
-                  className={`nav-submenu-item ${currentPage === 'mentorship' ? 'active' : ''}`}
-                  onClick={(e) => { e.preventDefault(); onPageChange('mentorship'); }}>Mentorship</a>
-                <a href="#"
-                  className={`nav-submenu-item ${currentPage === 'opportunities' ? 'active' : ''}`}
-                  onClick={(e) => { e.preventDefault(); onPageChange('opportunities'); }}>Opportunities</a>
-              </>
-            )}
+            <a href="#"
+              className={`nav-submenu-item ${currentPage === 'mentorship' ? 'active' : ''}`}
+              onClick={(e) => { e.preventDefault(); onPageChange('mentorship'); }}>Mentorship</a>
           </div>
         </li>
         <li>
@@ -187,43 +166,21 @@ const Navbar = ({ currentPage = 'home', onPageChange = () => { }, isLoggedIn = f
           <li>
             <a
               href="#"
-              className={`mobile-submenu-link ${currentPage === 'courses' ? 'active' : ''}`}
-              onClick={(e) => { e.preventDefault(); onPageChange('courses'); setIsMobileMenuOpen(false); }}
-            >
-              Courses
-            </a>
-          </li>
-          <li>
-            <a
-              href="#"
               className={`mobile-submenu-link ${currentPage === 'roadmaps' ? 'active' : ''}`}
               onClick={(e) => { e.preventDefault(); onPageChange('roadmaps'); setIsMobileMenuOpen(false); }}
             >
               Roadmaps
             </a>
           </li>
-          {isLoggedIn && (
-            <>
-              <li>
-                <a
-                  href="#"
-                  className={`mobile-submenu-link ${currentPage === 'mentorship' ? 'active' : ''}`}
-                  onClick={(e) => { e.preventDefault(); onPageChange('mentorship'); setIsMobileMenuOpen(false); }}
-                >
-                  Mentorship
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className={`mobile-submenu-link ${currentPage === 'opportunities' ? 'active' : ''}`}
-                  onClick={(e) => { e.preventDefault(); onPageChange('opportunities'); setIsMobileMenuOpen(false); }}
-                >
-                  Opportunities
-                </a>
-              </li>
-            </>
-          )}
+          <li>
+            <a
+              href="#"
+              className={`mobile-submenu-link ${currentPage === 'mentorship' ? 'active' : ''}`}
+              onClick={(e) => { e.preventDefault(); onPageChange('mentorship'); setIsMobileMenuOpen(false); }}
+            >
+              Mentorship
+            </a>
+          </li>
         </ul>
       </li>
       <li>
