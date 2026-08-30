@@ -92,12 +92,8 @@ const slides = [
     return () => clearInterval(interval);
   }, [slides.length]);
 
-  const handleExploreRoadmap = () => {
-    if (!isLoggedIn) {
-      onPageChange('login');
-    } else {
-      onPageChange('roadmaps');
-    }
+  const handleExploreRoadmap = (trackId) => {
+    onPageChange('roadmaps', trackId);
   };
 
   return (
@@ -227,7 +223,7 @@ const slides = [
               {isLoggedIn ? 'Suggested Roadmaps' : 'All Roadmaps'}
             </h2>
           </div>
-          <button onClick={handleExploreRoadmap} className="btn btn-text" style={{ padding: '0 1rem', display: 'flex', alignItems: 'center', gap: '0.25rem', fontWeight: 600 }}>
+          <button onClick={() => onPageChange('roadmaps')} className="btn btn-text" style={{ padding: '0 1rem', display: 'flex', alignItems: 'center', gap: '0.25rem', fontWeight: 600 }}>
             View All <ArrowRight size={14} />
           </button>
         </div>
@@ -243,7 +239,7 @@ const slides = [
               <p className="text-muted" style={{ fontSize: '0.88rem', marginBottom: '1.5rem', lineHeight: 1.6, flex: 1 }}>
                 {map.desc}
               </p>
-              <button onClick={handleExploreRoadmap} className="btn btn-primary btn-sm" style={{ width: '100%', marginTop: 'auto', borderRadius: '9999px' }}>
+              <button onClick={() => handleExploreRoadmap(map.id)} className="btn btn-primary btn-sm" style={{ width: '100%', marginTop: 'auto', borderRadius: '9999px' }}>
                 Explore Roadmap →
               </button>
             </div>

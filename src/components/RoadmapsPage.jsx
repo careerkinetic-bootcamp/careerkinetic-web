@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
-import { Brain, Terminal, Sparkles, ArrowRight } from 'lucide-react';
-import { useAuth } from '../context/AuthContext';
+import React, { useState, useEffect } from 'react';
+import { Brain, Terminal, ArrowRight } from 'lucide-react';
 import InteractiveRoadmapView from './InteractiveRoadmapView';
 import './CoursesPage.css';
 
@@ -11,7 +10,7 @@ const ROADMAP_LIST = [
     description: 'Master out-of-core data architecture, neural networks, Transformer mechanisms, agentic multi-agent systems, 5 signature blueprints, and 30 HLD whiteboard defenses.',
     icon: Brain,
     gradient: 'linear-gradient(135deg, oklch(0.7 0.22 295 / 0.2), oklch(0.72 0.22 330 / 0.2))',
-    badge: '5 Blueprints • 30 HLD Cases'
+    badge: 'Dual Track: SWE Core + Advanced MLOps & GenAI'
   },
   {
     id: 'swe',
@@ -23,16 +22,17 @@ const ROADMAP_LIST = [
   }
 ];
 
-const RoadmapsPage = ({ onPageChange = () => {} }) => {
-  const { isLoggedIn } = useAuth();
-  const [selectedTrack, setSelectedTrack] = useState(null); // 'aiml', 'swe', or null for list view
+const RoadmapsPage = ({ initialTrack = null, onPageChange = () => {} }) => {
+  const [selectedTrack, setSelectedTrack] = useState(initialTrack);
+
+  useEffect(() => {
+    if (initialTrack) {
+      setSelectedTrack(initialTrack);
+    }
+  }, [initialTrack]);
 
   const handleExploreRoadmap = (trackId) => {
-    if (!isLoggedIn) {
-      onPageChange('login');
-    } else {
-      setSelectedTrack(trackId);
-    }
+    setSelectedTrack(trackId);
   };
 
   // If a specific track is selected or active, render the Interactive Roadmap View
@@ -57,63 +57,6 @@ const RoadmapsPage = ({ onPageChange = () => {} }) => {
         </div>
       </div>
 
-      {/* Featured Interactive Mode Quick-Launch Banner */}
-      <div
-        className="glass-panel fade-in-up delay-2"
-        style={{
-          padding: '1.5rem 2rem',
-          borderRadius: 'var(--radius-card)',
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          flexWrap: 'wrap',
-          gap: '1.5rem',
-          background: 'linear-gradient(135deg, rgba(138, 43, 226, 0.12), rgba(65, 105, 225, 0.08))',
-          border: '1px solid rgba(138, 43, 226, 0.3)'
-        }}
-      >
-        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-          <div
-            style={{
-              width: '46px',
-              height: '46px',
-              borderRadius: '12px',
-              background: 'var(--gradient-primary)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              boxShadow: 'var(--shadow-glow)'
-            }}
-          >
-            <Sparkles size={22} color="#fff" />
-          </div>
-          <div>
-            <h3 style={{ margin: 0, fontSize: '1.2rem', color: 'var(--foreground)' }}>
-              Interactive Curriculum Mastery Tracker
-            </h3>
-            <p className="text-muted" style={{ margin: 0, fontSize: '0.88rem' }}>
-              Check off syllabus modules, explore 5 AI Blueprints, and inspect 30 High-Level Design (HLD) case studies.
-            </p>
-          </div>
-        </div>
-
-        <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
-          <button
-            onClick={() => handleExploreRoadmap('aiml')}
-            className="btn btn-primary"
-            style={{ borderRadius: '9999px', fontSize: '0.9rem', padding: '0.65rem 1.4rem' }}
-          >
-            Open AI & ML Track →
-          </button>
-          <button
-            onClick={() => handleExploreRoadmap('swe')}
-            className="btn btn-outline"
-            style={{ borderRadius: '9999px', fontSize: '0.9rem', padding: '0.65rem 1.4rem' }}
-          >
-            Open SWE Track →
-          </button>
-        </div>
-      </div>
 
       {/* Roadmaps Grid */}
       <div 

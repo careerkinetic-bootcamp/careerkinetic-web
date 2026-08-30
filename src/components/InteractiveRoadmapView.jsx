@@ -149,13 +149,15 @@ const InteractiveRoadmapView = ({ initialTrack = 'aiml', onBack }) => {
 
           {/* Track Switcher */}
           <div className="track-switcher">
-            <button
-              onClick={() => setActiveTrackId('aiml')}
-              className={`track-btn ${activeTrackId === 'aiml' ? 'active' : ''}`}
-            >
-              <Brain size={18} />
-              AI & Machine Learning
-            </button>
+            {activeTrackId === 'aiml' && (
+              <button
+                onClick={() => setActiveTrackId('aiml')}
+                className="track-btn active"
+              >
+                <Brain size={18} />
+                AI & Machine Learning
+              </button>
+            )}
             <button
               onClick={() => setActiveTrackId('swe')}
               className={`track-btn ${activeTrackId === 'swe' ? 'active' : ''}`}
