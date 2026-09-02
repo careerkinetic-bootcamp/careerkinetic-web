@@ -63,6 +63,27 @@ const MentorshipPage = ({ onPageChange = () => {} }) => {
     setApplicationSubmitted(true);
   };
 
+  if (!isLoggedIn) {
+    return (
+      <div className="glass-panel fade-in-up" style={{ maxWidth: '600px', margin: '4rem auto', padding: '3rem', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.5rem' }}>
+        <div style={{ background: 'var(--secondary)', padding: '1rem', borderRadius: '50%', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
+          <Users size={48} style={{ color: 'var(--primary)' }} />
+        </div>
+        <h2 className="text-gradient" style={{ fontSize: '1.8rem', fontWeight: 'bold', margin: 0 }}>Login Required</h2>
+        <p className="text-muted" style={{ fontSize: '1.05rem', lineHeight: 1.6, margin: 0 }}>
+          Please log in to your CareerKinetic account to access 1-on-1 industry mentorship cohorts, code defense sessions, and application reviews.
+        </p>
+        <button 
+          onClick={() => onPageChange && onPageChange('login')}
+          className="btn btn-primary"
+          style={{ padding: '0.875rem 2.5rem', fontSize: '1rem', borderRadius: '12px', marginTop: '1rem' }}
+        >
+          Sign In to Access Mentorship <ArrowRight size={16} style={{ marginLeft: '0.5rem' }} />
+        </button>
+      </div>
+    );
+  }
+
   return (
     <div className="courses-page fade-in-up delay-1" style={{ maxWidth: '1200px', margin: '0 auto', width: '100%', paddingBottom: '4rem' }}>
       

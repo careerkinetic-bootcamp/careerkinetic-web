@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Brain, Terminal, ArrowRight } from 'lucide-react';
+import { Brain, Terminal, ArrowRight, Compass } from 'lucide-react';
+import { useAuth } from '../context/AuthContext';
 import InteractiveRoadmapView from './InteractiveRoadmapView';
 import './CoursesPage.css';
 
@@ -23,6 +24,7 @@ const ROADMAP_LIST = [
 ];
 
 const RoadmapsPage = ({ initialTrack = null, onPageChange = () => {} }) => {
+  const { isLoggedIn } = useAuth();
   const [selectedTrack, setSelectedTrack] = useState(initialTrack);
 
   useEffect(() => {
@@ -34,6 +36,27 @@ const RoadmapsPage = ({ initialTrack = null, onPageChange = () => {} }) => {
   const handleExploreRoadmap = (trackId) => {
     setSelectedTrack(trackId);
   };
+
+  if (!isLoggedIn) {
+    return (
+      <div className="glass-panel fade-in-up" style={{ maxWidth: '600px', margin: '4rem auto', padding: '3rem', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.5rem' }}>
+        <div style={{ background: 'var(--secondary)', padding: '1rem', borderRadius: '50%', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
+          <Compass size={48} style={{ color: 'var(--primary)' }} />
+        </div>
+        <h2 className="text-gradient" style={{ fontSize: '1.8rem', fontWeight: 'bold', margin: 0 }}>Login Required</h2>
+        <p className="text-muted" style={{ fontSize: '1.05rem', lineHeight: 1.6, margin: 0 }}>
+          Please log in to your CareerKinetic account to access our interactive curriculum roadmaps, track module progress, and explore blueprints.
+        </p>
+        <button 
+          onClick={() => onPageChange && onPageChange('login')}
+          className="btn btn-primary"
+          style={{ padding: '0.875rem 2.5rem', fontSize: '1rem', borderRadius: '12px', marginTop: '1rem' }}
+        >
+          Sign In to Access Roadmaps <ArrowRight size={16} style={{ marginLeft: '0.5rem' }} />
+        </button>
+      </div>
+    );
+  }
 
   // If a specific track is selected or active, render the Interactive Roadmap View
   if (selectedTrack) {
