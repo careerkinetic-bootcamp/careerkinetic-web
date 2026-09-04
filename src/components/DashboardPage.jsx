@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
-import { BookOpen, Compass, Zap, Trophy, Sparkles, ArrowRight, Users } from 'lucide-react';
+import { Compass, Zap, Sparkles, ArrowRight, Users, Clock, CheckCircle2 } from 'lucide-react';
 import './CoursesPage.css';
 
 import fresherJobsPoster from '../assets/fresher-jobs-2026.png';
@@ -10,63 +10,54 @@ import fresherHiringLandscapePoster from '../assets/fresher-hiring-landscape-202
 const DashboardPage = ({ onPageChange = () => {} }) => {
   const { isLoggedIn } = useAuth();
   const [activeSlide, setActiveSlide] = useState(0);
+  const [activeTab, setActiveTab] = useState('roadmaps'); // 'roadmaps' | 'cohorts'
 
-const slides = [
-  {
-    type: 'image',
-    image: fresherJobsPoster,
-    alt: 'Fresher Jobs 2026'
-  },
-  {
-    type: 'image',
-    image: hiringPlacementGapPoster,
-    alt: 'The Hiring-Placement Gap'
-  },
-  {
-    type: 'image',
-    image: fresherHiringLandscapePoster,
-    alt: 'Fresher Hiring Landscape 2026'
-  }
-];
+  const slides = [
+    {
+      type: 'image',
+      image: fresherJobsPoster,
+      alt: 'Fresher Jobs 2026'
+    },
+    {
+      type: 'image',
+      image: hiringPlacementGapPoster,
+      alt: 'The Hiring-Placement Gap'
+    },
+    {
+      type: 'image',
+      image: fresherHiringLandscapePoster,
+      alt: 'Fresher Hiring Landscape 2026'
+    }
+  ];
 
-  const bootcamps = [
+  const cohorts = [
     {
-      title: 'Premium Bootcamp 1',
-      desc: 'Intensive 12-week mentorship program designed to rapidly accelerate your career.',
-      gradient: 'linear-gradient(135deg, #8b5cf6, #d946ef)',
-      isEnrolled: isLoggedIn ? true : false,
-      progress: 75
+      id: 'aiml',
+      title: 'AI & Machine Learning Cohort',
+      badge: 'Advanced MLOps & GenAI',
+      duration: '8 Months Bootcamp',
+      desc: 'Master enterprise AI engineering with 1-on-1 guidance from senior ML practitioners. Build GraphRAG, Multi-Agent Mesh, and defend 30 HLD case studies.',
+      badgeColor: '#f472b6',
+      badgeBg: 'rgba(236, 72, 153, 0.15)',
+      highlights: [
+        'Dedicated 1-on-1 Senior AI/ML Mentor',
+        '5 Signature Production Blueprints (GraphRAG, ViT)',
+        '30 Global Whiteboard HLD Case Studies'
+      ]
     },
     {
-      title: 'Premium Bootcamp 2',
-      desc: 'Intensive 12-week mentorship program designed to rapidly accelerate your career.',
-      gradient: 'linear-gradient(135deg, #ec4899, #f43f5e)',
-      isEnrolled: isLoggedIn ? true : false,
-      progress: 50
-    },
-    {
-      title: 'Premium Bootcamp 3',
-      desc: 'Intensive 12-week mentorship program designed to rapidly accelerate your career.',
-      gradient: 'linear-gradient(135deg, #6366f1, #3b82f6)',
-      isEnrolled: false
-    },
-    {
-      title: 'Premium Bootcamp 4',
-      desc: 'Intensive 12-week mentorship program designed to rapidly accelerate your career.',
-      gradient: 'linear-gradient(135deg, #d946ef, #7c3aed)',
-      isEnrolled: false
-    },
-    {
-      title: 'Premium Bootcamp 5',
-      desc: 'Intensive 12-week mentorship program designed to rapidly accelerate your career.',
-      gradient: 'linear-gradient(135deg, #10b981, #059669)',
-      isEnrolled: false
-    },
-    {
-      title: 'Premium Bootcamp 6',
-      desc: 'Intensive 12-week mentorship program designed to rapidly accelerate your career.',
-      gradient: 'linear-gradient(135deg, #f59e0b, #d97706)',
-      isEnrolled: false
+      id: 'swe',
+      title: 'Software Engineering (SWE) Cohort',
+      badge: 'Production Backend & Systems',
+      duration: '8 Months Bootcamp',
+      desc: 'Master high-concurrency backend architecture with 1-on-1 mentoring. Construct 4 reference systems, analyze distributed trade-offs, and defend 30 HLD scenarios.',
+      badgeColor: '#818cf8',
+      badgeBg: 'rgba(99, 102, 241, 0.15)',
+      highlights: [
+        'Dedicated 1-on-1 Principal Backend Mentor',
+        '4 Core Reference Systems (Teams, Gateway, Mesh)',
+        'Live Profiling & High-Concurrency Stress Testing'
+      ]
     }
   ];
 
@@ -75,13 +66,13 @@ const slides = [
       id: 'aiml',
       title: 'Artificial Intelligence & Machine Learning',
       desc: 'Master out-of-core data architecture, neural networks, Transformers, agentic systems, 5 blueprints, and 30 HLD case studies.',
-      gradient: 'linear-gradient(135deg, oklch(0.7 0.22 295 / 0.2), oklch(0.72 0.22 330 / 0.2))'
+      topics: ['Out-of-Core Architecture', 'Transformers', 'GraphRAG', 'Agentic MLOps', 'Tensor Optimization', '30 HLD Studies']
     },
     {
       id: 'swe',
-      title: 'Software Engineering (SWE) Course',
+      title: 'Software Engineering (SWE)',
       desc: 'Production resilience, software observability, CS fundamentals, FastAPI backend, 4 core architectural systems, and 30 HLD cases.',
-      gradient: 'linear-gradient(135deg, oklch(0.58 0.22 295 / 0.2), oklch(0.41 0.15 240 / 0.2))'
+      topics: ['Production Resilience', 'Distributed Systems', 'FastAPI & Async', 'cProfile & Memory', 'Kafka Event Mesh', '30 HLD Cases']
     }
   ];
 
@@ -99,47 +90,76 @@ const slides = [
   return (
     <div className="courses-page fade-in-up delay-1" style={{ maxWidth: '1200px', margin: '0 auto', width: '100%', paddingBottom: '4rem' }}>
       
-      {/* Hero Section Container with Auto-Rotating Carousel */}
-<div
-  className="fade-in-up delay-2"
-  style={{
-    width: '100%',
-    textAlign: 'center',
-    position: 'relative',
-    overflow: 'hidden'
-  }}
->
+      {/* Hero Headline & Value Proposition */}
+      <div className="fade-in-up delay-1" style={{ textAlign: 'center', marginBottom: '2.5rem', paddingTop: '0.5rem' }}>
+        <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '0.4rem 1.1rem', borderRadius: '9999px', background: 'rgba(99, 102, 241, 0.12)', border: '1px solid rgba(99, 102, 241, 0.3)', marginBottom: '1.25rem' }}>
+          <Sparkles size={16} style={{ color: 'var(--primary)' }} />
+          <span style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--primary)', letterSpacing: '0.5px' }}>
+            Next-Gen Tech Career Platform
+          </span>
+        </div>
+        <h1 className="text-gradient" style={{ fontSize: 'clamp(2.2rem, 5vw, 3.4rem)', fontWeight: 800, lineHeight: 1.15, margin: '0 auto 1.25rem auto', maxWidth: '850px' }}>
+          Bridge the Gap to Elite Tech Careers
+        </h1>
+        <p className="text-muted" style={{ fontSize: 'clamp(1rem, 2vw, 1.15rem)', lineHeight: 1.6, maxWidth: '720px', margin: '0 auto 2rem auto' }}>
+          Master production distributed systems & modern AI engineering with unassisted live code defenses, battle-tested roadmaps, and 1-on-1 industry mentorship.
+        </p>
+        <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+          <button 
+            className="btn btn-primary" 
+            style={{ borderRadius: '9999px', padding: '0.85rem 2rem', fontSize: '0.98rem', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: '8px', boxShadow: '0 4px 20px rgba(99, 102, 241, 0.35)' }}
+            onClick={() => onPageChange(isLoggedIn ? 'test' : 'login')}
+          >
+            <Zap size={18} /> Take Skill Assessment
+          </button>
+          <button 
+            className="btn btn-outline" 
+            style={{ borderRadius: '9999px', padding: '0.85rem 2rem', fontSize: '0.98rem', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: '8px' }}
+            onClick={() => onPageChange('roadmaps')}
+          >
+            <Compass size={18} /> Explore Roadmaps
+          </button>
+        </div>
+      </div>
 
-        
-{/* Carousel Content */}
-<div
-  key={activeSlide}
-  className="fade-in"
-  style={{
-    animationDuration: '0.5s',
-    width: '100%',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center'
-  }}
->
-<img
-  src={slides[activeSlide].image}
-  alt={slides[activeSlide].alt}
-  style={{
-    display: 'block',
-    width: '100%',
-    maxWidth: '920px',
-    height: 'auto',
-    objectFit: 'contain',
-    borderRadius: '16px',
-    margin: '0 auto'
-  }}
-/>
-</div>
+      {/* Hero Infographic Carousel */}
+      <div
+        className="fade-in-up delay-2"
+        style={{
+          width: '100%',
+          textAlign: 'center',
+          position: 'relative',
+          overflow: 'hidden'
+        }}
+      >
+        <div
+          key={activeSlide}
+          className="fade-in"
+          style={{
+            animationDuration: '0.5s',
+            width: '100%',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
+          }}
+        >
+          <img
+            src={slides[activeSlide].image}
+            alt={slides[activeSlide].alt}
+            style={{
+              display: 'block',
+              width: '100%',
+              maxWidth: '920px',
+              height: 'auto',
+              objectFit: 'contain',
+              borderRadius: '16px',
+              margin: '0 auto'
+            }}
+          />
+        </div>
         
         {/* Carousel Indicators */}
-        <div style={{ display: 'flex', justifyContent: 'center', gap: '0.6rem', marginTop: '2.5rem', zIndex: 2 }}>
+        <div style={{ display: 'flex', justifyContent: 'center', gap: '0.6rem', marginTop: '2rem', zIndex: 2 }}>
           {slides.map((_, index) => (
             <span 
               key={index} 
@@ -159,92 +179,201 @@ const slides = [
         </div>
       </div>
 
-      {/* Suggested/All Bootcamps */}
-      <div className="fade-in-up delay-3" style={{ marginTop: '3.5rem' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem', borderBottom: '1px solid var(--border)', paddingBottom: '0.8rem' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-            <Users size={20} style={{ color: 'var(--primary)' }} />
-            <h2 style={{ fontSize: 'clamp(1.35rem, 3vw, 1.75rem)', margin: 0, fontFamily: 'var(--font-display)' }}>
-              {isLoggedIn ? 'Suggested Bootcamps' : 'All Bootcamps'}
-            </h2>
-          </div>
-          <button 
-            className="btn btn-text" 
-            style={{ padding: '0 1rem', display: 'flex', alignItems: 'center', gap: '0.25rem', fontWeight: 600 }}
-            onClick={() => onPageChange(isLoggedIn ? 'mentorship' : 'login')}
+      {/* Unified Programs & Learning Paths Section with Interactive Toggle */}
+      <div className="fade-in-up delay-3" style={{ marginTop: '4.5rem' }}>
+        
+        {/* Modern Interactive Switcher */}
+        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1.25rem' }}>
+          <div 
+            style={{ 
+              display: 'inline-flex', 
+              background: 'rgba(255, 255, 255, 0.04)', 
+              padding: '6px', 
+              borderRadius: '9999px', 
+              border: '1px solid var(--border)',
+              boxShadow: '0 4px 20px rgba(0,0,0,0.2)'
+            }}
           >
-            View All <ArrowRight size={14} />
-          </button>
+            <button
+              onClick={() => setActiveTab('roadmaps')}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px',
+                padding: '0.65rem 1.6rem',
+                borderRadius: '9999px',
+                border: 'none',
+                background: activeTab === 'roadmaps' ? 'var(--primary)' : 'transparent',
+                color: activeTab === 'roadmaps' ? '#fff' : 'var(--muted-foreground)',
+                fontWeight: 600,
+                fontSize: '0.92rem',
+                cursor: 'pointer',
+                transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                boxShadow: activeTab === 'roadmaps' ? '0 4px 15px rgba(99, 102, 241, 0.4)' : 'none'
+              }}
+            >
+              <Compass size={17} />
+              Roadmaps
+            </button>
+
+            <button
+              onClick={() => setActiveTab('cohorts')}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px',
+                padding: '0.65rem 1.6rem',
+                borderRadius: '9999px',
+                border: 'none',
+                background: activeTab === 'cohorts' ? 'var(--primary)' : 'transparent',
+                color: activeTab === 'cohorts' ? '#fff' : 'var(--muted-foreground)',
+                fontWeight: 600,
+                fontSize: '0.92rem',
+                cursor: 'pointer',
+                transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                boxShadow: activeTab === 'cohorts' ? '0 4px 15px rgba(99, 102, 241, 0.4)' : 'none'
+              }}
+            >
+              <Users size={17} />
+              Mentorship Cohorts
+            </button>
+          </div>
         </div>
-        <div style={{ display: 'flex', gap: '1.5rem', overflowX: 'auto', paddingBottom: '1rem' }}>
-          {bootcamps.map((bootcamp, idx) => (
-            <div key={idx} className="course-card glass-panel" style={{ minWidth: '280px', flex: '0 0 auto', padding: '1.5rem', borderRadius: 'var(--radius-card)', display: 'flex', flexDirection: 'column', border: '1px solid var(--border)' }}>
-              {/* Unique gradient overlays */}
-              <div style={{ height: '130px', background: bootcamp.gradient, borderRadius: 'var(--radius-base)', marginBottom: '1.25rem', opacity: 0.85, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: '1.5rem', fontWeight: 'bold' }}>
-                <Users size={32} style={{ opacity: 0.9 }} />
-              </div>
-              <h3 style={{ color: 'var(--card-title-color)', fontSize: '1.15rem', marginBottom: '0.5rem', fontWeight: 600 }}>
-                {bootcamp.title}
-              </h3>
-              <p className="text-muted" style={{ fontSize: '0.85rem', marginBottom: '1.25rem', flex: 1, lineHeight: 1.5 }}>
-                {bootcamp.desc}
-              </p>
-              
-              {bootcamp.isEnrolled ? (
-                <div style={{ marginTop: 'auto' }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.75rem', marginBottom: '0.4rem', color: 'var(--muted-foreground)' }}>
-                    <span>Progress</span>
-                    <span>{bootcamp.progress}%</span>
+
+        {/* Dynamic Context Explanation */}
+        <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
+          <p className="text-muted" style={{ fontSize: '0.95rem', maxWidth: '680px', margin: '0 auto', lineHeight: 1.55 }}>
+            {activeTab === 'roadmaps' 
+              ? 'Follow structured visual milestone architectures, high-level system design case studies, and core CS fundamentals at your own pace.' 
+              : 'Accelerate with dedicated senior industry mentors, weekly live code defenses at the whiteboard, and guaranteed portfolio calibration.'}
+          </p>
+        </div>
+
+        {/* Tab 1: Interactive Roadmaps */}
+        {activeTab === 'roadmaps' && (
+          <div key="roadmaps" className="fade-in" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '1.75rem' }}>
+            {roadmaps.map((map) => (
+              <div 
+                key={map.id} 
+                className="course-card glass-panel" 
+                style={{ 
+                  padding: '2rem', 
+                  borderRadius: 'var(--radius-card)', 
+                  display: 'flex', 
+                  flexDirection: 'column', 
+                  border: '1px solid var(--border)' 
+                }}
+              >
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.25rem' }}>
+                  <div style={{ width: '46px', height: '46px', borderRadius: '12px', background: 'rgba(99, 102, 241, 0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid rgba(99, 102, 241, 0.3)' }}>
+                    <Compass size={24} style={{ color: 'var(--primary)' }} />
                   </div>
-                  <div style={{ width: '100%', height: '6px', background: 'var(--secondary)', borderRadius: '3px', overflow: 'hidden' }}>
-                    <div style={{ width: `${bootcamp.progress}%`, height: '100%', background: 'var(--primary)' }}></div>
+                  <span style={{ fontSize: '0.75rem', fontWeight: 700, textTransform: 'uppercase', padding: '0.3rem 0.75rem', borderRadius: '9999px', background: 'rgba(255, 255, 255, 0.05)', color: 'var(--muted-foreground)', border: '1px solid var(--border)' }}>
+                    Self-Guided Tree
+                  </span>
+                </div>
+
+                <h3 style={{ color: 'var(--foreground)', fontSize: '1.35rem', marginBottom: '0.6rem', fontWeight: 700 }}>
+                  {map.title}
+                </h3>
+                <p className="text-muted" style={{ fontSize: '0.92rem', marginBottom: '1.5rem', lineHeight: 1.6, flex: 1 }}>
+                  {map.desc}
+                </p>
+
+                <div style={{ marginBottom: '1.75rem', display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+                  {map.topics.map((topic, tIdx) => (
+                    <span 
+                      key={tIdx} 
+                      style={{ 
+                        fontSize: '0.78rem', 
+                        padding: '0.3rem 0.65rem', 
+                        borderRadius: '6px', 
+                        background: 'rgba(255,255,255,0.04)', 
+                        border: '1px solid rgba(255,255,255,0.08)', 
+                        color: 'var(--muted-foreground)' 
+                      }}
+                    >
+                      {topic}
+                    </span>
+                  ))}
+                </div>
+
+                <button 
+                  onClick={() => handleExploreRoadmap(map.id)} 
+                  className="btn btn-primary" 
+                  style={{ width: '100%', borderRadius: '9999px', padding: '0.85rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', fontWeight: 600 }}
+                >
+                  View Roadmap <ArrowRight size={16} />
+                </button>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {/* Tab 2: Mentorship Cohorts */}
+        {activeTab === 'cohorts' && (
+          <div key="cohorts" className="fade-in" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '1.75rem' }}>
+            {cohorts.map((cohort) => (
+              <div 
+                key={cohort.id} 
+                className="course-card glass-panel" 
+                style={{ 
+                  padding: '2rem', 
+                  borderRadius: 'var(--radius-card)', 
+                  display: 'flex', 
+                  flexDirection: 'column', 
+                  border: '1px solid var(--border)' 
+                }}
+              >
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem', flexWrap: 'wrap', gap: '0.5rem' }}>
+                  <span style={{ 
+                    fontSize: '0.75rem', 
+                    fontWeight: 700, 
+                    textTransform: 'uppercase', 
+                    padding: '0.3rem 0.75rem', 
+                    borderRadius: '9999px', 
+                    background: cohort.badgeBg, 
+                    color: cohort.badgeColor,
+                    border: `1px solid ${cohort.badgeColor}40`
+                  }}>
+                    {cohort.badge}
+                  </span>
+                  <span style={{ fontSize: '0.8rem', color: 'var(--muted-foreground)', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+                    <Clock size={14} />
+                    {cohort.duration}
+                  </span>
+                </div>
+
+                <h3 style={{ color: 'var(--foreground)', fontSize: '1.35rem', marginBottom: '0.6rem', fontWeight: 700 }}>
+                  {cohort.title}
+                </h3>
+                <p className="text-muted" style={{ fontSize: '0.92rem', marginBottom: '1.25rem', lineHeight: 1.6, flex: 1 }}>
+                  {cohort.desc}
+                </p>
+
+                <div style={{ marginBottom: '1.5rem', background: 'rgba(0,0,0,0.2)', padding: '1rem', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.05)' }}>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.55rem' }}>
+                    {cohort.highlights.map((highlight, hIdx) => (
+                      <div key={hIdx} style={{ display: 'flex', alignItems: 'center', gap: '0.55rem', fontSize: '0.86rem', color: 'var(--muted-foreground)' }}>
+                        <CheckCircle2 size={15} style={{ color: '#10b981', flexShrink: 0 }} />
+                        <span>{highlight}</span>
+                      </div>
+                    ))}
                   </div>
                 </div>
-              ) : (
+
                 <button 
-                  className="btn btn-outline btn-sm" 
-                  style={{ marginTop: 'auto', width: '100%', borderRadius: '9999px' }}
+                  className="btn btn-primary" 
+                  style={{ width: '100%', marginTop: 'auto', borderRadius: '9999px', padding: '0.85rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', fontSize: '0.95rem', fontWeight: 600 }}
                   onClick={() => onPageChange(isLoggedIn ? 'mentorship' : 'login')}
                 >
-                  Enroll Now
+                  Mentorship Program <ArrowRight size={16} />
                 </button>
-              )}
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Suggested/All Roadmaps */}
-      <div className="fade-in-up delay-4" style={{ marginTop: '3rem' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem', borderBottom: '1px solid var(--border)', paddingBottom: '0.8rem' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-            <Compass size={20} style={{ color: 'var(--primary)' }} />
-            <h2 style={{ fontSize: 'clamp(1.35rem, 3vw, 1.75rem)', margin: 0, fontFamily: 'var(--font-display)' }}>
-              {isLoggedIn ? 'Suggested Roadmaps' : 'All Roadmaps'}
-            </h2>
-          </div>
-          <button onClick={() => onPageChange('roadmaps')} className="btn btn-text" style={{ padding: '0 1rem', display: 'flex', alignItems: 'center', gap: '0.25rem', fontWeight: 600 }}>
-            View All <ArrowRight size={14} />
-          </button>
-        </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '1.5rem' }}>
-          {roadmaps.map((map, idx) => (
-            <div key={idx} className="course-card glass-panel" style={{ padding: '1.75rem', borderRadius: 'var(--radius-card)', display: 'flex', flexDirection: 'column', border: '1px solid var(--border)' }}>
-              <div style={{ height: '130px', background: map.gradient, borderRadius: 'var(--radius-base)', marginBottom: '1.25rem', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid var(--border)' }}>
-                <Compass size={28} style={{ color: 'var(--primary)' }} />
               </div>
-              <h3 style={{ color: 'var(--card-title-color)', fontSize: '1.2rem', marginBottom: '0.5rem', fontWeight: 600 }}>
-                {map.title}
-              </h3>
-              <p className="text-muted" style={{ fontSize: '0.88rem', marginBottom: '1.5rem', lineHeight: 1.6, flex: 1 }}>
-                {map.desc}
-              </p>
-              <button onClick={() => handleExploreRoadmap(map.id)} className="btn btn-primary btn-sm" style={{ width: '100%', marginTop: 'auto', borderRadius: '9999px' }}>
-                Explore Roadmap →
-              </button>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
+
       </div>
     </div>
   );

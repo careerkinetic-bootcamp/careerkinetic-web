@@ -46,6 +46,18 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  // 2.5 Dev mock login trigger
+  const signInWithDev = async () => {
+    try {
+      const resp = await axios.post(`${API_URL}/dev-login`);
+      setUser(resp.data);
+      return resp.data;
+    } catch (e) {
+      console.error('Failed to execute Dev sign in:', e);
+      throw e;
+    }
+  };
+
   // 3. Logout trigger
   const logout = async () => {
     try {
@@ -116,6 +128,7 @@ export const AuthProvider = ({ children }) => {
     signUpWithEmail: () => Promise.resolve({ error: { message: "Email/password registration is deprecated." } }),
     signInWithGoogle,
     signInWithGitHub,
+    signInWithDev,
     resetPassword: () => Promise.resolve({ error: { message: "Password reset is deprecated." } }),
     logout,
     refreshUser,
