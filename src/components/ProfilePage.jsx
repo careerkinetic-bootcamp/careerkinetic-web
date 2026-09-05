@@ -57,8 +57,8 @@ const ProfilePage = ({ onPageChange }) => {
     setMessage({ type: '', text: '' });
 
     try {
-      const BASE_URL = import.meta.env.VITE_API_URL || 'https://93a7h43145.execute-api.us-east-1.amazonaws.com';
-      const API_URL = `${BASE_URL.replace(/\/$/, '')}/api/auth/profile`;
+      const BASE_URL = import.meta.env.VITE_API_URL || '';
+      const API_URL = `${BASE_URL ? BASE_URL.replace(/\/$/, '') : ''}/api/auth/profile`;
       
       // Transform strings back to arrays as per the backend schema
       const payload = {

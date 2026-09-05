@@ -4,8 +4,8 @@ import axios from 'axios';
 // Enable withCredentials globally for cookie exchange
 axios.defaults.withCredentials = true;
 
-const BASE_URL = import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000';
-const API_URL = `${BASE_URL.replace(/\/$/, '')}/api/auth`;
+const BASE_URL = import.meta.env.VITE_API_URL || '';
+const API_URL = `${BASE_URL ? BASE_URL.replace(/\/$/, '') : ''}/api/auth`;
 
 // Create Context
 const AuthContext = createContext();
@@ -42,6 +42,18 @@ export const AuthProvider = ({ children }) => {
       }
     } catch (e) {
       console.error('Failed to initiate GitHub sign in:', e);
+      throw e;
+    }
+  };
+
+  // 2.5 Dev mock login trigger
+  const signInWithDev = async () => {
+    try {
+      const resp = await axios.post(`${API_URL}/dev-login`);
+      setUser(resp.data);
+      return resp.data;
+    } catch (e) {
+      console.error('Failed to execute Dev sign in:', e);
       throw e;
     }
   };
@@ -116,6 +128,7 @@ export const AuthProvider = ({ children }) => {
     signUpWithEmail: () => Promise.resolve({ error: { message: "Email/password registration is deprecated." } }),
     signInWithGoogle,
     signInWithGitHub,
+    signInWithDev,
     resetPassword: () => Promise.resolve({ error: { message: "Password reset is deprecated." } }),
     logout,
     refreshUser,

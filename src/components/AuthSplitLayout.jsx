@@ -1,13 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
-import { AlertCircle, CheckCircle, GraduationCap } from 'lucide-react';
+import { AlertCircle, CheckCircle } from 'lucide-react';
+import Logo from './Logo';
 import './AuthSplitLayout.css';
 
-const AuthSplitLayout = () => {
-  const { signInWithGoogle, signInWithGitHub } = useAuth();
+const AuthSplitLayout = ({ onPageChange }) => {
+  const { signInWithGoogle, signInWithGitHub, signInWithDev, isLoggedIn } = useAuth();
   
   const [apiError, setApiError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+
+  // Auto-redirect to home if already logged in
+  useEffect(() => {
+    if (isLoggedIn && onPageChange) {
+      onPageChange('home');
+    }
+  }, [isLoggedIn, onPageChange]);
 
   // -- Google Sign In --
   const handleGoogleLogin = async () => {
@@ -29,6 +37,23 @@ const AuthSplitLayout = () => {
       await signInWithGitHub();
     } catch (err) {
       setApiError(err.message || 'GitHub authentication failed.');
+      setIsLoading(false);
+    }
+  };
+
+  // -- Dev Mode Instant Login --
+  const handleDevLogin = async () => {
+    setIsLoading(true);
+    setApiError('');
+    try {
+      await signInWithDev();
+      if (onPageChange) {
+        onPageChange('home');
+      }
+    } catch (err) {
+      setApiError(
+        err.response?.data?.detail || err.message || 'Dev authentication failed. Make sure your local backend is running.'
+      );
       setIsLoading(false);
     }
   };
@@ -158,6 +183,50 @@ const AuthSplitLayout = () => {
               Continue with GitHub
             </button>
 
+            {/* Quick Dev Login for local development */}
+            <div style={{ width: '100%', maxWidth: '360px', marginTop: '0.25rem' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', margin: '0.75rem 0' }}>
+                <div style={{ flex: 1, height: '1px', background: 'rgba(255,255,255,0.1)' }} />
+                <span style={{ fontSize: '0.72rem', color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '1px', fontWeight: '600' }}>Local Dev Mode</span>
+                <div style={{ flex: 1, height: '1px', background: 'rgba(255,255,255,0.1)' }} />
+              </div>
+              <button
+                type="button"
+                onClick={handleDevLogin}
+                className="btn"
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '10px',
+                  width: '100%',
+                  borderRadius: '50px',
+                  padding: '0.85rem 1.75rem',
+                  fontSize: '0.95rem',
+                  fontWeight: '600',
+                  background: 'linear-gradient(135deg, rgba(99, 102, 241, 0.25), rgba(168, 85, 247, 0.25))',
+                  border: '1px solid rgba(168, 85, 247, 0.45)',
+                  color: '#e2e8f0',
+                  cursor: 'pointer',
+                  transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                  boxShadow: '0 4px 15px rgba(124, 58, 237, 0.15)'
+                }}
+                disabled={isLoading}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = 'linear-gradient(135deg, rgba(99, 102, 241, 0.4), rgba(168, 85, 247, 0.4))';
+                  e.currentTarget.style.transform = 'translateY(-2px)';
+                  e.currentTarget.style.boxShadow = '0 8px 25px rgba(124, 58, 237, 0.3)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = 'linear-gradient(135deg, rgba(99, 102, 241, 0.25), rgba(168, 85, 247, 0.25))';
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = '0 4px 15px rgba(124, 58, 237, 0.15)';
+                }}
+              >
+                <span>⚡</span> Continue as Demo User (Dev)
+              </button>
+            </div>
+
           </div>
 
           <div style={{ textAlign: 'center', marginTop: '2.5rem', fontSize: '0.8rem', color: 'var(--text-muted)' }}>
@@ -168,11 +237,8 @@ const AuthSplitLayout = () => {
         {/* Right Column: Introduction */}
         <div className="intro-panel glass-panel fade-in-up delay-2">
           <div className="intro-content">
-            <div className="icon-wrapper">
-              <GraduationCap size={36} style={{ color: 'var(--primary)' }} />
-            </div>
-            <h1 className="text-gradient" style={{ fontWeight: '800' }}>CareerKinetic</h1>
-            <p>
+            <Logo size={100} vertical={true} />
+            <p style={{ marginTop: '1.5rem' }}>
               Welcome to CareerKinetic—your gateway to personalized technology learning! Discover interactive skill assessments, connect with industry experts, and follow dynamic roadmaps tailored specifically to your tech career goals.
             </p>
           </div>

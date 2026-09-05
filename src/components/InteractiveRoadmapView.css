@@ -1,0 +1,535 @@
+/* Interactive Roadmap View Styling */
+.interactive-roadmap-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-bottom: 5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Header & Track Selector */
+.roadmap-hero {
+  padding: 2rem 2.5rem;
+  border-radius: var(--radius-hero);
+  position: relative;
+  overflow: hidden;
+}
+
+.roadmap-hero-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.track-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1rem;
+  border-radius: 9999px;
+  background: rgba(138, 43, 226, 0.15);
+  border: 1px solid var(--border);
+  color: var(--primary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.track-switcher {
+  display: flex;
+  background: rgba(0, 0, 0, 0.35);
+  padding: 0.35rem;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.track-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.65rem 1.4rem;
+  border-radius: 10px;
+  border: none;
+  background: transparent;
+  color: var(--muted-foreground);
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.track-btn:hover {
+  color: var(--foreground);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.track-btn.active {
+  background: var(--gradient-primary);
+  color: #ffffff;
+  box-shadow: 0 4px 15px var(--primary-glow);
+}
+
+/* Progress Tracker Bar */
+.roadmap-progress-card {
+  padding: 1.5rem 2rem;
+  border-radius: var(--radius-card);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.progress-bar-track {
+  width: 100%;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 9999px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  position: relative;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: var(--gradient-primary);
+  border-radius: 9999px;
+  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 12px var(--primary-glow);
+}
+
+/* Methodology & Rules Banner */
+.contract-banner {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+}
+
+.contract-card {
+  padding: 1.25rem 1.5rem;
+  border-radius: var(--radius-base);
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background: var(--card);
+  transition: var(--transition);
+}
+
+.contract-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--primary);
+  box-shadow: 0 8px 25px var(--primary-glow);
+}
+
+.contract-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--primary);
+}
+
+.contract-card p {
+  font-size: 0.88rem;
+  color: var(--muted-foreground);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Filter & Search Bar */
+.roadmap-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.search-input-wrapper {
+  position: relative;
+  flex: 1;
+  min-width: 280px;
+}
+
+.search-input-wrapper svg {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--muted-foreground);
+}
+
+.search-input-wrapper input {
+  padding-left: 2.75rem;
+}
+
+.filter-pills {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.filter-pill-btn {
+  padding: 0.5rem 1.1rem;
+  border-radius: 9999px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--muted-foreground);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.filter-pill-btn:hover {
+  color: var(--foreground);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.filter-pill-btn.active {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+  box-shadow: 0 2px 10px var(--primary-glow);
+}
+
+/* Part Timeline Section */
+.roadmap-parts-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  position: relative;
+}
+
+.part-section {
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--card);
+  transition: var(--transition);
+}
+
+.part-header {
+  padding: 1.5rem 2rem;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.05));
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  /* user-select: none; */
+  transition: var(--transition);
+}
+
+.part-header:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.part-title-area {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.part-number-badge {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: var(--gradient-primary);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px var(--primary-glow);
+}
+
+.part-header h2 {
+  font-size: 1.25rem;
+  margin: 0;
+  color: var(--foreground);
+}
+
+.part-subtitle {
+  font-size: 0.85rem;
+  color: var(--muted-foreground);
+  margin-top: 0.25rem;
+}
+
+.part-stats {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.part-badge-count {
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.08);
+  font-size: 0.8rem;
+  color: var(--muted-foreground);
+  font-weight: 600;
+}
+
+/* Module Topics Grid / List */
+.modules-list {
+  padding: 1.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.module-item-card {
+  padding: 1.25rem 1.5rem;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: var(--transition);
+}
+
+.module-item-card:hover {
+  border-color: rgba(138, 43, 226, 0.4);
+  background: rgba(0, 0, 0, 0.4);
+  transform: translateX(4px);
+}
+
+.module-item-card.completed {
+  border-color: rgba(46, 213, 115, 0.4);
+  background: rgba(46, 213, 115, 0.03);
+}
+
+.module-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.checkbox-wrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  cursor: pointer;
+  flex: 1;
+}
+
+.custom-checkbox {
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  border: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: var(--transition);
+  margin-top: 2px;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.custom-checkbox.checked {
+  background: #10b981;
+  border-color: #10b981;
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+}
+
+.module-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--foreground);
+  margin: 0;
+}
+
+.module-title.strike {
+  text-decoration: line-through;
+  color: var(--muted-foreground);
+}
+
+.module-desc {
+  font-size: 0.9rem;
+  color: var(--muted-foreground);
+  line-height: 1.6;
+  margin: 0;
+  padding-left: 2.25rem;
+}
+
+.module-tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  padding-left: 2.25rem;
+  margin-top: 0.25rem;
+}
+
+.module-tag {
+  font-size: 0.75rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border);
+  color: var(--muted-foreground);
+}
+
+.module-tag.highlight {
+  background: rgba(138, 43, 226, 0.15);
+  border-color: rgba(138, 43, 226, 0.4);
+  color: #c084fc;
+}
+
+/* Production Blueprints & Architectural Projects Showcase */
+.blueprints-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.blueprint-card {
+  padding: 1.75rem;
+  border-radius: var(--radius-card);
+  border: 1px solid var(--border);
+  background: var(--card);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: relative;
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.blueprint-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--primary);
+  box-shadow: 0 15px 35px var(--primary-glow);
+}
+
+.blueprint-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.blueprint-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  background: rgba(138, 43, 226, 0.2);
+  color: #c084fc;
+  border: 1px solid rgba(138, 43, 226, 0.3);
+}
+
+.blueprint-card h3 {
+  font-size: 1.2rem;
+  color: var(--foreground);
+  margin: 0;
+}
+
+.blueprint-card p {
+  font-size: 0.9rem;
+  color: var(--muted-foreground);
+  line-height: 1.6;
+  margin: 0;
+  flex: 1;
+}
+
+.blueprint-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.blueprint-visual-note {
+  font-size: 0.8rem;
+  color: #a78bfa;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+/* HLD 30 Cases Section */
+.hld-showcase-box {
+  padding: 2rem;
+  border-radius: var(--radius-card);
+  border: 1px solid var(--border);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.05));
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.hld-tags-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.hld-tag {
+  padding: 0.4rem 0.9rem;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid var(--border);
+  font-size: 0.85rem;
+  color: var(--foreground);
+  transition: var(--transition);
+}
+
+.hld-tag:hover {
+  border-color: var(--primary);
+  background: rgba(138, 43, 226, 0.15);
+  color: #c084fc;
+}
+
+/* Responsive queries */
+@media (max-width: 900px) {
+  .roadmap-hero {
+    padding: 1.5rem;
+  }
+  
+  .roadmap-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .search-input-wrapper {
+    width: 100%;
+  }
+
+  .part-header {
+    padding: 1.2rem;
+  }
+
+  .modules-list {
+    padding: 1.2rem;
+  }
+
+  .blueprints-grid {
+    grid-template-columns: 1fr;
+  }
+}

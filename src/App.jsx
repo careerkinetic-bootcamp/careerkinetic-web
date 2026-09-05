@@ -18,7 +18,13 @@ import './App.css';
 function App() {
   const { isLoggedIn, isAdmin, isAuthReady, logout } = useAuth();
   const [currentPage, setCurrentPage] = useState('home');
+  const [currentTrack, setCurrentTrack] = useState(null);
   const { theme, toggleTheme } = useTheme();
+
+  const handlePageChange = (page, track = null) => {
+    setCurrentPage(page);
+    setCurrentTrack(track);
+  };
 
   if (!isAuthReady) {
     return <div style={{ height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}><h1 className="text-gradient">Verifying Session...</h1></div>;
@@ -30,7 +36,7 @@ function App() {
       
       <Navbar 
         currentPage={currentPage} 
-        onPageChange={setCurrentPage} 
+        onPageChange={handlePageChange} 
         isLoggedIn={isLoggedIn} 
         isAdmin={isAdmin} 
         onLogout={logout} 
@@ -39,16 +45,16 @@ function App() {
       />
       
       <main className="max-w-7xl mx-auto px-6 py-12">
-        {currentPage === 'home' && <DashboardPage />}
-        {currentPage === 'login' && <AuthSplitLayout defaultIsLogin={true} onPageChange={setCurrentPage} />}
+        {currentPage === 'home' && <DashboardPage onPageChange={handlePageChange} />}
+        {currentPage === 'login' && <AuthSplitLayout defaultIsLogin={true} onPageChange={handlePageChange} />}
         {currentPage === 'courses' && <CoursesPage />}
-        {currentPage === 'roadmaps' && <RoadmapsPage />}
-        {currentPage === 'test' && <TakeTestPage />}
-        {currentPage === 'mentorship' && (isLoggedIn ? <MentorshipPage /> : <DashboardPage />)}
-        {currentPage === 'opportunities' && (isLoggedIn ? <OpportunitiesPage /> : <DashboardPage />)}
+        {currentPage === 'roadmaps' && <RoadmapsPage initialTrack={currentTrack} onPageChange={handlePageChange} />}
+        {currentPage === 'test' && <TakeTestPage onPageChange={handlePageChange} />}
+        {currentPage === 'mentorship' && <MentorshipPage onPageChange={handlePageChange} />}
+        {currentPage === 'opportunities' && (isLoggedIn ? <OpportunitiesPage /> : <DashboardPage onPageChange={handlePageChange} />)}
         {currentPage === 'about' && <AboutUsPage />}
-        {currentPage === 'admin' && (isAdmin ? <AdminDashboard /> : <DashboardPage />)}
-        {currentPage === 'profile' && <ProfilePage onPageChange={setCurrentPage} />}
+        {currentPage === 'admin' && (isAdmin ? <AdminDashboard /> : <DashboardPage onPageChange={handlePageChange} />)}
+        {currentPage === 'profile' && <ProfilePage onPageChange={handlePageChange} />}
         {currentPage === 'faqs' && <FaqPage />}
       </main>
     </div>

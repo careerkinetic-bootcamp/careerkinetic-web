@@ -1,3 +1,9 @@
+/**
+ * @deprecated Legacy Cloudflare Worker routing proxy for Google Cloud Storage.
+ * The frontend deployment has been migrated to native Cloudflare Pages.
+ * Routing and caching are now handled via `public/_redirects` and `public/_headers`.
+ * You may disable/delete the Worker routes for careerkinetic.com in Cloudflare Dashboard.
+ */
 export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
