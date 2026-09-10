@@ -21,6 +21,8 @@ const loadRazorpaySDK = () => {
     };
     document.body.appendChild(script);
   });
+};
+
 const BASE_URL = import.meta.env.VITE_API_URL || '';
 const PAYMENTS_API = `${BASE_URL ? BASE_URL.replace(/\/$/, '') : ''}/payments`;
 
