@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import { Brain, Terminal, Users, Sparkles, CheckCircle2, ArrowRight, Shield, Award, Clock, Calendar, MessageSquare, X, Layers, CreditCard, PhoneCall } from 'lucide-react';
+import { Brain, Terminal, Users, Sparkles, CheckCircle2, ArrowRight, Shield, Award, Clock, Calendar, MessageSquare, X, Layers, CreditCard, PhoneCall, AlertCircle } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { SWE_CURRICULUM } from '../data/sweRoadmap';
 import { AIML_CURRICULUM } from '../data/aimlRoadmap';
+import PaymentButton from './PaymentButton';
 import './CoursesPage.css';
 
 const MENTORSHIP_COHORTS = [
@@ -15,6 +16,8 @@ const MENTORSHIP_COHORTS = [
     description: 'Master enterprise AI engineering with 1-on-1 guidance from senior ML practitioners. Build and defend 5 production blueprints and 30 HLD case studies.',
     duration: '8 Months Bootcamp',
     schedule: '1.5 - 2 Hours / Day • 5 Days / Week',
+    priceFull: 49999,
+    priceMonthly: 6999,
     icon: Brain,
     gradient: 'linear-gradient(135deg, oklch(0.7 0.22 295 / 0.25), oklch(0.72 0.22 330 / 0.25))',
     badgeBg: 'rgba(236, 72, 153, 0.15)',
@@ -36,6 +39,8 @@ const MENTORSHIP_COHORTS = [
     description: 'Master high-concurrency backend architecture with 1-on-1 mentoring. Construct 4 reference systems, analyze distributed trade-offs, and defend 30 HLD scenarios.',
     duration: '8 Months Bootcamp',
     schedule: '1.5 - 2 Hours / Day • 5 Days / Week',
+    priceFull: 39999,
+    priceMonthly: 5499,
     icon: Terminal,
     gradient: 'linear-gradient(135deg, oklch(0.58 0.22 295 / 0.25), oklch(0.41 0.15 240 / 0.25))',
     badgeBg: 'rgba(99, 102, 241, 0.15)',
@@ -51,12 +56,30 @@ const MENTORSHIP_COHORTS = [
   }
 ];
 
+// Validation helpers for phone & email
+const cleanPhoneDigits = (raw = '') => raw.replace(/\D/g, '');
+const isValidPhone = (raw = '') => {
+  const digits = cleanPhoneDigits(raw);
+  // Valid Indian 10-digit mobile (starting with 6-9) or with 91 prefix (12 digits)
+  if (digits.length === 10 && /^[6-9]\d{9}$/.test(digits)) return true;
+  if (digits.length === 12 && digits.startsWith('91') && /^[6-9]\d{9}$/.test(digits.slice(2))) return true;
+  return false;
+};
+const isValidEmail = (email = '') => {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
+};
+
 const MentorshipPage = ({ onPageChange = () => {} }) => {
-  const { user, isLoggedIn } = useAuth();
+  const { user, isLoggedIn, refreshUser } = useAuth();
   const [selectedCohort, setSelectedCohort] = useState(null);
   const [modalMode, setModalMode] = useState('buy'); // 'buy' | 'callback'
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [paymentDetails, setPaymentDetails] = useState(null);
+  const [paymentError, setPaymentError] = useState('');
   const [activeProjectTab, setActiveProjectTab] = useState('swe');
+
+  const enrolledCohorts = user?.profile_data?.enrolled_cohorts || [];
+  const isEnrolled = (cohortId) => enrolledCohorts.includes(cohortId?.toLowerCase());
 
   const [formData, setFormData] = useState({
     fullName: '',
@@ -80,11 +103,16 @@ const MentorshipPage = ({ onPageChange = () => {} }) => {
   }, [selectedCohort]);
 
   const handleBuyNow = (cohort) => {
+    if (isEnrolled(cohort.id)) {
+      return;
+    }
     setSelectedCohort(cohort);
     setModalMode('buy');
     setIsSubmitted(false);
+    setPaymentDetails(null);
+    setPaymentError('');
     setFormData({
-      fullName: user?.full_name || user?.name || '',
+      fullName: user?.profile_data?.fullName || user?.full_name || user?.name || '',
       email: user?.email || '',
       phone: '',
       paymentPlan: 'Full Tuition (Instant Seat Access)',
@@ -97,8 +125,10 @@ const MentorshipPage = ({ onPageChange = () => {} }) => {
     setSelectedCohort(cohort);
     setModalMode('callback');
     setIsSubmitted(false);
+    setPaymentDetails(null);
+    setPaymentError('');
     setFormData({
-      fullName: user?.full_name || user?.name || '',
+      fullName: user?.profile_data?.fullName || user?.full_name || user?.name || '',
       email: user?.email || '',
       phone: '',
       paymentPlan: 'Full Tuition (Instant Seat Access)',
@@ -425,9 +455,17 @@ const MentorshipPage = ({ onPageChange = () => {} }) => {
                     </span>
                   </div>
 
-                  <h2 style={{ fontSize: '1.45rem', fontWeight: 700, color: 'var(--foreground)', margin: '0.25rem 0 0.5rem 0' }}>
+                  <h2 style={{ fontSize: '1.45rem', fontWeight: 700, color: 'var(--foreground)', margin: '0.25rem 0 0.25rem 0' }}>
                     {cohort.title}
                   </h2>
+                  <div style={{ display: 'flex', alignItems: 'baseline', gap: '8px', marginBottom: '0.75rem' }}>
+                    <span style={{ fontSize: '1.5rem', fontWeight: 800, color: 'var(--foreground)' }}>
+                      ₹{cohort.priceFull?.toLocaleString('en-IN')}
+                    </span>
+                    <span style={{ fontSize: '0.8rem', color: 'var(--muted-foreground)' }}>
+                      or ₹{cohort.priceMonthly?.toLocaleString('en-IN')}/mo (EMI)
+                    </span>
+                  </div>
                   <p className="text-muted" style={{ fontSize: '0.9rem', lineHeight: 1.6, marginBottom: '1.5rem' }}>
                     {cohort.description}
                   </p>
@@ -447,41 +485,89 @@ const MentorshipPage = ({ onPageChange = () => {} }) => {
                   </div>
 
                   <div style={{ marginTop: 'auto', display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
-                    <button
-                      className="btn btn-primary"
-                      style={{ 
-                        flex: 1, 
-                        minWidth: '135px', 
-                        borderRadius: '9999px', 
-                        padding: '0.75rem 1.25rem', 
-                        display: 'flex', 
-                        alignItems: 'center', 
-                        justifyContent: 'center', 
-                        gap: '0.5rem', 
-                        fontWeight: 600,
-                        boxShadow: '0 4px 15px rgba(99, 102, 241, 0.35)'
-                      }}
-                      onClick={() => handleBuyNow(cohort)}
-                    >
-                      <CreditCard size={15} /> Buy Now
-                    </button>
-                    <button
-                      className="btn btn-outline"
-                      style={{ 
-                        flex: 1, 
-                        minWidth: '135px', 
-                        borderRadius: '9999px', 
-                        padding: '0.75rem 1.25rem', 
-                        display: 'flex', 
-                        alignItems: 'center', 
-                        justifyContent: 'center', 
-                        gap: '0.5rem', 
-                        fontWeight: 600 
-                      }}
-                      onClick={() => handleRequestCallback(cohort)}
-                    >
-                      <PhoneCall size={15} /> Request CallBack
-                    </button>
+                    {isEnrolled(cohort.id) ? (
+                      <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', width: '100%' }}>
+                        <div
+                          style={{
+                            flex: 1,
+                            minWidth: '140px',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            gap: '8px',
+                            padding: '0.75rem 1rem',
+                            borderRadius: '9999px',
+                            background: 'rgba(16, 185, 129, 0.15)',
+                            border: '1px solid rgba(16, 185, 129, 0.4)',
+                            color: '#10b981',
+                            fontWeight: 700,
+                            fontSize: '0.9rem'
+                          }}
+                        >
+                          <CheckCircle2 size={18} /> Enrolled Student
+                        </div>
+                        <button
+                          className="btn btn-outline"
+                          style={{
+                            flex: 1,
+                            minWidth: '140px',
+                            borderRadius: '9999px',
+                            padding: '0.75rem 1rem',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            gap: '0.5rem',
+                            fontWeight: 600,
+                            borderColor: cohort.badgeBorder,
+                            color: cohort.badgeColor
+                          }}
+                          onClick={() => {
+                            setActiveProjectTab(cohort.id);
+                            window.scrollTo({ top: 350, behavior: 'smooth' });
+                          }}
+                        >
+                          View Blueprints <ArrowRight size={15} />
+                        </button>
+                      </div>
+                    ) : (
+                      <>
+                        <button
+                          className="btn btn-primary"
+                          style={{ 
+                            flex: 1, 
+                            minWidth: '135px', 
+                            borderRadius: '9999px', 
+                            padding: '0.75rem 1.25rem', 
+                            display: 'flex', 
+                            alignItems: 'center', 
+                            justifyContent: 'center', 
+                            gap: '0.5rem', 
+                            fontWeight: 600,
+                            boxShadow: '0 4px 15px rgba(99, 102, 241, 0.35)'
+                          }}
+                          onClick={() => handleBuyNow(cohort)}
+                        >
+                          <CreditCard size={15} /> Buy Now
+                        </button>
+                        <button
+                          className="btn btn-outline"
+                          style={{ 
+                            flex: 1, 
+                            minWidth: '135px', 
+                            borderRadius: '9999px', 
+                            padding: '0.75rem 1.25rem', 
+                            display: 'flex', 
+                            alignItems: 'center', 
+                            justifyContent: 'center', 
+                            gap: '0.5rem', 
+                            fontWeight: 600 
+                          }}
+                          onClick={() => handleRequestCallback(cohort)}
+                        >
+                          <PhoneCall size={15} /> Request CallBack
+                        </button>
+                      </>
+                    )}
                   </div>
 
                 </div>
@@ -543,15 +629,52 @@ const MentorshipPage = ({ onPageChange = () => {} }) => {
                   <CheckCircle2 size={32} style={{ color: '#10b981' }} />
                 </div>
                 <h3 style={{ fontSize: '1.4rem', color: 'var(--foreground)', marginBottom: '0.5rem' }}>
-                  {modalMode === 'buy' ? 'Enrollment Confirmed!' : 'CallBack Scheduled!'}
+                  {modalMode === 'buy' ? '🎉 Payment & Enrollment Confirmed!' : 'CallBack Scheduled!'}
                 </h3>
-                <p className="text-muted" style={{ fontSize: '0.9rem', lineHeight: 1.6, marginBottom: '1.5rem' }}>
+                <p className="text-muted" style={{ fontSize: '0.9rem', lineHeight: 1.6, marginBottom: '1.25rem' }}>
                   {modalMode === 'buy' 
-                    ? `Welcome to the ${selectedCohort.title}! Your admission confirmation and 1-on-1 mentor onboarding guide have been dispatched to ${formData.email || 'your email'}.` 
+                    ? `Welcome to ${selectedCohort.title}! Your admission has been confirmed and onboarding instructions dispatched to ${formData.email || 'your email'}.` 
                     : `Thank you, ${formData.fullName || 'there'}! A senior mentor will call you at ${formData.phone || 'your phone'} during the ${formData.preferredTime} window.`}
                 </p>
+
+                {modalMode === 'buy' && (
+                  <div style={{
+                    background: 'rgba(255, 255, 255, 0.03)',
+                    border: '1px solid var(--border)',
+                    borderRadius: '12px',
+                    padding: '1rem',
+                    fontSize: '0.85rem',
+                    textAlign: 'left',
+                    marginBottom: '1.5rem',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '0.5rem'
+                  }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                      <span className="text-muted">Plan:</span>
+                      <strong style={{ color: 'var(--foreground)' }}>{formData.paymentPlan}</strong>
+                    </div>
+                    {paymentDetails?.payment_id && (
+                      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                        <span className="text-muted">Razorpay Payment ID:</span>
+                        <code style={{ color: '#818cf8', fontWeight: 600 }}>{paymentDetails.payment_id}</code>
+                      </div>
+                    )}
+                    {paymentDetails?.order_id && (
+                      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                        <span className="text-muted">Razorpay Order ID:</span>
+                        <code style={{ color: 'var(--foreground)' }}>{paymentDetails.order_id}</code>
+                      </div>
+                    )}
+                    <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                      <span className="text-muted">Status:</span>
+                      <span style={{ color: '#10b981', fontWeight: 700 }}>VERIFIED & CAPTURED</span>
+                    </div>
+                  </div>
+                )}
+
                 <button className="btn btn-primary" style={{ borderRadius: '9999px', width: '100%' }} onClick={() => setSelectedCohort(null)}>
-                  Close
+                  Done & Close
                 </button>
               </div>
             ) : modalMode === 'buy' ? (
@@ -569,7 +692,25 @@ const MentorshipPage = ({ onPageChange = () => {} }) => {
                   8 Months Bootcamp • 1-on-1 Mentor Guidance & Live Defense
                 </p>
 
-                <form onSubmit={handleFormSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+                {paymentError && (
+                  <div style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '10px',
+                    padding: '0.75rem 1rem',
+                    background: 'rgba(239, 68, 68, 0.12)',
+                    border: '1px solid rgba(239, 68, 68, 0.3)',
+                    borderRadius: '10px',
+                    color: '#fca5a5',
+                    fontSize: '0.85rem',
+                    marginBottom: '0.75rem'
+                  }}>
+                    <AlertCircle size={18} style={{ flexShrink: 0, color: '#ef4444' }} />
+                    <span>{paymentError}</span>
+                  </div>
+                )}
+
+                <form onSubmit={(e) => e.preventDefault()} style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
                   <div>
                     <label style={{ display: 'block', fontSize: '0.8rem', color: 'var(--foreground)', marginBottom: '0.25rem', fontWeight: 500 }}>Your Full Name</label>
                     <input 
@@ -595,15 +736,32 @@ const MentorshipPage = ({ onPageChange = () => {} }) => {
                     />
                   </div>
                   <div>
-                    <label style={{ display: 'block', fontSize: '0.8rem', color: 'var(--foreground)', marginBottom: '0.25rem', fontWeight: 500 }}>Phone / WhatsApp Number</label>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.25rem' }}>
+                      <label style={{ fontSize: '0.8rem', color: 'var(--foreground)', fontWeight: 500 }}>Phone / WhatsApp Number</label>
+                      {formData.phone && (
+                        isValidPhone(formData.phone) ? (
+                          <span style={{ fontSize: '0.72rem', color: '#10b981', fontWeight: 600 }}>✓ Valid Mobile</span>
+                        ) : (
+                          <span style={{ fontSize: '0.72rem', color: '#f87171', fontWeight: 500 }}>Enter 10-digit number</span>
+                        )
+                      )}
+                    </div>
                     <input 
                       type="tel" 
                       required 
                       value={formData.phone} 
-                      onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                      placeholder="+1 (555) 000-0000" 
+                      onChange={(e) => {
+                        const val = e.target.value.replace(/[^0-9+\s-]/g, '');
+                        setFormData({...formData, phone: val});
+                      }}
+                      placeholder="+91 98765 43210" 
                       className="form-control" 
-                      style={{ width: '100%', padding: '0.65rem 0.85rem', fontSize: '0.9rem' }} 
+                      style={{ 
+                        width: '100%', 
+                        padding: '0.65rem 0.85rem', 
+                        fontSize: '0.9rem',
+                        borderColor: formData.phone && !isValidPhone(formData.phone) ? '#ef4444' : undefined
+                      }} 
                     />
                   </div>
                   <div>
@@ -614,13 +772,59 @@ const MentorshipPage = ({ onPageChange = () => {} }) => {
                       value={formData.paymentPlan}
                       onChange={(e) => setFormData({...formData, paymentPlan: e.target.value})}
                     >
-                      <option>Full Tuition (Instant Seat Access)</option>
-                      <option>Monthly Installments (EMI - 8 Months)</option>
+                      <option>Full Tuition (Instant Seat Access) - ₹{selectedCohort.priceFull?.toLocaleString('en-IN')}</option>
+                      <option>Monthly Installments (EMI - 8 Months) - ₹{selectedCohort.priceMonthly?.toLocaleString('en-IN')}/mo</option>
                     </select>
                   </div>
-                  <button type="submit" className="btn btn-primary" style={{ width: '100%', marginTop: '0.4rem', borderRadius: '9999px', padding: '0.75rem', fontWeight: 600 }}>
-                    Confirm & Complete Enrollment →
-                  </button>
+
+                  {/* Pricing Breakdown Summary */}
+                  <div style={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    padding: '0.75rem 1rem',
+                    background: 'rgba(99, 102, 241, 0.08)',
+                    border: '1px solid rgba(99, 102, 241, 0.25)',
+                    borderRadius: '10px',
+                    marginTop: '0.25rem',
+                    marginBottom: '0.25rem'
+                  }}>
+                    <div>
+                      <div style={{ fontSize: '0.75rem', textTransform: 'uppercase', color: 'var(--muted-foreground)', fontWeight: 600 }}>Amount Payable Now</div>
+                      <div style={{ fontSize: '0.85rem', color: 'var(--foreground)' }}>
+                        {formData.paymentPlan.includes('Monthly') ? '1st Month EMI' : 'Full Course Fee'}
+                      </div>
+                    </div>
+                    <div style={{ fontSize: '1.4rem', fontWeight: 800, color: '#818cf8' }}>
+                      ₹{(formData.paymentPlan.includes('Monthly') ? selectedCohort.priceMonthly : selectedCohort.priceFull)?.toLocaleString('en-IN')}
+                    </div>
+                  </div>
+
+                  <PaymentButton
+                    cohortId={selectedCohort.id}
+                    planType={formData.paymentPlan.includes('Monthly') ? 'monthly' : 'full'}
+                    amount={formData.paymentPlan.includes('Monthly') ? selectedCohort.priceMonthly : selectedCohort.priceFull}
+                    title={`${selectedCohort.title} (${formData.paymentPlan.includes('Monthly') ? '1st Month EMI' : 'Full Tuition'})`}
+                    userInfo={formData}
+                    disabled={!formData.fullName.trim() || !isValidEmail(formData.email) || !isValidPhone(formData.phone)}
+                    onSuccess={async (verifyData) => {
+                      setPaymentDetails(verifyData);
+                      setPaymentError('');
+                      setIsSubmitted(true);
+                      if (refreshUser) {
+                        try {
+                          await refreshUser();
+                        } catch (err) {
+                          console.error('User refresh error:', err);
+                        }
+                      }
+                    }}
+                    onError={(errMsg) => {
+                      setPaymentError(errMsg);
+                    }}
+                    className="btn btn-primary"
+                    style={{ width: '100%', marginTop: '0.4rem', borderRadius: '9999px', padding: '0.85rem', fontWeight: 600, fontSize: '0.95rem' }}
+                  />
                 </form>
               </div>
             ) : (
@@ -652,15 +856,32 @@ const MentorshipPage = ({ onPageChange = () => {} }) => {
                     />
                   </div>
                   <div>
-                    <label style={{ display: 'block', fontSize: '0.8rem', color: 'var(--foreground)', marginBottom: '0.25rem', fontWeight: 500 }}>Phone Number</label>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.25rem' }}>
+                      <label style={{ fontSize: '0.8rem', color: 'var(--foreground)', fontWeight: 500 }}>Phone / WhatsApp Number</label>
+                      {formData.phone && (
+                        isValidPhone(formData.phone) ? (
+                          <span style={{ fontSize: '0.72rem', color: '#10b981', fontWeight: 600 }}>✓ Valid Mobile</span>
+                        ) : (
+                          <span style={{ fontSize: '0.72rem', color: '#f87171', fontWeight: 500 }}>Enter 10-digit number</span>
+                        )
+                      )}
+                    </div>
                     <input 
                       type="tel" 
                       required 
                       value={formData.phone} 
-                      onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                      placeholder="+1 (555) 000-0000" 
+                      onChange={(e) => {
+                        const val = e.target.value.replace(/[^0-9+\s-]/g, '');
+                        setFormData({...formData, phone: val});
+                      }}
+                      placeholder="+91 98765 43210" 
                       className="form-control" 
-                      style={{ width: '100%', padding: '0.65rem 0.85rem', fontSize: '0.9rem' }} 
+                      style={{ 
+                        width: '100%', 
+                        padding: '0.65rem 0.85rem', 
+                        fontSize: '0.9rem',
+                        borderColor: formData.phone && !isValidPhone(formData.phone) ? '#ef4444' : undefined
+                      }} 
                     />
                   </div>
                   <div>
@@ -690,7 +911,20 @@ const MentorshipPage = ({ onPageChange = () => {} }) => {
                       <option>Career Transitioning into Tech</option>
                     </select>
                   </div>
-                  <button type="submit" className="btn btn-primary" style={{ width: '100%', marginTop: '0.4rem', borderRadius: '9999px', padding: '0.75rem', fontWeight: 600 }}>
+                  <button 
+                    type="submit" 
+                    disabled={!formData.fullName.trim() || !isValidPhone(formData.phone)}
+                    className="btn btn-primary" 
+                    style={{ 
+                      width: '100%', 
+                      marginTop: '0.4rem', 
+                      borderRadius: '9999px', 
+                      padding: '0.75rem', 
+                      fontWeight: 600,
+                      opacity: (!formData.fullName.trim() || !isValidPhone(formData.phone)) ? 0.6 : 1,
+                      cursor: (!formData.fullName.trim() || !isValidPhone(formData.phone)) ? 'not-allowed' : 'pointer'
+                    }}
+                  >
                     Request CallBack →
                   </button>
                 </form>
