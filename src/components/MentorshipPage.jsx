@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import { Brain, Terminal, Users, Sparkles, CheckCircle2, ArrowRight, Shield, Award, Clock, Calendar, MessageSquare, X, Layers, CreditCard, PhoneCall, AlertCircle } from 'lucide-react';
+import { Brain, Terminal, Users, Sparkles, CheckCircle2, ArrowRight, Shield, Award, Clock, Calendar, MessageSquare, X, Layers, CreditCard, PhoneCall, AlertCircle, RotateCcw } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { SWE_CURRICULUM } from '../data/sweRoadmap';
 import { AIML_CURRICULUM } from '../data/aimlRoadmap';
@@ -70,16 +70,39 @@ const isValidEmail = (email = '') => {
 };
 
 const MentorshipPage = ({ onPageChange = () => {} }) => {
-  const { user, isLoggedIn, refreshUser } = useAuth();
+  const { user, isLoggedIn, refreshUser, resetDemoPurchases } = useAuth();
   const [selectedCohort, setSelectedCohort] = useState(null);
   const [modalMode, setModalMode] = useState('buy'); // 'buy' | 'callback'
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [paymentDetails, setPaymentDetails] = useState(null);
   const [paymentError, setPaymentError] = useState('');
   const [activeProjectTab, setActiveProjectTab] = useState('swe');
+  const [isResetting, setIsResetting] = useState(false);
+  const [resetNotice, setResetNotice] = useState('');
 
   const enrolledCohorts = user?.profile_data?.enrolled_cohorts || [];
   const isEnrolled = (cohortId) => enrolledCohorts.includes(cohortId?.toLowerCase());
+
+  const handleResetDemoPurchases = async () => {
+    if (isResetting) return;
+    setIsResetting(true);
+    setResetNotice('');
+    try {
+      if (resetDemoPurchases) {
+        await resetDemoPurchases();
+      } else {
+        await refreshUser();
+      }
+      setResetNotice('✓ Demo enrollments reset! Both courses are ready to Buy Now again.');
+      setTimeout(() => setResetNotice(''), 5000);
+    } catch (err) {
+      console.error(err);
+      setResetNotice('Failed to reset demo purchases.');
+      setTimeout(() => setResetNotice(''), 5000);
+    } finally {
+      setIsResetting(false);
+    }
+  };
 
   const [formData, setFormData] = useState({
     fullName: '',
@@ -387,6 +410,62 @@ const MentorshipPage = ({ onPageChange = () => {} }) => {
             Limited cohort seats to guarantee dedicated 1-on-1 mentor code reviews, weekly whiteboard defense, and accelerated tech placement.
           </p>
         </div>
+
+        {/* Demo Mode Testing Banner — Only visible when logged in as Demo User */}
+        {user?.email === 'dev.user@careerkinetic.com' && (
+          <div 
+            className="fade-in-up"
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              padding: '0.85rem 1.25rem',
+              background: 'linear-gradient(135deg, rgba(99, 102, 241, 0.12), rgba(168, 85, 247, 0.08))',
+              border: '1px solid rgba(99, 102, 241, 0.3)',
+              borderRadius: '14px',
+              marginBottom: '2rem',
+              flexWrap: 'wrap',
+              gap: '0.75rem',
+              boxShadow: '0 4px 20px rgba(99, 102, 241, 0.1)'
+            }}
+          >
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', fontSize: '0.9rem', color: 'var(--foreground)' }}>
+              <span>🧪 <strong>Demo Testing Mode:</strong> Logged in as Demo Student</span>
+              {enrolledCohorts.length > 0 && (
+                <span style={{ fontSize: '0.78rem', fontWeight: 600, color: '#10b981', background: 'rgba(16, 185, 129, 0.15)', border: '1px solid rgba(16, 185, 129, 0.3)', padding: '0.2rem 0.6rem', borderRadius: '9999px' }}>
+                  {enrolledCohorts.length} Cohort{enrolledCohorts.length > 1 ? 's' : ''} Enrolled
+                </span>
+              )}
+            </div>
+
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+              {resetNotice && (
+                <span style={{ fontSize: '0.85rem', color: '#10b981', fontWeight: 600 }}>
+                  {resetNotice}
+                </span>
+              )}
+              <button
+                type="button"
+                onClick={handleResetDemoPurchases}
+                disabled={isResetting}
+                className="btn btn-outline"
+                style={{
+                  padding: '0.45rem 1rem',
+                  fontSize: '0.85rem',
+                  borderRadius: '9999px',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.45rem',
+                  fontWeight: 600,
+                  cursor: isResetting ? 'not-allowed' : 'pointer'
+                }}
+              >
+                <RotateCcw size={14} style={{ animation: isResetting ? 'spin 1s linear infinite' : 'none' }} />
+                {isResetting ? 'Resetting...' : 'Reset Demo Purchases'}
+              </button>
+            </div>
+          </div>
+        )}
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))', gap: '2rem' }}>
           {MENTORSHIP_COHORTS.map((cohort) => {

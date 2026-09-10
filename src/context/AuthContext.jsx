@@ -58,6 +58,18 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  // 2.6 Reset Demo purchases trigger
+  const resetDemoPurchases = async () => {
+    try {
+      await axios.post(`${API_URL}/reset-demo`, {}, { withCredentials: true });
+      await refreshUser();
+      return true;
+    } catch (e) {
+      console.error('Failed to reset demo purchases:', e);
+      throw e;
+    }
+  };
+
   // 3. Logout trigger
   const logout = async () => {
     try {
@@ -132,6 +144,7 @@ export const AuthProvider = ({ children }) => {
     resetPassword: () => Promise.resolve({ error: { message: "Password reset is deprecated." } }),
     logout,
     refreshUser,
+    resetDemoPurchases,
   };
 
   return (
