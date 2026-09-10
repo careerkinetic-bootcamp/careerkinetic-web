@@ -21,7 +21,8 @@ const loadRazorpaySDK = () => {
     };
     document.body.appendChild(script);
   });
-};
+const BASE_URL = import.meta.env.VITE_API_URL || '';
+const PAYMENTS_API = `${BASE_URL ? BASE_URL.replace(/\/$/, '') : ''}/payments`;
 
 export default function PaymentButton({
   cohortId,
@@ -57,7 +58,7 @@ export default function PaymentButton({
         plan_type: planType,
       };
 
-      const { data: orderData } = await axios.post('/payments/create-order', orderPayload, {
+      const { data: orderData } = await axios.post(`${PAYMENTS_API}/create-order`, orderPayload, {
         withCredentials: true,
       });
 
@@ -97,7 +98,7 @@ export default function PaymentButton({
               razorpay_signature: response.razorpay_signature,
             };
 
-            const { data: verifyData } = await axios.post('/payments/verify-payment', verifyPayload, {
+            const { data: verifyData } = await axios.post(`${PAYMENTS_API}/verify-payment`, verifyPayload, {
               withCredentials: true,
             });
 
