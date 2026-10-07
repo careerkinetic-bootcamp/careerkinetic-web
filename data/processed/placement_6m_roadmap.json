@@ -1,0 +1,2821 @@
+{
+  "generated_at": "2026-10-07T11:23:40.408626+00:00",
+  "total_iit_courses_scraped": 20,
+  "total_iit_modules_extracted": 30,
+  "total_theory_modules_pruned": 6,
+  "live_jobs_cross_referenced": 178,
+  "roadmaps_by_role": {
+    "fullstack": {
+      "role_category": "fullstack",
+      "role_title": "Full-Stack Software Engineer (IIT Madras & IIT Kharagpur 6-Month Track)",
+      "total_weeks": 24,
+      "total_hours": 360,
+      "iit_institutes_referenced": [
+        "IIT Madras",
+        "IIT Kharagpur",
+        "IIT Bombay",
+        "IIT Madras & IIT Bombay Combined Track"
+      ],
+      "pruned_theory_modules_count": 6,
+      "dag_topological_order_verified": true,
+      "weekly_plan": [
+        {
+          "week": 1,
+          "phase_name": "Phase 1 (Months 1\u20132): IIT Programming Foundations, Tooling & DSA",
+          "module_id": "iitm-sys-w1",
+          "course_code": "IITM-BS-CS2001",
+          "title": "Linux Architecture, Bash Scripting & Git Version Control",
+          "iit_source": "IIT Madras (IITM-BS-CS2001: System Commands & Developer Tooling)",
+          "professor": "Prof. Gandham Phanikumar (IIT Madras)",
+          "atomic_topics": [
+            "POSIX File Systems, Permissions & Process Pipes",
+            "Bash Automation, Awk/Sed & SSH Keys",
+            "Git Internals, Branching, Rebasing & Pull Request Workflows"
+          ],
+          "skills_unlocked": [
+            "Linux",
+            "Git"
+          ],
+          "prerequisites_satisfied": [],
+          "study_hours": 15,
+          "live_market_demand_pct": 50.0,
+          "placement_roi_score": 92.6,
+          "hands_on_deliverable": "Build an automated Bash + Git log audit CLI & configure SSH deployment keys",
+          "unlocked_opportunities_count": 5
+        },
+        {
+          "week": 2,
+          "phase_name": "Phase 1 (Months 1\u20132): IIT Programming Foundations, Tooling & DSA",
+          "module_id": "iitm-py-w2",
+          "course_code": "IITM-BS-CS1002",
+          "title": "Python Memory Model, OOP, Iterators & Exception Safety",
+          "iit_source": "IIT Madras (IITM-BS-CS1002: Programming & Computational Thinking in Python)",
+          "professor": "Prof. Sudarshan Iyengar (IIT Madras)",
+          "atomic_topics": [
+            "Mutability, Stack vs Heap References & Generators",
+            "Object-Oriented Design, Dunder Methods & Type Hints",
+            "File I/O, JSON Parsing & Unit Testing with unittest/pytest"
+          ],
+          "skills_unlocked": [
+            "Python",
+            "Git"
+          ],
+          "prerequisites_satisfied": [
+            "iitm-sys-w1"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 23.0,
+          "placement_roi_score": 95.1,
+          "hands_on_deliverable": "Build a modular OOP Expense & Portfolio Parser with 100% unit test coverage",
+          "unlocked_opportunities_count": 20
+        },
+        {
+          "week": 3,
+          "phase_name": "Phase 1 (Months 1\u20132): IIT Programming Foundations, Tooling & DSA",
+          "module_id": "iitm-js-w3",
+          "course_code": "IITM-BS-CS2003",
+          "title": "HTML5/CSS3 Semantics, Modern JavaScript (ES6+) & TypeScript Types",
+          "iit_source": "IIT Madras (IITM-BS-CS2003: Modern Application Development I)",
+          "professor": "Prof. Balaraman Ravindran & IITM AppDev Faculty",
+          "atomic_topics": [
+            "DOM Tree, CSS Flexbox/Grid & Responsive Layouts",
+            "JavaScript Closures, Event Loop, Promises & Async/Await",
+            "TypeScript Interfaces, Generics & Strict Compile-Time Type Safety"
+          ],
+          "skills_unlocked": [
+            "HTML/CSS",
+            "JavaScript",
+            "TypeScript"
+          ],
+          "prerequisites_satisfied": [
+            "iitm-sys-w1"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 9.6,
+          "placement_roi_score": 79.9,
+          "hands_on_deliverable": "Build a zero-dependency typed Async Job Search UI with debounced filtering",
+          "unlocked_opportunities_count": 45
+        },
+        {
+          "week": 4,
+          "phase_name": "Phase 1 (Months 1\u20132): IIT Programming Foundations, Tooling & DSA",
+          "module_id": "iitm-pdsa-w4",
+          "course_code": "NOC24-CS54",
+          "title": "Asymptotic Complexity (Big-O), Arrays, Two Pointers & Sliding Window",
+          "iit_source": "IIT Madras (NOC24-CS54: Programming, Data Structures and Algorithms (PDSA))",
+          "professor": "Prof. Madhavan Mukund (IIT Madras)",
+          "atomic_topics": [
+            "Best, Average & Worst-Case Time/Space Complexity Analysis",
+            "Prefix Sums, Two-Pointer Invariants & Variable Sliding Window",
+            "Binary Search on Monotonic Answer Spaces & Sorting Stability"
+          ],
+          "skills_unlocked": [
+            "Python",
+            "Java",
+            "C++"
+          ],
+          "prerequisites_satisfied": [
+            "iitm-py-w2"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 23.0,
+          "placement_roi_score": 97.8,
+          "hands_on_deliverable": "Solve 25 Product-Company OA Array, Binary Search & Sliding Window problems",
+          "unlocked_opportunities_count": 54
+        },
+        {
+          "week": 5,
+          "phase_name": "Phase 1 (Months 1\u20132): IIT Programming Foundations, Tooling & DSA",
+          "module_id": "iitm-pdsa-w5",
+          "course_code": "NOC24-CS54",
+          "title": "Hash Tables, Collision Resolution, Linked Lists & Monotonic Stacks",
+          "iit_source": "IIT Madras (NOC24-CS54: Programming, Data Structures and Algorithms (PDSA))",
+          "professor": "Prof. Madhavan Mukund (IIT Madras)",
+          "atomic_topics": [
+            "Open Addressing vs Chaining, Load Factor & Rolling Hashes",
+            "Fast/Slow Pointers, LRU Cache Design (HashMap + Doubly Linked List)",
+            "Monotonic Stacks & Queues for Next-Greater-Element OA Patterns"
+          ],
+          "skills_unlocked": [
+            "Python",
+            "Java"
+          ],
+          "prerequisites_satisfied": [
+            "iitm-pdsa-w4"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 23.0,
+          "placement_roi_score": 97.3,
+          "hands_on_deliverable": "Implement an O(1) Thread-Safe LRU Cache + solve 20 Hashing/Stack OA problems",
+          "unlocked_opportunities_count": 54
+        },
+        {
+          "week": 6,
+          "phase_name": "Phase 1 (Months 1\u20132): IIT Programming Foundations, Tooling & DSA",
+          "module_id": "iitm-pdsa-w6",
+          "course_code": "NOC24-CS54",
+          "title": "Recursion, Backtracking, Binary Trees, BSTs & Priority Queues (Heaps)",
+          "iit_source": "IIT Madras (NOC24-CS54: Programming, Data Structures and Algorithms (PDSA))",
+          "professor": "Prof. Madhavan Mukund (IIT Madras)",
+          "atomic_topics": [
+            "DFS/BFS Tree Traversals, Lowest Common Ancestor & Diameter",
+            "Balanced BST Invariants (AVL/Red-Black Concepts) & Trie Prefix Trees",
+            "Binary Heaps, Top-K Streaming Elements & Median Maintenance"
+          ],
+          "skills_unlocked": [
+            "Python",
+            "Java",
+            "C++"
+          ],
+          "prerequisites_satisfied": [
+            "iitm-pdsa-w5"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 23.0,
+          "placement_roi_score": 97.3,
+          "hands_on_deliverable": "Build an Autocomplete Trie Engine + solve 25 Tree/Heap OA problems",
+          "unlocked_opportunities_count": 54
+        },
+        {
+          "week": 7,
+          "phase_name": "Phase 1 (Months 1\u20132): IIT Programming Foundations, Tooling & DSA",
+          "module_id": "iitm-pdsa-w7",
+          "course_code": "NOC24-CS54",
+          "title": "Graph Algorithms: BFS, DFS, Topological Sort, Dijkstra & Union-Find",
+          "iit_source": "IIT Madras (NOC24-CS54: Programming, Data Structures and Algorithms (PDSA))",
+          "professor": "Prof. Madhavan Mukund (IIT Madras)",
+          "atomic_topics": [
+            "Adjacency Representations, Cycle Detection & Kahn's Topological Sort (DAG)",
+            "Shortest Paths: Dijkstra, Bellman-Ford & Floyd-Warshall",
+            "Disjoint Set Union (DSU) & Minimum Spanning Trees (Kruskal/Prim)"
+          ],
+          "skills_unlocked": [
+            "Python",
+            "Java"
+          ],
+          "prerequisites_satisfied": [
+            "iitm-pdsa-w6"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 23.0,
+          "placement_roi_score": 97.8,
+          "hands_on_deliverable": "Build a Course Prerequisite DAG Resolver & Dependency Graph Visualizer",
+          "unlocked_opportunities_count": 54
+        },
+        {
+          "week": 8,
+          "phase_name": "Phase 1 (Months 1\u20132): IIT Programming Foundations, Tooling & DSA",
+          "module_id": "iitm-pdsa-w8",
+          "course_code": "NOC24-CS54",
+          "title": "Dynamic Programming (1D/2D/Knapsack/Strings) & Greedy Optimizations",
+          "iit_source": "IIT Madras (NOC24-CS54: Programming, Data Structures and Algorithms (PDSA))",
+          "professor": "Prof. Madhavan Mukund (IIT Madras)",
+          "atomic_topics": [
+            " Overlapping Subproblems: Memoization vs Tabulation State Transitions",
+            "0/1 & Unbounded Knapsack, LCS, Edit Distance & LIS Patterns",
+            "Interval Scheduling Greedy Proofs & Bit Manipulation Tricks"
+          ],
+          "skills_unlocked": [
+            "Python",
+            "Java",
+            "C++"
+          ],
+          "prerequisites_satisfied": [
+            "iitm-pdsa-w7"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 23.0,
+          "placement_roi_score": 97.8,
+          "hands_on_deliverable": "Complete 30 High-Frequency Product Company Dynamic Programming OA problems",
+          "unlocked_opportunities_count": 54
+        },
+        {
+          "week": 9,
+          "phase_name": "Phase 2 (Months 3\u20134): IIT Core Systems (DBMS/OS/CN) & Full-Stack Engineering",
+          "module_id": "iitkgp-dbms-w9",
+          "course_code": "NOC24-CS42",
+          "title": "Relational Schema Design, Complex SQL Joins, Window Functions & CTEs",
+          "iit_source": "IIT Kharagpur (NOC24-CS42: Database Management Systems (DBMS))",
+          "professor": "Prof. Partha Pratim Das (IIT Kharagpur)",
+          "atomic_topics": [
+            "Entity-Relationship (ER) Modeling & Foreign Key Integrity",
+            "Inner/Outer Joins, Group By Aggregations, Subqueries & CTEs",
+            "Window Functions (ROW_NUMBER, RANK, LAG/LEAD) for Analytics OAs"
+          ],
+          "skills_unlocked": [
+            "SQL",
+            "PostgreSQL",
+            "MySQL"
+          ],
+          "prerequisites_satisfied": [
+            "iitm-py-w2"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 15.4,
+          "placement_roi_score": 88.7,
+          "hands_on_deliverable": "Design a normalized 12-table E-Commerce PostgreSQL schema + 30 SQL OA queries",
+          "unlocked_opportunities_count": 69
+        },
+        {
+          "week": 10,
+          "phase_name": "Phase 2 (Months 3\u20134): IIT Core Systems (DBMS/OS/CN) & Full-Stack Engineering",
+          "module_id": "iitkgp-dbms-w10",
+          "course_code": "NOC24-CS42",
+          "title": "Normalization (3NF/BCNF), B+ Tree Indexing, ACID Transactions & Isolation",
+          "iit_source": "IIT Kharagpur (NOC24-CS42: Database Management Systems (DBMS))",
+          "professor": "Prof. Partha Pratim Das (IIT Kharagpur)",
+          "atomic_topics": [
+            "Functional Dependencies, Lossless Decomposition & BCNF Normalization",
+            "B-Trees / B+ Trees, Composite Indexes & EXPLAIN ANALYZE Query Tuning",
+            "ACID Properties, Serializability, Deadlock Handling & MVCC"
+          ],
+          "skills_unlocked": [
+            "SQL",
+            "PostgreSQL",
+            "Redis"
+          ],
+          "prerequisites_satisfied": [
+            "iitkgp-dbms-w9"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 12.9,
+          "placement_roi_score": 85.5,
+          "hands_on_deliverable": "Optimize a 1M-row PostgreSQL table from 1200ms to 4ms using B+ Tree composite indexes",
+          "unlocked_opportunities_count": 69
+        },
+        {
+          "week": 11,
+          "phase_name": "Phase 2 (Months 3\u20134): IIT Core Systems (DBMS/OS/CN) & Full-Stack Engineering",
+          "module_id": "iitb-os-w11",
+          "course_code": "IITB-CS333",
+          "title": "Processes, Threads, CPU Scheduling, Mutex/Semaphores & Virtual Memory",
+          "iit_source": "IIT Bombay (IITB-CS333: Operating Systems & Concurrency)",
+          "professor": "Prof. Mythili Vutukuru (IIT Bombay)",
+          "atomic_topics": [
+            "Process Control Block, Context Switching, Fork/Exec & System Calls",
+            "Thread Synchronization, Race Conditions, Mutexes & Banker's Deadlock Algorithm",
+            "Virtual Memory Paging, TLB, Page Replacement (LRU) & Thrashing"
+          ],
+          "skills_unlocked": [
+            "Linux",
+            "C++",
+            "Python"
+          ],
+          "prerequisites_satisfied": [
+            "iitm-sys-w1"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 50.0,
+          "placement_roi_score": 96.5,
+          "hands_on_deliverable": "Implement a Multi-Threaded Producer-Consumer Worker Pool + OS Interview Drill",
+          "unlocked_opportunities_count": 69
+        },
+        {
+          "week": 12,
+          "phase_name": "Phase 2 (Months 3\u20134): IIT Core Systems (DBMS/OS/CN) & Full-Stack Engineering",
+          "module_id": "iitb-cn-w12",
+          "course_code": "IITB-CS305",
+          "title": "OSI/TCP-IP Stack, DNS, HTTP/1.1 vs HTTP/2/3, TLS Handshake & WebSockets",
+          "iit_source": "IIT Bombay (IITB-CS305: Computer Networks & Internet Architecture)",
+          "professor": "Prof. Mythili Vutukuru (IIT Bombay)",
+          "atomic_topics": [
+            "TCP 3-Way Handshake, Congestion Control & UDP vs TCP Tradeoffs",
+            "DNS Resolution, CDN Caching, TLS 1.3 Encryption & CORS Security",
+            "RESTful Architecture, Reverse Proxies (Nginx) & Persistent WebSockets"
+          ],
+          "skills_unlocked": [
+            "REST API",
+            "WebSockets",
+            "Linux"
+          ],
+          "prerequisites_satisfied": [
+            "iitb-os-w11"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 50.0,
+          "placement_roi_score": 95.9,
+          "hands_on_deliverable": "Build a Real-Time WebSocket Notification Server + Packet Inspection Lab",
+          "unlocked_opportunities_count": 72
+        },
+        {
+          "week": 13,
+          "phase_name": "Phase 2 (Months 3\u20134): IIT Core Systems (DBMS/OS/CN) & Full-Stack Engineering",
+          "module_id": "iitm-react-w13",
+          "course_code": "IITM-BS-CS2006",
+          "title": "React 18 Component Architecture, Hooks, Tailwind CSS & State Management",
+          "iit_source": "IIT Madras (IITM-BS-CS2006: Modern Application Development II (Frontend Architecture))",
+          "professor": "IIT Madras Modern AppDev Faculty",
+          "atomic_topics": [
+            "Virtual DOM Reconciliation, Custom Hooks (`useMemo`, `useCallback`, `useEffect`)",
+            "Global State Management with Zustand / Redux Toolkit & Context API",
+            "Design Systems with Tailwind CSS, Accessibility & Vite Bundling"
+          ],
+          "skills_unlocked": [
+            "React",
+            "TypeScript",
+            "JavaScript",
+            "Tailwind CSS",
+            "HTML/CSS",
+            "Redux",
+            "Zustand"
+          ],
+          "prerequisites_satisfied": [
+            "iitm-js-w3"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 33.3,
+          "placement_roi_score": 95.4,
+          "hands_on_deliverable": "Build an Interactive Analytics Dashboard in React + TypeScript + Tailwind CSS",
+          "unlocked_opportunities_count": 73
+        },
+        {
+          "week": 14,
+          "phase_name": "Phase 2 (Months 3\u20134): IIT Core Systems (DBMS/OS/CN) & Full-Stack Engineering",
+          "module_id": "iitm-nextjs-w14",
+          "course_code": "IITM-BS-CS2006",
+          "title": "Next.js SSR/CSR, Client-Side Caching, Routing & Frontend Performance",
+          "iit_source": "IIT Madras (IITM-BS-CS2006: Modern Application Development II (Full-Stack Web))",
+          "professor": "IIT Madras Modern AppDev Faculty",
+          "atomic_topics": [
+            "Server-Side Rendering (SSR), Static Generation & App Router Patterns",
+            "Optimistic UI Updates, Pagination, Infinite Scroll & Web Vitals (LCP/CLS)",
+            "Frontend Security: XSS Prevention, CSRF Tokens & JWT Session Handling"
+          ],
+          "skills_unlocked": [
+            "Next.js",
+            "React",
+            "TypeScript",
+            "REST API",
+            "JavaScript"
+          ],
+          "prerequisites_satisfied": [
+            "iitm-react-w13"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 33.3,
+          "placement_roi_score": 93.7,
+          "hands_on_deliverable": "Ship a Production Next.js + TypeScript Job Portal with SSR and Lighthouse 98+",
+          "unlocked_opportunities_count": 73
+        },
+        {
+          "week": 15,
+          "phase_name": "Phase 2 (Months 3\u20134): IIT Core Systems (DBMS/OS/CN) & Full-Stack Engineering",
+          "module_id": "iitm-api-w15",
+          "course_code": "IITM-BS-CS2003",
+          "title": "Production REST APIs with FastAPI & Node.js/Express, Pydantic & Auth",
+          "iit_source": "IIT Madras (IITM-BS-CS2003: Backend API Engineering (FastAPI / Node.js / Express))",
+          "professor": "IIT Madras Modern AppDev Faculty",
+          "atomic_topics": [
+            "REST Resource Design, Status Codes, Middleware & Dependency Injection",
+            "Pydantic Schema Validation, ORM Migrations (SQLAlchemy / Prisma) & Connection Pools",
+            "JWT Authentication, Role-Based Access Control (RBAC) & Rate Limiting"
+          ],
+          "skills_unlocked": [
+            "FastAPI",
+            "Node.js",
+            "Express",
+            "Python",
+            "REST API",
+            "PostgreSQL",
+            "JavaScript"
+          ],
+          "prerequisites_satisfied": [
+            "iitkgp-dbms-w9",
+            "iitb-cn-w12"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 33.3,
+          "placement_roi_score": 97.0,
+          "hands_on_deliverable": "Build a Rate-Limited FastAPI + PostgreSQL Backend with JWT Auth & OpenAPI Docs",
+          "unlocked_opportunities_count": 74
+        },
+        {
+          "week": 16,
+          "phase_name": "Phase 2 (Months 3\u20134): IIT Core Systems (DBMS/OS/CN) & Full-Stack Engineering",
+          "module_id": "iitkgp-nosql-w16",
+          "course_code": "NOC24-CS42",
+          "title": "MongoDB Document Modeling, Redis Caching, Supabase & Async Task Queues",
+          "iit_source": "IIT Kharagpur (NOC24-CS42: Distributed Databases, Caching & Message Queues)",
+          "professor": "Prof. Samiran Chattopadhyay (IIT Kharagpur)",
+          "atomic_topics": [
+            "CAP Theorem, Eventual Consistency & Document Schema Design in MongoDB",
+            "Redis In-Memory Caching (Cache-Aside, Write-Through) & Distributed Locks",
+            "Background Workers (Celery / BullMQ), Webhooks & Idempotent Retries"
+          ],
+          "skills_unlocked": [
+            "MongoDB",
+            "Redis",
+            "Supabase",
+            "PostgreSQL",
+            "Microservices"
+          ],
+          "prerequisites_satisfied": [
+            "iitkgp-dbms-w10",
+            "iitm-api-w15"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 9.6,
+          "placement_roi_score": 79.9,
+          "hands_on_deliverable": "Add Redis Caching & Async Background Job Processing to the Backend API",
+          "unlocked_opportunities_count": 79
+        },
+        {
+          "week": 17,
+          "phase_name": "Phase 3 (Months 5\u20136): Cloud/DevOps, Applied AI/LLMs, Capstones & OA Sprint",
+          "module_id": "iitkgp-cloud-w17",
+          "course_code": "NOC24-CS68",
+          "title": "Docker Containerization, Multi-Stage Builds & CI/CD GitHub Actions",
+          "iit_source": "IIT Kharagpur (NOC24-CS68: Cloud Computing & Distributed Systems)",
+          "professor": "Prof. Soumya K. Ghosh (IIT Kharagpur)",
+          "atomic_topics": [
+            "Linux Namespaces, cgroups, Dockerfiles & Docker Compose Orchestration",
+            "Automated Testing, Linting & Zero-Downtime CI/CD Pipelines via GitHub Actions",
+            "Environment Secrets Management, Healthchecks & Container Security"
+          ],
+          "skills_unlocked": [
+            "Docker",
+            "CI/CD",
+            "Linux",
+            "Git"
+          ],
+          "prerequisites_satisfied": [
+            "iitm-api-w15"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 50.0,
+          "placement_roi_score": 94.3,
+          "hands_on_deliverable": "Containerize Full-Stack App with Docker Compose & automated GitHub Actions CI/CD",
+          "unlocked_opportunities_count": 80
+        },
+        {
+          "week": 18,
+          "phase_name": "Phase 3 (Months 5\u20136): Cloud/DevOps, Applied AI/LLMs, Capstones & OA Sprint",
+          "module_id": "iitkgp-aws-w18",
+          "course_code": "NOC24-CS68",
+          "title": "AWS & GCP Cloud Architecture, Kubernetes Basics & Serverless Deployment",
+          "iit_source": "IIT Kharagpur (NOC24-CS68: Cloud Computing & Distributed Systems)",
+          "professor": "Prof. Soumya K. Ghosh (IIT Kharagpur)",
+          "atomic_topics": [
+            "AWS Core: EC2, S3 Object Storage, RDS, IAM Least-Privilege & VPC Networking",
+            "Kubernetes (K8s) Pods, Deployments, Services & Horizontal Pod Autoscaling",
+            "Observability: Structured Logging, Prometheus Metrics & Error Alerting"
+          ],
+          "skills_unlocked": [
+            "AWS",
+            "GCP",
+            "Kubernetes",
+            "Docker",
+            "PostgreSQL"
+          ],
+          "prerequisites_satisfied": [
+            "iitkgp-cloud-w17"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 33.3,
+          "placement_roi_score": 93.7,
+          "hands_on_deliverable": "Deploy Dockerized Backend + PostgreSQL on AWS/Cloud with custom domain & SSL",
+          "unlocked_opportunities_count": 84
+        },
+        {
+          "week": 19,
+          "phase_name": "Phase 3 (Months 5\u20136): Cloud/DevOps, Applied AI/LLMs, Capstones & OA Sprint",
+          "module_id": "iitm-ml-w19",
+          "course_code": "NOC24-CS79",
+          "title": "Supervised/Unsupervised ML, Feature Engineering, PyTorch & Model Evaluation",
+          "iit_source": "IIT Madras (NOC24-CS79: Applied Machine Learning & Deep Learning Foundations)",
+          "professor": "Prof. Balaraman Ravindran & Prof. Mitesh Khapra (IIT Madras)",
+          "atomic_topics": [
+            "Regression, Tree Ensembles (XGBoost/Random Forests) & Cross-Validation",
+            "Neural Networks, Backpropagation, Embeddings & PyTorch/TensorFlow Pipelines",
+            "Precision/Recall/F1, ROC-AUC & Serving ML Models via FastAPI"
+          ],
+          "skills_unlocked": [
+            "Python",
+            "PyTorch",
+            "TensorFlow",
+            "FastAPI"
+          ],
+          "prerequisites_satisfied": [
+            "iitm-py-w2",
+            "iitm-pdsa-w8"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 23.0,
+          "placement_roi_score": 93.4,
+          "hands_on_deliverable": "Train & deploy a Real-Time Skill/Resume Scoring Model via FastAPI",
+          "unlocked_opportunities_count": 84
+        },
+        {
+          "week": 20,
+          "phase_name": "Phase 3 (Months 5\u20136): Cloud/DevOps, Applied AI/LLMs, Capstones & OA Sprint",
+          "module_id": "iitm-llm-w20",
+          "course_code": "IITM-BS-CS3004",
+          "title": "LLM Engineering, Vector Databases, RAG Pipelines, LangChain & MCP Agents",
+          "iit_source": "IIT Madras (IITM-BS-CS3004: Large Language Models, RAG & Agentic AI Systems)",
+          "professor": "Prof. Mitesh Khapra (IIT Madras RBCDSAI)",
+          "atomic_topics": [
+            "Transformer Attention, Tokenization, Structured JSON Outputs & Function Calling",
+            "Chunking Strategies, Dense Embeddings, Vector Search & Hybrid RAG",
+            "Building Deterministic AI Agents with LangChain & Model Context Protocol (MCP)"
+          ],
+          "skills_unlocked": [
+            "LLM Engineering",
+            "RAG",
+            "LangChain",
+            "Python",
+            "FastAPI"
+          ],
+          "prerequisites_satisfied": [
+            "iitm-ml-w19",
+            "iitm-api-w15"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 23.0,
+          "placement_roi_score": 95.1,
+          "hands_on_deliverable": "Build a Citation-Grounded RAG + MCP AI Assistant with hallucination guardrails",
+          "unlocked_opportunities_count": 85
+        },
+        {
+          "week": 21,
+          "phase_name": "Phase 3 (Months 5\u20136): Cloud/DevOps, Applied AI/LLMs, Capstones & OA Sprint",
+          "module_id": "iitkgp-sysdesign-w21",
+          "course_code": "NOC24-CS61",
+          "title": "Low-Level Design (LLD), SOLID Patterns & High-Level System Design (HLD)",
+          "iit_source": "IIT Kharagpur (NOC24-CS61: Software Engineering & High-Scale System Design)",
+          "professor": "Prof. Rajib Mall (IIT Kharagpur)",
+          "atomic_topics": [
+            "SOLID Principles, Factory/Strategy/Observer Patterns & Machine Coding Rounds",
+            "Load Balancers, Consistent Hashing, Rate Limiters & Database Sharding",
+            "Designing High-Scale Systems: URL Shortener, Payment Gateway & Notification Engine"
+          ],
+          "skills_unlocked": [
+            "Microservices",
+            "Redis",
+            "PostgreSQL",
+            "REST API",
+            "Java",
+            "Python"
+          ],
+          "prerequisites_satisfied": [
+            "iitkgp-nosql-w16",
+            "iitkgp-cloud-w17"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 23.0,
+          "placement_roi_score": 96.7,
+          "hands_on_deliverable": "Complete 3 Machine Coding LLD Rounds + 4 HLD Architecture Diagrams",
+          "unlocked_opportunities_count": 85
+        },
+        {
+          "week": 22,
+          "phase_name": "Phase 3 (Months 5\u20136): Cloud/DevOps, Applied AI/LLMs, Capstones & OA Sprint",
+          "module_id": "iitm-capstone1-w22",
+          "course_code": "IITM-BS-CS3009",
+          "title": "Production Capstone Build: End-to-End Full-Stack & Database Architecture",
+          "iit_source": "IIT Madras (IITM-BS-CS3009: IIT Madras Industry Capstone Project I)",
+          "professor": "IIT Madras Project Mentorship Board",
+          "atomic_topics": [
+            "System Architecture Specification, ER Diagram & API Contract Design",
+            "Full-Stack Implementation with React/Next.js, TypeScript, FastAPI/Node & PostgreSQL",
+            "Automated Integration Tests, Security Hardening & Performance Benchmarking"
+          ],
+          "skills_unlocked": [
+            "React",
+            "TypeScript",
+            "FastAPI",
+            "Node.js",
+            "PostgreSQL",
+            "Docker",
+            "Git",
+            "JavaScript",
+            "Next.js",
+            "CI/CD"
+          ],
+          "prerequisites_satisfied": [
+            "iitm-nextjs-w14",
+            "iitkgp-sysdesign-w21"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 33.3,
+          "placement_roi_score": 97.0,
+          "hands_on_deliverable": "Ship Production Capstone #1 with live URL, CI/CD, and architectural README",
+          "unlocked_opportunities_count": 85
+        },
+        {
+          "week": 23,
+          "phase_name": "Phase 3 (Months 5\u20136): Cloud/DevOps, Applied AI/LLMs, Capstones & OA Sprint",
+          "module_id": "iitm-capstone2-w23",
+          "course_code": "IITM-BS-CS3010",
+          "title": "Production Capstone Build: AI-Native Microservice with Cloud Telemetry",
+          "iit_source": "IIT Madras (IITM-BS-CS3010: IIT Madras Industry Capstone Project II (AI + Cloud Scale))",
+          "professor": "IIT Madras Project Mentorship Board",
+          "atomic_topics": [
+            "Integrating LLM/RAG Pipeline, Redis Caching & WebSockets into Production App",
+            "Cloud Deployment on AWS/GCP with Docker & Live Latency Monitoring",
+            "Technical Demo Video, Case-Study Writeup & Resume Impact Quantification"
+          ],
+          "skills_unlocked": [
+            "LLM Engineering",
+            "RAG",
+            "Redis",
+            "WebSockets",
+            "AWS",
+            "Docker",
+            "Microservices",
+            "GCP"
+          ],
+          "prerequisites_satisfied": [
+            "iitm-llm-w20",
+            "iitm-capstone1-w22"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 40.0,
+          "placement_roi_score": 97.5,
+          "hands_on_deliverable": "Ship Production AI Capstone #2 & verify against ATS Resume Checklist",
+          "unlocked_opportunities_count": 85
+        },
+        {
+          "week": 24,
+          "phase_name": "Phase 3 (Months 5\u20136): Cloud/DevOps, Applied AI/LLMs, Capstones & OA Sprint",
+          "module_id": "iitm-placement-w24",
+          "course_code": "IITM-PLACEMENT-SPRINT",
+          "title": "Timed Company OAs, Core CS Rapid Revision (DBMS/OS/CN) & Mock Interviews",
+          "iit_source": "IIT Madras & IIT Bombay Combined Track (IITM-PLACEMENT-SPRINT: Final Placement OA, System Design & Technical Interview Sprint)",
+          "professor": "CareerKinetic x IIT Curriculum Synthesis",
+          "atomic_topics": [
+            "5 Timed 90-Minute Company OAs (Graphs, DP, Trees, SQL Joins & Debugging)",
+            "CS Core Rapid Fire: 100 Top DBMS, OS, CN & OOP Technical Interview Questions",
+            "Live Project Defense, Behavioral STAR Method & Direct Referral Applications"
+          ],
+          "skills_unlocked": [
+            "Python",
+            "JavaScript",
+            "TypeScript",
+            "SQL",
+            "React",
+            "REST API",
+            "Git"
+          ],
+          "prerequisites_satisfied": [
+            "iitm-pdsa-w8",
+            "iitm-capstone2-w23"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 23.0,
+          "placement_roi_score": 98.4,
+          "hands_on_deliverable": "Clear 5 Mock OAs (>85% score) + Apply to Top 30 Matched Verified Roles",
+          "unlocked_opportunities_count": 85
+        }
+      ]
+    },
+    "backend": {
+      "role_category": "backend",
+      "role_title": "Backend & Distributed Systems Engineer (IIT Bombay & IIT Kharagpur 6-Month Track)",
+      "total_weeks": 24,
+      "total_hours": 360,
+      "iit_institutes_referenced": [
+        "IIT Madras",
+        "IIT Kharagpur",
+        "IIT Bombay",
+        "IIT Madras & IIT Bombay Combined Track"
+      ],
+      "pruned_theory_modules_count": 6,
+      "dag_topological_order_verified": true,
+      "weekly_plan": [
+        {
+          "week": 1,
+          "phase_name": "Phase 1 (Months 1\u20132): IIT Programming Foundations, Tooling & DSA",
+          "module_id": "iitm-sys-w1",
+          "course_code": "IITM-BS-CS2001",
+          "title": "Linux Architecture, Bash Scripting & Git Version Control",
+          "iit_source": "IIT Madras (IITM-BS-CS2001: System Commands & Developer Tooling)",
+          "professor": "Prof. Gandham Phanikumar (IIT Madras)",
+          "atomic_topics": [
+            "POSIX File Systems, Permissions & Process Pipes",
+            "Bash Automation, Awk/Sed & SSH Keys",
+            "Git Internals, Branching, Rebasing & Pull Request Workflows"
+          ],
+          "skills_unlocked": [
+            "Linux",
+            "Git"
+          ],
+          "prerequisites_satisfied": [],
+          "study_hours": 15,
+          "live_market_demand_pct": 50.0,
+          "placement_roi_score": 92.6,
+          "hands_on_deliverable": "Build an automated Bash + Git log audit CLI & configure SSH deployment keys",
+          "unlocked_opportunities_count": 5
+        },
+        {
+          "week": 2,
+          "phase_name": "Phase 1 (Months 1\u20132): IIT Programming Foundations, Tooling & DSA",
+          "module_id": "iitm-py-w2",
+          "course_code": "IITM-BS-CS1002",
+          "title": "Python Memory Model, OOP, Iterators & Exception Safety",
+          "iit_source": "IIT Madras (IITM-BS-CS1002: Programming & Computational Thinking in Python)",
+          "professor": "Prof. Sudarshan Iyengar (IIT Madras)",
+          "atomic_topics": [
+            "Mutability, Stack vs Heap References & Generators",
+            "Object-Oriented Design, Dunder Methods & Type Hints",
+            "File I/O, JSON Parsing & Unit Testing with unittest/pytest"
+          ],
+          "skills_unlocked": [
+            "Python",
+            "Git"
+          ],
+          "prerequisites_satisfied": [
+            "iitm-sys-w1"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 23.0,
+          "placement_roi_score": 95.1,
+          "hands_on_deliverable": "Build a modular OOP Expense & Portfolio Parser with 100% unit test coverage",
+          "unlocked_opportunities_count": 20
+        },
+        {
+          "week": 3,
+          "phase_name": "Phase 1 (Months 1\u20132): IIT Programming Foundations, Tooling & DSA",
+          "module_id": "iitm-js-w3",
+          "course_code": "IITM-BS-CS2003",
+          "title": "HTML5/CSS3 Semantics, Modern JavaScript (ES6+) & TypeScript Types",
+          "iit_source": "IIT Madras (IITM-BS-CS2003: Modern Application Development I)",
+          "professor": "Prof. Balaraman Ravindran & IITM AppDev Faculty",
+          "atomic_topics": [
+            "DOM Tree, CSS Flexbox/Grid & Responsive Layouts",
+            "JavaScript Closures, Event Loop, Promises & Async/Await",
+            "TypeScript Interfaces, Generics & Strict Compile-Time Type Safety"
+          ],
+          "skills_unlocked": [
+            "HTML/CSS",
+            "JavaScript",
+            "TypeScript"
+          ],
+          "prerequisites_satisfied": [
+            "iitm-sys-w1"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 9.6,
+          "placement_roi_score": 79.9,
+          "hands_on_deliverable": "Build a zero-dependency typed Async Job Search UI with debounced filtering",
+          "unlocked_opportunities_count": 45
+        },
+        {
+          "week": 4,
+          "phase_name": "Phase 1 (Months 1\u20132): IIT Programming Foundations, Tooling & DSA",
+          "module_id": "iitm-pdsa-w4",
+          "course_code": "NOC24-CS54",
+          "title": "Asymptotic Complexity (Big-O), Arrays, Two Pointers & Sliding Window",
+          "iit_source": "IIT Madras (NOC24-CS54: Programming, Data Structures and Algorithms (PDSA))",
+          "professor": "Prof. Madhavan Mukund (IIT Madras)",
+          "atomic_topics": [
+            "Best, Average & Worst-Case Time/Space Complexity Analysis",
+            "Prefix Sums, Two-Pointer Invariants & Variable Sliding Window",
+            "Binary Search on Monotonic Answer Spaces & Sorting Stability"
+          ],
+          "skills_unlocked": [
+            "Python",
+            "Java",
+            "C++"
+          ],
+          "prerequisites_satisfied": [
+            "iitm-py-w2"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 23.0,
+          "placement_roi_score": 97.8,
+          "hands_on_deliverable": "Solve 25 Product-Company OA Array, Binary Search & Sliding Window problems",
+          "unlocked_opportunities_count": 54
+        },
+        {
+          "week": 5,
+          "phase_name": "Phase 1 (Months 1\u20132): IIT Programming Foundations, Tooling & DSA",
+          "module_id": "iitm-pdsa-w5",
+          "course_code": "NOC24-CS54",
+          "title": "Hash Tables, Collision Resolution, Linked Lists & Monotonic Stacks",
+          "iit_source": "IIT Madras (NOC24-CS54: Programming, Data Structures and Algorithms (PDSA))",
+          "professor": "Prof. Madhavan Mukund (IIT Madras)",
+          "atomic_topics": [
+            "Open Addressing vs Chaining, Load Factor & Rolling Hashes",
+            "Fast/Slow Pointers, LRU Cache Design (HashMap + Doubly Linked List)",
+            "Monotonic Stacks & Queues for Next-Greater-Element OA Patterns"
+          ],
+          "skills_unlocked": [
+            "Python",
+            "Java"
+          ],
+          "prerequisites_satisfied": [
+            "iitm-pdsa-w4"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 23.0,
+          "placement_roi_score": 97.3,
+          "hands_on_deliverable": "Implement an O(1) Thread-Safe LRU Cache + solve 20 Hashing/Stack OA problems",
+          "unlocked_opportunities_count": 54
+        },
+        {
+          "week": 6,
+          "phase_name": "Phase 1 (Months 1\u20132): IIT Programming Foundations, Tooling & DSA",
+          "module_id": "iitm-pdsa-w6",
+          "course_code": "NOC24-CS54",
+          "title": "Recursion, Backtracking, Binary Trees, BSTs & Priority Queues (Heaps)",
+          "iit_source": "IIT Madras (NOC24-CS54: Programming, Data Structures and Algorithms (PDSA))",
+          "professor": "Prof. Madhavan Mukund (IIT Madras)",
+          "atomic_topics": [
+            "DFS/BFS Tree Traversals, Lowest Common Ancestor & Diameter",
+            "Balanced BST Invariants (AVL/Red-Black Concepts) & Trie Prefix Trees",
+            "Binary Heaps, Top-K Streaming Elements & Median Maintenance"
+          ],
+          "skills_unlocked": [
+            "Python",
+            "Java",
+            "C++"
+          ],
+          "prerequisites_satisfied": [
+            "iitm-pdsa-w5"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 23.0,
+          "placement_roi_score": 97.3,
+          "hands_on_deliverable": "Build an Autocomplete Trie Engine + solve 25 Tree/Heap OA problems",
+          "unlocked_opportunities_count": 54
+        },
+        {
+          "week": 7,
+          "phase_name": "Phase 1 (Months 1\u20132): IIT Programming Foundations, Tooling & DSA",
+          "module_id": "iitm-pdsa-w7",
+          "course_code": "NOC24-CS54",
+          "title": "Graph Algorithms: BFS, DFS, Topological Sort, Dijkstra & Union-Find",
+          "iit_source": "IIT Madras (NOC24-CS54: Programming, Data Structures and Algorithms (PDSA))",
+          "professor": "Prof. Madhavan Mukund (IIT Madras)",
+          "atomic_topics": [
+            "Adjacency Representations, Cycle Detection & Kahn's Topological Sort (DAG)",
+            "Shortest Paths: Dijkstra, Bellman-Ford & Floyd-Warshall",
+            "Disjoint Set Union (DSU) & Minimum Spanning Trees (Kruskal/Prim)"
+          ],
+          "skills_unlocked": [
+            "Python",
+            "Java"
+          ],
+          "prerequisites_satisfied": [
+            "iitm-pdsa-w6"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 23.0,
+          "placement_roi_score": 97.8,
+          "hands_on_deliverable": "Build a Course Prerequisite DAG Resolver & Dependency Graph Visualizer",
+          "unlocked_opportunities_count": 54
+        },
+        {
+          "week": 8,
+          "phase_name": "Phase 1 (Months 1\u20132): IIT Programming Foundations, Tooling & DSA",
+          "module_id": "iitm-pdsa-w8",
+          "course_code": "NOC24-CS54",
+          "title": "Dynamic Programming (1D/2D/Knapsack/Strings) & Greedy Optimizations",
+          "iit_source": "IIT Madras (NOC24-CS54: Programming, Data Structures and Algorithms (PDSA))",
+          "professor": "Prof. Madhavan Mukund (IIT Madras)",
+          "atomic_topics": [
+            " Overlapping Subproblems: Memoization vs Tabulation State Transitions",
+            "0/1 & Unbounded Knapsack, LCS, Edit Distance & LIS Patterns",
+            "Interval Scheduling Greedy Proofs & Bit Manipulation Tricks"
+          ],
+          "skills_unlocked": [
+            "Python",
+            "Java",
+            "C++"
+          ],
+          "prerequisites_satisfied": [
+            "iitm-pdsa-w7"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 23.0,
+          "placement_roi_score": 97.8,
+          "hands_on_deliverable": "Complete 30 High-Frequency Product Company Dynamic Programming OA problems",
+          "unlocked_opportunities_count": 54
+        },
+        {
+          "week": 9,
+          "phase_name": "Phase 2 (Months 3\u20134): IIT Core Systems (DBMS/OS/CN) & Full-Stack Engineering",
+          "module_id": "iitkgp-dbms-w9",
+          "course_code": "NOC24-CS42",
+          "title": "Relational Schema Design, Complex SQL Joins, Window Functions & CTEs",
+          "iit_source": "IIT Kharagpur (NOC24-CS42: Database Management Systems (DBMS))",
+          "professor": "Prof. Partha Pratim Das (IIT Kharagpur)",
+          "atomic_topics": [
+            "Entity-Relationship (ER) Modeling & Foreign Key Integrity",
+            "Inner/Outer Joins, Group By Aggregations, Subqueries & CTEs",
+            "Window Functions (ROW_NUMBER, RANK, LAG/LEAD) for Analytics OAs"
+          ],
+          "skills_unlocked": [
+            "SQL",
+            "PostgreSQL",
+            "MySQL"
+          ],
+          "prerequisites_satisfied": [
+            "iitm-py-w2"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 15.4,
+          "placement_roi_score": 88.7,
+          "hands_on_deliverable": "Design a normalized 12-table E-Commerce PostgreSQL schema + 30 SQL OA queries",
+          "unlocked_opportunities_count": 69
+        },
+        {
+          "week": 10,
+          "phase_name": "Phase 2 (Months 3\u20134): IIT Core Systems (DBMS/OS/CN) & Full-Stack Engineering",
+          "module_id": "iitkgp-dbms-w10",
+          "course_code": "NOC24-CS42",
+          "title": "Normalization (3NF/BCNF), B+ Tree Indexing, ACID Transactions & Isolation",
+          "iit_source": "IIT Kharagpur (NOC24-CS42: Database Management Systems (DBMS))",
+          "professor": "Prof. Partha Pratim Das (IIT Kharagpur)",
+          "atomic_topics": [
+            "Functional Dependencies, Lossless Decomposition & BCNF Normalization",
+            "B-Trees / B+ Trees, Composite Indexes & EXPLAIN ANALYZE Query Tuning",
+            "ACID Properties, Serializability, Deadlock Handling & MVCC"
+          ],
+          "skills_unlocked": [
+            "SQL",
+            "PostgreSQL",
+            "Redis"
+          ],
+          "prerequisites_satisfied": [
+            "iitkgp-dbms-w9"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 12.9,
+          "placement_roi_score": 85.5,
+          "hands_on_deliverable": "Optimize a 1M-row PostgreSQL table from 1200ms to 4ms using B+ Tree composite indexes",
+          "unlocked_opportunities_count": 69
+        },
+        {
+          "week": 11,
+          "phase_name": "Phase 2 (Months 3\u20134): IIT Core Systems (DBMS/OS/CN) & Full-Stack Engineering",
+          "module_id": "iitb-os-w11",
+          "course_code": "IITB-CS333",
+          "title": "Processes, Threads, CPU Scheduling, Mutex/Semaphores & Virtual Memory",
+          "iit_source": "IIT Bombay (IITB-CS333: Operating Systems & Concurrency)",
+          "professor": "Prof. Mythili Vutukuru (IIT Bombay)",
+          "atomic_topics": [
+            "Process Control Block, Context Switching, Fork/Exec & System Calls",
+            "Thread Synchronization, Race Conditions, Mutexes & Banker's Deadlock Algorithm",
+            "Virtual Memory Paging, TLB, Page Replacement (LRU) & Thrashing"
+          ],
+          "skills_unlocked": [
+            "Linux",
+            "C++",
+            "Python"
+          ],
+          "prerequisites_satisfied": [
+            "iitm-sys-w1"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 50.0,
+          "placement_roi_score": 96.5,
+          "hands_on_deliverable": "Implement a Multi-Threaded Producer-Consumer Worker Pool + OS Interview Drill",
+          "unlocked_opportunities_count": 69
+        },
+        {
+          "week": 12,
+          "phase_name": "Phase 2 (Months 3\u20134): IIT Core Systems (DBMS/OS/CN) & Full-Stack Engineering",
+          "module_id": "iitb-cn-w12",
+          "course_code": "IITB-CS305",
+          "title": "OSI/TCP-IP Stack, DNS, HTTP/1.1 vs HTTP/2/3, TLS Handshake & WebSockets",
+          "iit_source": "IIT Bombay (IITB-CS305: Computer Networks & Internet Architecture)",
+          "professor": "Prof. Mythili Vutukuru (IIT Bombay)",
+          "atomic_topics": [
+            "TCP 3-Way Handshake, Congestion Control & UDP vs TCP Tradeoffs",
+            "DNS Resolution, CDN Caching, TLS 1.3 Encryption & CORS Security",
+            "RESTful Architecture, Reverse Proxies (Nginx) & Persistent WebSockets"
+          ],
+          "skills_unlocked": [
+            "REST API",
+            "WebSockets",
+            "Linux"
+          ],
+          "prerequisites_satisfied": [
+            "iitb-os-w11"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 50.0,
+          "placement_roi_score": 95.9,
+          "hands_on_deliverable": "Build a Real-Time WebSocket Notification Server + Packet Inspection Lab",
+          "unlocked_opportunities_count": 72
+        },
+        {
+          "week": 13,
+          "phase_name": "Phase 2 (Months 3\u20134): IIT Core Systems (DBMS/OS/CN) & Full-Stack Engineering",
+          "module_id": "iitm-react-w13",
+          "course_code": "IITM-BS-CS2006",
+          "title": "React 18 Component Architecture, Hooks, Tailwind CSS & State Management",
+          "iit_source": "IIT Madras (IITM-BS-CS2006: Modern Application Development II (Frontend Architecture))",
+          "professor": "IIT Madras Modern AppDev Faculty",
+          "atomic_topics": [
+            "Virtual DOM Reconciliation, Custom Hooks (`useMemo`, `useCallback`, `useEffect`)",
+            "Global State Management with Zustand / Redux Toolkit & Context API",
+            "Design Systems with Tailwind CSS, Accessibility & Vite Bundling"
+          ],
+          "skills_unlocked": [
+            "React",
+            "TypeScript",
+            "JavaScript",
+            "Tailwind CSS",
+            "HTML/CSS",
+            "Redux",
+            "Zustand"
+          ],
+          "prerequisites_satisfied": [
+            "iitm-js-w3"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 33.3,
+          "placement_roi_score": 91.4,
+          "hands_on_deliverable": "Build an Interactive Analytics Dashboard in React + TypeScript + Tailwind CSS",
+          "unlocked_opportunities_count": 73
+        },
+        {
+          "week": 14,
+          "phase_name": "Phase 2 (Months 3\u20134): IIT Core Systems (DBMS/OS/CN) & Full-Stack Engineering",
+          "module_id": "iitm-nextjs-w14",
+          "course_code": "IITM-BS-CS2006",
+          "title": "Next.js SSR/CSR, Client-Side Caching, Routing & Frontend Performance",
+          "iit_source": "IIT Madras (IITM-BS-CS2006: Modern Application Development II (Full-Stack Web))",
+          "professor": "IIT Madras Modern AppDev Faculty",
+          "atomic_topics": [
+            "Server-Side Rendering (SSR), Static Generation & App Router Patterns",
+            "Optimistic UI Updates, Pagination, Infinite Scroll & Web Vitals (LCP/CLS)",
+            "Frontend Security: XSS Prevention, CSRF Tokens & JWT Session Handling"
+          ],
+          "skills_unlocked": [
+            "Next.js",
+            "React",
+            "TypeScript",
+            "REST API",
+            "JavaScript"
+          ],
+          "prerequisites_satisfied": [
+            "iitm-react-w13"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 33.3,
+          "placement_roi_score": 89.7,
+          "hands_on_deliverable": "Ship a Production Next.js + TypeScript Job Portal with SSR and Lighthouse 98+",
+          "unlocked_opportunities_count": 73
+        },
+        {
+          "week": 15,
+          "phase_name": "Phase 2 (Months 3\u20134): IIT Core Systems (DBMS/OS/CN) & Full-Stack Engineering",
+          "module_id": "iitm-api-w15",
+          "course_code": "IITM-BS-CS2003",
+          "title": "Production REST APIs with FastAPI & Node.js/Express, Pydantic & Auth",
+          "iit_source": "IIT Madras (IITM-BS-CS2003: Backend API Engineering (FastAPI / Node.js / Express))",
+          "professor": "IIT Madras Modern AppDev Faculty",
+          "atomic_topics": [
+            "REST Resource Design, Status Codes, Middleware & Dependency Injection",
+            "Pydantic Schema Validation, ORM Migrations (SQLAlchemy / Prisma) & Connection Pools",
+            "JWT Authentication, Role-Based Access Control (RBAC) & Rate Limiting"
+          ],
+          "skills_unlocked": [
+            "FastAPI",
+            "Node.js",
+            "Express",
+            "Python",
+            "REST API",
+            "PostgreSQL",
+            "JavaScript"
+          ],
+          "prerequisites_satisfied": [
+            "iitkgp-dbms-w9",
+            "iitb-cn-w12"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 33.3,
+          "placement_roi_score": 97.0,
+          "hands_on_deliverable": "Build a Rate-Limited FastAPI + PostgreSQL Backend with JWT Auth & OpenAPI Docs",
+          "unlocked_opportunities_count": 74
+        },
+        {
+          "week": 16,
+          "phase_name": "Phase 2 (Months 3\u20134): IIT Core Systems (DBMS/OS/CN) & Full-Stack Engineering",
+          "module_id": "iitkgp-nosql-w16",
+          "course_code": "NOC24-CS42",
+          "title": "MongoDB Document Modeling, Redis Caching, Supabase & Async Task Queues",
+          "iit_source": "IIT Kharagpur (NOC24-CS42: Distributed Databases, Caching & Message Queues)",
+          "professor": "Prof. Samiran Chattopadhyay (IIT Kharagpur)",
+          "atomic_topics": [
+            "CAP Theorem, Eventual Consistency & Document Schema Design in MongoDB",
+            "Redis In-Memory Caching (Cache-Aside, Write-Through) & Distributed Locks",
+            "Background Workers (Celery / BullMQ), Webhooks & Idempotent Retries"
+          ],
+          "skills_unlocked": [
+            "MongoDB",
+            "Redis",
+            "Supabase",
+            "PostgreSQL",
+            "Microservices"
+          ],
+          "prerequisites_satisfied": [
+            "iitkgp-dbms-w10",
+            "iitm-api-w15"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 9.6,
+          "placement_roi_score": 79.9,
+          "hands_on_deliverable": "Add Redis Caching & Async Background Job Processing to the Backend API",
+          "unlocked_opportunities_count": 79
+        },
+        {
+          "week": 17,
+          "phase_name": "Phase 3 (Months 5\u20136): Cloud/DevOps, Applied AI/LLMs, Capstones & OA Sprint",
+          "module_id": "iitkgp-cloud-w17",
+          "course_code": "NOC24-CS68",
+          "title": "Docker Containerization, Multi-Stage Builds & CI/CD GitHub Actions",
+          "iit_source": "IIT Kharagpur (NOC24-CS68: Cloud Computing & Distributed Systems)",
+          "professor": "Prof. Soumya K. Ghosh (IIT Kharagpur)",
+          "atomic_topics": [
+            "Linux Namespaces, cgroups, Dockerfiles & Docker Compose Orchestration",
+            "Automated Testing, Linting & Zero-Downtime CI/CD Pipelines via GitHub Actions",
+            "Environment Secrets Management, Healthchecks & Container Security"
+          ],
+          "skills_unlocked": [
+            "Docker",
+            "CI/CD",
+            "Linux",
+            "Git"
+          ],
+          "prerequisites_satisfied": [
+            "iitm-api-w15"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 50.0,
+          "placement_roi_score": 94.3,
+          "hands_on_deliverable": "Containerize Full-Stack App with Docker Compose & automated GitHub Actions CI/CD",
+          "unlocked_opportunities_count": 80
+        },
+        {
+          "week": 18,
+          "phase_name": "Phase 3 (Months 5\u20136): Cloud/DevOps, Applied AI/LLMs, Capstones & OA Sprint",
+          "module_id": "iitkgp-aws-w18",
+          "course_code": "NOC24-CS68",
+          "title": "AWS & GCP Cloud Architecture, Kubernetes Basics & Serverless Deployment",
+          "iit_source": "IIT Kharagpur (NOC24-CS68: Cloud Computing & Distributed Systems)",
+          "professor": "Prof. Soumya K. Ghosh (IIT Kharagpur)",
+          "atomic_topics": [
+            "AWS Core: EC2, S3 Object Storage, RDS, IAM Least-Privilege & VPC Networking",
+            "Kubernetes (K8s) Pods, Deployments, Services & Horizontal Pod Autoscaling",
+            "Observability: Structured Logging, Prometheus Metrics & Error Alerting"
+          ],
+          "skills_unlocked": [
+            "AWS",
+            "GCP",
+            "Kubernetes",
+            "Docker",
+            "PostgreSQL"
+          ],
+          "prerequisites_satisfied": [
+            "iitkgp-cloud-w17"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 33.3,
+          "placement_roi_score": 93.7,
+          "hands_on_deliverable": "Deploy Dockerized Backend + PostgreSQL on AWS/Cloud with custom domain & SSL",
+          "unlocked_opportunities_count": 84
+        },
+        {
+          "week": 19,
+          "phase_name": "Phase 3 (Months 5\u20136): Cloud/DevOps, Applied AI/LLMs, Capstones & OA Sprint",
+          "module_id": "iitm-ml-w19",
+          "course_code": "NOC24-CS79",
+          "title": "Supervised/Unsupervised ML, Feature Engineering, PyTorch & Model Evaluation",
+          "iit_source": "IIT Madras (NOC24-CS79: Applied Machine Learning & Deep Learning Foundations)",
+          "professor": "Prof. Balaraman Ravindran & Prof. Mitesh Khapra (IIT Madras)",
+          "atomic_topics": [
+            "Regression, Tree Ensembles (XGBoost/Random Forests) & Cross-Validation",
+            "Neural Networks, Backpropagation, Embeddings & PyTorch/TensorFlow Pipelines",
+            "Precision/Recall/F1, ROC-AUC & Serving ML Models via FastAPI"
+          ],
+          "skills_unlocked": [
+            "Python",
+            "PyTorch",
+            "TensorFlow",
+            "FastAPI"
+          ],
+          "prerequisites_satisfied": [
+            "iitm-py-w2",
+            "iitm-pdsa-w8"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 23.0,
+          "placement_roi_score": 93.4,
+          "hands_on_deliverable": "Train & deploy a Real-Time Skill/Resume Scoring Model via FastAPI",
+          "unlocked_opportunities_count": 84
+        },
+        {
+          "week": 20,
+          "phase_name": "Phase 3 (Months 5\u20136): Cloud/DevOps, Applied AI/LLMs, Capstones & OA Sprint",
+          "module_id": "iitm-llm-w20",
+          "course_code": "IITM-BS-CS3004",
+          "title": "LLM Engineering, Vector Databases, RAG Pipelines, LangChain & MCP Agents",
+          "iit_source": "IIT Madras (IITM-BS-CS3004: Large Language Models, RAG & Agentic AI Systems)",
+          "professor": "Prof. Mitesh Khapra (IIT Madras RBCDSAI)",
+          "atomic_topics": [
+            "Transformer Attention, Tokenization, Structured JSON Outputs & Function Calling",
+            "Chunking Strategies, Dense Embeddings, Vector Search & Hybrid RAG",
+            "Building Deterministic AI Agents with LangChain & Model Context Protocol (MCP)"
+          ],
+          "skills_unlocked": [
+            "LLM Engineering",
+            "RAG",
+            "LangChain",
+            "Python",
+            "FastAPI"
+          ],
+          "prerequisites_satisfied": [
+            "iitm-ml-w19",
+            "iitm-api-w15"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 23.0,
+          "placement_roi_score": 95.1,
+          "hands_on_deliverable": "Build a Citation-Grounded RAG + MCP AI Assistant with hallucination guardrails",
+          "unlocked_opportunities_count": 85
+        },
+        {
+          "week": 21,
+          "phase_name": "Phase 3 (Months 5\u20136): Cloud/DevOps, Applied AI/LLMs, Capstones & OA Sprint",
+          "module_id": "iitkgp-sysdesign-w21",
+          "course_code": "NOC24-CS61",
+          "title": "Low-Level Design (LLD), SOLID Patterns & High-Level System Design (HLD)",
+          "iit_source": "IIT Kharagpur (NOC24-CS61: Software Engineering & High-Scale System Design)",
+          "professor": "Prof. Rajib Mall (IIT Kharagpur)",
+          "atomic_topics": [
+            "SOLID Principles, Factory/Strategy/Observer Patterns & Machine Coding Rounds",
+            "Load Balancers, Consistent Hashing, Rate Limiters & Database Sharding",
+            "Designing High-Scale Systems: URL Shortener, Payment Gateway & Notification Engine"
+          ],
+          "skills_unlocked": [
+            "Microservices",
+            "Redis",
+            "PostgreSQL",
+            "REST API",
+            "Java",
+            "Python"
+          ],
+          "prerequisites_satisfied": [
+            "iitkgp-nosql-w16",
+            "iitkgp-cloud-w17"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 23.0,
+          "placement_roi_score": 96.7,
+          "hands_on_deliverable": "Complete 3 Machine Coding LLD Rounds + 4 HLD Architecture Diagrams",
+          "unlocked_opportunities_count": 85
+        },
+        {
+          "week": 22,
+          "phase_name": "Phase 3 (Months 5\u20136): Cloud/DevOps, Applied AI/LLMs, Capstones & OA Sprint",
+          "module_id": "iitm-capstone1-w22",
+          "course_code": "IITM-BS-CS3009",
+          "title": "Production Capstone Build: End-to-End Full-Stack & Database Architecture",
+          "iit_source": "IIT Madras (IITM-BS-CS3009: IIT Madras Industry Capstone Project I)",
+          "professor": "IIT Madras Project Mentorship Board",
+          "atomic_topics": [
+            "System Architecture Specification, ER Diagram & API Contract Design",
+            "Full-Stack Implementation with React/Next.js, TypeScript, FastAPI/Node & PostgreSQL",
+            "Automated Integration Tests, Security Hardening & Performance Benchmarking"
+          ],
+          "skills_unlocked": [
+            "React",
+            "TypeScript",
+            "FastAPI",
+            "Node.js",
+            "PostgreSQL",
+            "Docker",
+            "Git",
+            "JavaScript",
+            "Next.js",
+            "CI/CD"
+          ],
+          "prerequisites_satisfied": [
+            "iitm-nextjs-w14",
+            "iitkgp-sysdesign-w21"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 33.3,
+          "placement_roi_score": 97.0,
+          "hands_on_deliverable": "Ship Production Capstone #1 with live URL, CI/CD, and architectural README",
+          "unlocked_opportunities_count": 85
+        },
+        {
+          "week": 23,
+          "phase_name": "Phase 3 (Months 5\u20136): Cloud/DevOps, Applied AI/LLMs, Capstones & OA Sprint",
+          "module_id": "iitm-capstone2-w23",
+          "course_code": "IITM-BS-CS3010",
+          "title": "Production Capstone Build: AI-Native Microservice with Cloud Telemetry",
+          "iit_source": "IIT Madras (IITM-BS-CS3010: IIT Madras Industry Capstone Project II (AI + Cloud Scale))",
+          "professor": "IIT Madras Project Mentorship Board",
+          "atomic_topics": [
+            "Integrating LLM/RAG Pipeline, Redis Caching & WebSockets into Production App",
+            "Cloud Deployment on AWS/GCP with Docker & Live Latency Monitoring",
+            "Technical Demo Video, Case-Study Writeup & Resume Impact Quantification"
+          ],
+          "skills_unlocked": [
+            "LLM Engineering",
+            "RAG",
+            "Redis",
+            "WebSockets",
+            "AWS",
+            "Docker",
+            "Microservices",
+            "GCP"
+          ],
+          "prerequisites_satisfied": [
+            "iitm-llm-w20",
+            "iitm-capstone1-w22"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 40.0,
+          "placement_roi_score": 97.5,
+          "hands_on_deliverable": "Ship Production AI Capstone #2 & verify against ATS Resume Checklist",
+          "unlocked_opportunities_count": 85
+        },
+        {
+          "week": 24,
+          "phase_name": "Phase 3 (Months 5\u20136): Cloud/DevOps, Applied AI/LLMs, Capstones & OA Sprint",
+          "module_id": "iitm-placement-w24",
+          "course_code": "IITM-PLACEMENT-SPRINT",
+          "title": "Timed Company OAs, Core CS Rapid Revision (DBMS/OS/CN) & Mock Interviews",
+          "iit_source": "IIT Madras & IIT Bombay Combined Track (IITM-PLACEMENT-SPRINT: Final Placement OA, System Design & Technical Interview Sprint)",
+          "professor": "CareerKinetic x IIT Curriculum Synthesis",
+          "atomic_topics": [
+            "5 Timed 90-Minute Company OAs (Graphs, DP, Trees, SQL Joins & Debugging)",
+            "CS Core Rapid Fire: 100 Top DBMS, OS, CN & OOP Technical Interview Questions",
+            "Live Project Defense, Behavioral STAR Method & Direct Referral Applications"
+          ],
+          "skills_unlocked": [
+            "Python",
+            "JavaScript",
+            "TypeScript",
+            "SQL",
+            "React",
+            "REST API",
+            "Git"
+          ],
+          "prerequisites_satisfied": [
+            "iitm-pdsa-w8",
+            "iitm-capstone2-w23"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 23.0,
+          "placement_roi_score": 98.4,
+          "hands_on_deliverable": "Clear 5 Mock OAs (>85% score) + Apply to Top 30 Matched Verified Roles",
+          "unlocked_opportunities_count": 85
+        }
+      ]
+    },
+    "frontend": {
+      "role_category": "frontend",
+      "role_title": "Frontend & Modern Web Architect (IIT Madras BS 6-Month Track)",
+      "total_weeks": 24,
+      "total_hours": 360,
+      "iit_institutes_referenced": [
+        "IIT Madras",
+        "IIT Kharagpur",
+        "IIT Bombay",
+        "IIT Madras & IIT Bombay Combined Track"
+      ],
+      "pruned_theory_modules_count": 6,
+      "dag_topological_order_verified": true,
+      "weekly_plan": [
+        {
+          "week": 1,
+          "phase_name": "Phase 1 (Months 1\u20132): IIT Programming Foundations, Tooling & DSA",
+          "module_id": "iitm-sys-w1",
+          "course_code": "IITM-BS-CS2001",
+          "title": "Linux Architecture, Bash Scripting & Git Version Control",
+          "iit_source": "IIT Madras (IITM-BS-CS2001: System Commands & Developer Tooling)",
+          "professor": "Prof. Gandham Phanikumar (IIT Madras)",
+          "atomic_topics": [
+            "POSIX File Systems, Permissions & Process Pipes",
+            "Bash Automation, Awk/Sed & SSH Keys",
+            "Git Internals, Branching, Rebasing & Pull Request Workflows"
+          ],
+          "skills_unlocked": [
+            "Linux",
+            "Git"
+          ],
+          "prerequisites_satisfied": [],
+          "study_hours": 15,
+          "live_market_demand_pct": 50.0,
+          "placement_roi_score": 92.6,
+          "hands_on_deliverable": "Build an automated Bash + Git log audit CLI & configure SSH deployment keys",
+          "unlocked_opportunities_count": 5
+        },
+        {
+          "week": 2,
+          "phase_name": "Phase 1 (Months 1\u20132): IIT Programming Foundations, Tooling & DSA",
+          "module_id": "iitm-py-w2",
+          "course_code": "IITM-BS-CS1002",
+          "title": "Python Memory Model, OOP, Iterators & Exception Safety",
+          "iit_source": "IIT Madras (IITM-BS-CS1002: Programming & Computational Thinking in Python)",
+          "professor": "Prof. Sudarshan Iyengar (IIT Madras)",
+          "atomic_topics": [
+            "Mutability, Stack vs Heap References & Generators",
+            "Object-Oriented Design, Dunder Methods & Type Hints",
+            "File I/O, JSON Parsing & Unit Testing with unittest/pytest"
+          ],
+          "skills_unlocked": [
+            "Python",
+            "Git"
+          ],
+          "prerequisites_satisfied": [
+            "iitm-sys-w1"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 23.0,
+          "placement_roi_score": 91.1,
+          "hands_on_deliverable": "Build a modular OOP Expense & Portfolio Parser with 100% unit test coverage",
+          "unlocked_opportunities_count": 20
+        },
+        {
+          "week": 3,
+          "phase_name": "Phase 1 (Months 1\u20132): IIT Programming Foundations, Tooling & DSA",
+          "module_id": "iitm-js-w3",
+          "course_code": "IITM-BS-CS2003",
+          "title": "HTML5/CSS3 Semantics, Modern JavaScript (ES6+) & TypeScript Types",
+          "iit_source": "IIT Madras (IITM-BS-CS2003: Modern Application Development I)",
+          "professor": "Prof. Balaraman Ravindran & IITM AppDev Faculty",
+          "atomic_topics": [
+            "DOM Tree, CSS Flexbox/Grid & Responsive Layouts",
+            "JavaScript Closures, Event Loop, Promises & Async/Await",
+            "TypeScript Interfaces, Generics & Strict Compile-Time Type Safety"
+          ],
+          "skills_unlocked": [
+            "HTML/CSS",
+            "JavaScript",
+            "TypeScript"
+          ],
+          "prerequisites_satisfied": [
+            "iitm-sys-w1"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 9.6,
+          "placement_roi_score": 79.9,
+          "hands_on_deliverable": "Build a zero-dependency typed Async Job Search UI with debounced filtering",
+          "unlocked_opportunities_count": 45
+        },
+        {
+          "week": 4,
+          "phase_name": "Phase 1 (Months 1\u20132): IIT Programming Foundations, Tooling & DSA",
+          "module_id": "iitm-pdsa-w4",
+          "course_code": "NOC24-CS54",
+          "title": "Asymptotic Complexity (Big-O), Arrays, Two Pointers & Sliding Window",
+          "iit_source": "IIT Madras (NOC24-CS54: Programming, Data Structures and Algorithms (PDSA))",
+          "professor": "Prof. Madhavan Mukund (IIT Madras)",
+          "atomic_topics": [
+            "Best, Average & Worst-Case Time/Space Complexity Analysis",
+            "Prefix Sums, Two-Pointer Invariants & Variable Sliding Window",
+            "Binary Search on Monotonic Answer Spaces & Sorting Stability"
+          ],
+          "skills_unlocked": [
+            "Python",
+            "Java",
+            "C++"
+          ],
+          "prerequisites_satisfied": [
+            "iitm-py-w2"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 23.0,
+          "placement_roi_score": 97.8,
+          "hands_on_deliverable": "Solve 25 Product-Company OA Array, Binary Search & Sliding Window problems",
+          "unlocked_opportunities_count": 54
+        },
+        {
+          "week": 5,
+          "phase_name": "Phase 1 (Months 1\u20132): IIT Programming Foundations, Tooling & DSA",
+          "module_id": "iitm-pdsa-w5",
+          "course_code": "NOC24-CS54",
+          "title": "Hash Tables, Collision Resolution, Linked Lists & Monotonic Stacks",
+          "iit_source": "IIT Madras (NOC24-CS54: Programming, Data Structures and Algorithms (PDSA))",
+          "professor": "Prof. Madhavan Mukund (IIT Madras)",
+          "atomic_topics": [
+            "Open Addressing vs Chaining, Load Factor & Rolling Hashes",
+            "Fast/Slow Pointers, LRU Cache Design (HashMap + Doubly Linked List)",
+            "Monotonic Stacks & Queues for Next-Greater-Element OA Patterns"
+          ],
+          "skills_unlocked": [
+            "Python",
+            "Java"
+          ],
+          "prerequisites_satisfied": [
+            "iitm-pdsa-w4"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 23.0,
+          "placement_roi_score": 97.3,
+          "hands_on_deliverable": "Implement an O(1) Thread-Safe LRU Cache + solve 20 Hashing/Stack OA problems",
+          "unlocked_opportunities_count": 54
+        },
+        {
+          "week": 6,
+          "phase_name": "Phase 1 (Months 1\u20132): IIT Programming Foundations, Tooling & DSA",
+          "module_id": "iitm-pdsa-w6",
+          "course_code": "NOC24-CS54",
+          "title": "Recursion, Backtracking, Binary Trees, BSTs & Priority Queues (Heaps)",
+          "iit_source": "IIT Madras (NOC24-CS54: Programming, Data Structures and Algorithms (PDSA))",
+          "professor": "Prof. Madhavan Mukund (IIT Madras)",
+          "atomic_topics": [
+            "DFS/BFS Tree Traversals, Lowest Common Ancestor & Diameter",
+            "Balanced BST Invariants (AVL/Red-Black Concepts) & Trie Prefix Trees",
+            "Binary Heaps, Top-K Streaming Elements & Median Maintenance"
+          ],
+          "skills_unlocked": [
+            "Python",
+            "Java",
+            "C++"
+          ],
+          "prerequisites_satisfied": [
+            "iitm-pdsa-w5"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 23.0,
+          "placement_roi_score": 97.3,
+          "hands_on_deliverable": "Build an Autocomplete Trie Engine + solve 25 Tree/Heap OA problems",
+          "unlocked_opportunities_count": 54
+        },
+        {
+          "week": 7,
+          "phase_name": "Phase 1 (Months 1\u20132): IIT Programming Foundations, Tooling & DSA",
+          "module_id": "iitm-pdsa-w7",
+          "course_code": "NOC24-CS54",
+          "title": "Graph Algorithms: BFS, DFS, Topological Sort, Dijkstra & Union-Find",
+          "iit_source": "IIT Madras (NOC24-CS54: Programming, Data Structures and Algorithms (PDSA))",
+          "professor": "Prof. Madhavan Mukund (IIT Madras)",
+          "atomic_topics": [
+            "Adjacency Representations, Cycle Detection & Kahn's Topological Sort (DAG)",
+            "Shortest Paths: Dijkstra, Bellman-Ford & Floyd-Warshall",
+            "Disjoint Set Union (DSU) & Minimum Spanning Trees (Kruskal/Prim)"
+          ],
+          "skills_unlocked": [
+            "Python",
+            "Java"
+          ],
+          "prerequisites_satisfied": [
+            "iitm-pdsa-w6"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 23.0,
+          "placement_roi_score": 93.8,
+          "hands_on_deliverable": "Build a Course Prerequisite DAG Resolver & Dependency Graph Visualizer",
+          "unlocked_opportunities_count": 54
+        },
+        {
+          "week": 8,
+          "phase_name": "Phase 1 (Months 1\u20132): IIT Programming Foundations, Tooling & DSA",
+          "module_id": "iitm-pdsa-w8",
+          "course_code": "NOC24-CS54",
+          "title": "Dynamic Programming (1D/2D/Knapsack/Strings) & Greedy Optimizations",
+          "iit_source": "IIT Madras (NOC24-CS54: Programming, Data Structures and Algorithms (PDSA))",
+          "professor": "Prof. Madhavan Mukund (IIT Madras)",
+          "atomic_topics": [
+            " Overlapping Subproblems: Memoization vs Tabulation State Transitions",
+            "0/1 & Unbounded Knapsack, LCS, Edit Distance & LIS Patterns",
+            "Interval Scheduling Greedy Proofs & Bit Manipulation Tricks"
+          ],
+          "skills_unlocked": [
+            "Python",
+            "Java",
+            "C++"
+          ],
+          "prerequisites_satisfied": [
+            "iitm-pdsa-w7"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 23.0,
+          "placement_roi_score": 93.8,
+          "hands_on_deliverable": "Complete 30 High-Frequency Product Company Dynamic Programming OA problems",
+          "unlocked_opportunities_count": 54
+        },
+        {
+          "week": 9,
+          "phase_name": "Phase 2 (Months 3\u20134): IIT Core Systems (DBMS/OS/CN) & Full-Stack Engineering",
+          "module_id": "iitkgp-dbms-w9",
+          "course_code": "NOC24-CS42",
+          "title": "Relational Schema Design, Complex SQL Joins, Window Functions & CTEs",
+          "iit_source": "IIT Kharagpur (NOC24-CS42: Database Management Systems (DBMS))",
+          "professor": "Prof. Partha Pratim Das (IIT Kharagpur)",
+          "atomic_topics": [
+            "Entity-Relationship (ER) Modeling & Foreign Key Integrity",
+            "Inner/Outer Joins, Group By Aggregations, Subqueries & CTEs",
+            "Window Functions (ROW_NUMBER, RANK, LAG/LEAD) for Analytics OAs"
+          ],
+          "skills_unlocked": [
+            "SQL",
+            "PostgreSQL",
+            "MySQL"
+          ],
+          "prerequisites_satisfied": [
+            "iitm-py-w2"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 15.4,
+          "placement_roi_score": 84.7,
+          "hands_on_deliverable": "Design a normalized 12-table E-Commerce PostgreSQL schema + 30 SQL OA queries",
+          "unlocked_opportunities_count": 69
+        },
+        {
+          "week": 10,
+          "phase_name": "Phase 2 (Months 3\u20134): IIT Core Systems (DBMS/OS/CN) & Full-Stack Engineering",
+          "module_id": "iitkgp-dbms-w10",
+          "course_code": "NOC24-CS42",
+          "title": "Normalization (3NF/BCNF), B+ Tree Indexing, ACID Transactions & Isolation",
+          "iit_source": "IIT Kharagpur (NOC24-CS42: Database Management Systems (DBMS))",
+          "professor": "Prof. Partha Pratim Das (IIT Kharagpur)",
+          "atomic_topics": [
+            "Functional Dependencies, Lossless Decomposition & BCNF Normalization",
+            "B-Trees / B+ Trees, Composite Indexes & EXPLAIN ANALYZE Query Tuning",
+            "ACID Properties, Serializability, Deadlock Handling & MVCC"
+          ],
+          "skills_unlocked": [
+            "SQL",
+            "PostgreSQL",
+            "Redis"
+          ],
+          "prerequisites_satisfied": [
+            "iitkgp-dbms-w9"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 12.9,
+          "placement_roi_score": 81.5,
+          "hands_on_deliverable": "Optimize a 1M-row PostgreSQL table from 1200ms to 4ms using B+ Tree composite indexes",
+          "unlocked_opportunities_count": 69
+        },
+        {
+          "week": 11,
+          "phase_name": "Phase 2 (Months 3\u20134): IIT Core Systems (DBMS/OS/CN) & Full-Stack Engineering",
+          "module_id": "iitb-os-w11",
+          "course_code": "IITB-CS333",
+          "title": "Processes, Threads, CPU Scheduling, Mutex/Semaphores & Virtual Memory",
+          "iit_source": "IIT Bombay (IITB-CS333: Operating Systems & Concurrency)",
+          "professor": "Prof. Mythili Vutukuru (IIT Bombay)",
+          "atomic_topics": [
+            "Process Control Block, Context Switching, Fork/Exec & System Calls",
+            "Thread Synchronization, Race Conditions, Mutexes & Banker's Deadlock Algorithm",
+            "Virtual Memory Paging, TLB, Page Replacement (LRU) & Thrashing"
+          ],
+          "skills_unlocked": [
+            "Linux",
+            "C++",
+            "Python"
+          ],
+          "prerequisites_satisfied": [
+            "iitm-sys-w1"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 50.0,
+          "placement_roi_score": 92.5,
+          "hands_on_deliverable": "Implement a Multi-Threaded Producer-Consumer Worker Pool + OS Interview Drill",
+          "unlocked_opportunities_count": 69
+        },
+        {
+          "week": 12,
+          "phase_name": "Phase 2 (Months 3\u20134): IIT Core Systems (DBMS/OS/CN) & Full-Stack Engineering",
+          "module_id": "iitb-cn-w12",
+          "course_code": "IITB-CS305",
+          "title": "OSI/TCP-IP Stack, DNS, HTTP/1.1 vs HTTP/2/3, TLS Handshake & WebSockets",
+          "iit_source": "IIT Bombay (IITB-CS305: Computer Networks & Internet Architecture)",
+          "professor": "Prof. Mythili Vutukuru (IIT Bombay)",
+          "atomic_topics": [
+            "TCP 3-Way Handshake, Congestion Control & UDP vs TCP Tradeoffs",
+            "DNS Resolution, CDN Caching, TLS 1.3 Encryption & CORS Security",
+            "RESTful Architecture, Reverse Proxies (Nginx) & Persistent WebSockets"
+          ],
+          "skills_unlocked": [
+            "REST API",
+            "WebSockets",
+            "Linux"
+          ],
+          "prerequisites_satisfied": [
+            "iitb-os-w11"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 50.0,
+          "placement_roi_score": 95.9,
+          "hands_on_deliverable": "Build a Real-Time WebSocket Notification Server + Packet Inspection Lab",
+          "unlocked_opportunities_count": 72
+        },
+        {
+          "week": 13,
+          "phase_name": "Phase 2 (Months 3\u20134): IIT Core Systems (DBMS/OS/CN) & Full-Stack Engineering",
+          "module_id": "iitm-react-w13",
+          "course_code": "IITM-BS-CS2006",
+          "title": "React 18 Component Architecture, Hooks, Tailwind CSS & State Management",
+          "iit_source": "IIT Madras (IITM-BS-CS2006: Modern Application Development II (Frontend Architecture))",
+          "professor": "IIT Madras Modern AppDev Faculty",
+          "atomic_topics": [
+            "Virtual DOM Reconciliation, Custom Hooks (`useMemo`, `useCallback`, `useEffect`)",
+            "Global State Management with Zustand / Redux Toolkit & Context API",
+            "Design Systems with Tailwind CSS, Accessibility & Vite Bundling"
+          ],
+          "skills_unlocked": [
+            "React",
+            "TypeScript",
+            "JavaScript",
+            "Tailwind CSS",
+            "HTML/CSS",
+            "Redux",
+            "Zustand"
+          ],
+          "prerequisites_satisfied": [
+            "iitm-js-w3"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 33.3,
+          "placement_roi_score": 95.4,
+          "hands_on_deliverable": "Build an Interactive Analytics Dashboard in React + TypeScript + Tailwind CSS",
+          "unlocked_opportunities_count": 73
+        },
+        {
+          "week": 14,
+          "phase_name": "Phase 2 (Months 3\u20134): IIT Core Systems (DBMS/OS/CN) & Full-Stack Engineering",
+          "module_id": "iitm-nextjs-w14",
+          "course_code": "IITM-BS-CS2006",
+          "title": "Next.js SSR/CSR, Client-Side Caching, Routing & Frontend Performance",
+          "iit_source": "IIT Madras (IITM-BS-CS2006: Modern Application Development II (Full-Stack Web))",
+          "professor": "IIT Madras Modern AppDev Faculty",
+          "atomic_topics": [
+            "Server-Side Rendering (SSR), Static Generation & App Router Patterns",
+            "Optimistic UI Updates, Pagination, Infinite Scroll & Web Vitals (LCP/CLS)",
+            "Frontend Security: XSS Prevention, CSRF Tokens & JWT Session Handling"
+          ],
+          "skills_unlocked": [
+            "Next.js",
+            "React",
+            "TypeScript",
+            "REST API",
+            "JavaScript"
+          ],
+          "prerequisites_satisfied": [
+            "iitm-react-w13"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 33.3,
+          "placement_roi_score": 93.7,
+          "hands_on_deliverable": "Ship a Production Next.js + TypeScript Job Portal with SSR and Lighthouse 98+",
+          "unlocked_opportunities_count": 73
+        },
+        {
+          "week": 15,
+          "phase_name": "Phase 2 (Months 3\u20134): IIT Core Systems (DBMS/OS/CN) & Full-Stack Engineering",
+          "module_id": "iitm-api-w15",
+          "course_code": "IITM-BS-CS2003",
+          "title": "Production REST APIs with FastAPI & Node.js/Express, Pydantic & Auth",
+          "iit_source": "IIT Madras (IITM-BS-CS2003: Backend API Engineering (FastAPI / Node.js / Express))",
+          "professor": "IIT Madras Modern AppDev Faculty",
+          "atomic_topics": [
+            "REST Resource Design, Status Codes, Middleware & Dependency Injection",
+            "Pydantic Schema Validation, ORM Migrations (SQLAlchemy / Prisma) & Connection Pools",
+            "JWT Authentication, Role-Based Access Control (RBAC) & Rate Limiting"
+          ],
+          "skills_unlocked": [
+            "FastAPI",
+            "Node.js",
+            "Express",
+            "Python",
+            "REST API",
+            "PostgreSQL",
+            "JavaScript"
+          ],
+          "prerequisites_satisfied": [
+            "iitkgp-dbms-w9",
+            "iitb-cn-w12"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 33.3,
+          "placement_roi_score": 93.0,
+          "hands_on_deliverable": "Build a Rate-Limited FastAPI + PostgreSQL Backend with JWT Auth & OpenAPI Docs",
+          "unlocked_opportunities_count": 74
+        },
+        {
+          "week": 16,
+          "phase_name": "Phase 2 (Months 3\u20134): IIT Core Systems (DBMS/OS/CN) & Full-Stack Engineering",
+          "module_id": "iitkgp-nosql-w16",
+          "course_code": "NOC24-CS42",
+          "title": "MongoDB Document Modeling, Redis Caching, Supabase & Async Task Queues",
+          "iit_source": "IIT Kharagpur (NOC24-CS42: Distributed Databases, Caching & Message Queues)",
+          "professor": "Prof. Samiran Chattopadhyay (IIT Kharagpur)",
+          "atomic_topics": [
+            "CAP Theorem, Eventual Consistency & Document Schema Design in MongoDB",
+            "Redis In-Memory Caching (Cache-Aside, Write-Through) & Distributed Locks",
+            "Background Workers (Celery / BullMQ), Webhooks & Idempotent Retries"
+          ],
+          "skills_unlocked": [
+            "MongoDB",
+            "Redis",
+            "Supabase",
+            "PostgreSQL",
+            "Microservices"
+          ],
+          "prerequisites_satisfied": [
+            "iitkgp-dbms-w10",
+            "iitm-api-w15"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 9.6,
+          "placement_roi_score": 75.9,
+          "hands_on_deliverable": "Add Redis Caching & Async Background Job Processing to the Backend API",
+          "unlocked_opportunities_count": 79
+        },
+        {
+          "week": 17,
+          "phase_name": "Phase 3 (Months 5\u20136): Cloud/DevOps, Applied AI/LLMs, Capstones & OA Sprint",
+          "module_id": "iitkgp-cloud-w17",
+          "course_code": "NOC24-CS68",
+          "title": "Docker Containerization, Multi-Stage Builds & CI/CD GitHub Actions",
+          "iit_source": "IIT Kharagpur (NOC24-CS68: Cloud Computing & Distributed Systems)",
+          "professor": "Prof. Soumya K. Ghosh (IIT Kharagpur)",
+          "atomic_topics": [
+            "Linux Namespaces, cgroups, Dockerfiles & Docker Compose Orchestration",
+            "Automated Testing, Linting & Zero-Downtime CI/CD Pipelines via GitHub Actions",
+            "Environment Secrets Management, Healthchecks & Container Security"
+          ],
+          "skills_unlocked": [
+            "Docker",
+            "CI/CD",
+            "Linux",
+            "Git"
+          ],
+          "prerequisites_satisfied": [
+            "iitm-api-w15"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 50.0,
+          "placement_roi_score": 90.3,
+          "hands_on_deliverable": "Containerize Full-Stack App with Docker Compose & automated GitHub Actions CI/CD",
+          "unlocked_opportunities_count": 80
+        },
+        {
+          "week": 18,
+          "phase_name": "Phase 3 (Months 5\u20136): Cloud/DevOps, Applied AI/LLMs, Capstones & OA Sprint",
+          "module_id": "iitkgp-aws-w18",
+          "course_code": "NOC24-CS68",
+          "title": "AWS & GCP Cloud Architecture, Kubernetes Basics & Serverless Deployment",
+          "iit_source": "IIT Kharagpur (NOC24-CS68: Cloud Computing & Distributed Systems)",
+          "professor": "Prof. Soumya K. Ghosh (IIT Kharagpur)",
+          "atomic_topics": [
+            "AWS Core: EC2, S3 Object Storage, RDS, IAM Least-Privilege & VPC Networking",
+            "Kubernetes (K8s) Pods, Deployments, Services & Horizontal Pod Autoscaling",
+            "Observability: Structured Logging, Prometheus Metrics & Error Alerting"
+          ],
+          "skills_unlocked": [
+            "AWS",
+            "GCP",
+            "Kubernetes",
+            "Docker",
+            "PostgreSQL"
+          ],
+          "prerequisites_satisfied": [
+            "iitkgp-cloud-w17"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 33.3,
+          "placement_roi_score": 89.7,
+          "hands_on_deliverable": "Deploy Dockerized Backend + PostgreSQL on AWS/Cloud with custom domain & SSL",
+          "unlocked_opportunities_count": 84
+        },
+        {
+          "week": 19,
+          "phase_name": "Phase 3 (Months 5\u20136): Cloud/DevOps, Applied AI/LLMs, Capstones & OA Sprint",
+          "module_id": "iitm-ml-w19",
+          "course_code": "NOC24-CS79",
+          "title": "Supervised/Unsupervised ML, Feature Engineering, PyTorch & Model Evaluation",
+          "iit_source": "IIT Madras (NOC24-CS79: Applied Machine Learning & Deep Learning Foundations)",
+          "professor": "Prof. Balaraman Ravindran & Prof. Mitesh Khapra (IIT Madras)",
+          "atomic_topics": [
+            "Regression, Tree Ensembles (XGBoost/Random Forests) & Cross-Validation",
+            "Neural Networks, Backpropagation, Embeddings & PyTorch/TensorFlow Pipelines",
+            "Precision/Recall/F1, ROC-AUC & Serving ML Models via FastAPI"
+          ],
+          "skills_unlocked": [
+            "Python",
+            "PyTorch",
+            "TensorFlow",
+            "FastAPI"
+          ],
+          "prerequisites_satisfied": [
+            "iitm-py-w2",
+            "iitm-pdsa-w8"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 23.0,
+          "placement_roi_score": 89.4,
+          "hands_on_deliverable": "Train & deploy a Real-Time Skill/Resume Scoring Model via FastAPI",
+          "unlocked_opportunities_count": 84
+        },
+        {
+          "week": 20,
+          "phase_name": "Phase 3 (Months 5\u20136): Cloud/DevOps, Applied AI/LLMs, Capstones & OA Sprint",
+          "module_id": "iitm-llm-w20",
+          "course_code": "IITM-BS-CS3004",
+          "title": "LLM Engineering, Vector Databases, RAG Pipelines, LangChain & MCP Agents",
+          "iit_source": "IIT Madras (IITM-BS-CS3004: Large Language Models, RAG & Agentic AI Systems)",
+          "professor": "Prof. Mitesh Khapra (IIT Madras RBCDSAI)",
+          "atomic_topics": [
+            "Transformer Attention, Tokenization, Structured JSON Outputs & Function Calling",
+            "Chunking Strategies, Dense Embeddings, Vector Search & Hybrid RAG",
+            "Building Deterministic AI Agents with LangChain & Model Context Protocol (MCP)"
+          ],
+          "skills_unlocked": [
+            "LLM Engineering",
+            "RAG",
+            "LangChain",
+            "Python",
+            "FastAPI"
+          ],
+          "prerequisites_satisfied": [
+            "iitm-ml-w19",
+            "iitm-api-w15"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 23.0,
+          "placement_roi_score": 91.1,
+          "hands_on_deliverable": "Build a Citation-Grounded RAG + MCP AI Assistant with hallucination guardrails",
+          "unlocked_opportunities_count": 85
+        },
+        {
+          "week": 21,
+          "phase_name": "Phase 3 (Months 5\u20136): Cloud/DevOps, Applied AI/LLMs, Capstones & OA Sprint",
+          "module_id": "iitkgp-sysdesign-w21",
+          "course_code": "NOC24-CS61",
+          "title": "Low-Level Design (LLD), SOLID Patterns & High-Level System Design (HLD)",
+          "iit_source": "IIT Kharagpur (NOC24-CS61: Software Engineering & High-Scale System Design)",
+          "professor": "Prof. Rajib Mall (IIT Kharagpur)",
+          "atomic_topics": [
+            "SOLID Principles, Factory/Strategy/Observer Patterns & Machine Coding Rounds",
+            "Load Balancers, Consistent Hashing, Rate Limiters & Database Sharding",
+            "Designing High-Scale Systems: URL Shortener, Payment Gateway & Notification Engine"
+          ],
+          "skills_unlocked": [
+            "Microservices",
+            "Redis",
+            "PostgreSQL",
+            "REST API",
+            "Java",
+            "Python"
+          ],
+          "prerequisites_satisfied": [
+            "iitkgp-nosql-w16",
+            "iitkgp-cloud-w17"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 23.0,
+          "placement_roi_score": 92.7,
+          "hands_on_deliverable": "Complete 3 Machine Coding LLD Rounds + 4 HLD Architecture Diagrams",
+          "unlocked_opportunities_count": 85
+        },
+        {
+          "week": 22,
+          "phase_name": "Phase 3 (Months 5\u20136): Cloud/DevOps, Applied AI/LLMs, Capstones & OA Sprint",
+          "module_id": "iitm-capstone1-w22",
+          "course_code": "IITM-BS-CS3009",
+          "title": "Production Capstone Build: End-to-End Full-Stack & Database Architecture",
+          "iit_source": "IIT Madras (IITM-BS-CS3009: IIT Madras Industry Capstone Project I)",
+          "professor": "IIT Madras Project Mentorship Board",
+          "atomic_topics": [
+            "System Architecture Specification, ER Diagram & API Contract Design",
+            "Full-Stack Implementation with React/Next.js, TypeScript, FastAPI/Node & PostgreSQL",
+            "Automated Integration Tests, Security Hardening & Performance Benchmarking"
+          ],
+          "skills_unlocked": [
+            "React",
+            "TypeScript",
+            "FastAPI",
+            "Node.js",
+            "PostgreSQL",
+            "Docker",
+            "Git",
+            "JavaScript",
+            "Next.js",
+            "CI/CD"
+          ],
+          "prerequisites_satisfied": [
+            "iitm-nextjs-w14",
+            "iitkgp-sysdesign-w21"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 33.3,
+          "placement_roi_score": 97.0,
+          "hands_on_deliverable": "Ship Production Capstone #1 with live URL, CI/CD, and architectural README",
+          "unlocked_opportunities_count": 85
+        },
+        {
+          "week": 23,
+          "phase_name": "Phase 3 (Months 5\u20136): Cloud/DevOps, Applied AI/LLMs, Capstones & OA Sprint",
+          "module_id": "iitm-capstone2-w23",
+          "course_code": "IITM-BS-CS3010",
+          "title": "Production Capstone Build: AI-Native Microservice with Cloud Telemetry",
+          "iit_source": "IIT Madras (IITM-BS-CS3010: IIT Madras Industry Capstone Project II (AI + Cloud Scale))",
+          "professor": "IIT Madras Project Mentorship Board",
+          "atomic_topics": [
+            "Integrating LLM/RAG Pipeline, Redis Caching & WebSockets into Production App",
+            "Cloud Deployment on AWS/GCP with Docker & Live Latency Monitoring",
+            "Technical Demo Video, Case-Study Writeup & Resume Impact Quantification"
+          ],
+          "skills_unlocked": [
+            "LLM Engineering",
+            "RAG",
+            "Redis",
+            "WebSockets",
+            "AWS",
+            "Docker",
+            "Microservices",
+            "GCP"
+          ],
+          "prerequisites_satisfied": [
+            "iitm-llm-w20",
+            "iitm-capstone1-w22"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 40.0,
+          "placement_roi_score": 93.5,
+          "hands_on_deliverable": "Ship Production AI Capstone #2 & verify against ATS Resume Checklist",
+          "unlocked_opportunities_count": 85
+        },
+        {
+          "week": 24,
+          "phase_name": "Phase 3 (Months 5\u20136): Cloud/DevOps, Applied AI/LLMs, Capstones & OA Sprint",
+          "module_id": "iitm-placement-w24",
+          "course_code": "IITM-PLACEMENT-SPRINT",
+          "title": "Timed Company OAs, Core CS Rapid Revision (DBMS/OS/CN) & Mock Interviews",
+          "iit_source": "IIT Madras & IIT Bombay Combined Track (IITM-PLACEMENT-SPRINT: Final Placement OA, System Design & Technical Interview Sprint)",
+          "professor": "CareerKinetic x IIT Curriculum Synthesis",
+          "atomic_topics": [
+            "5 Timed 90-Minute Company OAs (Graphs, DP, Trees, SQL Joins & Debugging)",
+            "CS Core Rapid Fire: 100 Top DBMS, OS, CN & OOP Technical Interview Questions",
+            "Live Project Defense, Behavioral STAR Method & Direct Referral Applications"
+          ],
+          "skills_unlocked": [
+            "Python",
+            "JavaScript",
+            "TypeScript",
+            "SQL",
+            "React",
+            "REST API",
+            "Git"
+          ],
+          "prerequisites_satisfied": [
+            "iitm-pdsa-w8",
+            "iitm-capstone2-w23"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 23.0,
+          "placement_roi_score": 98.4,
+          "hands_on_deliverable": "Clear 5 Mock OAs (>85% score) + Apply to Top 30 Matched Verified Roles",
+          "unlocked_opportunities_count": 85
+        }
+      ]
+    },
+    "ai_ml": {
+      "role_category": "ai_ml",
+      "role_title": "Applied AI, ML & LLM Engineer (IIT Madras RBCDSAI 6-Month Track)",
+      "total_weeks": 24,
+      "total_hours": 360,
+      "iit_institutes_referenced": [
+        "IIT Madras",
+        "IIT Kharagpur",
+        "IIT Bombay",
+        "IIT Madras & IIT Bombay Combined Track"
+      ],
+      "pruned_theory_modules_count": 6,
+      "dag_topological_order_verified": true,
+      "weekly_plan": [
+        {
+          "week": 1,
+          "phase_name": "Phase 1 (Months 1\u20132): IIT Programming Foundations, Tooling & DSA",
+          "module_id": "iitm-sys-w1",
+          "course_code": "IITM-BS-CS2001",
+          "title": "Linux Architecture, Bash Scripting & Git Version Control",
+          "iit_source": "IIT Madras (IITM-BS-CS2001: System Commands & Developer Tooling)",
+          "professor": "Prof. Gandham Phanikumar (IIT Madras)",
+          "atomic_topics": [
+            "POSIX File Systems, Permissions & Process Pipes",
+            "Bash Automation, Awk/Sed & SSH Keys",
+            "Git Internals, Branching, Rebasing & Pull Request Workflows"
+          ],
+          "skills_unlocked": [
+            "Linux",
+            "Git"
+          ],
+          "prerequisites_satisfied": [],
+          "study_hours": 15,
+          "live_market_demand_pct": 50.0,
+          "placement_roi_score": 92.6,
+          "hands_on_deliverable": "Build an automated Bash + Git log audit CLI & configure SSH deployment keys",
+          "unlocked_opportunities_count": 5
+        },
+        {
+          "week": 2,
+          "phase_name": "Phase 1 (Months 1\u20132): IIT Programming Foundations, Tooling & DSA",
+          "module_id": "iitm-py-w2",
+          "course_code": "IITM-BS-CS1002",
+          "title": "Python Memory Model, OOP, Iterators & Exception Safety",
+          "iit_source": "IIT Madras (IITM-BS-CS1002: Programming & Computational Thinking in Python)",
+          "professor": "Prof. Sudarshan Iyengar (IIT Madras)",
+          "atomic_topics": [
+            "Mutability, Stack vs Heap References & Generators",
+            "Object-Oriented Design, Dunder Methods & Type Hints",
+            "File I/O, JSON Parsing & Unit Testing with unittest/pytest"
+          ],
+          "skills_unlocked": [
+            "Python",
+            "Git"
+          ],
+          "prerequisites_satisfied": [
+            "iitm-sys-w1"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 23.0,
+          "placement_roi_score": 95.1,
+          "hands_on_deliverable": "Build a modular OOP Expense & Portfolio Parser with 100% unit test coverage",
+          "unlocked_opportunities_count": 20
+        },
+        {
+          "week": 3,
+          "phase_name": "Phase 1 (Months 1\u20132): IIT Programming Foundations, Tooling & DSA",
+          "module_id": "iitm-js-w3",
+          "course_code": "IITM-BS-CS2003",
+          "title": "HTML5/CSS3 Semantics, Modern JavaScript (ES6+) & TypeScript Types",
+          "iit_source": "IIT Madras (IITM-BS-CS2003: Modern Application Development I)",
+          "professor": "Prof. Balaraman Ravindran & IITM AppDev Faculty",
+          "atomic_topics": [
+            "DOM Tree, CSS Flexbox/Grid & Responsive Layouts",
+            "JavaScript Closures, Event Loop, Promises & Async/Await",
+            "TypeScript Interfaces, Generics & Strict Compile-Time Type Safety"
+          ],
+          "skills_unlocked": [
+            "HTML/CSS",
+            "JavaScript",
+            "TypeScript"
+          ],
+          "prerequisites_satisfied": [
+            "iitm-sys-w1"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 9.6,
+          "placement_roi_score": 75.9,
+          "hands_on_deliverable": "Build a zero-dependency typed Async Job Search UI with debounced filtering",
+          "unlocked_opportunities_count": 45
+        },
+        {
+          "week": 4,
+          "phase_name": "Phase 1 (Months 1\u20132): IIT Programming Foundations, Tooling & DSA",
+          "module_id": "iitm-pdsa-w4",
+          "course_code": "NOC24-CS54",
+          "title": "Asymptotic Complexity (Big-O), Arrays, Two Pointers & Sliding Window",
+          "iit_source": "IIT Madras (NOC24-CS54: Programming, Data Structures and Algorithms (PDSA))",
+          "professor": "Prof. Madhavan Mukund (IIT Madras)",
+          "atomic_topics": [
+            "Best, Average & Worst-Case Time/Space Complexity Analysis",
+            "Prefix Sums, Two-Pointer Invariants & Variable Sliding Window",
+            "Binary Search on Monotonic Answer Spaces & Sorting Stability"
+          ],
+          "skills_unlocked": [
+            "Python",
+            "Java",
+            "C++"
+          ],
+          "prerequisites_satisfied": [
+            "iitm-py-w2"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 23.0,
+          "placement_roi_score": 97.8,
+          "hands_on_deliverable": "Solve 25 Product-Company OA Array, Binary Search & Sliding Window problems",
+          "unlocked_opportunities_count": 54
+        },
+        {
+          "week": 5,
+          "phase_name": "Phase 1 (Months 1\u20132): IIT Programming Foundations, Tooling & DSA",
+          "module_id": "iitm-pdsa-w5",
+          "course_code": "NOC24-CS54",
+          "title": "Hash Tables, Collision Resolution, Linked Lists & Monotonic Stacks",
+          "iit_source": "IIT Madras (NOC24-CS54: Programming, Data Structures and Algorithms (PDSA))",
+          "professor": "Prof. Madhavan Mukund (IIT Madras)",
+          "atomic_topics": [
+            "Open Addressing vs Chaining, Load Factor & Rolling Hashes",
+            "Fast/Slow Pointers, LRU Cache Design (HashMap + Doubly Linked List)",
+            "Monotonic Stacks & Queues for Next-Greater-Element OA Patterns"
+          ],
+          "skills_unlocked": [
+            "Python",
+            "Java"
+          ],
+          "prerequisites_satisfied": [
+            "iitm-pdsa-w4"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 23.0,
+          "placement_roi_score": 97.3,
+          "hands_on_deliverable": "Implement an O(1) Thread-Safe LRU Cache + solve 20 Hashing/Stack OA problems",
+          "unlocked_opportunities_count": 54
+        },
+        {
+          "week": 6,
+          "phase_name": "Phase 1 (Months 1\u20132): IIT Programming Foundations, Tooling & DSA",
+          "module_id": "iitm-pdsa-w6",
+          "course_code": "NOC24-CS54",
+          "title": "Recursion, Backtracking, Binary Trees, BSTs & Priority Queues (Heaps)",
+          "iit_source": "IIT Madras (NOC24-CS54: Programming, Data Structures and Algorithms (PDSA))",
+          "professor": "Prof. Madhavan Mukund (IIT Madras)",
+          "atomic_topics": [
+            "DFS/BFS Tree Traversals, Lowest Common Ancestor & Diameter",
+            "Balanced BST Invariants (AVL/Red-Black Concepts) & Trie Prefix Trees",
+            "Binary Heaps, Top-K Streaming Elements & Median Maintenance"
+          ],
+          "skills_unlocked": [
+            "Python",
+            "Java",
+            "C++"
+          ],
+          "prerequisites_satisfied": [
+            "iitm-pdsa-w5"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 23.0,
+          "placement_roi_score": 97.3,
+          "hands_on_deliverable": "Build an Autocomplete Trie Engine + solve 25 Tree/Heap OA problems",
+          "unlocked_opportunities_count": 54
+        },
+        {
+          "week": 7,
+          "phase_name": "Phase 1 (Months 1\u20132): IIT Programming Foundations, Tooling & DSA",
+          "module_id": "iitm-pdsa-w7",
+          "course_code": "NOC24-CS54",
+          "title": "Graph Algorithms: BFS, DFS, Topological Sort, Dijkstra & Union-Find",
+          "iit_source": "IIT Madras (NOC24-CS54: Programming, Data Structures and Algorithms (PDSA))",
+          "professor": "Prof. Madhavan Mukund (IIT Madras)",
+          "atomic_topics": [
+            "Adjacency Representations, Cycle Detection & Kahn's Topological Sort (DAG)",
+            "Shortest Paths: Dijkstra, Bellman-Ford & Floyd-Warshall",
+            "Disjoint Set Union (DSU) & Minimum Spanning Trees (Kruskal/Prim)"
+          ],
+          "skills_unlocked": [
+            "Python",
+            "Java"
+          ],
+          "prerequisites_satisfied": [
+            "iitm-pdsa-w6"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 23.0,
+          "placement_roi_score": 97.8,
+          "hands_on_deliverable": "Build a Course Prerequisite DAG Resolver & Dependency Graph Visualizer",
+          "unlocked_opportunities_count": 54
+        },
+        {
+          "week": 8,
+          "phase_name": "Phase 1 (Months 1\u20132): IIT Programming Foundations, Tooling & DSA",
+          "module_id": "iitm-pdsa-w8",
+          "course_code": "NOC24-CS54",
+          "title": "Dynamic Programming (1D/2D/Knapsack/Strings) & Greedy Optimizations",
+          "iit_source": "IIT Madras (NOC24-CS54: Programming, Data Structures and Algorithms (PDSA))",
+          "professor": "Prof. Madhavan Mukund (IIT Madras)",
+          "atomic_topics": [
+            " Overlapping Subproblems: Memoization vs Tabulation State Transitions",
+            "0/1 & Unbounded Knapsack, LCS, Edit Distance & LIS Patterns",
+            "Interval Scheduling Greedy Proofs & Bit Manipulation Tricks"
+          ],
+          "skills_unlocked": [
+            "Python",
+            "Java",
+            "C++"
+          ],
+          "prerequisites_satisfied": [
+            "iitm-pdsa-w7"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 23.0,
+          "placement_roi_score": 97.8,
+          "hands_on_deliverable": "Complete 30 High-Frequency Product Company Dynamic Programming OA problems",
+          "unlocked_opportunities_count": 54
+        },
+        {
+          "week": 9,
+          "phase_name": "Phase 2 (Months 3\u20134): IIT Core Systems (DBMS/OS/CN) & Full-Stack Engineering",
+          "module_id": "iitkgp-dbms-w9",
+          "course_code": "NOC24-CS42",
+          "title": "Relational Schema Design, Complex SQL Joins, Window Functions & CTEs",
+          "iit_source": "IIT Kharagpur (NOC24-CS42: Database Management Systems (DBMS))",
+          "professor": "Prof. Partha Pratim Das (IIT Kharagpur)",
+          "atomic_topics": [
+            "Entity-Relationship (ER) Modeling & Foreign Key Integrity",
+            "Inner/Outer Joins, Group By Aggregations, Subqueries & CTEs",
+            "Window Functions (ROW_NUMBER, RANK, LAG/LEAD) for Analytics OAs"
+          ],
+          "skills_unlocked": [
+            "SQL",
+            "PostgreSQL",
+            "MySQL"
+          ],
+          "prerequisites_satisfied": [
+            "iitm-py-w2"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 15.4,
+          "placement_roi_score": 88.7,
+          "hands_on_deliverable": "Design a normalized 12-table E-Commerce PostgreSQL schema + 30 SQL OA queries",
+          "unlocked_opportunities_count": 69
+        },
+        {
+          "week": 10,
+          "phase_name": "Phase 2 (Months 3\u20134): IIT Core Systems (DBMS/OS/CN) & Full-Stack Engineering",
+          "module_id": "iitkgp-dbms-w10",
+          "course_code": "NOC24-CS42",
+          "title": "Normalization (3NF/BCNF), B+ Tree Indexing, ACID Transactions & Isolation",
+          "iit_source": "IIT Kharagpur (NOC24-CS42: Database Management Systems (DBMS))",
+          "professor": "Prof. Partha Pratim Das (IIT Kharagpur)",
+          "atomic_topics": [
+            "Functional Dependencies, Lossless Decomposition & BCNF Normalization",
+            "B-Trees / B+ Trees, Composite Indexes & EXPLAIN ANALYZE Query Tuning",
+            "ACID Properties, Serializability, Deadlock Handling & MVCC"
+          ],
+          "skills_unlocked": [
+            "SQL",
+            "PostgreSQL",
+            "Redis"
+          ],
+          "prerequisites_satisfied": [
+            "iitkgp-dbms-w9"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 12.9,
+          "placement_roi_score": 81.5,
+          "hands_on_deliverable": "Optimize a 1M-row PostgreSQL table from 1200ms to 4ms using B+ Tree composite indexes",
+          "unlocked_opportunities_count": 69
+        },
+        {
+          "week": 11,
+          "phase_name": "Phase 2 (Months 3\u20134): IIT Core Systems (DBMS/OS/CN) & Full-Stack Engineering",
+          "module_id": "iitb-os-w11",
+          "course_code": "IITB-CS333",
+          "title": "Processes, Threads, CPU Scheduling, Mutex/Semaphores & Virtual Memory",
+          "iit_source": "IIT Bombay (IITB-CS333: Operating Systems & Concurrency)",
+          "professor": "Prof. Mythili Vutukuru (IIT Bombay)",
+          "atomic_topics": [
+            "Process Control Block, Context Switching, Fork/Exec & System Calls",
+            "Thread Synchronization, Race Conditions, Mutexes & Banker's Deadlock Algorithm",
+            "Virtual Memory Paging, TLB, Page Replacement (LRU) & Thrashing"
+          ],
+          "skills_unlocked": [
+            "Linux",
+            "C++",
+            "Python"
+          ],
+          "prerequisites_satisfied": [
+            "iitm-sys-w1"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 50.0,
+          "placement_roi_score": 92.5,
+          "hands_on_deliverable": "Implement a Multi-Threaded Producer-Consumer Worker Pool + OS Interview Drill",
+          "unlocked_opportunities_count": 69
+        },
+        {
+          "week": 12,
+          "phase_name": "Phase 2 (Months 3\u20134): IIT Core Systems (DBMS/OS/CN) & Full-Stack Engineering",
+          "module_id": "iitb-cn-w12",
+          "course_code": "IITB-CS305",
+          "title": "OSI/TCP-IP Stack, DNS, HTTP/1.1 vs HTTP/2/3, TLS Handshake & WebSockets",
+          "iit_source": "IIT Bombay (IITB-CS305: Computer Networks & Internet Architecture)",
+          "professor": "Prof. Mythili Vutukuru (IIT Bombay)",
+          "atomic_topics": [
+            "TCP 3-Way Handshake, Congestion Control & UDP vs TCP Tradeoffs",
+            "DNS Resolution, CDN Caching, TLS 1.3 Encryption & CORS Security",
+            "RESTful Architecture, Reverse Proxies (Nginx) & Persistent WebSockets"
+          ],
+          "skills_unlocked": [
+            "REST API",
+            "WebSockets",
+            "Linux"
+          ],
+          "prerequisites_satisfied": [
+            "iitb-os-w11"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 50.0,
+          "placement_roi_score": 91.9,
+          "hands_on_deliverable": "Build a Real-Time WebSocket Notification Server + Packet Inspection Lab",
+          "unlocked_opportunities_count": 72
+        },
+        {
+          "week": 13,
+          "phase_name": "Phase 2 (Months 3\u20134): IIT Core Systems (DBMS/OS/CN) & Full-Stack Engineering",
+          "module_id": "iitm-react-w13",
+          "course_code": "IITM-BS-CS2006",
+          "title": "React 18 Component Architecture, Hooks, Tailwind CSS & State Management",
+          "iit_source": "IIT Madras (IITM-BS-CS2006: Modern Application Development II (Frontend Architecture))",
+          "professor": "IIT Madras Modern AppDev Faculty",
+          "atomic_topics": [
+            "Virtual DOM Reconciliation, Custom Hooks (`useMemo`, `useCallback`, `useEffect`)",
+            "Global State Management with Zustand / Redux Toolkit & Context API",
+            "Design Systems with Tailwind CSS, Accessibility & Vite Bundling"
+          ],
+          "skills_unlocked": [
+            "React",
+            "TypeScript",
+            "JavaScript",
+            "Tailwind CSS",
+            "HTML/CSS",
+            "Redux",
+            "Zustand"
+          ],
+          "prerequisites_satisfied": [
+            "iitm-js-w3"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 33.3,
+          "placement_roi_score": 91.4,
+          "hands_on_deliverable": "Build an Interactive Analytics Dashboard in React + TypeScript + Tailwind CSS",
+          "unlocked_opportunities_count": 73
+        },
+        {
+          "week": 14,
+          "phase_name": "Phase 2 (Months 3\u20134): IIT Core Systems (DBMS/OS/CN) & Full-Stack Engineering",
+          "module_id": "iitm-nextjs-w14",
+          "course_code": "IITM-BS-CS2006",
+          "title": "Next.js SSR/CSR, Client-Side Caching, Routing & Frontend Performance",
+          "iit_source": "IIT Madras (IITM-BS-CS2006: Modern Application Development II (Full-Stack Web))",
+          "professor": "IIT Madras Modern AppDev Faculty",
+          "atomic_topics": [
+            "Server-Side Rendering (SSR), Static Generation & App Router Patterns",
+            "Optimistic UI Updates, Pagination, Infinite Scroll & Web Vitals (LCP/CLS)",
+            "Frontend Security: XSS Prevention, CSRF Tokens & JWT Session Handling"
+          ],
+          "skills_unlocked": [
+            "Next.js",
+            "React",
+            "TypeScript",
+            "REST API",
+            "JavaScript"
+          ],
+          "prerequisites_satisfied": [
+            "iitm-react-w13"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 33.3,
+          "placement_roi_score": 89.7,
+          "hands_on_deliverable": "Ship a Production Next.js + TypeScript Job Portal with SSR and Lighthouse 98+",
+          "unlocked_opportunities_count": 73
+        },
+        {
+          "week": 15,
+          "phase_name": "Phase 2 (Months 3\u20134): IIT Core Systems (DBMS/OS/CN) & Full-Stack Engineering",
+          "module_id": "iitm-api-w15",
+          "course_code": "IITM-BS-CS2003",
+          "title": "Production REST APIs with FastAPI & Node.js/Express, Pydantic & Auth",
+          "iit_source": "IIT Madras (IITM-BS-CS2003: Backend API Engineering (FastAPI / Node.js / Express))",
+          "professor": "IIT Madras Modern AppDev Faculty",
+          "atomic_topics": [
+            "REST Resource Design, Status Codes, Middleware & Dependency Injection",
+            "Pydantic Schema Validation, ORM Migrations (SQLAlchemy / Prisma) & Connection Pools",
+            "JWT Authentication, Role-Based Access Control (RBAC) & Rate Limiting"
+          ],
+          "skills_unlocked": [
+            "FastAPI",
+            "Node.js",
+            "Express",
+            "Python",
+            "REST API",
+            "PostgreSQL",
+            "JavaScript"
+          ],
+          "prerequisites_satisfied": [
+            "iitkgp-dbms-w9",
+            "iitb-cn-w12"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 33.3,
+          "placement_roi_score": 97.0,
+          "hands_on_deliverable": "Build a Rate-Limited FastAPI + PostgreSQL Backend with JWT Auth & OpenAPI Docs",
+          "unlocked_opportunities_count": 74
+        },
+        {
+          "week": 16,
+          "phase_name": "Phase 2 (Months 3\u20134): IIT Core Systems (DBMS/OS/CN) & Full-Stack Engineering",
+          "module_id": "iitkgp-nosql-w16",
+          "course_code": "NOC24-CS42",
+          "title": "MongoDB Document Modeling, Redis Caching, Supabase & Async Task Queues",
+          "iit_source": "IIT Kharagpur (NOC24-CS42: Distributed Databases, Caching & Message Queues)",
+          "professor": "Prof. Samiran Chattopadhyay (IIT Kharagpur)",
+          "atomic_topics": [
+            "CAP Theorem, Eventual Consistency & Document Schema Design in MongoDB",
+            "Redis In-Memory Caching (Cache-Aside, Write-Through) & Distributed Locks",
+            "Background Workers (Celery / BullMQ), Webhooks & Idempotent Retries"
+          ],
+          "skills_unlocked": [
+            "MongoDB",
+            "Redis",
+            "Supabase",
+            "PostgreSQL",
+            "Microservices"
+          ],
+          "prerequisites_satisfied": [
+            "iitkgp-dbms-w10",
+            "iitm-api-w15"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 9.6,
+          "placement_roi_score": 75.9,
+          "hands_on_deliverable": "Add Redis Caching & Async Background Job Processing to the Backend API",
+          "unlocked_opportunities_count": 79
+        },
+        {
+          "week": 17,
+          "phase_name": "Phase 3 (Months 5\u20136): Cloud/DevOps, Applied AI/LLMs, Capstones & OA Sprint",
+          "module_id": "iitkgp-cloud-w17",
+          "course_code": "NOC24-CS68",
+          "title": "Docker Containerization, Multi-Stage Builds & CI/CD GitHub Actions",
+          "iit_source": "IIT Kharagpur (NOC24-CS68: Cloud Computing & Distributed Systems)",
+          "professor": "Prof. Soumya K. Ghosh (IIT Kharagpur)",
+          "atomic_topics": [
+            "Linux Namespaces, cgroups, Dockerfiles & Docker Compose Orchestration",
+            "Automated Testing, Linting & Zero-Downtime CI/CD Pipelines via GitHub Actions",
+            "Environment Secrets Management, Healthchecks & Container Security"
+          ],
+          "skills_unlocked": [
+            "Docker",
+            "CI/CD",
+            "Linux",
+            "Git"
+          ],
+          "prerequisites_satisfied": [
+            "iitm-api-w15"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 50.0,
+          "placement_roi_score": 94.3,
+          "hands_on_deliverable": "Containerize Full-Stack App with Docker Compose & automated GitHub Actions CI/CD",
+          "unlocked_opportunities_count": 80
+        },
+        {
+          "week": 18,
+          "phase_name": "Phase 3 (Months 5\u20136): Cloud/DevOps, Applied AI/LLMs, Capstones & OA Sprint",
+          "module_id": "iitkgp-aws-w18",
+          "course_code": "NOC24-CS68",
+          "title": "AWS & GCP Cloud Architecture, Kubernetes Basics & Serverless Deployment",
+          "iit_source": "IIT Kharagpur (NOC24-CS68: Cloud Computing & Distributed Systems)",
+          "professor": "Prof. Soumya K. Ghosh (IIT Kharagpur)",
+          "atomic_topics": [
+            "AWS Core: EC2, S3 Object Storage, RDS, IAM Least-Privilege & VPC Networking",
+            "Kubernetes (K8s) Pods, Deployments, Services & Horizontal Pod Autoscaling",
+            "Observability: Structured Logging, Prometheus Metrics & Error Alerting"
+          ],
+          "skills_unlocked": [
+            "AWS",
+            "GCP",
+            "Kubernetes",
+            "Docker",
+            "PostgreSQL"
+          ],
+          "prerequisites_satisfied": [
+            "iitkgp-cloud-w17"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 33.3,
+          "placement_roi_score": 89.7,
+          "hands_on_deliverable": "Deploy Dockerized Backend + PostgreSQL on AWS/Cloud with custom domain & SSL",
+          "unlocked_opportunities_count": 84
+        },
+        {
+          "week": 19,
+          "phase_name": "Phase 3 (Months 5\u20136): Cloud/DevOps, Applied AI/LLMs, Capstones & OA Sprint",
+          "module_id": "iitm-ml-w19",
+          "course_code": "NOC24-CS79",
+          "title": "Supervised/Unsupervised ML, Feature Engineering, PyTorch & Model Evaluation",
+          "iit_source": "IIT Madras (NOC24-CS79: Applied Machine Learning & Deep Learning Foundations)",
+          "professor": "Prof. Balaraman Ravindran & Prof. Mitesh Khapra (IIT Madras)",
+          "atomic_topics": [
+            "Regression, Tree Ensembles (XGBoost/Random Forests) & Cross-Validation",
+            "Neural Networks, Backpropagation, Embeddings & PyTorch/TensorFlow Pipelines",
+            "Precision/Recall/F1, ROC-AUC & Serving ML Models via FastAPI"
+          ],
+          "skills_unlocked": [
+            "Python",
+            "PyTorch",
+            "TensorFlow",
+            "FastAPI"
+          ],
+          "prerequisites_satisfied": [
+            "iitm-py-w2",
+            "iitm-pdsa-w8"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 23.0,
+          "placement_roi_score": 93.4,
+          "hands_on_deliverable": "Train & deploy a Real-Time Skill/Resume Scoring Model via FastAPI",
+          "unlocked_opportunities_count": 84
+        },
+        {
+          "week": 20,
+          "phase_name": "Phase 3 (Months 5\u20136): Cloud/DevOps, Applied AI/LLMs, Capstones & OA Sprint",
+          "module_id": "iitm-llm-w20",
+          "course_code": "IITM-BS-CS3004",
+          "title": "LLM Engineering, Vector Databases, RAG Pipelines, LangChain & MCP Agents",
+          "iit_source": "IIT Madras (IITM-BS-CS3004: Large Language Models, RAG & Agentic AI Systems)",
+          "professor": "Prof. Mitesh Khapra (IIT Madras RBCDSAI)",
+          "atomic_topics": [
+            "Transformer Attention, Tokenization, Structured JSON Outputs & Function Calling",
+            "Chunking Strategies, Dense Embeddings, Vector Search & Hybrid RAG",
+            "Building Deterministic AI Agents with LangChain & Model Context Protocol (MCP)"
+          ],
+          "skills_unlocked": [
+            "LLM Engineering",
+            "RAG",
+            "LangChain",
+            "Python",
+            "FastAPI"
+          ],
+          "prerequisites_satisfied": [
+            "iitm-ml-w19",
+            "iitm-api-w15"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 23.0,
+          "placement_roi_score": 95.1,
+          "hands_on_deliverable": "Build a Citation-Grounded RAG + MCP AI Assistant with hallucination guardrails",
+          "unlocked_opportunities_count": 85
+        },
+        {
+          "week": 21,
+          "phase_name": "Phase 3 (Months 5\u20136): Cloud/DevOps, Applied AI/LLMs, Capstones & OA Sprint",
+          "module_id": "iitkgp-sysdesign-w21",
+          "course_code": "NOC24-CS61",
+          "title": "Low-Level Design (LLD), SOLID Patterns & High-Level System Design (HLD)",
+          "iit_source": "IIT Kharagpur (NOC24-CS61: Software Engineering & High-Scale System Design)",
+          "professor": "Prof. Rajib Mall (IIT Kharagpur)",
+          "atomic_topics": [
+            "SOLID Principles, Factory/Strategy/Observer Patterns & Machine Coding Rounds",
+            "Load Balancers, Consistent Hashing, Rate Limiters & Database Sharding",
+            "Designing High-Scale Systems: URL Shortener, Payment Gateway & Notification Engine"
+          ],
+          "skills_unlocked": [
+            "Microservices",
+            "Redis",
+            "PostgreSQL",
+            "REST API",
+            "Java",
+            "Python"
+          ],
+          "prerequisites_satisfied": [
+            "iitkgp-nosql-w16",
+            "iitkgp-cloud-w17"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 23.0,
+          "placement_roi_score": 92.7,
+          "hands_on_deliverable": "Complete 3 Machine Coding LLD Rounds + 4 HLD Architecture Diagrams",
+          "unlocked_opportunities_count": 85
+        },
+        {
+          "week": 22,
+          "phase_name": "Phase 3 (Months 5\u20136): Cloud/DevOps, Applied AI/LLMs, Capstones & OA Sprint",
+          "module_id": "iitm-capstone1-w22",
+          "course_code": "IITM-BS-CS3009",
+          "title": "Production Capstone Build: End-to-End Full-Stack & Database Architecture",
+          "iit_source": "IIT Madras (IITM-BS-CS3009: IIT Madras Industry Capstone Project I)",
+          "professor": "IIT Madras Project Mentorship Board",
+          "atomic_topics": [
+            "System Architecture Specification, ER Diagram & API Contract Design",
+            "Full-Stack Implementation with React/Next.js, TypeScript, FastAPI/Node & PostgreSQL",
+            "Automated Integration Tests, Security Hardening & Performance Benchmarking"
+          ],
+          "skills_unlocked": [
+            "React",
+            "TypeScript",
+            "FastAPI",
+            "Node.js",
+            "PostgreSQL",
+            "Docker",
+            "Git",
+            "JavaScript",
+            "Next.js",
+            "CI/CD"
+          ],
+          "prerequisites_satisfied": [
+            "iitm-nextjs-w14",
+            "iitkgp-sysdesign-w21"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 33.3,
+          "placement_roi_score": 93.0,
+          "hands_on_deliverable": "Ship Production Capstone #1 with live URL, CI/CD, and architectural README",
+          "unlocked_opportunities_count": 85
+        },
+        {
+          "week": 23,
+          "phase_name": "Phase 3 (Months 5\u20136): Cloud/DevOps, Applied AI/LLMs, Capstones & OA Sprint",
+          "module_id": "iitm-capstone2-w23",
+          "course_code": "IITM-BS-CS3010",
+          "title": "Production Capstone Build: AI-Native Microservice with Cloud Telemetry",
+          "iit_source": "IIT Madras (IITM-BS-CS3010: IIT Madras Industry Capstone Project II (AI + Cloud Scale))",
+          "professor": "IIT Madras Project Mentorship Board",
+          "atomic_topics": [
+            "Integrating LLM/RAG Pipeline, Redis Caching & WebSockets into Production App",
+            "Cloud Deployment on AWS/GCP with Docker & Live Latency Monitoring",
+            "Technical Demo Video, Case-Study Writeup & Resume Impact Quantification"
+          ],
+          "skills_unlocked": [
+            "LLM Engineering",
+            "RAG",
+            "Redis",
+            "WebSockets",
+            "AWS",
+            "Docker",
+            "Microservices",
+            "GCP"
+          ],
+          "prerequisites_satisfied": [
+            "iitm-llm-w20",
+            "iitm-capstone1-w22"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 40.0,
+          "placement_roi_score": 97.5,
+          "hands_on_deliverable": "Ship Production AI Capstone #2 & verify against ATS Resume Checklist",
+          "unlocked_opportunities_count": 85
+        },
+        {
+          "week": 24,
+          "phase_name": "Phase 3 (Months 5\u20136): Cloud/DevOps, Applied AI/LLMs, Capstones & OA Sprint",
+          "module_id": "iitm-placement-w24",
+          "course_code": "IITM-PLACEMENT-SPRINT",
+          "title": "Timed Company OAs, Core CS Rapid Revision (DBMS/OS/CN) & Mock Interviews",
+          "iit_source": "IIT Madras & IIT Bombay Combined Track (IITM-PLACEMENT-SPRINT: Final Placement OA, System Design & Technical Interview Sprint)",
+          "professor": "CareerKinetic x IIT Curriculum Synthesis",
+          "atomic_topics": [
+            "5 Timed 90-Minute Company OAs (Graphs, DP, Trees, SQL Joins & Debugging)",
+            "CS Core Rapid Fire: 100 Top DBMS, OS, CN & OOP Technical Interview Questions",
+            "Live Project Defense, Behavioral STAR Method & Direct Referral Applications"
+          ],
+          "skills_unlocked": [
+            "Python",
+            "JavaScript",
+            "TypeScript",
+            "SQL",
+            "React",
+            "REST API",
+            "Git"
+          ],
+          "prerequisites_satisfied": [
+            "iitm-pdsa-w8",
+            "iitm-capstone2-w23"
+          ],
+          "study_hours": 15,
+          "live_market_demand_pct": 23.0,
+          "placement_roi_score": 98.4,
+          "hands_on_deliverable": "Clear 5 Mock OAs (>85% score) + Apply to Top 30 Matched Verified Roles",
+          "unlocked_opportunities_count": 85
+        }
+      ]
+    }
+  }
+}

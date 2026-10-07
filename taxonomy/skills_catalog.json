@@ -1,0 +1,234 @@
+{
+  "skills": [
+    {
+      "name": "JavaScript",
+      "category": "Languages",
+      "aliases": ["javascript", "js", "es6", "ecmascript"]
+    },
+    {
+      "name": "TypeScript",
+      "category": "Languages",
+      "aliases": ["typescript", "ts"]
+    },
+    {
+      "name": "Python",
+      "category": "Languages",
+      "aliases": ["python", "python3", "py"]
+    },
+    {
+      "name": "Java",
+      "category": "Languages",
+      "aliases": ["java", "core java", "j2ee"]
+    },
+    {
+      "name": "C++",
+      "category": "Languages",
+      "aliases": ["c\\+\\+", "cpp"]
+    },
+    {
+      "name": "Go",
+      "category": "Languages",
+      "aliases": ["golang", "go lang", "go programming"]
+    },
+    {
+      "name": "Rust",
+      "category": "Languages",
+      "aliases": ["rust", "rustlang"]
+    },
+    {
+      "name": "SQL",
+      "category": "Languages",
+      "aliases": ["sql", "rdbms"]
+    },
+    {
+      "name": "React",
+      "category": "Frontend",
+      "aliases": ["react", "react.js", "reactjs"]
+    },
+    {
+      "name": "Next.js",
+      "category": "Frontend",
+      "aliases": ["next.js", "nextjs", "next 13", "next 14"]
+    },
+    {
+      "name": "Vue",
+      "category": "Frontend",
+      "aliases": ["vue", "vue.js", "vuejs", "vue 3"]
+    },
+    {
+      "name": "Angular",
+      "category": "Frontend",
+      "aliases": ["angular", "angularjs", "angular 2+"]
+    },
+    {
+      "name": "Svelte",
+      "category": "Frontend",
+      "aliases": ["svelte", "sveltekit"]
+    },
+    {
+      "name": "Tailwind CSS",
+      "category": "Frontend",
+      "aliases": ["tailwind", "tailwindcss", "tailwind css"]
+    },
+    {
+      "name": "Redux",
+      "category": "Frontend",
+      "aliases": ["redux", "redux toolkit", "rtk"]
+    },
+    {
+      "name": "Zustand",
+      "category": "Frontend",
+      "aliases": ["zustand"]
+    },
+    {
+      "name": "HTML/CSS",
+      "category": "Frontend",
+      "aliases": ["html", "html5", "css", "css3"]
+    },
+    {
+      "name": "Node.js",
+      "category": "Backend",
+      "aliases": ["node.js", "nodejs", "node js"]
+    },
+    {
+      "name": "Express",
+      "category": "Backend",
+      "aliases": ["express", "express.js", "expressjs"]
+    },
+    {
+      "name": "FastAPI",
+      "category": "Backend",
+      "aliases": ["fastapi", "fast-api"]
+    },
+    {
+      "name": "Django",
+      "category": "Backend",
+      "aliases": ["django", "django rest framework", "drf"]
+    },
+    {
+      "name": "Flask",
+      "category": "Backend",
+      "aliases": ["flask"]
+    },
+    {
+      "name": "NestJS",
+      "category": "Backend",
+      "aliases": ["nestjs", "nest.js"]
+    },
+    {
+      "name": "Spring Boot",
+      "category": "Backend",
+      "aliases": ["spring boot", "springboot", "spring framework"]
+    },
+    {
+      "name": "WebSockets",
+      "category": "Backend",
+      "aliases": ["websocket", "websockets", "socket.io", "ws"]
+    },
+    {
+      "name": "GraphQL",
+      "category": "Backend",
+      "aliases": ["graphql", "apollo graphql"]
+    },
+    {
+      "name": "REST API",
+      "category": "Backend",
+      "aliases": ["restful", "rest api", "rest apis", "restful api", "restful apis"]
+    },
+    {
+      "name": "Microservices",
+      "category": "Architecture",
+      "aliases": ["microservice", "microservices", "distributed systems"]
+    },
+    {
+      "name": "PostgreSQL",
+      "category": "Database",
+      "aliases": ["postgresql", "postgres", "psql"]
+    },
+    {
+      "name": "MySQL",
+      "category": "Database",
+      "aliases": ["mysql", "mariadb"]
+    },
+    {
+      "name": "MongoDB",
+      "category": "Database",
+      "aliases": ["mongodb", "mongo"]
+    },
+    {
+      "name": "Redis",
+      "category": "Database",
+      "aliases": ["redis", "in-memory cache"]
+    },
+    {
+      "name": "Supabase",
+      "category": "Database",
+      "aliases": ["supabase"]
+    },
+    {
+      "name": "Firebase",
+      "category": "Database",
+      "aliases": ["firebase", "firestore"]
+    },
+    {
+      "name": "Docker",
+      "category": "DevOps",
+      "aliases": ["docker", "containerization", "containers"]
+    },
+    {
+      "name": "Kubernetes",
+      "category": "DevOps",
+      "aliases": ["kubernetes", "k8s"]
+    },
+    {
+      "name": "AWS",
+      "category": "Cloud",
+      "aliases": ["aws", "amazon web services", "ec2", "s3", "lambda"]
+    },
+    {
+      "name": "GCP",
+      "category": "Cloud",
+      "aliases": ["gcp", "google cloud", "google cloud platform"]
+    },
+    {
+      "name": "CI/CD",
+      "category": "DevOps",
+      "aliases": ["ci/cd", "ci cd", "continuous integration", "github actions"]
+    },
+    {
+      "name": "Git",
+      "category": "Tools",
+      "aliases": ["git", "github", "gitlab"]
+    },
+    {
+      "name": "Linux",
+      "category": "Tools",
+      "aliases": ["linux", "ubuntu", "bash", "shell"]
+    },
+    {
+      "name": "LangChain",
+      "category": "AI/ML",
+      "aliases": ["langchain", "llamaindex"]
+    },
+    {
+      "name": "RAG",
+      "category": "AI/ML",
+      "aliases": ["rag", "retrieval augmented generation", "vector db", "pinecone", "chromadb"]
+    },
+    {
+      "name": "PyTorch",
+      "category": "AI/ML",
+      "aliases": ["pytorch", "torch"]
+    },
+    {
+      "name": "TensorFlow",
+      "category": "AI/ML",
+      "aliases": ["tensorflow", "keras"]
+    },
+    {
+      "name": "LLM Engineering",
+      "category": "AI/ML",
+      "aliases": ["openai", "gemini api", "claude api", "prompt engineering", "fine-tuning"]
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+# Virtual Environment
+.venv/
+venv/
+env/
+
+# Python Bytecode & Cache
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# Raw Scraped Snapshots (Bronze Layer - keep processed Gold JSONs)
+data/raw/*.json
+data/raw/syllabi/*.json
+
+# SQLite WAL / SHM temporary files
+data/warehouse/*.db-wal
+data/warehouse/*.db-shm
+data/warehouse/*.db
+
+# OS & IDE files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+.env

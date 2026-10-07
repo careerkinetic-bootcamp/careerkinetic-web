@@ -1,0 +1,4542 @@
+{
+  "last_updated": "2026-10-07T11:21:32.598530+00:00",
+  "total_opportunities": 178,
+  "sources": {
+    "arbeitnow": 30,
+    "hackernews": 30,
+    "remoteok": 30,
+    "weworkremotely": 28,
+    "unstop": 30,
+    "internshala": 30
+  },
+  "jobs": [
+    {
+      "id": "585c2cf105d07c3653e5f2c2d5426af516196e6b6860f4a20390a26313e97a2a",
+      "title": "Facility Manager / Standort-Manager (m/w/d)",
+      "company": "SKILLs HR Experts GmbH",
+      "location": "D\u00fcsseldorf",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://www.arbeitnow.com/jobs/companies/skills-hr-experts-gmbh/facility-manager-standort-manager-dusseldorf-416924",
+      "source": "arbeitnow",
+      "role_category": "general_software",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "2026-10-07T09:31:23+00:00",
+      "scraped_at": "2026-10-07T11:21:27.116534+00:00"
+    },
+    {
+      "id": "ee26729f8ec602b77eee9aaa77f4a6232d82794c65b27adcee5d3fef158861bd",
+      "title": "Senior Computer Vision / Photogrammetry Engineer (m/w/d)",
+      "company": "syte GmbH",
+      "location": "Remote (M\u00fcnster)",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://www.arbeitnow.com/jobs/companies/syte-gmbh/senior-computer-vision-photogrammetry-engineer-munster-228754",
+      "source": "arbeitnow",
+      "role_category": "general_software",
+      "skills": [
+        "Python",
+        "GCP",
+        "Git"
+      ],
+      "skills_detailed": [
+        {
+          "name": "Python",
+          "category": "Languages"
+        },
+        {
+          "name": "GCP",
+          "category": "Cloud"
+        },
+        {
+          "name": "Git",
+          "category": "Tools"
+        }
+      ],
+      "posted_at": "2026-10-07T09:31:22+00:00",
+      "scraped_at": "2026-10-07T11:21:27.117628+00:00"
+    },
+    {
+      "id": "af06180cf97198fe7c5f59997472e2cb662159932e0b8e2a4f0f53f966e0e203",
+      "title": "Junior Software Developer - (m/w/d)",
+      "company": "HanseSecure GmbH",
+      "location": "M\u00fcnchen",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://www.arbeitnow.com/jobs/companies/hansesecure-gmbh/junior-software-developer-munchen-239023",
+      "source": "arbeitnow",
+      "role_category": "fullstack",
+      "skills": [
+        "JavaScript",
+        "TypeScript",
+        "Python",
+        "REST API",
+        "Docker",
+        "Git"
+      ],
+      "skills_detailed": [
+        {
+          "name": "JavaScript",
+          "category": "Languages"
+        },
+        {
+          "name": "TypeScript",
+          "category": "Languages"
+        },
+        {
+          "name": "Python",
+          "category": "Languages"
+        },
+        {
+          "name": "REST API",
+          "category": "Backend"
+        },
+        {
+          "name": "Docker",
+          "category": "DevOps"
+        },
+        {
+          "name": "Git",
+          "category": "Tools"
+        }
+      ],
+      "posted_at": "2026-10-07T09:20:11+00:00",
+      "scraped_at": "2026-10-07T11:21:27.119175+00:00"
+    },
+    {
+      "id": "af16da0776d2c19ed09bded1a5f608c83870a0d34698c35ffb60719e91cefd58",
+      "title": "(zuk\u00fcnftiger) Kampfsport Trainer f\u00fcr Kinder und Erwachsene - Vollzeit (m/w/d)",
+      "company": "SPORTSCHULE DEFCON",
+      "location": "Singen",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://www.arbeitnow.com/jobs/companies/sportschule-defcon/zukunftiger-kampfsport-trainer-fur-kinder-und-erwachsene-vollzeit-singen-137634",
+      "source": "arbeitnow",
+      "role_category": "general_software",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "2026-10-07T09:20:11+00:00",
+      "scraped_at": "2026-10-07T11:21:27.120686+00:00"
+    },
+    {
+      "id": "44e976313d296265717cf1e1bbf52a7086bf38f126515378d61b1e45691a156b",
+      "title": "Softwareentwickler Integration und DevOps (m/w/d)",
+      "company": "K-tronik GmbH",
+      "location": "Immenstaad",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://www.arbeitnow.com/jobs/companies/k-tronik-gmbh/softwareentwickler-integration-und-devops-immenstaad-68772",
+      "source": "arbeitnow",
+      "role_category": "devops",
+      "skills": [
+        "Docker",
+        "CI/CD",
+        "Git",
+        "Linux"
+      ],
+      "skills_detailed": [
+        {
+          "name": "Docker",
+          "category": "DevOps"
+        },
+        {
+          "name": "CI/CD",
+          "category": "DevOps"
+        },
+        {
+          "name": "Git",
+          "category": "Tools"
+        },
+        {
+          "name": "Linux",
+          "category": "Tools"
+        }
+      ],
+      "posted_at": "2026-10-07T09:00:58+00:00",
+      "scraped_at": "2026-10-07T11:21:27.121431+00:00"
+    },
+    {
+      "id": "f84f811264eecca3c46e045443523fb68726418c487913d9a4c3a0a43fec855c",
+      "title": "Cloud-/Microsoft 365 Systemadministrator (w/m/d)",
+      "company": "J.E. Schum GmbH & Co. KG",
+      "location": "W\u00fcrzburg",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://www.arbeitnow.com/jobs/companies/je-schum-gmbh-co-kg/cloud-microsoft-365-systemadministrator-wurzburg-16537",
+      "source": "arbeitnow",
+      "role_category": "general_software",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "2026-10-07T09:00:57+00:00",
+      "scraped_at": "2026-10-07T11:21:27.122028+00:00"
+    },
+    {
+      "id": "2d45d488253363112c86463944bb2b333103a8a904c237de956b2240e9fa11b5",
+      "title": "Senior Structures Analysis Engineer, Launch Vehicle Structure (m/f/d)",
+      "company": "isaraerospace",
+      "location": "Parsdorf, Bavaria",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://www.arbeitnow.com/jobs/companies/isaraerospace/senior-structures-analysis-engineer-launch-vehicle-structure-parsdorf-bavaria-222453",
+      "source": "arbeitnow",
+      "role_category": "general_software",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "2026-10-07T08:55:16+00:00",
+      "scraped_at": "2026-10-07T11:21:27.124051+00:00"
+    },
+    {
+      "id": "08a17f3495e44d3d5222e5547ec1ec8ba069eba4f4549a0c8126f81eb62f4e3d",
+      "title": "Senior Mechanism Engineer, LV Structures",
+      "company": "isaraerospace",
+      "location": "Parsdorf, Bavaria",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://www.arbeitnow.com/jobs/companies/isaraerospace/senior-mechanism-engineer-lv-structures-parsdorf-bavaria-437025",
+      "source": "arbeitnow",
+      "role_category": "general_software",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "2026-10-07T08:55:16+00:00",
+      "scraped_at": "2026-10-07T11:21:27.126047+00:00"
+    },
+    {
+      "id": "e7fb2191e32e916a37347ac2e68448ea09c90c4de8aa4ea40b036f8f4eba3fd5",
+      "title": "Principal System Architect, Spectrum (m/f/d)",
+      "company": "isaraerospace",
+      "location": "Parsdorf, Bavaria",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://www.arbeitnow.com/jobs/companies/isaraerospace/principal-system-architect-spectrum-parsdorf-bavaria-156164",
+      "source": "arbeitnow",
+      "role_category": "general_software",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "2026-10-07T08:55:16+00:00",
+      "scraped_at": "2026-10-07T11:21:27.127590+00:00"
+    },
+    {
+      "id": "dadf4cce77761e6e762af58e2e01929035b055399ad978d71c9e7eebb1515a15",
+      "title": "Senior DSP Engineer",
+      "company": "Axon",
+      "location": "Kassel, Hesse",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://www.arbeitnow.com/jobs/companies/axon/senior-dsp-engineer-kassel-hesse-294160",
+      "source": "arbeitnow",
+      "role_category": "general_software",
+      "skills": [
+        "Python",
+        "C++",
+        "HTML/CSS"
+      ],
+      "skills_detailed": [
+        {
+          "name": "Python",
+          "category": "Languages"
+        },
+        {
+          "name": "C++",
+          "category": "Languages"
+        },
+        {
+          "name": "HTML/CSS",
+          "category": "Frontend"
+        }
+      ],
+      "posted_at": "2026-10-07T08:55:08+00:00",
+      "scraped_at": "2026-10-07T11:21:27.129235+00:00"
+    },
+    {
+      "id": "84ecc11fb79278a32673863cb3c7367a558d4f5008582ff6ed63e2ca86b07e19",
+      "title": "Maintenance Engineer (m/f/d)",
+      "company": "Teampicnic",
+      "location": "Falkensee, Brandenburg",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://www.arbeitnow.com/jobs/companies/teampicnic/maintenance-engineer-falkensee-brandenburg-393729",
+      "source": "arbeitnow",
+      "role_category": "general_software",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "2026-10-07T08:55:07+00:00",
+      "scraped_at": "2026-10-07T11:21:27.129733+00:00"
+    },
+    {
+      "id": "66de2010d224e5211501c0f28e98542035379d1df54135c970d689b01c92f27f",
+      "title": "Banking Test Architect (m/w/d)",
+      "company": "capco",
+      "location": "Remote",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://www.arbeitnow.com/jobs/companies/capco/banking-test-architect-47527",
+      "source": "arbeitnow",
+      "role_category": "general_software",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "2026-10-07T08:55:03+00:00",
+      "scraped_at": "2026-10-07T11:21:27.130710+00:00"
+    },
+    {
+      "id": "421744563bdc998e7cd4094a04969cc6ead4aed31466e4dd2cedd595c8abebac",
+      "title": "Information Security Expert (all genders)",
+      "company": "Kertos",
+      "location": "Munich",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://www.arbeitnow.com/jobs/companies/kertos/information-security-expert-all-genders-munich-115647",
+      "source": "arbeitnow",
+      "role_category": "general_software",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "2026-10-07T08:40:08+00:00",
+      "scraped_at": "2026-10-07T11:21:27.132253+00:00"
+    },
+    {
+      "id": "650aa214bba1ba9b5b9c45120966dad54659eb3bfcbc0a2078fb789821d89f22",
+      "title": "Senior Information Security Expert (all genders)",
+      "company": "Kertos",
+      "location": "Munich",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://www.arbeitnow.com/jobs/companies/kertos/senior-information-security-expert-all-genders-munich-12229",
+      "source": "arbeitnow",
+      "role_category": "general_software",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "2026-10-07T08:40:08+00:00",
+      "scraped_at": "2026-10-07T11:21:27.133609+00:00"
+    },
+    {
+      "id": "48dcb682df43c29f42926442dcc54e3087f1cb09687bca9416dda6a468ad8860",
+      "title": "Senior Data Scientist",
+      "company": "Constructor",
+      "location": "Remote",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://www.arbeitnow.com/jobs/companies/constructor/senior-data-scientist-munich-339149",
+      "source": "arbeitnow",
+      "role_category": "ai_ml",
+      "skills": [
+        "Python",
+        "SQL"
+      ],
+      "skills_detailed": [
+        {
+          "name": "Python",
+          "category": "Languages"
+        },
+        {
+          "name": "SQL",
+          "category": "Languages"
+        }
+      ],
+      "posted_at": "2026-10-07T08:40:07+00:00",
+      "scraped_at": "2026-10-07T11:21:27.134810+00:00"
+    },
+    {
+      "id": "c9c5c2af4d6cd401d9112b0edb83ee6a13cbb87f563c562b1776f5dc3990a50a",
+      "title": "Research Engineer, Inference Foundation",
+      "company": "Mistral.ai",
+      "location": "Paris",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://www.arbeitnow.com/jobs/companies/mistralai/research-engineer-inference-foundation-munich-59331",
+      "source": "arbeitnow",
+      "role_category": "backend",
+      "skills": [
+        "Python",
+        "C++",
+        "Rust",
+        "Docker",
+        "Kubernetes",
+        "PyTorch"
+      ],
+      "skills_detailed": [
+        {
+          "name": "Python",
+          "category": "Languages"
+        },
+        {
+          "name": "C++",
+          "category": "Languages"
+        },
+        {
+          "name": "Rust",
+          "category": "Languages"
+        },
+        {
+          "name": "Docker",
+          "category": "DevOps"
+        },
+        {
+          "name": "Kubernetes",
+          "category": "DevOps"
+        },
+        {
+          "name": "PyTorch",
+          "category": "AI/ML"
+        }
+      ],
+      "posted_at": "2026-10-07T08:40:02+00:00",
+      "scraped_at": "2026-10-07T11:21:27.135860+00:00"
+    },
+    {
+      "id": "54bfdff052dda0949691f99b59c78916e1439104f9326f8f3e5fc33eba309e1f",
+      "title": "Terminal Engineer (m/w/d) for LNG Terminal Wilhelmshaven",
+      "company": "Gasfin",
+      "location": "Wilhelmshaven",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://www.arbeitnow.com/jobs/companies/gasfin/terminal-engineer-for-lng-terminal-wilhelmshaven-267188",
+      "source": "arbeitnow",
+      "role_category": "general_software",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "2026-10-07T08:31:22+00:00",
+      "scraped_at": "2026-10-07T11:21:27.136380+00:00"
+    },
+    {
+      "id": "b046eabb2899ea8ee6fc0671d152f49f29a7d9a42b1e72773a196de43477cc85",
+      "title": "Technischer Projektmanager  (m/w/d) f\u00fcr Photovoltaikanlagen - 1KOMMA5\u00b0 W\u00fcrzburg",
+      "company": "1KOMMA5\u02da",
+      "location": "W\u00fcrzburg",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://www.arbeitnow.com/jobs/companies/1komma50/technischer-projektmanager-fur-photovoltaikanlagen-1komma5-wurzburg-67777",
+      "source": "arbeitnow",
+      "role_category": "general_software",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "2026-10-07T08:31:22+00:00",
+      "scraped_at": "2026-10-07T11:21:27.136839+00:00"
+    },
+    {
+      "id": "b7ce28b012c322aff3d02999afd8bd1bb10442b81a9254b31faf095797aae646",
+      "title": "Elektroniker (m/w/d) f\u00fcr unsere Rechenzentren - Mobile Team",
+      "company": "CBRE Global Workplace Solutions / Data Center Solutions",
+      "location": "Frankfurt am Main",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://www.arbeitnow.com/jobs/companies/cbre-global-workplace-solutions-data-center-solutions/elektroniker-fur-unsere-rechenzentren-mobile-team-frankfurt-am-main-447460",
+      "source": "arbeitnow",
+      "role_category": "general_software",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "2026-10-07T08:31:21+00:00",
+      "scraped_at": "2026-10-07T11:21:27.137853+00:00"
+    },
+    {
+      "id": "17cfa61044e1d370f49d12c6659e97d02e341d177a610b1ded2e221a054824a6",
+      "title": "Architekt / Bauleiter mit Projektverantwortung (m/w/d)",
+      "company": "PolyTALENT GmbH",
+      "location": "Dortmund",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://www.arbeitnow.com/jobs/companies/polytalent-gmbh/architekt-bauleiter-mit-projektverantwortung-dortmund-38681",
+      "source": "arbeitnow",
+      "role_category": "general_software",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "2026-10-07T08:31:20+00:00",
+      "scraped_at": "2026-10-07T11:21:27.140808+00:00"
+    },
+    {
+      "id": "03214a5cba9df650e8c3308e9f14dcf9401030f6762b15f34f2a3f35f75cf06a",
+      "title": "Senior Software Engineer / Software Architect \u2013 AI & Cloud (m/w/d)",
+      "company": "ProcuVia AG",
+      "location": "D\u00fcsseldorf",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://www.arbeitnow.com/jobs/companies/procuvia-ag/senior-software-engineer-software-architect-ai-cloud-dusseldorf-32323",
+      "source": "arbeitnow",
+      "role_category": "ai_ml",
+      "skills": [
+        "TypeScript",
+        "Python",
+        "SQL",
+        "React",
+        "FastAPI",
+        "Docker",
+        "AWS",
+        "CI/CD",
+        "Git"
+      ],
+      "skills_detailed": [
+        {
+          "name": "TypeScript",
+          "category": "Languages"
+        },
+        {
+          "name": "Python",
+          "category": "Languages"
+        },
+        {
+          "name": "SQL",
+          "category": "Languages"
+        },
+        {
+          "name": "React",
+          "category": "Frontend"
+        },
+        {
+          "name": "FastAPI",
+          "category": "Backend"
+        },
+        {
+          "name": "Docker",
+          "category": "DevOps"
+        },
+        {
+          "name": "AWS",
+          "category": "Cloud"
+        },
+        {
+          "name": "CI/CD",
+          "category": "DevOps"
+        },
+        {
+          "name": "Git",
+          "category": "Tools"
+        }
+      ],
+      "posted_at": "2026-10-07T08:31:20+00:00",
+      "scraped_at": "2026-10-07T11:21:27.141477+00:00"
+    },
+    {
+      "id": "c9547c29a2aca0114ed2ccf01f5ce90ae3ab6fc6686313958a4fee1e4b5b87d8",
+      "title": "Platform Boosters - Backend Engineer (m/w/d)",
+      "company": "shopware AG",
+      "location": "Remote (Homeoffice)",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://www.arbeitnow.com/jobs/companies/shopware-ag/remote-platform-boosters-backend-engineer-berlin-232578",
+      "source": "arbeitnow",
+      "role_category": "backend",
+      "skills": [
+        "JavaScript",
+        "TypeScript",
+        "Node.js",
+        "MySQL",
+        "Redis",
+        "Docker",
+        "AWS",
+        "CI/CD"
+      ],
+      "skills_detailed": [
+        {
+          "name": "JavaScript",
+          "category": "Languages"
+        },
+        {
+          "name": "TypeScript",
+          "category": "Languages"
+        },
+        {
+          "name": "Node.js",
+          "category": "Backend"
+        },
+        {
+          "name": "MySQL",
+          "category": "Database"
+        },
+        {
+          "name": "Redis",
+          "category": "Database"
+        },
+        {
+          "name": "Docker",
+          "category": "DevOps"
+        },
+        {
+          "name": "AWS",
+          "category": "Cloud"
+        },
+        {
+          "name": "CI/CD",
+          "category": "DevOps"
+        }
+      ],
+      "posted_at": "2026-10-07T08:30:29+00:00",
+      "scraped_at": "2026-10-07T11:21:27.143461+00:00"
+    },
+    {
+      "id": "29d60e1f0121b535815bef7308e56358f4b931687270e3a43b9828596f8b8c8c",
+      "title": "Trainee (m/w/d) im Finanzvertrieb \u2013 Karriere mit Struktur, Verantwortung und Perspektive (German Speaking)",
+      "company": "Kevin Kehr",
+      "location": "Remote (Homeoffice)",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://www.arbeitnow.com/jobs/companies/kevin-kehr/remote-trainee-im-finanzvertrieb-karriere-mit-struktur-verantwortung-und-perspektive-german-speaking-hamburg-175287",
+      "source": "arbeitnow",
+      "role_category": "general_software",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "2026-10-07T08:30:03+00:00",
+      "scraped_at": "2026-10-07T11:21:27.144334+00:00"
+    },
+    {
+      "id": "9b25c3853096b97a2d363b39e6505a5758ee29630cf07acb51d50562a6694f73",
+      "title": "Site Reliability Engineering Lead  (f/m/d)",
+      "company": "Sonarsource",
+      "location": "Bochum",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://www.arbeitnow.com/jobs/companies/sonarsource/site-reliability-engineering-lead-bochum-344170",
+      "source": "arbeitnow",
+      "role_category": "general_software",
+      "skills": [
+        "Python",
+        "AWS",
+        "Git"
+      ],
+      "skills_detailed": [
+        {
+          "name": "Python",
+          "category": "Languages"
+        },
+        {
+          "name": "AWS",
+          "category": "Cloud"
+        },
+        {
+          "name": "Git",
+          "category": "Tools"
+        }
+      ],
+      "posted_at": "2026-10-07T08:24:50+00:00",
+      "scraped_at": "2026-10-07T11:21:27.146176+00:00"
+    },
+    {
+      "id": "8fb9546cf737233b8f67a7090cbcd5e4992a7278c13f3dacd17c5146934a9779",
+      "title": "UX/SDK Software Engineer (f/m/d)",
+      "company": "Universalquantum",
+      "location": "Hamburg, Germany",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://www.arbeitnow.com/jobs/companies/universalquantum/ux-sdk-software-engineer-hamburg-254017",
+      "source": "arbeitnow",
+      "role_category": "general_software",
+      "skills": [
+        "Python",
+        "C++",
+        "Rust",
+        "AWS",
+        "GCP"
+      ],
+      "skills_detailed": [
+        {
+          "name": "Python",
+          "category": "Languages"
+        },
+        {
+          "name": "C++",
+          "category": "Languages"
+        },
+        {
+          "name": "Rust",
+          "category": "Languages"
+        },
+        {
+          "name": "AWS",
+          "category": "Cloud"
+        },
+        {
+          "name": "GCP",
+          "category": "Cloud"
+        }
+      ],
+      "posted_at": "2026-10-07T08:20:14+00:00",
+      "scraped_at": "2026-10-07T11:21:27.146966+00:00"
+    },
+    {
+      "id": "f80031458086def785dc75482505f69cf27224fe7dba50178dad2dcc339f62c2",
+      "title": "Java Entwickler | Delphi-Kenntnisse (m/w/d) | SaaS Product | Homeoffice",
+      "company": "Kooku",
+      "location": "Remote (Germany)",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://www.arbeitnow.com/jobs/companies/kooku/remote-java-entwickler-delphi-kenntnisse-saas-product-homeoffice-germany-291051",
+      "source": "arbeitnow",
+      "role_category": "general_software",
+      "skills": [
+        "Java",
+        "REST API",
+        "CI/CD"
+      ],
+      "skills_detailed": [
+        {
+          "name": "Java",
+          "category": "Languages"
+        },
+        {
+          "name": "REST API",
+          "category": "Backend"
+        },
+        {
+          "name": "CI/CD",
+          "category": "DevOps"
+        }
+      ],
+      "posted_at": "2026-10-07T08:20:11+00:00",
+      "scraped_at": "2026-10-07T11:21:27.147853+00:00"
+    },
+    {
+      "id": "bedc16e5e7ae4489a828f60eab88b1b4b6bc6679fb51abbbfdad4edc6fb5e2de",
+      "title": "Senior IT-Systemadministrator / 2nd Level Support (m/w/d)",
+      "company": "Nipponexpress",
+      "location": "M\u00f6nchengladbach, Germany",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://www.arbeitnow.com/jobs/companies/nipponexpress/senior-it-systemadministrator-2nd-level-support-monchengladbach-95589",
+      "source": "arbeitnow",
+      "role_category": "general_software",
+      "skills": [
+        "Express"
+      ],
+      "skills_detailed": [
+        {
+          "name": "Express",
+          "category": "Backend"
+        }
+      ],
+      "posted_at": "2026-10-07T08:20:04+00:00",
+      "scraped_at": "2026-10-07T11:21:27.148545+00:00"
+    },
+    {
+      "id": "b16828bd7440b527033057e5c9635a67ffd5d5c4004651f68fd29ca509f53b59",
+      "title": "QA Automation Engineer",
+      "company": "Turbalance",
+      "location": "Heidelberg, GER",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://www.arbeitnow.com/jobs/companies/turbalance/qa-automation-engineer-heidelberg-ger-436564",
+      "source": "arbeitnow",
+      "role_category": "fullstack",
+      "skills": [
+        "Python",
+        "Java",
+        "Microservices",
+        "Docker",
+        "Kubernetes",
+        "CI/CD",
+        "Git",
+        "Linux"
+      ],
+      "skills_detailed": [
+        {
+          "name": "Python",
+          "category": "Languages"
+        },
+        {
+          "name": "Java",
+          "category": "Languages"
+        },
+        {
+          "name": "Microservices",
+          "category": "Architecture"
+        },
+        {
+          "name": "Docker",
+          "category": "DevOps"
+        },
+        {
+          "name": "Kubernetes",
+          "category": "DevOps"
+        },
+        {
+          "name": "CI/CD",
+          "category": "DevOps"
+        },
+        {
+          "name": "Git",
+          "category": "Tools"
+        },
+        {
+          "name": "Linux",
+          "category": "Tools"
+        }
+      ],
+      "posted_at": "2026-10-07T08:09:59+00:00",
+      "scraped_at": "2026-10-07T11:21:27.149453+00:00"
+    },
+    {
+      "id": "e1f996656c1dc4032e2fe4a0ad0e328f7f04b29c28863ef5c33f32152947f1c7",
+      "title": "Frontend Engineer \u2014 AI Infrastructure Platform",
+      "company": "Turbalance",
+      "location": "Heidelberg, GER",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://www.arbeitnow.com/jobs/companies/turbalance/frontend-engineer-ai-infrastructure-platform-heidelberg-ger-191481",
+      "source": "arbeitnow",
+      "role_category": "frontend",
+      "skills": [
+        "JavaScript",
+        "TypeScript",
+        "React",
+        "Microservices",
+        "Kubernetes"
+      ],
+      "skills_detailed": [
+        {
+          "name": "JavaScript",
+          "category": "Languages"
+        },
+        {
+          "name": "TypeScript",
+          "category": "Languages"
+        },
+        {
+          "name": "React",
+          "category": "Frontend"
+        },
+        {
+          "name": "Microservices",
+          "category": "Architecture"
+        },
+        {
+          "name": "Kubernetes",
+          "category": "DevOps"
+        }
+      ],
+      "posted_at": "2026-10-07T08:09:59+00:00",
+      "scraped_at": "2026-10-07T11:21:27.150281+00:00"
+    },
+    {
+      "id": "03ee92b7c48fed81cd3ee91d63f85f5440312b86deafdcc611f798c4e7e1f830",
+      "title": "Logistics Manager - Retail & D2C (m/f/d)",
+      "company": "Holy",
+      "location": "Berlin",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://www.arbeitnow.com/jobs/companies/holy/logistics-manager-retail-d2c-berlin-48692",
+      "source": "arbeitnow",
+      "role_category": "general_software",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "2026-10-07T08:09:49+00:00",
+      "scraped_at": "2026-10-07T11:21:27.151852+00:00"
+    },
+    {
+      "id": "7c51d7a9ea134096df5ecfff95d4eba701f7bf7d0e4e1a489e0c8547ba2ac50d",
+      "title": "",
+      "company": "Manifest",
+      "location": "Remote / Onsite",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://news.ycombinator.com/item?id=49987144",
+      "source": "hackernews",
+      "role_category": "backend",
+      "skills": [
+        "TypeScript",
+        "Python",
+        "MongoDB",
+        "Kubernetes",
+        "CI/CD"
+      ],
+      "skills_detailed": [
+        {
+          "name": "TypeScript",
+          "category": "Languages"
+        },
+        {
+          "name": "Python",
+          "category": "Languages"
+        },
+        {
+          "name": "MongoDB",
+          "category": "Database"
+        },
+        {
+          "name": "Kubernetes",
+          "category": "DevOps"
+        },
+        {
+          "name": "CI/CD",
+          "category": "DevOps"
+        }
+      ],
+      "posted_at": "2026-10-07T02:09:37Z",
+      "scraped_at": "2026-10-07T11:21:27.998903+00:00"
+    },
+    {
+      "id": "0994776eeef365e65d7b765c1a985698f6d43b72cacc819a39c043664099c71d",
+      "title": "Research Engineer",
+      "company": "Flow Traders",
+      "location": "Hong Kong",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://news.ycombinator.com/item?id=49986633",
+      "source": "hackernews",
+      "role_category": "general_software",
+      "skills": [
+        "Python",
+        "C++",
+        "PyTorch"
+      ],
+      "skills_detailed": [
+        {
+          "name": "Python",
+          "category": "Languages"
+        },
+        {
+          "name": "C++",
+          "category": "Languages"
+        },
+        {
+          "name": "PyTorch",
+          "category": "AI/ML"
+        }
+      ],
+      "posted_at": "2026-10-07T01:12:38Z",
+      "scraped_at": "2026-10-07T11:21:27.999124+00:00"
+    },
+    {
+      "id": "c5e1e1cb05d40bc170d5ab115a14a80ad6f0f34004a2f29cc5b5fc7092cbbd72",
+      "title": "Freeform (",
+      "company": "Tech Startup (HN)",
+      "location": "Remote",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://news.ycombinator.com/item?id=49986260",
+      "source": "hackernews",
+      "role_category": "general_software",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "2026-10-07T00:32:46Z",
+      "scraped_at": "2026-10-07T11:21:28.000033+00:00"
+    },
+    {
+      "id": "46e1878771474998ba035dd3e4865c38b033f9ccc6afb2a87714ac556fc6ee16",
+      "title": "Emailing!",
+      "company": "Tech Startup (HN)",
+      "location": "Remote",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://news.ycombinator.com/item?id=49985328",
+      "source": "hackernews",
+      "role_category": "general_software",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "2026-10-06T22:55:11Z",
+      "scraped_at": "2026-10-07T11:21:28.000132+00:00"
+    },
+    {
+      "id": "2acb26b19ed72b9135439c10f10659693cae6c55dfc5cd12bd3d17fd38fc1bcd",
+      "title": "Thanks for the head's up - fixed!",
+      "company": "Tech Startup (HN)",
+      "location": "Remote",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://news.ycombinator.com/item?id=49984881",
+      "source": "hackernews",
+      "role_category": "general_software",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "2026-10-06T22:14:02Z",
+      "scraped_at": "2026-10-07T11:21:28.000196+00:00"
+    },
+    {
+      "id": "bfdf5c5998cbd3f0c23497980475a01ad477b8185a4a62d15b93775df2f987a2",
+      "title": "that's so dystopian",
+      "company": "Tech Startup (HN)",
+      "location": "Remote",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://news.ycombinator.com/item?id=49983824",
+      "source": "hackernews",
+      "role_category": "general_software",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "2026-10-06T20:44:27Z",
+      "scraped_at": "2026-10-07T11:21:28.000244+00:00"
+    },
+    {
+      "id": "cafa908063a63ec93a381ab2ae9eef7ca267328d482339c07a9bd3e948f291e1",
+      "title": "Part-time B2B Sales Lead",
+      "company": "depproof",
+      "location": "REMOTE (US)",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://news.ycombinator.com/item?id=49982803",
+      "source": "hackernews",
+      "role_category": "general_software",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "2026-10-06T19:20:52Z",
+      "scraped_at": "2026-10-07T11:21:28.000411+00:00"
+    },
+    {
+      "id": "8a53ad103783086ade486486063838e86835da297b0117a23458588a19515290",
+      "title": "scout seems to be using development credenttials in producti",
+      "company": "Tech Startup (HN)",
+      "location": "Remote",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://news.ycombinator.com/item?id=49982696",
+      "source": "hackernews",
+      "role_category": "general_software",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "2026-10-06T19:11:18Z",
+      "scraped_at": "2026-10-07T11:21:28.000457+00:00"
+    },
+    {
+      "id": "41e87d271adbf721feb74c00852fca43deff11a48b235984d8dc06a6c1b5d4dd",
+      "title": "Empower Pharmacy is hiring engineers to work on event-driven",
+      "company": "Tech Startup (HN)",
+      "location": "Remote",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://news.ycombinator.com/item?id=49982648",
+      "source": "hackernews",
+      "role_category": "general_software",
+      "skills": [
+        "JavaScript",
+        "Java",
+        "SQL",
+        "React",
+        "Next.js",
+        "Spring Boot",
+        "Microservices",
+        "Kubernetes",
+        "Git"
+      ],
+      "skills_detailed": [
+        {
+          "name": "JavaScript",
+          "category": "Languages"
+        },
+        {
+          "name": "Java",
+          "category": "Languages"
+        },
+        {
+          "name": "SQL",
+          "category": "Languages"
+        },
+        {
+          "name": "React",
+          "category": "Frontend"
+        },
+        {
+          "name": "Next.js",
+          "category": "Frontend"
+        },
+        {
+          "name": "Spring Boot",
+          "category": "Backend"
+        },
+        {
+          "name": "Microservices",
+          "category": "Architecture"
+        },
+        {
+          "name": "Kubernetes",
+          "category": "DevOps"
+        },
+        {
+          "name": "Git",
+          "category": "Tools"
+        }
+      ],
+      "posted_at": "2026-10-06T19:06:35Z",
+      "scraped_at": "2026-10-07T11:21:28.000692+00:00"
+    },
+    {
+      "id": "be50105818c3dce1f3ae40114758e27d517475021f32df561057678cd6c03c8d",
+      "title": "Founding Engineer",
+      "company": "Fig",
+      "location": "San Francisco (hybrid)",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://news.ycombinator.com/item?id=49981582",
+      "source": "hackernews",
+      "role_category": "general_software",
+      "skills": [
+        "TypeScript",
+        "React",
+        "PostgreSQL",
+        "GCP"
+      ],
+      "skills_detailed": [
+        {
+          "name": "TypeScript",
+          "category": "Languages"
+        },
+        {
+          "name": "React",
+          "category": "Frontend"
+        },
+        {
+          "name": "PostgreSQL",
+          "category": "Database"
+        },
+        {
+          "name": "GCP",
+          "category": "Cloud"
+        }
+      ],
+      "posted_at": "2026-10-06T17:30:38Z",
+      "scraped_at": "2026-10-07T11:21:28.000888+00:00"
+    },
+    {
+      "id": "606ac20aecd9582f49878b70077f72244a69ed863db65aadda984a3e462f7f4b",
+      "title": "Sr/Staff Software Engineers, Data Scientist, FDE, PM",
+      "company": "Oscilar.com",
+      "location": "REMOTE (US/Canada/Brazil/Poland/UK/India)",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://news.ycombinator.com/item?id=49980976",
+      "source": "hackernews",
+      "role_category": "ai_ml",
+      "skills": [
+        "Java"
+      ],
+      "skills_detailed": [
+        {
+          "name": "Java",
+          "category": "Languages"
+        }
+      ],
+      "posted_at": "2026-10-06T16:43:59Z",
+      "scraped_at": "2026-10-07T11:21:28.001060+00:00"
+    },
+    {
+      "id": "705faf0a89c52e8c8dcbd84dc7403f3fe57cf655928bf70de4ec3d2b9209b603",
+      "title": "",
+      "company": "Purchasely",
+      "location": "Remote / Onsite",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://news.ycombinator.com/item?id=49980867",
+      "source": "hackernews",
+      "role_category": "general_software",
+      "skills": [
+        "React"
+      ],
+      "skills_detailed": [
+        {
+          "name": "React",
+          "category": "Frontend"
+        }
+      ],
+      "posted_at": "2026-10-06T16:36:29Z",
+      "scraped_at": "2026-10-07T11:21:28.001272+00:00"
+    },
+    {
+      "id": "66a6d6ad7d48a3e2c06e5b41fcf5410abfd1b71000d4dad1f0d0a03f0c94840a",
+      "title": "",
+      "company": "Coder",
+      "location": "Remote / Onsite",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://news.ycombinator.com/item?id=49980680",
+      "source": "hackernews",
+      "role_category": "backend",
+      "skills": [
+        "Git"
+      ],
+      "skills_detailed": [
+        {
+          "name": "Git",
+          "category": "Tools"
+        }
+      ],
+      "posted_at": "2026-10-06T16:20:19Z",
+      "scraped_at": "2026-10-07T11:21:28.001488+00:00"
+    },
+    {
+      "id": "ad1a24ae9c51605c7f98bb61f38660130267466577ff527c270006a5f753f47e",
+      "title": "Hi! Is Ukraine possible for this role as a contractor? Full ",
+      "company": "Tech Startup (HN)",
+      "location": "Remote",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://news.ycombinator.com/item?id=49980451",
+      "source": "hackernews",
+      "role_category": "general_software",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "2026-10-06T16:01:11Z",
+      "scraped_at": "2026-10-07T11:21:28.001523+00:00"
+    },
+    {
+      "id": "49fe016d457955f350ba663e0ea58892e874456f9ef9af6f99c9b46d0a65ae8c",
+      "title": "Senior Systems Engineers \u2013 Basin (Pipelines, SQL, Catalog)",
+      "company": "Cloudflare",
+      "location": "Austin, TX / Seattle, WA / London, UK",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://news.ycombinator.com/item?id=49980354",
+      "source": "hackernews",
+      "role_category": "general_software",
+      "skills": [
+        "C++",
+        "Rust",
+        "SQL",
+        "Microservices"
+      ],
+      "skills_detailed": [
+        {
+          "name": "C++",
+          "category": "Languages"
+        },
+        {
+          "name": "Rust",
+          "category": "Languages"
+        },
+        {
+          "name": "SQL",
+          "category": "Languages"
+        },
+        {
+          "name": "Microservices",
+          "category": "Architecture"
+        }
+      ],
+      "posted_at": "2026-10-06T15:55:18Z",
+      "scraped_at": "2026-10-07T11:21:28.001658+00:00"
+    },
+    {
+      "id": "527680be4d6f90dbd152c5574993e60a8e9f1c03912b817bed5e89eaa52c27ef",
+      "title": "Product Engineer",
+      "company": "RealResponse",
+      "location": "REMOTE (US)",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://news.ycombinator.com/item?id=49980137",
+      "source": "hackernews",
+      "role_category": "general_software",
+      "skills": [
+        "PostgreSQL",
+        "AWS",
+        "RAG"
+      ],
+      "skills_detailed": [
+        {
+          "name": "PostgreSQL",
+          "category": "Database"
+        },
+        {
+          "name": "AWS",
+          "category": "Cloud"
+        },
+        {
+          "name": "RAG",
+          "category": "AI/ML"
+        }
+      ],
+      "posted_at": "2026-10-06T15:39:20Z",
+      "scraped_at": "2026-10-07T11:21:28.001838+00:00"
+    },
+    {
+      "id": "eeb6300d522b52a8e02fef75f4d0493c4437deb517e6eaad0fe68dd4b329be9c",
+      "title": "the gc ai site indicates all official contact is going to ha",
+      "company": "Tech Startup (HN)",
+      "location": "Remote",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://news.ycombinator.com/item?id=49979739",
+      "source": "hackernews",
+      "role_category": "ai_ml",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "2026-10-06T15:13:37Z",
+      "scraped_at": "2026-10-07T11:21:28.001871+00:00"
+    },
+    {
+      "id": "fb48f616613e04daf0e5b3842571d8083be4ce537f00f68259a5f70e5db3ec85",
+      "title": "Senior Software Engineer \u2013 LLVM/Fuzzing/Program Analysis",
+      "company": "Quantum Minds",
+      "location": "Contract",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://news.ycombinator.com/item?id=49979600",
+      "source": "hackernews",
+      "role_category": "general_software",
+      "skills": [
+        "Python",
+        "C++",
+        "Git"
+      ],
+      "skills_detailed": [
+        {
+          "name": "Python",
+          "category": "Languages"
+        },
+        {
+          "name": "C++",
+          "category": "Languages"
+        },
+        {
+          "name": "Git",
+          "category": "Tools"
+        }
+      ],
+      "posted_at": "2026-10-06T15:05:39Z",
+      "scraped_at": "2026-10-07T11:21:28.001990+00:00"
+    },
+    {
+      "id": "0dbb30809e57dc3fffc3f7f1028e6b245ca5b864a65459bd250bd416d3b1bdb0",
+      "title": "Full-Time",
+      "company": "PostHog",
+      "location": "Technical CSMs, Product Managers, AI Research Engineer",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://news.ycombinator.com/item?id=49978570",
+      "source": "hackernews",
+      "role_category": "general_software",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "2026-10-06T13:56:06Z",
+      "scraped_at": "2026-10-07T11:21:28.002135+00:00"
+    },
+    {
+      "id": "7095724b188862b9072d84e0847bfbc03e5bc5ab5bc184daa601e1560211c51f",
+      "title": "Senior AI infra, Machine Learning Egineer",
+      "company": "Rivian Automotive",
+      "location": "Full - Time",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://news.ycombinator.com/item?id=49976516",
+      "source": "hackernews",
+      "role_category": "ai_ml",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "2026-10-06T10:23:53Z",
+      "scraped_at": "2026-10-07T11:21:28.002300+00:00"
+    },
+    {
+      "id": "57bf4d615441502806cf4dad5e521e7490cfd33e04481e519511adf757686db3",
+      "title": "Go-To-Market (GTM) Specialist",
+      "company": "Comograph",
+      "location": "Remote (Global / US/EU/Africa time zones welcome)",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://news.ycombinator.com/item?id=49976350",
+      "source": "hackernews",
+      "role_category": "general_software",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "2026-10-06T10:01:29Z",
+      "scraped_at": "2026-10-07T11:21:28.002469+00:00"
+    },
+    {
+      "id": "fa658c95cd4cc55ab92641869642bfdd44f7cfba6b017f930e2d5e5e49b8a2c8",
+      "title": "While you find your CTO, we can build the customer-facing we",
+      "company": "Tech Startup (HN)",
+      "location": "Remote",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://news.ycombinator.com/item?id=49976229",
+      "source": "hackernews",
+      "role_category": "general_software",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "2026-10-06T09:42:47Z",
+      "scraped_at": "2026-10-07T11:21:28.002501+00:00"
+    },
+    {
+      "id": "34e372f689eb738d712ce70f0cb6e5d8fc40272b1a94073ce39e1883e25491ed",
+      "title": "Pairio (",
+      "company": "Tech Startup (HN)",
+      "location": "Remote",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://news.ycombinator.com/item?id=49975827",
+      "source": "hackernews",
+      "role_category": "backend",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "2026-10-06T08:36:46Z",
+      "scraped_at": "2026-10-07T11:21:28.002669+00:00"
+    },
+    {
+      "id": "43b4c530dc8c3e32415bec103d261b464200a4b9fbc77adbf61f4205d7e5e6d6",
+      "title": "ParadeDB (YC S23,",
+      "company": "Tech Startup (HN)",
+      "location": "Remote",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://news.ycombinator.com/item?id=49974107",
+      "source": "hackernews",
+      "role_category": "general_software",
+      "skills": [
+        "Rust",
+        "Microservices",
+        "PostgreSQL",
+        "Git"
+      ],
+      "skills_detailed": [
+        {
+          "name": "Rust",
+          "category": "Languages"
+        },
+        {
+          "name": "Microservices",
+          "category": "Architecture"
+        },
+        {
+          "name": "PostgreSQL",
+          "category": "Database"
+        },
+        {
+          "name": "Git",
+          "category": "Tools"
+        }
+      ],
+      "posted_at": "2026-10-06T04:17:56Z",
+      "scraped_at": "2026-10-07T11:21:28.002889+00:00"
+    },
+    {
+      "id": "f9c10eab10a148e0c8a69dd7ed214c41f46872f371ef92f554c2f7e24118a5e0",
+      "title": "I've been seeing the same job post for months now",
+      "company": "Tech Startup (HN)",
+      "location": "Remote",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://news.ycombinator.com/item?id=49973048",
+      "source": "hackernews",
+      "role_category": "general_software",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "2026-10-06T01:30:42Z",
+      "scraped_at": "2026-10-07T11:21:28.002926+00:00"
+    },
+    {
+      "id": "ce97965a9098134af803e94a61959d334688ad660de98c481878eca27962d478",
+      "title": "As someone in a protracted stretch of unemployment who has w",
+      "company": "Tech Startup (HN)",
+      "location": "Remote",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://news.ycombinator.com/item?id=49972822",
+      "source": "hackernews",
+      "role_category": "general_software",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "2026-10-06T00:54:18Z",
+      "scraped_at": "2026-10-07T11:21:28.002979+00:00"
+    },
+    {
+      "id": "9b0e8cc3239742e2f70043094c440fa4af3d02187b1154f848183f1659d48723",
+      "title": "Specialist Field Engineers",
+      "company": "CoreWeave",
+      "location": "full-time",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://news.ycombinator.com/item?id=49972736",
+      "source": "hackernews",
+      "role_category": "general_software",
+      "skills": [
+        "Kubernetes",
+        "AWS"
+      ],
+      "skills_detailed": [
+        {
+          "name": "Kubernetes",
+          "category": "DevOps"
+        },
+        {
+          "name": "AWS",
+          "category": "Cloud"
+        }
+      ],
+      "posted_at": "2026-10-06T00:42:59Z",
+      "scraped_at": "2026-10-07T11:21:28.003188+00:00"
+    },
+    {
+      "id": "7083c2e1742c83ede4a737a3ced3709b8d80b85cab7cc9a469874b5cbcf7c5a4",
+      "title": "",
+      "company": "SentiLink",
+      "location": "Remote / Onsite",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://news.ycombinator.com/item?id=49972097",
+      "source": "hackernews",
+      "role_category": "backend",
+      "skills": [
+        "Python",
+        "Rust",
+        "Microservices",
+        "PostgreSQL",
+        "Redis",
+        "Kubernetes",
+        "PyTorch"
+      ],
+      "skills_detailed": [
+        {
+          "name": "Python",
+          "category": "Languages"
+        },
+        {
+          "name": "Rust",
+          "category": "Languages"
+        },
+        {
+          "name": "Microservices",
+          "category": "Architecture"
+        },
+        {
+          "name": "PostgreSQL",
+          "category": "Database"
+        },
+        {
+          "name": "Redis",
+          "category": "Database"
+        },
+        {
+          "name": "Kubernetes",
+          "category": "DevOps"
+        },
+        {
+          "name": "PyTorch",
+          "category": "AI/ML"
+        }
+      ],
+      "posted_at": "2026-10-05T23:19:50Z",
+      "scraped_at": "2026-10-07T11:21:28.003394+00:00"
+    },
+    {
+      "id": "3f1a43c7a9a311387459e82c62b86f16dcd399d5bbdd1208387de11c709751c7",
+      "title": "Software Engineer & Data Analyst",
+      "company": "Early-stage Startup",
+      "location": "Full-Time",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://news.ycombinator.com/item?id=49971729",
+      "source": "hackernews",
+      "role_category": "general_software",
+      "skills": [
+        "Python",
+        "SQL"
+      ],
+      "skills_detailed": [
+        {
+          "name": "Python",
+          "category": "Languages"
+        },
+        {
+          "name": "SQL",
+          "category": "Languages"
+        }
+      ],
+      "posted_at": "2026-10-05T22:31:30Z",
+      "scraped_at": "2026-10-07T11:21:28.003507+00:00"
+    },
+    {
+      "id": "c390225007c5307d42c8e781b0c899e9b9ef94f9a5a18ee74143cae5e50a465a",
+      "title": "I got:",
+      "company": "Tech Startup (HN)",
+      "location": "Remote",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://news.ycombinator.com/item?id=49970907",
+      "source": "hackernews",
+      "role_category": "general_software",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "2026-10-05T21:17:47Z",
+      "scraped_at": "2026-10-07T11:21:28.003575+00:00"
+    },
+    {
+      "id": "87d6bca7fab93bf4f8e7538a868b52335ed4a374b9015b7aab53f71881a1738e",
+      "title": "Platform and Integration Engineer Security Telemetry",
+      "company": "RedMimicry",
+      "location": "",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://remoteOK.com/remote-jobs/remote-platform-and-integration-engineer-security-telemetry-redmimicry-1137465",
+      "source": "remoteok",
+      "role_category": "general_software",
+      "skills": [
+        "Go"
+      ],
+      "skills_detailed": [
+        {
+          "name": "Go",
+          "category": "Languages"
+        }
+      ],
+      "posted_at": "2026-10-05T13:00:02+00:00",
+      "scraped_at": "2026-10-07T11:21:28.054939+00:00"
+    },
+    {
+      "id": "21d74c2e74b0d2f51b6358eba9c4f27347cb5568b55ceec3ded60559d71739ea",
+      "title": "Federal Business Development Director",
+      "company": "Fortanix",
+      "location": "",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://remoteOK.com/remote-jobs/remote-federal-business-development-director-fortanix-1137463",
+      "source": "remoteok",
+      "role_category": "general_software",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "2026-10-04T16:00:03+00:00",
+      "scraped_at": "2026-10-07T11:21:28.054979+00:00"
+    },
+    {
+      "id": "30081cb426c44439df857acdabcd853ef164e93d7b2acaa46f90ab9717ecb846",
+      "title": "Head of Operations",
+      "company": "Leverage Live Local",
+      "location": "",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://remoteOK.com/remote-jobs/remote-head-of-operations-leverage-live-local-1137461",
+      "source": "remoteok",
+      "role_category": "general_software",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "2026-10-03T20:20:32+00:00",
+      "scraped_at": "2026-10-07T11:21:28.054992+00:00"
+    },
+    {
+      "id": "c3bb5f1a3e5095ce411b5de9b0499b2816586b9af404c631c0dce2e7bd032c39",
+      "title": "Junior Crypto Analyst & Trader",
+      "company": "Empire Assets",
+      "location": "",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://remoteOK.com/remote-jobs/remote-junior-crypto-analyst-trader-empire-assets-1137460",
+      "source": "remoteok",
+      "role_category": "general_software",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "2026-10-02T12:53:01+00:00",
+      "scraped_at": "2026-10-07T11:21:28.055003+00:00"
+    },
+    {
+      "id": "82f19c823dc8c54ae83e7a6ce5e2a426477184a6430e9c6cc0edd6078ebb14c4",
+      "title": "Enterprise Sales Development Representative",
+      "company": "Toptal",
+      "location": "",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://remoteOK.com/remote-jobs/remote-enterprise-sales-development-representative-toptal-1137451",
+      "source": "remoteok",
+      "role_category": "general_software",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "2026-09-30T18:24:42+00:00",
+      "scraped_at": "2026-10-07T11:21:28.055021+00:00"
+    },
+    {
+      "id": "a079375fe2a99dcb66c92663b10997f287d2bc19fc602ab23c764e8efda25d06",
+      "title": "Client Advisor",
+      "company": "Toptal",
+      "location": "",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://remoteOK.com/remote-jobs/remote-client-advisor-toptal-1137439",
+      "source": "remoteok",
+      "role_category": "general_software",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "2026-09-30T16:13:39+00:00",
+      "scraped_at": "2026-10-07T11:21:28.055032+00:00"
+    },
+    {
+      "id": "1ec9137633d9e33d09a1337bc8807c05787a4a9b1a866a2f0a0c0b8cc0a95309",
+      "title": "Director Payment Integrity",
+      "company": "SIHO Insurance Services ",
+      "location": "SIHO - Columbus, IN",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://remoteOK.com/remote-jobs/remote-director-payment-integrity-siho-insurance-services-1137434",
+      "source": "remoteok",
+      "role_category": "general_software",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "2026-09-26T16:00:26+00:00",
+      "scraped_at": "2026-10-07T11:21:28.055042+00:00"
+    },
+    {
+      "id": "164e2fcd9b28df16675b402abfafa494de5e275551ee57dc4b43801ccaf3ea96",
+      "title": "Danish Speaking Solutions Consultant Work Sofia Bulgaria",
+      "company": "Mercier Consultancy Group",
+      "location": "",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://remoteOK.com/remote-jobs/remote-danish-speaking-solutions-consultant-work-sofia-bulgaria-mercier-consultancy-group-1137431",
+      "source": "remoteok",
+      "role_category": "general_software",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "2026-09-24T16:00:06+00:00",
+      "scraped_at": "2026-10-07T11:21:28.055060+00:00"
+    },
+    {
+      "id": "2827d825ebc97fd5ecd60c420484ef2b9cd1cc9a2e41abb476e861a9fa9dd79e",
+      "title": "Mec\u00c3\u00a1nico Automotriz Diagn\u00c3\u00b3stico y Presupuestos",
+      "company": "Workana",
+      "location": "",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://remoteOK.com/remote-jobs/remote-mecanico-automotriz-diagnostico-y-presupuestos-workana-1137429",
+      "source": "remoteok",
+      "role_category": "general_software",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "2026-09-24T00:00:07+00:00",
+      "scraped_at": "2026-10-07T11:21:28.055084+00:00"
+    },
+    {
+      "id": "1e79c3e663932468f24b2bbae0f91ac8b57d94c08e490966e60ab65eea9124ec",
+      "title": "Video Data Annotator",
+      "company": "iMerit Technology",
+      "location": "",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://remoteOK.com/remote-jobs/remote-video-data-annotator-imerit-technology-1137428",
+      "source": "remoteok",
+      "role_category": "general_software",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "2026-09-23T21:40:19+00:00",
+      "scraped_at": "2026-10-07T11:21:28.055104+00:00"
+    },
+    {
+      "id": "de6dc495f59a9ecead8df2eb99b60db06b2d1aade604465fe6a82113dbb7d78f",
+      "title": "Software Engineer",
+      "company": "Prenosis",
+      "location": "",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://remoteOK.com/remote-jobs/remote-software-engineer-prenosis-1137427",
+      "source": "remoteok",
+      "role_category": "general_software",
+      "skills": [
+        "Go"
+      ],
+      "skills_detailed": [
+        {
+          "name": "Go",
+          "category": "Languages"
+        }
+      ],
+      "posted_at": "2026-09-23T14:00:02+00:00",
+      "scraped_at": "2026-10-07T11:21:28.055118+00:00"
+    },
+    {
+      "id": "b396519b9f464f9a05abdd6996eec591484f2072c2afc80848d9b950b7b8ac17",
+      "title": "Technical Product Manager AI Stockbroking App",
+      "company": "Bjak ",
+      "location": "Germany",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://remoteOK.com/remote-jobs/remote-technical-product-manager-ai-stockbroking-app-bjak-1137421",
+      "source": "remoteok",
+      "role_category": "ai_ml",
+      "skills": [
+        "Microservices"
+      ],
+      "skills_detailed": [
+        {
+          "name": "Microservices",
+          "category": "Architecture"
+        }
+      ],
+      "posted_at": "2026-09-23T00:00:10+00:00",
+      "scraped_at": "2026-10-07T11:21:28.055134+00:00"
+    },
+    {
+      "id": "9028704a6d46c69fe778f03b611c412f5371287c162570f9eb0d71ab27156c00",
+      "title": "Frontend Engineer",
+      "company": "Bjak ",
+      "location": "Singapore",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://remoteOK.com/remote-jobs/remote-frontend-engineer-bjak-1137420",
+      "source": "remoteok",
+      "role_category": "frontend",
+      "skills": [
+        "JavaScript",
+        "TypeScript",
+        "React",
+        "Next.js",
+        "HTML/CSS",
+        "Node.js",
+        "WebSockets",
+        "GraphQL"
+      ],
+      "skills_detailed": [
+        {
+          "name": "JavaScript",
+          "category": "Languages"
+        },
+        {
+          "name": "TypeScript",
+          "category": "Languages"
+        },
+        {
+          "name": "React",
+          "category": "Frontend"
+        },
+        {
+          "name": "Next.js",
+          "category": "Frontend"
+        },
+        {
+          "name": "HTML/CSS",
+          "category": "Frontend"
+        },
+        {
+          "name": "Node.js",
+          "category": "Backend"
+        },
+        {
+          "name": "WebSockets",
+          "category": "Backend"
+        },
+        {
+          "name": "GraphQL",
+          "category": "Backend"
+        }
+      ],
+      "posted_at": "2026-09-23T00:00:04+00:00",
+      "scraped_at": "2026-10-07T11:21:28.055150+00:00"
+    },
+    {
+      "id": "e3dddf7873a133e4034086db7871fa02f1d3439460ca0645730c53eb345cb6d4",
+      "title": "Junior Digital Assets Operations Analyst",
+      "company": "Omega Enterprises",
+      "location": "",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://remoteOK.com/remote-jobs/remote-junior-digital-assets-operations-analyst-omega-enterprises-1137418",
+      "source": "remoteok",
+      "role_category": "general_software",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "2026-09-22T14:36:54+00:00",
+      "scraped_at": "2026-10-07T11:21:28.055165+00:00"
+    },
+    {
+      "id": "f5793b69439b2aa7b47818fbf35a9c707c4b59a58d4456d6fcb037c16fdda070",
+      "title": "Software Developer Security Analytics",
+      "company": "RedMimicry",
+      "location": "",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://remoteOK.com/remote-jobs/remote-software-developer-security-analytics-redmimicry-1137417",
+      "source": "remoteok",
+      "role_category": "general_software",
+      "skills": [
+        "Go"
+      ],
+      "skills_detailed": [
+        {
+          "name": "Go",
+          "category": "Languages"
+        }
+      ],
+      "posted_at": "2026-09-22T09:00:01+00:00",
+      "scraped_at": "2026-10-07T11:21:28.055179+00:00"
+    },
+    {
+      "id": "7c84354a221a0761bc18aa2a92b50ee51df86244c864aff754cf7b726b48e23d",
+      "title": "Freelance grabaci\u00c3\u00b3n de tareas cotidianas para proyecto de IA",
+      "company": "Mindrift - Data annotation",
+      "location": "",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://remoteOK.com/remote-jobs/remote-freelance-grabacion-de-tareas-cotidianas-para-proyecto-de-ia-mindrift-data-annotation-1137415",
+      "source": "remoteok",
+      "role_category": "general_software",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "2026-09-22T00:00:13+00:00",
+      "scraped_at": "2026-10-07T11:21:28.055193+00:00"
+    },
+    {
+      "id": "8d5c863d0bdcb573366fdee2f8ae358c1beeb300e42490801ec59e5a105e3ca1",
+      "title": "Senior Growth Product Manager AI Native",
+      "company": "Magic Eden",
+      "location": "Melbourne",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://remoteOK.com/remote-jobs/remote-senior-growth-product-manager-ai-native-magic-eden-1137414",
+      "source": "remoteok",
+      "role_category": "ai_ml",
+      "skills": [
+        "Go"
+      ],
+      "skills_detailed": [
+        {
+          "name": "Go",
+          "category": "Languages"
+        }
+      ],
+      "posted_at": "2026-09-22T00:00:07+00:00",
+      "scraped_at": "2026-10-07T11:21:28.055208+00:00"
+    },
+    {
+      "id": "b7484dd10893ff60dc50c51baa6aff3c21f84ceb26f0c8a244a5525f7095e67b",
+      "title": "People Operations Coordinator",
+      "company": "Ashby",
+      "location": "",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://remoteOK.com/remote-jobs/remote-people-operations-coordinator-ashby-1137412",
+      "source": "remoteok",
+      "role_category": "general_software",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "2026-09-21T16:00:11+00:00",
+      "scraped_at": "2026-10-07T11:21:28.055228+00:00"
+    },
+    {
+      "id": "12cf5926d975e8425852c944e0ec09c29753f8b4fb4ea4907c05f936a81b0fca",
+      "title": "Senior .NET Software Engineer",
+      "company": "OkWhen",
+      "location": "",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://remoteOK.com/remote-jobs/remote-senior-net-software-engineer-okwhen-1137411",
+      "source": "remoteok",
+      "role_category": "backend",
+      "skills": [
+        "TypeScript",
+        "SQL",
+        "Angular",
+        "REST API",
+        "Microservices",
+        "AWS",
+        "CI/CD",
+        "Git"
+      ],
+      "skills_detailed": [
+        {
+          "name": "TypeScript",
+          "category": "Languages"
+        },
+        {
+          "name": "SQL",
+          "category": "Languages"
+        },
+        {
+          "name": "Angular",
+          "category": "Frontend"
+        },
+        {
+          "name": "REST API",
+          "category": "Backend"
+        },
+        {
+          "name": "Microservices",
+          "category": "Architecture"
+        },
+        {
+          "name": "AWS",
+          "category": "Cloud"
+        },
+        {
+          "name": "CI/CD",
+          "category": "DevOps"
+        },
+        {
+          "name": "Git",
+          "category": "Tools"
+        }
+      ],
+      "posted_at": "2026-09-20T00:00:31+00:00",
+      "scraped_at": "2026-10-07T11:21:28.055248+00:00"
+    },
+    {
+      "id": "beaf8267f47dfe7b0380ec3359c2a05233815e0cb0b295c41623c7ef8a223ec3",
+      "title": "Frontend Engineer",
+      "company": "Bjak ",
+      "location": "Ireland",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://remoteOK.com/remote-jobs/remote-frontend-engineer-bjak-1137410",
+      "source": "remoteok",
+      "role_category": "frontend",
+      "skills": [
+        "JavaScript",
+        "TypeScript",
+        "React",
+        "Next.js",
+        "HTML/CSS",
+        "Node.js",
+        "WebSockets",
+        "GraphQL"
+      ],
+      "skills_detailed": [
+        {
+          "name": "JavaScript",
+          "category": "Languages"
+        },
+        {
+          "name": "TypeScript",
+          "category": "Languages"
+        },
+        {
+          "name": "React",
+          "category": "Frontend"
+        },
+        {
+          "name": "Next.js",
+          "category": "Frontend"
+        },
+        {
+          "name": "HTML/CSS",
+          "category": "Frontend"
+        },
+        {
+          "name": "Node.js",
+          "category": "Backend"
+        },
+        {
+          "name": "WebSockets",
+          "category": "Backend"
+        },
+        {
+          "name": "GraphQL",
+          "category": "Backend"
+        }
+      ],
+      "posted_at": "2026-09-20T00:00:25+00:00",
+      "scraped_at": "2026-10-07T11:21:28.055263+00:00"
+    },
+    {
+      "id": "791da1260d15f57475d217f8e0765df4c5e35fa68faf5806a43301572932d34a",
+      "title": "Software Deployment Engineer",
+      "company": "KPI Solutions",
+      "location": "Cincinnati",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://remoteOK.com/remote-jobs/remote-software-deployment-engineer-kpi-solutions-1137408",
+      "source": "remoteok",
+      "role_category": "general_software",
+      "skills": [
+        "Go",
+        "SQL"
+      ],
+      "skills_detailed": [
+        {
+          "name": "Go",
+          "category": "Languages"
+        },
+        {
+          "name": "SQL",
+          "category": "Languages"
+        }
+      ],
+      "posted_at": "2026-09-19T08:00:34+00:00",
+      "scraped_at": "2026-10-07T11:21:28.055279+00:00"
+    },
+    {
+      "id": "04db5814c6456a022685efd405986829d8ed45f3557207d6fd5c1f08d0ab6bd9",
+      "title": "VP Pricing & Packaging",
+      "company": "Delinea",
+      "location": "Redwood City",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://remoteOK.com/remote-jobs/remote-vp-pricing-packaging-delinea-1137407",
+      "source": "remoteok",
+      "role_category": "general_software",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "2026-09-19T00:00:16+00:00",
+      "scraped_at": "2026-10-07T11:21:28.055295+00:00"
+    },
+    {
+      "id": "4515446285e7b173a8f095685a676522bfb013be8dd1201f3dd0ef0fec6dff99",
+      "title": "Customer Success Manager Mexico",
+      "company": "JumpCloud",
+      "location": "Mexico City, Mexico - Remote",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://remoteOK.com/remote-jobs/remote-customer-success-manager-mexico-jumpcloud-1137406",
+      "source": "remoteok",
+      "role_category": "general_software",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "2026-09-19T00:00:06+00:00",
+      "scraped_at": "2026-10-07T11:21:28.055310+00:00"
+    },
+    {
+      "id": "f96e3ba4e23c2a39f5f191ce2a11de96d1fb9d2c3998645fd07eff482dcbbc10",
+      "title": "Senior Shopify Developer",
+      "company": "Sanctuary Computer",
+      "location": "",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://remoteOK.com/remote-jobs/remote-senior-shopify-developer-sanctuary-computer-1137405",
+      "source": "remoteok",
+      "role_category": "fullstack",
+      "skills": [
+        "JavaScript",
+        "TypeScript",
+        "Next.js",
+        "Tailwind CSS",
+        "Redux",
+        "Zustand",
+        "HTML/CSS",
+        "Node.js",
+        "WebSockets",
+        "GraphQL",
+        "PostgreSQL",
+        "Redis"
+      ],
+      "skills_detailed": [
+        {
+          "name": "JavaScript",
+          "category": "Languages"
+        },
+        {
+          "name": "TypeScript",
+          "category": "Languages"
+        },
+        {
+          "name": "Next.js",
+          "category": "Frontend"
+        },
+        {
+          "name": "Tailwind CSS",
+          "category": "Frontend"
+        },
+        {
+          "name": "Redux",
+          "category": "Frontend"
+        },
+        {
+          "name": "Zustand",
+          "category": "Frontend"
+        },
+        {
+          "name": "HTML/CSS",
+          "category": "Frontend"
+        },
+        {
+          "name": "Node.js",
+          "category": "Backend"
+        },
+        {
+          "name": "WebSockets",
+          "category": "Backend"
+        },
+        {
+          "name": "GraphQL",
+          "category": "Backend"
+        },
+        {
+          "name": "PostgreSQL",
+          "category": "Database"
+        },
+        {
+          "name": "Redis",
+          "category": "Database"
+        }
+      ],
+      "posted_at": "2026-09-18T13:29:53+00:00",
+      "scraped_at": "2026-10-07T11:21:28.055330+00:00"
+    },
+    {
+      "id": "89ee456edc352cf8d654ba3bd417cc33b5cef1dff9e1fa8cec41131823a4987c",
+      "title": "Golang Kubernetes Engineer",
+      "company": "Arango",
+      "location": "",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://remoteOK.com/remote-jobs/remote-golang-kubernetes-engineer-arango-1137400",
+      "source": "remoteok",
+      "role_category": "general_software",
+      "skills": [
+        "Go",
+        "Kubernetes"
+      ],
+      "skills_detailed": [
+        {
+          "name": "Go",
+          "category": "Languages"
+        },
+        {
+          "name": "Kubernetes",
+          "category": "DevOps"
+        }
+      ],
+      "posted_at": "2026-09-16T19:00:02+00:00",
+      "scraped_at": "2026-10-07T11:21:28.055344+00:00"
+    },
+    {
+      "id": "876b3f369bbbcceee1bf072835942215402e587fcb36284c2c5d512cd4defd49",
+      "title": "AI agent engineer",
+      "company": "Sticker Mule",
+      "location": "",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://remoteOK.com/remote-jobs/remote-ai-agent-engineer-sticker-mule-1137399",
+      "source": "remoteok",
+      "role_category": "ai_ml",
+      "skills": [
+        "JavaScript",
+        "TypeScript",
+        "Go",
+        "GraphQL",
+        "PostgreSQL",
+        "GCP",
+        "LLM Engineering"
+      ],
+      "skills_detailed": [
+        {
+          "name": "JavaScript",
+          "category": "Languages"
+        },
+        {
+          "name": "TypeScript",
+          "category": "Languages"
+        },
+        {
+          "name": "Go",
+          "category": "Languages"
+        },
+        {
+          "name": "GraphQL",
+          "category": "Backend"
+        },
+        {
+          "name": "PostgreSQL",
+          "category": "Database"
+        },
+        {
+          "name": "GCP",
+          "category": "Cloud"
+        },
+        {
+          "name": "LLM Engineering",
+          "category": "AI/ML"
+        }
+      ],
+      "posted_at": "2026-09-16T12:44:27+00:00",
+      "scraped_at": "2026-10-07T11:21:28.055361+00:00"
+    },
+    {
+      "id": "e78bb0135dbfc981abb96a431822f1d8967aaf2a46fa0baa6be5e36515645eec",
+      "title": "AI Trainer Image QA Evaluator",
+      "company": "iMerit Technology",
+      "location": "",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://remoteOK.com/remote-jobs/remote-ai-trainer-image-qa-evaluator-imerit-technology-1137398",
+      "source": "remoteok",
+      "role_category": "ai_ml",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "2026-09-16T06:55:47+00:00",
+      "scraped_at": "2026-10-07T11:21:28.055375+00:00"
+    },
+    {
+      "id": "b9082c0ea10e1e89dbf0eab775d29a59639ade53ea9bef06965378a93228318c",
+      "title": "Principal Product Manager",
+      "company": "DomainTools",
+      "location": "",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://remoteOK.com/remote-jobs/remote-principal-product-manager-domaintools-1137396",
+      "source": "remoteok",
+      "role_category": "general_software",
+      "skills": [
+        "Microservices"
+      ],
+      "skills_detailed": [
+        {
+          "name": "Microservices",
+          "category": "Architecture"
+        }
+      ],
+      "posted_at": "2026-09-16T00:00:13+00:00",
+      "scraped_at": "2026-10-07T11:21:28.055391+00:00"
+    },
+    {
+      "id": "9e486bad2e4a33e33a79388fdcb6b23052c7aca90614c28de47d6f1187a3326b",
+      "title": "Sr Solutions Architect",
+      "company": "ExtraHop",
+      "location": "Remote",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://remoteOK.com/remote-jobs/remote-sr-solutions-architect-extrahop-1137394",
+      "source": "remoteok",
+      "role_category": "general_software",
+      "skills": [
+        "JavaScript",
+        "Python",
+        "REST API"
+      ],
+      "skills_detailed": [
+        {
+          "name": "JavaScript",
+          "category": "Languages"
+        },
+        {
+          "name": "Python",
+          "category": "Languages"
+        },
+        {
+          "name": "REST API",
+          "category": "Backend"
+        }
+      ],
+      "posted_at": "2026-09-15T00:00:26+00:00",
+      "scraped_at": "2026-10-07T11:21:28.055405+00:00"
+    },
+    {
+      "id": "4e2edd45420e45fbd1c96b9a9f98f36545c9deb30dcfebca7f094db2101cf583",
+      "title": "Junior Payroll Assistant",
+      "company": "Sleek",
+      "location": "",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://remoteOK.com/remote-jobs/remote-junior-payroll-assistant-sleek-1137391",
+      "source": "remoteok",
+      "role_category": "general_software",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "2026-09-14T00:00:12+00:00",
+      "scraped_at": "2026-10-07T11:21:28.055420+00:00"
+    },
+    {
+      "id": "9fc03c9fd82e6b56f761b9d3a68edaab254e46e5515b29c106f769f47d8af240",
+      "title": "Analyst, Privacy",
+      "company": "Coinbase",
+      "location": "Remote",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "",
+      "source": "weworkremotely",
+      "role_category": "general_software",
+      "skills": [
+        "Python",
+        "SQL",
+        "PostgreSQL",
+        "MongoDB"
+      ],
+      "skills_detailed": [
+        {
+          "name": "Python",
+          "category": "Languages"
+        },
+        {
+          "name": "SQL",
+          "category": "Languages"
+        },
+        {
+          "name": "PostgreSQL",
+          "category": "Database"
+        },
+        {
+          "name": "MongoDB",
+          "category": "Database"
+        }
+      ],
+      "posted_at": "Wed, 07 Oct 2026 07:31:00 +0000",
+      "scraped_at": "2026-10-07T11:21:27.053276+00:00"
+    },
+    {
+      "id": "8c973f3d866addb3684a1fc3386df8e8493f6bf123de44568c625688c98349e8",
+      "title": "Software Engineer - Query Execution",
+      "company": "Dremio",
+      "location": "Remote",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "",
+      "source": "weworkremotely",
+      "role_category": "general_software",
+      "skills": [
+        "Java",
+        "C++",
+        "Microservices"
+      ],
+      "skills_detailed": [
+        {
+          "name": "Java",
+          "category": "Languages"
+        },
+        {
+          "name": "C++",
+          "category": "Languages"
+        },
+        {
+          "name": "Microservices",
+          "category": "Architecture"
+        }
+      ],
+      "posted_at": "Wed, 07 Oct 2026 07:30:53 +0000",
+      "scraped_at": "2026-10-07T11:21:27.055321+00:00"
+    },
+    {
+      "id": "067f427ee01763166582046a4c44b52aacad7508f3ce7d2f948855efa3b4e26a",
+      "title": "Senior Angular Full-stack Developer",
+      "company": "Lemon.io",
+      "location": "Remote",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "",
+      "source": "weworkremotely",
+      "role_category": "fullstack",
+      "skills": [
+        "JavaScript",
+        "TypeScript",
+        "Python",
+        "Java",
+        "C++",
+        "Go",
+        "Rust",
+        "React",
+        "Next.js",
+        "Vue",
+        "Angular",
+        "Svelte",
+        "Node.js",
+        "Firebase",
+        "AWS",
+        "GCP"
+      ],
+      "skills_detailed": [
+        {
+          "name": "JavaScript",
+          "category": "Languages"
+        },
+        {
+          "name": "TypeScript",
+          "category": "Languages"
+        },
+        {
+          "name": "Python",
+          "category": "Languages"
+        },
+        {
+          "name": "Java",
+          "category": "Languages"
+        },
+        {
+          "name": "C++",
+          "category": "Languages"
+        },
+        {
+          "name": "Go",
+          "category": "Languages"
+        },
+        {
+          "name": "Rust",
+          "category": "Languages"
+        },
+        {
+          "name": "React",
+          "category": "Frontend"
+        },
+        {
+          "name": "Next.js",
+          "category": "Frontend"
+        },
+        {
+          "name": "Vue",
+          "category": "Frontend"
+        },
+        {
+          "name": "Angular",
+          "category": "Frontend"
+        },
+        {
+          "name": "Svelte",
+          "category": "Frontend"
+        },
+        {
+          "name": "Node.js",
+          "category": "Backend"
+        },
+        {
+          "name": "Firebase",
+          "category": "Database"
+        },
+        {
+          "name": "AWS",
+          "category": "Cloud"
+        },
+        {
+          "name": "GCP",
+          "category": "Cloud"
+        }
+      ],
+      "posted_at": "Tue, 06 Oct 2026 13:25:57 +0000",
+      "scraped_at": "2026-10-07T11:21:27.056638+00:00"
+    },
+    {
+      "id": "c272a2110017c5e8298048fe3086428692f29a83ae484903476a58d46446151e",
+      "title": "Director of Media Strategy & Activation (Paid Media)",
+      "company": "Dropbox",
+      "location": "Remote",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "",
+      "source": "weworkremotely",
+      "role_category": "general_software",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "Tue, 06 Oct 2026 07:31:26 +0000",
+      "scraped_at": "2026-10-07T11:21:27.061327+00:00"
+    },
+    {
+      "id": "770e9d0d1d3db2c5467979ed446d4f8fb33b83cc486810a9af99d03b8f54545e",
+      "title": "Senior Director, Field Enablement",
+      "company": "PagerDuty",
+      "location": "Remote",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "",
+      "source": "weworkremotely",
+      "role_category": "general_software",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "Tue, 06 Oct 2026 07:31:16 +0000",
+      "scraped_at": "2026-10-07T11:21:27.063559+00:00"
+    },
+    {
+      "id": "f563032908db31c26e99cf9f7c4c122293a0efbe451860821a6d26452e6fa817",
+      "title": "Senior Infrastructure Engineer",
+      "company": "Webflow",
+      "location": "Remote",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "",
+      "source": "weworkremotely",
+      "role_category": "devops",
+      "skills": [
+        "Microservices",
+        "Kubernetes",
+        "AWS",
+        "GCP"
+      ],
+      "skills_detailed": [
+        {
+          "name": "Microservices",
+          "category": "Architecture"
+        },
+        {
+          "name": "Kubernetes",
+          "category": "DevOps"
+        },
+        {
+          "name": "AWS",
+          "category": "Cloud"
+        },
+        {
+          "name": "GCP",
+          "category": "Cloud"
+        }
+      ],
+      "posted_at": "Tue, 06 Oct 2026 07:31:05 +0000",
+      "scraped_at": "2026-10-07T11:21:27.065309+00:00"
+    },
+    {
+      "id": "be59d112aa5d5c544cd0d9e8b2aef2df8070ae11cf8402a00476cfe39d1ee354",
+      "title": "Backend Engineer (Multiple Positions)",
+      "company": "LaunchDarkly",
+      "location": "Remote",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "",
+      "source": "weworkremotely",
+      "role_category": "backend",
+      "skills": [
+        "Python",
+        "Rust",
+        "Microservices"
+      ],
+      "skills_detailed": [
+        {
+          "name": "Python",
+          "category": "Languages"
+        },
+        {
+          "name": "Rust",
+          "category": "Languages"
+        },
+        {
+          "name": "Microservices",
+          "category": "Architecture"
+        }
+      ],
+      "posted_at": "Tue, 06 Oct 2026 07:31:05 +0000",
+      "scraped_at": "2026-10-07T11:21:27.067487+00:00"
+    },
+    {
+      "id": "2fb8b7c5132e14a15f28fdbf2f4f89f50fdeecf348471cda1fddd65f35f2d2c3",
+      "title": "Director, Global GTM Strategy & Operations",
+      "company": "Wrike",
+      "location": "Remote",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "",
+      "source": "weworkremotely",
+      "role_category": "general_software",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "Mon, 05 Oct 2026 07:31:29 +0000",
+      "scraped_at": "2026-10-07T11:21:27.069587+00:00"
+    },
+    {
+      "id": "3e32d966df9f9653edc55785d95607563d8a355e6049db7713a97bce9ae5b785",
+      "title": "Backend Engineer, Control Plane",
+      "company": "Tailscale",
+      "location": "Remote",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "",
+      "source": "weworkremotely",
+      "role_category": "backend",
+      "skills": [
+        "Go",
+        "SQL",
+        "Microservices"
+      ],
+      "skills_detailed": [
+        {
+          "name": "Go",
+          "category": "Languages"
+        },
+        {
+          "name": "SQL",
+          "category": "Languages"
+        },
+        {
+          "name": "Microservices",
+          "category": "Architecture"
+        }
+      ],
+      "posted_at": "Mon, 05 Oct 2026 07:31:07 +0000",
+      "scraped_at": "2026-10-07T11:21:27.070827+00:00"
+    },
+    {
+      "id": "efc92c0c6ed5daf9138bb7bf75c480ef94e86e7691fd7b78080414fa7dded0d9",
+      "title": "Abuse Research Engineer",
+      "company": "Stripe",
+      "location": "Remote",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "",
+      "source": "weworkremotely",
+      "role_category": "general_software",
+      "skills": [
+        "Python",
+        "SQL"
+      ],
+      "skills_detailed": [
+        {
+          "name": "Python",
+          "category": "Languages"
+        },
+        {
+          "name": "SQL",
+          "category": "Languages"
+        }
+      ],
+      "posted_at": "Sun, 04 Oct 2026 07:31:08 +0000",
+      "scraped_at": "2026-10-07T11:21:27.073345+00:00"
+    },
+    {
+      "id": "29306453c5e8020fef356b16ca6ca2c81066c2e7ce28a3a468d7f47b1991a31d",
+      "title": "Engineering Manager II, Media Rendering",
+      "company": "Pinterest",
+      "location": "Remote",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "",
+      "source": "weworkremotely",
+      "role_category": "general_software",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "Fri, 02 Oct 2026 07:30:48 +0000",
+      "scraped_at": "2026-10-07T11:21:27.074796+00:00"
+    },
+    {
+      "id": "a5e8d69b07542fbd0e3219ddfc53b58becaf67e5f872b96a421c92380312857c",
+      "title": "Commercial Data Scientist",
+      "company": "Doximity",
+      "location": "Remote",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "",
+      "source": "weworkremotely",
+      "role_category": "ai_ml",
+      "skills": [
+        "Python",
+        "SQL",
+        "PyTorch",
+        "TensorFlow"
+      ],
+      "skills_detailed": [
+        {
+          "name": "Python",
+          "category": "Languages"
+        },
+        {
+          "name": "SQL",
+          "category": "Languages"
+        },
+        {
+          "name": "PyTorch",
+          "category": "AI/ML"
+        },
+        {
+          "name": "TensorFlow",
+          "category": "AI/ML"
+        }
+      ],
+      "posted_at": "Thu, 01 Oct 2026 07:30:56 +0000",
+      "scraped_at": "2026-10-07T11:21:27.078464+00:00"
+    },
+    {
+      "id": "3e1007507d8913a9b163a96673d386b88917312a8d9ab08c16642b59ed1d689f",
+      "title": "Legal Ops",
+      "company": "Hex Technologies",
+      "location": "Remote",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "",
+      "source": "weworkremotely",
+      "role_category": "general_software",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "Thu, 01 Oct 2026 07:30:56 +0000",
+      "scraped_at": "2026-10-07T11:21:27.079338+00:00"
+    },
+    {
+      "id": "f48a08ef98f8cbc17807f20e5a7cb300d406c5b2969a11c9f798d38d2b1f62f7",
+      "title": "Senior Risk Associate",
+      "company": "Lithic",
+      "location": "Remote",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "",
+      "source": "weworkremotely",
+      "role_category": "general_software",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "Wed, 30 Sep 2026 07:31:24 +0000",
+      "scraped_at": "2026-10-07T11:21:27.081031+00:00"
+    },
+    {
+      "id": "f4b059e6a41fd77738710ab7db6a70413959614e37e0fb1d549ff0074535aa3d",
+      "title": "Principal Software Engineer, AI",
+      "company": "Salesloft",
+      "location": "Remote",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "",
+      "source": "weworkremotely",
+      "role_category": "general_software",
+      "skills": [
+        "Python",
+        "Java",
+        "Microservices",
+        "AWS",
+        "GCP"
+      ],
+      "skills_detailed": [
+        {
+          "name": "Python",
+          "category": "Languages"
+        },
+        {
+          "name": "Java",
+          "category": "Languages"
+        },
+        {
+          "name": "Microservices",
+          "category": "Architecture"
+        },
+        {
+          "name": "AWS",
+          "category": "Cloud"
+        },
+        {
+          "name": "GCP",
+          "category": "Cloud"
+        }
+      ],
+      "posted_at": "Wed, 30 Sep 2026 07:31:24 +0000",
+      "scraped_at": "2026-10-07T11:21:27.082218+00:00"
+    },
+    {
+      "id": "fcf54f00898a20ded573cf3bb569c34efcf7cb2dbe53a553a367b6f2e88340be",
+      "title": "Analytics Engineer, Data",
+      "company": "Tailscale",
+      "location": "Remote",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "",
+      "source": "weworkremotely",
+      "role_category": "general_software",
+      "skills": [
+        "SQL"
+      ],
+      "skills_detailed": [
+        {
+          "name": "SQL",
+          "category": "Languages"
+        }
+      ],
+      "posted_at": "Wed, 30 Sep 2026 07:31:24 +0000",
+      "scraped_at": "2026-10-07T11:21:27.083503+00:00"
+    },
+    {
+      "id": "e6c25126f1060504b13d5205fac52df28a249d110c17e2fae768e031fd6bbd10",
+      "title": "Senior Software Engineer, Card Authorization",
+      "company": "Lithic",
+      "location": "Remote",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "",
+      "source": "weworkremotely",
+      "role_category": "backend",
+      "skills": [
+        "Python",
+        "Java",
+        "Rust"
+      ],
+      "skills_detailed": [
+        {
+          "name": "Python",
+          "category": "Languages"
+        },
+        {
+          "name": "Java",
+          "category": "Languages"
+        },
+        {
+          "name": "Rust",
+          "category": "Languages"
+        }
+      ],
+      "posted_at": "Wed, 30 Sep 2026 07:31:24 +0000",
+      "scraped_at": "2026-10-07T11:21:27.086031+00:00"
+    },
+    {
+      "id": "496595ba0ef9c4e9d1e2320f4d8ead3d74e4dfe7e14e2bc645a9736885da9dcc",
+      "title": "Engineering Manager, Machine Learning (Safety)",
+      "company": "Discord",
+      "location": "Remote",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "",
+      "source": "weworkremotely",
+      "role_category": "ai_ml",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "Tue, 29 Sep 2026 07:30:41 +0000",
+      "scraped_at": "2026-10-07T11:21:27.087499+00:00"
+    },
+    {
+      "id": "c40fd5d24f0b829cc0b908f94c7661ed8b364fdb938d5e65ef7931b9345d69ef",
+      "title": "Director, Applied AI",
+      "company": "ZoomInfo Technologies LLC",
+      "location": "Remote",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "",
+      "source": "weworkremotely",
+      "role_category": "general_software",
+      "skills": [
+        "SQL"
+      ],
+      "skills_detailed": [
+        {
+          "name": "SQL",
+          "category": "Languages"
+        }
+      ],
+      "posted_at": "Tue, 29 Sep 2026 07:30:41 +0000",
+      "scraped_at": "2026-10-07T11:21:27.089827+00:00"
+    },
+    {
+      "id": "3e19243ac5629b34fa06dc89475d56947ad412c8525192f0efc7e44d598ac1c9",
+      "title": "Client Strategist",
+      "company": "Postscript",
+      "location": "Remote",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "",
+      "source": "weworkremotely",
+      "role_category": "general_software",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "Tue, 29 Sep 2026 07:30:41 +0000",
+      "scraped_at": "2026-10-07T11:21:27.091015+00:00"
+    },
+    {
+      "id": "1289e7ab9889a1cffddce9992b8bb262e3e6e0f572ced2fc1ea0ff2b18d046d0",
+      "title": "Software Engineer - Developer Experience",
+      "company": "Dremio",
+      "location": "Remote",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "",
+      "source": "weworkremotely",
+      "role_category": "general_software",
+      "skills": [
+        "Python",
+        "Java",
+        "C++",
+        "SQL",
+        "Microservices",
+        "Docker",
+        "Kubernetes",
+        "AWS",
+        "GCP",
+        "CI/CD",
+        "Linux"
+      ],
+      "skills_detailed": [
+        {
+          "name": "Python",
+          "category": "Languages"
+        },
+        {
+          "name": "Java",
+          "category": "Languages"
+        },
+        {
+          "name": "C++",
+          "category": "Languages"
+        },
+        {
+          "name": "SQL",
+          "category": "Languages"
+        },
+        {
+          "name": "Microservices",
+          "category": "Architecture"
+        },
+        {
+          "name": "Docker",
+          "category": "DevOps"
+        },
+        {
+          "name": "Kubernetes",
+          "category": "DevOps"
+        },
+        {
+          "name": "AWS",
+          "category": "Cloud"
+        },
+        {
+          "name": "GCP",
+          "category": "Cloud"
+        },
+        {
+          "name": "CI/CD",
+          "category": "DevOps"
+        },
+        {
+          "name": "Linux",
+          "category": "Tools"
+        }
+      ],
+      "posted_at": "Mon, 28 Sep 2026 07:31:05 +0000",
+      "scraped_at": "2026-10-07T11:21:27.092299+00:00"
+    },
+    {
+      "id": "ac060437ebf5e5d3a4ff1174891faefb77bb5232310d29c3f368425f1dfae4cc",
+      "title": "Senior Staff Software Engineer - Query Execution",
+      "company": "Dremio",
+      "location": "Remote",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "",
+      "source": "weworkremotely",
+      "role_category": "general_software",
+      "skills": [
+        "Java",
+        "C++",
+        "Microservices"
+      ],
+      "skills_detailed": [
+        {
+          "name": "Java",
+          "category": "Languages"
+        },
+        {
+          "name": "C++",
+          "category": "Languages"
+        },
+        {
+          "name": "Microservices",
+          "category": "Architecture"
+        }
+      ],
+      "posted_at": "Mon, 28 Sep 2026 07:31:05 +0000",
+      "scraped_at": "2026-10-07T11:21:27.094666+00:00"
+    },
+    {
+      "id": "17db06675a48123982d5293dd74d423e3f28437ef0c845b1b74ac650355c1f8b",
+      "title": "Salesforce Platform Lead for Global Industrial Company",
+      "company": "Toptal",
+      "location": "Remote",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "",
+      "source": "weworkremotely",
+      "role_category": "general_software",
+      "skills": [
+        "CI/CD"
+      ],
+      "skills_detailed": [
+        {
+          "name": "CI/CD",
+          "category": "DevOps"
+        }
+      ],
+      "posted_at": "Thu, 24 Sep 2026 14:45:20 +0000",
+      "scraped_at": "2026-10-07T11:21:27.095400+00:00"
+    },
+    {
+      "id": "8a763f63d97d376dda7653d1ea491470b1bb05a08d19ddc1c2a8837e8407e175",
+      "title": "Software Developer AI Coding",
+      "company": "STEUART NUTRITION",
+      "location": "Remote",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "",
+      "source": "weworkremotely",
+      "role_category": "ai_ml",
+      "skills": [
+        "JavaScript",
+        "TypeScript",
+        "Python"
+      ],
+      "skills_detailed": [
+        {
+          "name": "JavaScript",
+          "category": "Languages"
+        },
+        {
+          "name": "TypeScript",
+          "category": "Languages"
+        },
+        {
+          "name": "Python",
+          "category": "Languages"
+        }
+      ],
+      "posted_at": "Wed, 23 Sep 2026 15:03:18 +0000",
+      "scraped_at": "2026-10-07T11:21:27.095978+00:00"
+    },
+    {
+      "id": "80e24c13f980dd55195106a40a203c48eef895b6443d224e94a79dd80a34905b",
+      "title": "Application Security Engineer",
+      "company": "Glean",
+      "location": "Remote",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "",
+      "source": "weworkremotely",
+      "role_category": "general_software",
+      "skills": [
+        "Microservices",
+        "Docker",
+        "Kubernetes",
+        "AWS",
+        "GCP",
+        "CI/CD",
+        "Git"
+      ],
+      "skills_detailed": [
+        {
+          "name": "Microservices",
+          "category": "Architecture"
+        },
+        {
+          "name": "Docker",
+          "category": "DevOps"
+        },
+        {
+          "name": "Kubernetes",
+          "category": "DevOps"
+        },
+        {
+          "name": "AWS",
+          "category": "Cloud"
+        },
+        {
+          "name": "GCP",
+          "category": "Cloud"
+        },
+        {
+          "name": "CI/CD",
+          "category": "DevOps"
+        },
+        {
+          "name": "Git",
+          "category": "Tools"
+        }
+      ],
+      "posted_at": "Wed, 23 Sep 2026 07:31:13 +0000",
+      "scraped_at": "2026-10-07T11:21:27.097517+00:00"
+    },
+    {
+      "id": "b3063d6955f09fdebb3a693060df2229218ad547a093f02de32dd17d306ac11e",
+      "title": "Senior Full-Stack Developer - Marketplace Web & Mobile Platform",
+      "company": "Adventure Travel 365",
+      "location": "Remote",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "",
+      "source": "weworkremotely",
+      "role_category": "fullstack",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "Mon, 21 Sep 2026 10:14:35 +0000",
+      "scraped_at": "2026-10-07T11:21:27.098914+00:00"
+    },
+    {
+      "id": "f1ab592a3132a9a805704ebe8a11e4f406d9f6ba13670873a44e240ee43f016d",
+      "title": "Cloud Security Engineer",
+      "company": "Hex Technologies",
+      "location": "Remote",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "",
+      "source": "weworkremotely",
+      "role_category": "fullstack",
+      "skills": [
+        "TypeScript",
+        "Python",
+        "React",
+        "Redux",
+        "Express",
+        "GraphQL",
+        "PostgreSQL",
+        "Redis",
+        "Kubernetes",
+        "AWS",
+        "CI/CD"
+      ],
+      "skills_detailed": [
+        {
+          "name": "TypeScript",
+          "category": "Languages"
+        },
+        {
+          "name": "Python",
+          "category": "Languages"
+        },
+        {
+          "name": "React",
+          "category": "Frontend"
+        },
+        {
+          "name": "Redux",
+          "category": "Frontend"
+        },
+        {
+          "name": "Express",
+          "category": "Backend"
+        },
+        {
+          "name": "GraphQL",
+          "category": "Backend"
+        },
+        {
+          "name": "PostgreSQL",
+          "category": "Database"
+        },
+        {
+          "name": "Redis",
+          "category": "Database"
+        },
+        {
+          "name": "Kubernetes",
+          "category": "DevOps"
+        },
+        {
+          "name": "AWS",
+          "category": "Cloud"
+        },
+        {
+          "name": "CI/CD",
+          "category": "DevOps"
+        }
+      ],
+      "posted_at": "Sat, 19 Sep 2026 07:31:10 +0000",
+      "scraped_at": "2026-10-07T11:21:27.100656+00:00"
+    },
+    {
+      "id": "e059b83c2d17d1805e5a93eae12cb247383cdbd0c214f191b52c452360468630",
+      "title": "Senior Integration Engineer for Enterprise API & Integration Products",
+      "company": "Toptal",
+      "location": "Remote",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "",
+      "source": "weworkremotely",
+      "role_category": "general_software",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "Fri, 18 Sep 2026 17:01:08 +0000",
+      "scraped_at": "2026-10-07T11:21:27.101205+00:00"
+    },
+    {
+      "id": "11148fe8cc9e1a715ed5d16cc74c2057675d84136357f5d44d5c1e625be7f135",
+      "title": "Python Internship",
+      "company": "Learntricks Edutech",
+      "location": "Online (India)",
+      "job_type": "Internship",
+      "stipend_or_salary": null,
+      "url": "https://unstop.com/internships/python-internship-unstop-tech-fair-2025-learntricks-edutech-1765719",
+      "source": "unstop",
+      "role_category": "backend",
+      "skills": [
+        "JavaScript",
+        "Python",
+        "React",
+        "Angular",
+        "HTML/CSS",
+        "Node.js",
+        "Django"
+      ],
+      "skills_detailed": [
+        {
+          "name": "JavaScript",
+          "category": "Languages"
+        },
+        {
+          "name": "Python",
+          "category": "Languages"
+        },
+        {
+          "name": "React",
+          "category": "Frontend"
+        },
+        {
+          "name": "Angular",
+          "category": "Frontend"
+        },
+        {
+          "name": "HTML/CSS",
+          "category": "Frontend"
+        },
+        {
+          "name": "Node.js",
+          "category": "Backend"
+        },
+        {
+          "name": "Django",
+          "category": "Backend"
+        }
+      ],
+      "posted_at": "2026-10-04T21:24:08+05:30",
+      "scraped_at": "2026-10-07T11:21:26.885836+00:00"
+    },
+    {
+      "id": "8a648f88d1419f9c15877cab65d59c215f3564106cffe8a85d087635dd70a911",
+      "title": "Frontend Developer Internship",
+      "company": "Learntricks Edutech",
+      "location": "Online (India)",
+      "job_type": "Internship",
+      "stipend_or_salary": null,
+      "url": "https://unstop.com/internships/frontend-developer-internship-unstop-tech-fair-20-learntricks-edutech-1764139",
+      "source": "unstop",
+      "role_category": "frontend",
+      "skills": [
+        "JavaScript",
+        "React",
+        "HTML/CSS"
+      ],
+      "skills_detailed": [
+        {
+          "name": "JavaScript",
+          "category": "Languages"
+        },
+        {
+          "name": "React",
+          "category": "Frontend"
+        },
+        {
+          "name": "HTML/CSS",
+          "category": "Frontend"
+        }
+      ],
+      "posted_at": "2026-10-02T19:43:51+05:30",
+      "scraped_at": "2026-10-07T11:21:26.886986+00:00"
+    },
+    {
+      "id": "c1894401e67dc8b0dba7512e983e2e5caadc15c59bce11d920955eceaafcd2f2",
+      "title": "VLSI Design Internship",
+      "company": "Kukbit SL",
+      "location": "Online (India)",
+      "job_type": "Internship",
+      "stipend_or_salary": null,
+      "url": "https://unstop.com/internships/vlsi-design-internship-kukbit-sl-1761900",
+      "source": "unstop",
+      "role_category": "general_software",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "2026-10-05T14:52:26+05:30",
+      "scraped_at": "2026-10-07T11:21:26.887292+00:00"
+    },
+    {
+      "id": "0ea06267d5bf04d8d7bb4b0f339d19891c2ad0e76ef9e6f1b8ddd1657cbabc69",
+      "title": "Data Science Internship",
+      "company": "Kukbit SL",
+      "location": "Online (India)",
+      "job_type": "Internship",
+      "stipend_or_salary": null,
+      "url": "https://unstop.com/internships/data-science-internship-kukbit-sl-1761158",
+      "source": "unstop",
+      "role_category": "general_software",
+      "skills": [
+        "Python"
+      ],
+      "skills_detailed": [
+        {
+          "name": "Python",
+          "category": "Languages"
+        }
+      ],
+      "posted_at": "2026-10-05T14:51:40+05:30",
+      "scraped_at": "2026-10-07T11:21:26.902189+00:00"
+    },
+    {
+      "id": "01dac44fced906ab793b0aa3314e75a51eeaac51edaa7bb533e7f03be05c51bb",
+      "title": "Back Office Operations Executive Internship",
+      "company": "Sharp Financial Services Private Limited",
+      "location": "Mumbai",
+      "job_type": "Internship",
+      "stipend_or_salary": null,
+      "url": "https://unstop.com/internships/back-office-operations-executive-internship-sharp-financial-services-private-limited-1767032",
+      "source": "unstop",
+      "role_category": "general_software",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "2026-10-07T16:10:50+05:30",
+      "scraped_at": "2026-10-07T11:21:26.903259+00:00"
+    },
+    {
+      "id": "ff2006f5d1e4d34ba232798036f6971fbf9c5bdc399cbd57d8ac31a9bf26d5be",
+      "title": "Research Analyst Internship",
+      "company": "RayMach Technologies",
+      "location": "Dehradun",
+      "job_type": "Internship",
+      "stipend_or_salary": null,
+      "url": "https://unstop.com/internships/research-analyst-internship-raymach-technologies-1767059",
+      "source": "unstop",
+      "role_category": "general_software",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "2026-10-07T15:56:00+05:30",
+      "scraped_at": "2026-10-07T11:21:26.903618+00:00"
+    },
+    {
+      "id": "26b441762489be1f78f1d221031729f60e263c2f4c25d2f3dc118f297f5ded9b",
+      "title": "Community Growth Internship",
+      "company": "GoHappy Club",
+      "location": "Delhi",
+      "job_type": "Internship",
+      "stipend_or_salary": null,
+      "url": "https://unstop.com/internships/community-growth-internship-gohappy-club-1767200",
+      "source": "unstop",
+      "role_category": "general_software",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "2026-10-07T14:35:38+05:30",
+      "scraped_at": "2026-10-07T11:21:26.903878+00:00"
+    },
+    {
+      "id": "0ec6b5704914ab229d938d1f0ecb5ca14cbe0005db008d9d1fa847fa245af314",
+      "title": "Student Ambassdor Internship",
+      "company": "R3 Actr Innovations",
+      "location": "Online (India)",
+      "job_type": "Internship",
+      "stipend_or_salary": null,
+      "url": "https://unstop.com/internships/student-ambassdor-internship-r3-actr-innovations-1766835",
+      "source": "unstop",
+      "role_category": "general_software",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "2026-10-07T16:13:36+05:30",
+      "scraped_at": "2026-10-07T11:21:26.906188+00:00"
+    },
+    {
+      "id": "e49f9321f80cbc69e08411e8566fc87b344bb8fedd8929b766245eaff3a49b8e",
+      "title": "Campus Representative",
+      "company": "ZenoBuzz Solutions",
+      "location": "Kolkata",
+      "job_type": "Internship",
+      "stipend_or_salary": null,
+      "url": "https://unstop.com/internships/campus-representative-zenobuzz-solutions-1766429",
+      "source": "unstop",
+      "role_category": "general_software",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "2026-10-07T11:27:56+05:30",
+      "scraped_at": "2026-10-07T11:21:26.907266+00:00"
+    },
+    {
+      "id": "db1e2e25496da67fbdedebe076cdc8a9bdc85e09a8ed327160d06fdd2c791155",
+      "title": "CEO's Office Internship",
+      "company": "Tringflow Private Limited",
+      "location": "Online (India)",
+      "job_type": "Internship",
+      "stipend_or_salary": null,
+      "url": "https://unstop.com/internships/ceos-office-internship-tringflow-private-limited-1765856",
+      "source": "unstop",
+      "role_category": "general_software",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "2026-10-07T10:39:46+05:30",
+      "scraped_at": "2026-10-07T11:21:26.907691+00:00"
+    },
+    {
+      "id": "e4e375595bd0cd7c54273d9eb049b1f032db920575cec4cee716547c64fd7516",
+      "title": "Content Creator Trainee",
+      "company": "Embarking On Voyage Digital Solutions Pvt. Ltd.",
+      "location": "Pune",
+      "job_type": "Internship",
+      "stipend_or_salary": null,
+      "url": "https://unstop.com/internships/content-creator-trainee-embarking-on-voyage-digital-solutions-pvt-ltd-1767199",
+      "source": "unstop",
+      "role_category": "general_software",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "2026-10-07T14:33:05+05:30",
+      "scraped_at": "2026-10-07T11:21:26.908603+00:00"
+    },
+    {
+      "id": "9eb8133df8e30b4505253633f7b37d14b296109eb7ad85588e5e0e8c93fd58d3",
+      "title": "Data Analyst Internship",
+      "company": "Wikasta Business and Technical Solutions Pvt. Ltd.",
+      "location": "Online (India)",
+      "job_type": "Internship",
+      "stipend_or_salary": null,
+      "url": "https://unstop.com/internships/data-analyst-internship-wikasta-business-and-technical-solutions-pvt-ltd-1767264",
+      "source": "unstop",
+      "role_category": "general_software",
+      "skills": [
+        "Python",
+        "SQL"
+      ],
+      "skills_detailed": [
+        {
+          "name": "Python",
+          "category": "Languages"
+        },
+        {
+          "name": "SQL",
+          "category": "Languages"
+        }
+      ],
+      "posted_at": "2026-10-07T16:44:22+05:30",
+      "scraped_at": "2026-10-07T11:21:26.909171+00:00"
+    },
+    {
+      "id": "a51c0ed99e327f132e18f10ffc29d0e8ea955e8e56a614acd3b4658d72be0c4e",
+      "title": "Regional General Manager Internship",
+      "company": "InterPool",
+      "location": "Pimpri-Chinchwad, Pune",
+      "job_type": "Internship",
+      "stipend_or_salary": null,
+      "url": "https://unstop.com/internships/regional-general-manager-internship-interpool-1766769",
+      "source": "unstop",
+      "role_category": "general_software",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "2026-10-06T17:06:35+05:30",
+      "scraped_at": "2026-10-07T11:21:26.909677+00:00"
+    },
+    {
+      "id": "404d0cdd2b28ad5d6d7c83611dd14c8b35eb230e46233f1d84a268a2dd0a3128",
+      "title": "React Native Internship",
+      "company": "Kiran Foundation",
+      "location": "Abrama",
+      "job_type": "Internship",
+      "stipend_or_salary": null,
+      "url": "https://unstop.com/internships/react-native-internship-kiran-foundation-1767121",
+      "source": "unstop",
+      "role_category": "general_software",
+      "skills": [
+        "JavaScript",
+        "TypeScript",
+        "React"
+      ],
+      "skills_detailed": [
+        {
+          "name": "JavaScript",
+          "category": "Languages"
+        },
+        {
+          "name": "TypeScript",
+          "category": "Languages"
+        },
+        {
+          "name": "React",
+          "category": "Frontend"
+        }
+      ],
+      "posted_at": "2026-10-07T12:39:00+05:30",
+      "scraped_at": "2026-10-07T11:21:26.910126+00:00"
+    },
+    {
+      "id": "cd7aea89c90f8c8c38af04e87f5fdf6b0a9b44dcc6f95262f5fec07bd0ca61c7",
+      "title": "Recruitment Internship",
+      "company": "Futures And Careers",
+      "location": "Bangalore",
+      "job_type": "Internship",
+      "stipend_or_salary": null,
+      "url": "https://unstop.com/internships/recruitment-internship-futures-and-careers-1767110",
+      "source": "unstop",
+      "role_category": "general_software",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "2026-10-07T13:52:15+05:30",
+      "scraped_at": "2026-10-07T11:21:26.910380+00:00"
+    },
+    {
+      "id": "cdbc799c557a137045c79aef1080107c293638f04c8c64d1dbca9d54a8ba37e1",
+      "title": "Founder\u2019s Office Executive",
+      "company": "RiseUpp",
+      "location": "Bangalore",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://unstop.com/jobs/founders-office-executive-riseupp-1765646",
+      "source": "unstop",
+      "role_category": "general_software",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "2026-10-06T17:19:36+05:30",
+      "scraped_at": "2026-10-07T11:21:27.983566+00:00"
+    },
+    {
+      "id": "61fc7b72251d98e1f23392cf6e0cc3e90808d3a1e675816c3cc0a71ffeca2648",
+      "title": "Senior Customer Support Executive",
+      "company": "Shell Consultancy",
+      "location": "Bangalore, Delhi, Gurgaon",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://unstop.com/jobs/senior-customer-support-executive-shell-consultancy-1767000",
+      "source": "unstop",
+      "role_category": "general_software",
+      "skills": [
+        "Linux"
+      ],
+      "skills_detailed": [
+        {
+          "name": "Linux",
+          "category": "Tools"
+        }
+      ],
+      "posted_at": "2026-10-07T15:58:32+05:30",
+      "scraped_at": "2026-10-07T11:21:27.984162+00:00"
+    },
+    {
+      "id": "70b34116128b0071bc33835291f80176f73aa1b46e9d03ef8cbd5d95e757a175",
+      "title": "Customer Care Executive",
+      "company": "Shell Consultancy",
+      "location": "Delhi, Gurgaon, Indore",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://unstop.com/jobs/customer-care-executive-shell-consultancy-1766992",
+      "source": "unstop",
+      "role_category": "general_software",
+      "skills": [
+        "Linux"
+      ],
+      "skills_detailed": [
+        {
+          "name": "Linux",
+          "category": "Tools"
+        }
+      ],
+      "posted_at": "2026-10-07T15:58:56+05:30",
+      "scraped_at": "2026-10-07T11:21:27.985244+00:00"
+    },
+    {
+      "id": "5d4414d2d25d471c15eafa6e2b5ebd3dc05b5f28764d765b45a0ede9ddc39e34",
+      "title": "Power BI Developer",
+      "company": "ThomasMount Consulting Pvt Ltd",
+      "location": "Bangalore",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://unstop.com/jobs/power-bi-developer-thomasmount-consulting-pvt-ltd-1767208",
+      "source": "unstop",
+      "role_category": "general_software",
+      "skills": [
+        "SQL"
+      ],
+      "skills_detailed": [
+        {
+          "name": "SQL",
+          "category": "Languages"
+        }
+      ],
+      "posted_at": "2026-10-07T15:08:31+05:30",
+      "scraped_at": "2026-10-07T11:21:27.985659+00:00"
+    },
+    {
+      "id": "42bb8c482d189b88ca2a133b46e3015fde2d8eced6f6e77459f897e942b11e17",
+      "title": "Lead Data Engineer",
+      "company": "Mondel\u0113z International",
+      "location": "Mumbai",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://unstop.com/jobs/crp-lead-data-engineer-mondelez-international-1764419",
+      "source": "unstop",
+      "role_category": "general_software",
+      "skills": [
+        "Python",
+        "SQL",
+        "AWS"
+      ],
+      "skills_detailed": [
+        {
+          "name": "Python",
+          "category": "Languages"
+        },
+        {
+          "name": "SQL",
+          "category": "Languages"
+        },
+        {
+          "name": "AWS",
+          "category": "Cloud"
+        }
+      ],
+      "posted_at": "2026-10-07T16:03:00+05:30",
+      "scraped_at": "2026-10-07T11:21:27.987218+00:00"
+    },
+    {
+      "id": "de2423f6594aafb019532485ace73db24c43de0c0810a10bc794336a95b71346",
+      "title": "Data Engineer",
+      "company": "Mondel\u0113z International",
+      "location": "Mumbai",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://unstop.com/jobs/crp-data-engineer-mondelez-international-1764410",
+      "source": "unstop",
+      "role_category": "general_software",
+      "skills": [
+        "Python",
+        "SQL",
+        "AWS"
+      ],
+      "skills_detailed": [
+        {
+          "name": "Python",
+          "category": "Languages"
+        },
+        {
+          "name": "SQL",
+          "category": "Languages"
+        },
+        {
+          "name": "AWS",
+          "category": "Cloud"
+        }
+      ],
+      "posted_at": "2026-10-07T15:45:28+05:30",
+      "scraped_at": "2026-10-07T11:21:27.989136+00:00"
+    },
+    {
+      "id": "e8061988bf3e63d69be25d5001e5718195f25c439fd2587cc55a97cfc8c44d7f",
+      "title": "Branch Operations Executive",
+      "company": "Talent Hunt Management",
+      "location": "Bangalore, Hassan",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://unstop.com/jobs/branch-operations-executive-talent-hunt-management-1767043",
+      "source": "unstop",
+      "role_category": "general_software",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "2026-10-07T11:21:16+05:30",
+      "scraped_at": "2026-10-07T11:21:27.990605+00:00"
+    },
+    {
+      "id": "9a97376ed01599be3b0cfe58e2bd01c938911d369a861de6419d04295ac4c53a",
+      "title": "Office Assistant",
+      "company": "VijayRaj Poultry Equipment Private Limited",
+      "location": "Hyderabad",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://unstop.com/jobs/office-assistant-vijayraj-poultry-equipment-private-limited-1767023",
+      "source": "unstop",
+      "role_category": "general_software",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "2026-10-07T15:49:27+05:30",
+      "scraped_at": "2026-10-07T11:21:27.991643+00:00"
+    },
+    {
+      "id": "234e5242b56fb7732853f5a1cc7468582e8262b6ec8b3d8238214a6325583e85",
+      "title": "Finance Executive",
+      "company": "SkillsDNA",
+      "location": "Ramanagara",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://unstop.com/jobs/finance-executive-skillsdna-1767257",
+      "source": "unstop",
+      "role_category": "general_software",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "2026-10-07T16:30:52+05:30",
+      "scraped_at": "2026-10-07T11:21:27.992511+00:00"
+    },
+    {
+      "id": "eed804c8942f81b69d0d55f4129ddb97fce3540c329b9bf1af0b4080b3260e7b",
+      "title": "Marketing Executive",
+      "company": "Tekzow",
+      "location": "Online (India)",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://unstop.com/jobs/marketing-executive-tekzow-1766991",
+      "source": "unstop",
+      "role_category": "general_software",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "2026-10-07T09:56:18+05:30",
+      "scraped_at": "2026-10-07T11:21:27.994653+00:00"
+    },
+    {
+      "id": "881cf8c3d900d15385e8b4018b5bc601d2642ea4a2722060527a57997f161680",
+      "title": "Career Counseller",
+      "company": "Pab Learn Lead and Grow",
+      "location": "Bhopal, Dewas, Gwalior",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://unstop.com/jobs/career-counseller-pab-learn-lead-and-grow-1767050",
+      "source": "unstop",
+      "role_category": "general_software",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "2026-10-07T16:03:34+05:30",
+      "scraped_at": "2026-10-07T11:21:27.995172+00:00"
+    },
+    {
+      "id": "009c222fa3858cb6196f26d761a39deea0b8e1d76310684e4c0a528513bfb5d4",
+      "title": "Java Developer",
+      "company": "404Minds Technologies",
+      "location": "Online (India)",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://unstop.com/jobs/java-developer-404minds-technologies-1767265",
+      "source": "unstop",
+      "role_category": "general_software",
+      "skills": [
+        "Java",
+        "SQL",
+        "Git"
+      ],
+      "skills_detailed": [
+        {
+          "name": "Java",
+          "category": "Languages"
+        },
+        {
+          "name": "SQL",
+          "category": "Languages"
+        },
+        {
+          "name": "Git",
+          "category": "Tools"
+        }
+      ],
+      "posted_at": "2026-10-07T16:35:01+05:30",
+      "scraped_at": "2026-10-07T11:21:27.995494+00:00"
+    },
+    {
+      "id": "cecd2ec01d635cbacadc82d1084f373c7133af29ebb84d6cede0d53275bbb195",
+      "title": "Banking Operations Executive",
+      "company": "Kandarp Digi Smart BPO Private Limited",
+      "location": "Noida",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://unstop.com/jobs/banking-operations-executive-kandarp-digi-smart-bpo-private-limited-1767122",
+      "source": "unstop",
+      "role_category": "general_software",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "2026-10-07T16:30:13+05:30",
+      "scraped_at": "2026-10-07T11:21:27.995873+00:00"
+    },
+    {
+      "id": "265071188317396f59bb3c35b814033d2c180a7ae2c7d437293b1748f59fb614",
+      "title": "Associate Data Engineer",
+      "company": "Mondel\u0113z International",
+      "location": "Mumbai",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://unstop.com/jobs/crp-associate-data-engineer-mondelez-international-1764366",
+      "source": "unstop",
+      "role_category": "general_software",
+      "skills": [
+        "Python",
+        "SQL",
+        "AWS"
+      ],
+      "skills_detailed": [
+        {
+          "name": "Python",
+          "category": "Languages"
+        },
+        {
+          "name": "SQL",
+          "category": "Languages"
+        },
+        {
+          "name": "AWS",
+          "category": "Cloud"
+        }
+      ],
+      "posted_at": "2026-10-07T15:45:28+05:30",
+      "scraped_at": "2026-10-07T11:21:27.997123+00:00"
+    },
+    {
+      "id": "4ad90147b7667ce70d5a6824677d962651cb00a9acd25f34c4982bd9ade8c593",
+      "title": "Customer Support Executive",
+      "company": "Lyros Technologies",
+      "location": "Bangalore",
+      "job_type": "Full-Time",
+      "stipend_or_salary": null,
+      "url": "https://unstop.com/jobs/customer-support-executive-lyros-technologies-1766774",
+      "source": "unstop",
+      "role_category": "general_software",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "2026-10-06T17:36:25+05:30",
+      "scraped_at": "2026-10-07T11:21:27.997606+00:00"
+    },
+    {
+      "id": "ed74fab7544469fb39cda8cbe3316f91f68aa2150eaa95b54854dcc859daedc0",
+      "title": "WordPress & Website Management Intern",
+      "company": "CyberFrat",
+      "location": "Thane, Navi Mumbai, Dombivli, Kalyan, Mumbai",
+      "job_type": "Internship",
+      "stipend_or_salary": "\u20b9 4,000 - 5,000 /month",
+      "url": "https://internshala.com/internship/detail/wordpress-website-management-internship-in-multiple-locations-at-cyberfrat1790228677",
+      "source": "internshala",
+      "role_category": "general_software",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "1 week ago",
+      "scraped_at": "2026-10-07T11:21:27.297484+00:00"
+    },
+    {
+      "id": "755aa9e458d8a0ab2d29300075b32ee5574bc7de0ffe92db4cf18148dcab0c93",
+      "title": "Web Development Intern",
+      "company": "Big Fat Husky Media",
+      "location": "Mumbai",
+      "job_type": "Internship",
+      "stipend_or_salary": "\u20b9 9,000 - 16,000 /month",
+      "url": "https://internshala.com/internship/detail/web-development-internship-in-mumbai-at-big-fat-husky-media1791349576",
+      "source": "internshala",
+      "role_category": "general_software",
+      "skills": [
+        "HTML/CSS"
+      ],
+      "skills_detailed": [
+        {
+          "name": "HTML/CSS",
+          "category": "Frontend"
+        }
+      ],
+      "posted_at": "Few hours ago",
+      "scraped_at": "2026-10-07T11:21:27.298298+00:00"
+    },
+    {
+      "id": "7f2cdd06882c14e613c6e0efc397cf743d51cf8ee491e7aecf78cae5420646c2",
+      "title": "Administration Intern",
+      "company": "Pixels Density",
+      "location": "Ahmedabad, Gandhinagar",
+      "job_type": "Internship",
+      "stipend_or_salary": "\u20b9 8,000 - 15,000 /month",
+      "url": "https://internshala.com/internship/detail/administration-internship-in-multiple-locations-at-pixels-density1791368283",
+      "source": "internshala",
+      "role_category": "general_software",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "Just now",
+      "scraped_at": "2026-10-07T11:21:27.299232+00:00"
+    },
+    {
+      "id": "3f825aeb2fb5bfdb27ab38e5336cf77f8d31a734967a6d26c62a08fde17569ba",
+      "title": "Front End Development Intern",
+      "company": "Basti Ki Pathshala Foundation",
+      "location": "Work from home",
+      "job_type": "Internship",
+      "stipend_or_salary": "Unpaid",
+      "url": "https://internshala.com/internship/detail/work-from-home-front-end-development-internship-at-basti-ki-pathshala-foundation1791203233",
+      "source": "internshala",
+      "role_category": "frontend",
+      "skills": [
+        "HTML/CSS"
+      ],
+      "skills_detailed": [
+        {
+          "name": "HTML/CSS",
+          "category": "Frontend"
+        }
+      ],
+      "posted_at": "1 day ago",
+      "scraped_at": "2026-10-07T11:21:27.299820+00:00"
+    },
+    {
+      "id": "3bb3a65253cbb019ac7287d901935d46513093480abc711d764fa56b2913f0fa",
+      "title": "Web Development Intern",
+      "company": "JNA Consultants",
+      "location": "Gurgaon",
+      "job_type": "Internship",
+      "stipend_or_salary": "\u20b9 5,000 - 5,001 /month",
+      "url": "https://internshala.com/internship/detail/web-development-internship-in-gurgaon-at-jna-consultants1791356534",
+      "source": "internshala",
+      "role_category": "general_software",
+      "skills": [
+        "Python",
+        "HTML/CSS"
+      ],
+      "skills_detailed": [
+        {
+          "name": "Python",
+          "category": "Languages"
+        },
+        {
+          "name": "HTML/CSS",
+          "category": "Frontend"
+        }
+      ],
+      "posted_at": "Few hours ago",
+      "scraped_at": "2026-10-07T11:21:27.300471+00:00"
+    },
+    {
+      "id": "a0284a6e1f325d2ba97bc7cc79bbfca6d62c04ab0be847e6ef457cb81d51a91e",
+      "title": "IT Network Administration Intern",
+      "company": "Zoom Communications Private Limited",
+      "location": "Gurgaon",
+      "job_type": "Internship",
+      "stipend_or_salary": "\u20b9 19,000 - 20,000 /month",
+      "url": "https://internshala.com/internship/detail/it-network-administration-internship-in-gurgaon-at-zoom-communications-private-limited1791359670",
+      "source": "internshala",
+      "role_category": "general_software",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "Few hours ago",
+      "scraped_at": "2026-10-07T11:21:27.301141+00:00"
+    },
+    {
+      "id": "8aa65cd5226fbac671c7f32e357010f979e1d0b77668e022ba97bb589c67baae",
+      "title": "Backend Development Intern",
+      "company": "Refresh Kid LLC (Milwaukee, United States)",
+      "location": "Work from home",
+      "job_type": "Internship",
+      "stipend_or_salary": "\u20b9 10,000 - 15,000 /month",
+      "url": "https://internshala.com/internship/detail/work-from-home-backend-development-internship-at-refresh-kid-llc1791369676",
+      "source": "internshala",
+      "role_category": "backend",
+      "skills": [
+        "JavaScript",
+        "SQL",
+        "Node.js",
+        "Express",
+        "REST API",
+        "PostgreSQL"
+      ],
+      "skills_detailed": [
+        {
+          "name": "JavaScript",
+          "category": "Languages"
+        },
+        {
+          "name": "SQL",
+          "category": "Languages"
+        },
+        {
+          "name": "Node.js",
+          "category": "Backend"
+        },
+        {
+          "name": "Express",
+          "category": "Backend"
+        },
+        {
+          "name": "REST API",
+          "category": "Backend"
+        },
+        {
+          "name": "PostgreSQL",
+          "category": "Database"
+        }
+      ],
+      "posted_at": "Just now",
+      "scraped_at": "2026-10-07T11:21:27.301865+00:00"
+    },
+    {
+      "id": "25c7faecb09ec24b9513cfbaac13960e80a2c2c73709ef1cdc9dcd3a2cf274a0",
+      "title": "AI Prompt Engineering Intern",
+      "company": "InAmigos Foundation",
+      "location": "Work from home",
+      "job_type": "Internship",
+      "stipend_or_salary": "Unpaid",
+      "url": "https://internshala.com/internship/detail/work-from-home-ai-prompt-engineering-internship-at-inamigos-foundation1791281194",
+      "source": "internshala",
+      "role_category": "ai_ml",
+      "skills": [
+        "LLM Engineering"
+      ],
+      "skills_detailed": [
+        {
+          "name": "LLM Engineering",
+          "category": "AI/ML"
+        }
+      ],
+      "posted_at": "1 day ago",
+      "scraped_at": "2026-10-07T11:21:27.302408+00:00"
+    },
+    {
+      "id": "aad147d77f9f38f72fff28f372f61706e4abcbe32080af42d1160befaeb64d4d",
+      "title": "AI Automation & Growth Engineer Intern",
+      "company": "Suthar Technologies",
+      "location": "Mira Road, Bhayander",
+      "job_type": "Internship",
+      "stipend_or_salary": "\u20b9 7,000 - 13,000 /month",
+      "url": "https://internshala.com/internship/detail/ai-automation-growth-engineer-internship-in-multiple-locations-at-suthar-technologies1789102405",
+      "source": "internshala",
+      "role_category": "ai_ml",
+      "skills": [
+        "Python",
+        "HTML/CSS",
+        "Git"
+      ],
+      "skills_detailed": [
+        {
+          "name": "Python",
+          "category": "Languages"
+        },
+        {
+          "name": "HTML/CSS",
+          "category": "Frontend"
+        },
+        {
+          "name": "Git",
+          "category": "Tools"
+        }
+      ],
+      "posted_at": "3 weeks ago",
+      "scraped_at": "2026-10-07T11:21:28.684269+00:00"
+    },
+    {
+      "id": "845765c5740be4360c13fd99d196cbfc03f619ae5d4d94ab3f42e0392f4bf9a9",
+      "title": "Python Development Intern",
+      "company": "UV Farms Private Limited",
+      "location": "Nagercoil",
+      "job_type": "Internship",
+      "stipend_or_salary": "\u20b9 5,000 - 8,000 /month",
+      "url": "https://internshala.com/internship/detail/part-time-python-development-internship-in-nagercoil-at-uv-farms-private-limited1789022476",
+      "source": "internshala",
+      "role_category": "general_software",
+      "skills": [
+        "Python"
+      ],
+      "skills_detailed": [
+        {
+          "name": "Python",
+          "category": "Languages"
+        }
+      ],
+      "posted_at": "3 weeks ago",
+      "scraped_at": "2026-10-07T11:21:28.685161+00:00"
+    },
+    {
+      "id": "270f5301d21cfbf219e4e1177429df3f074c54af79d97db59f3766de2d982c2d",
+      "title": "Backend Development Intern",
+      "company": "NayePankh Foundation",
+      "location": "Work from home",
+      "job_type": "Internship",
+      "stipend_or_salary": "Unpaid",
+      "url": "https://internshala.com/internship/detail/work-from-home-backend-development-internship-at-nayepankh-foundation1791289121",
+      "source": "internshala",
+      "role_category": "backend",
+      "skills": [
+        "Python",
+        "Java",
+        "HTML/CSS",
+        "Django",
+        "MySQL",
+        "MongoDB"
+      ],
+      "skills_detailed": [
+        {
+          "name": "Python",
+          "category": "Languages"
+        },
+        {
+          "name": "Java",
+          "category": "Languages"
+        },
+        {
+          "name": "HTML/CSS",
+          "category": "Frontend"
+        },
+        {
+          "name": "Django",
+          "category": "Backend"
+        },
+        {
+          "name": "MySQL",
+          "category": "Database"
+        },
+        {
+          "name": "MongoDB",
+          "category": "Database"
+        }
+      ],
+      "posted_at": "Today",
+      "scraped_at": "2026-10-07T11:21:28.685889+00:00"
+    },
+    {
+      "id": "eb197681b230aa9ea7c3a5180583a0896e8c16842ba46ad6aa496fde69a1fc2b",
+      "title": "AI Magician Intern",
+      "company": "GNG Developers",
+      "location": "Agra",
+      "job_type": "Internship",
+      "stipend_or_salary": "\u20b9 4,000 - 10,000 /month",
+      "url": "https://internshala.com/internship/detail/ai-magician-internship-in-agra-at-gng-developers1790165957",
+      "source": "internshala",
+      "role_category": "ai_ml",
+      "skills": [
+        "JavaScript",
+        "Java",
+        "HTML/CSS"
+      ],
+      "skills_detailed": [
+        {
+          "name": "JavaScript",
+          "category": "Languages"
+        },
+        {
+          "name": "Java",
+          "category": "Languages"
+        },
+        {
+          "name": "HTML/CSS",
+          "category": "Frontend"
+        }
+      ],
+      "posted_at": "1 week ago",
+      "scraped_at": "2026-10-07T11:21:28.686770+00:00"
+    },
+    {
+      "id": "cb5d6a396a530ab15ca0e7379626f0084f58da98a90367fb737219e4bfd649e1",
+      "title": "Python Development Intern",
+      "company": "NayePankh Foundation",
+      "location": "Work from home",
+      "job_type": "Internship",
+      "stipend_or_salary": "Unpaid",
+      "url": "https://internshala.com/internship/detail/work-from-home-python-development-internship-at-nayepankh-foundation1791289213",
+      "source": "internshala",
+      "role_category": "general_software",
+      "skills": [
+        "Python",
+        "HTML/CSS",
+        "Django",
+        "Flask",
+        "REST API"
+      ],
+      "skills_detailed": [
+        {
+          "name": "Python",
+          "category": "Languages"
+        },
+        {
+          "name": "HTML/CSS",
+          "category": "Frontend"
+        },
+        {
+          "name": "Django",
+          "category": "Backend"
+        },
+        {
+          "name": "Flask",
+          "category": "Backend"
+        },
+        {
+          "name": "REST API",
+          "category": "Backend"
+        }
+      ],
+      "posted_at": "Today",
+      "scraped_at": "2026-10-07T11:21:28.687548+00:00"
+    },
+    {
+      "id": "9c5faa17c391c54486a1717eb91c1386b26daa88ef44328ef0660acd75507396",
+      "title": "Python Development Intern",
+      "company": "Hope Behind Tails Foundation",
+      "location": "Work from home",
+      "job_type": "Internship",
+      "stipend_or_salary": "Unpaid",
+      "url": "https://internshala.com/internship/detail/work-from-home-python-development-internship-at-hope-behind-tails-foundation1791289686",
+      "source": "internshala",
+      "role_category": "general_software",
+      "skills": [
+        "Python",
+        "HTML/CSS",
+        "Django",
+        "Flask",
+        "REST API"
+      ],
+      "skills_detailed": [
+        {
+          "name": "Python",
+          "category": "Languages"
+        },
+        {
+          "name": "HTML/CSS",
+          "category": "Frontend"
+        },
+        {
+          "name": "Django",
+          "category": "Backend"
+        },
+        {
+          "name": "Flask",
+          "category": "Backend"
+        },
+        {
+          "name": "REST API",
+          "category": "Backend"
+        }
+      ],
+      "posted_at": "Today",
+      "scraped_at": "2026-10-07T11:21:28.688653+00:00"
+    },
+    {
+      "id": "9b3c690e08ed79cb070fd2a341e52b4d47ecf3312ff628ab4042ded9dd716a29",
+      "title": "Python Development Intern",
+      "company": "Think Act Rise Foundation",
+      "location": "Work from home",
+      "job_type": "Internship",
+      "stipend_or_salary": "\u20b9 15,000 - 25,000 /month",
+      "url": "https://internshala.com/internship/detail/work-from-home-python-development-internship-at-think-act-rise-foundation1791273340",
+      "source": "internshala",
+      "role_category": "general_software",
+      "skills": [
+        "Python",
+        "REST API",
+        "LLM Engineering"
+      ],
+      "skills_detailed": [
+        {
+          "name": "Python",
+          "category": "Languages"
+        },
+        {
+          "name": "REST API",
+          "category": "Backend"
+        },
+        {
+          "name": "LLM Engineering",
+          "category": "AI/ML"
+        }
+      ],
+      "posted_at": "1 day ago",
+      "scraped_at": "2026-10-07T11:21:28.689342+00:00"
+    },
+    {
+      "id": "1ebe5b64d81817cc5a6ea1ee1d04c3b0bda6d4ee68bc9ab76ca30074a0fe9360",
+      "title": "Python Development Intern",
+      "company": "Women First India Foundation",
+      "location": "Work from home",
+      "job_type": "Internship",
+      "stipend_or_salary": "Unpaid",
+      "url": "https://internshala.com/internship/detail/work-from-home-part-time-python-development-internship-at-women-first-india-foundation1791260496",
+      "source": "internshala",
+      "role_category": "general_software",
+      "skills": [
+        "Python",
+        "HTML/CSS"
+      ],
+      "skills_detailed": [
+        {
+          "name": "Python",
+          "category": "Languages"
+        },
+        {
+          "name": "HTML/CSS",
+          "category": "Frontend"
+        }
+      ],
+      "posted_at": "1 day ago",
+      "scraped_at": "2026-10-07T11:21:28.689977+00:00"
+    },
+    {
+      "id": "9800809d43e82e3f46f96e616c700134656302e397cd14b466900f23f17becb1",
+      "title": "AI & Machine Learning Intern",
+      "company": "InAmigos Foundation",
+      "location": "Work from home",
+      "job_type": "Internship",
+      "stipend_or_salary": "Unpaid",
+      "url": "https://internshala.com/internship/detail/work-from-home-ai-machine-learning-internship-at-inamigos-foundation1791196579",
+      "source": "internshala",
+      "role_category": "ai_ml",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "2 days ago",
+      "scraped_at": "2026-10-07T11:21:29.993228+00:00"
+    },
+    {
+      "id": "2667c83064f61c793c3e4937d1fd38519fdc65dbc9cec63a1dcdaa7c628d0814",
+      "title": "Database Building/Management Intern",
+      "company": "CyberFrat",
+      "location": "Thane, Dombivli, Kalyan, Mumbai",
+      "job_type": "Internship",
+      "stipend_or_salary": "\u20b9 4,000 - 5,000 /month",
+      "url": "https://internshala.com/internship/detail/database-building-management-internship-in-multiple-locations-at-cyberfrat1791287478",
+      "source": "internshala",
+      "role_category": "general_software",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "Today",
+      "scraped_at": "2026-10-07T11:21:29.993883+00:00"
+    },
+    {
+      "id": "4de9b063b376f91f6408fa0dac178e94f123f4010fa54a1436c600ed8877a6e0",
+      "title": "AI Operations & Event Management Intern",
+      "company": "Global Startup Summit",
+      "location": "Mumbai",
+      "job_type": "Internship",
+      "stipend_or_salary": "\u20b9 7,000 - 9,500 /month",
+      "url": "https://internshala.com/internship/detail/ai-operations-event-management-internship-in-mumbai-at-global-startup-summit1791349217",
+      "source": "internshala",
+      "role_category": "ai_ml",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "Few hours ago",
+      "scraped_at": "2026-10-07T11:21:29.994585+00:00"
+    },
+    {
+      "id": "e8d777240f77546c8f7fc849d7516e2b56bb5a65734167e049e1ef25aab6defe",
+      "title": "AI Data Analytics Intern",
+      "company": "InAmigos Foundation",
+      "location": "Work from home",
+      "job_type": "Internship",
+      "stipend_or_salary": "Unpaid",
+      "url": "https://internshala.com/internship/detail/work-from-home-ai-data-analytics-internship-at-inamigos-foundation1791196613",
+      "source": "internshala",
+      "role_category": "ai_ml",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "2 days ago",
+      "scraped_at": "2026-10-07T11:21:29.995133+00:00"
+    },
+    {
+      "id": "120b200d40371c865357edbb470ffa7ac1098aabab3d0f950dbb38cddbf6e577",
+      "title": "Data Analytics Intern",
+      "company": "She Can Foundation",
+      "location": "Work from home",
+      "job_type": "Internship",
+      "stipend_or_salary": "Unpaid",
+      "url": "https://internshala.com/internship/detail/work-from-home-data-analytics-internship-at-she-can-foundation1791290578",
+      "source": "internshala",
+      "role_category": "general_software",
+      "skills": [
+        "Python",
+        "SQL",
+        "HTML/CSS"
+      ],
+      "skills_detailed": [
+        {
+          "name": "Python",
+          "category": "Languages"
+        },
+        {
+          "name": "SQL",
+          "category": "Languages"
+        },
+        {
+          "name": "HTML/CSS",
+          "category": "Frontend"
+        }
+      ],
+      "posted_at": "Today",
+      "scraped_at": "2026-10-07T11:21:29.995874+00:00"
+    },
+    {
+      "id": "5e5fbd8067faeb01e172dd726c20c3427cc6e7260cf2ed96b93c00a031490dc2",
+      "title": "AI Web Development Intern",
+      "company": "InAmigos Foundation",
+      "location": "Work from home",
+      "job_type": "Internship",
+      "stipend_or_salary": "Unpaid",
+      "url": "https://internshala.com/internship/detail/work-from-home-ai-web-development-internship-at-inamigos-foundation1791196530",
+      "source": "internshala",
+      "role_category": "ai_ml",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "2 days ago",
+      "scraped_at": "2026-10-07T11:21:29.996934+00:00"
+    },
+    {
+      "id": "26a3754130f3b9c830c67db43ebaf0515668c079c3a01160601a0dc2ad53852a",
+      "title": "Finance Research Analyst Intern",
+      "company": "Edify Equity",
+      "location": "Work from home",
+      "job_type": "Internship",
+      "stipend_or_salary": "\u20b9 1,000 - 1,100 /month",
+      "url": "https://internshala.com/internship/detail/work-from-home-finance-research-analyst-internship-at-edify-equity1791184806",
+      "source": "internshala",
+      "role_category": "general_software",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "2 days ago",
+      "scraped_at": "2026-10-07T11:21:29.997637+00:00"
+    },
+    {
+      "id": "b0f86e7983415e4bb53a8269ae430b2a8bcd113a2987ae8c7481f8392ff016bf",
+      "title": "Growth Analyst Intern",
+      "company": "FloBiz",
+      "location": "Bangalore",
+      "job_type": "Internship",
+      "stipend_or_salary": "\u20b9 25,000 - 30,000 /month",
+      "url": "https://internshala.com/internship/detail/growth-analyst-internship-in-bangalore-at-flobiz1791367625",
+      "source": "internshala",
+      "role_category": "general_software",
+      "skills": [
+        "SQL"
+      ],
+      "skills_detailed": [
+        {
+          "name": "SQL",
+          "category": "Languages"
+        }
+      ],
+      "posted_at": "Just now",
+      "scraped_at": "2026-10-07T11:21:29.998360+00:00"
+    },
+    {
+      "id": "8eb2a89c5713e09c384a95999b31e018bc50efa82880fcd30fb516d2ad29851e",
+      "title": "Flutter Development Intern",
+      "company": "Attento Technologies Pvt Ltd",
+      "location": "Pune, Pimpri-Chinchwad",
+      "job_type": "Internship",
+      "stipend_or_salary": "\u20b9 10,000 - 12,000 /month",
+      "url": "https://internshala.com/internship/detail/flutter-development-internship-in-multiple-locations-at-attento-technologies-pvt-ltd1790591412",
+      "source": "internshala",
+      "role_category": "general_software",
+      "skills": [
+        "REST API"
+      ],
+      "skills_detailed": [
+        {
+          "name": "REST API",
+          "category": "Backend"
+        }
+      ],
+      "posted_at": "1 week ago",
+      "scraped_at": "2026-10-07T11:21:31.582685+00:00"
+    },
+    {
+      "id": "75305d49fb41d18f31e04e18e560a378a0565ca3c5134f073d2d2826fc4896d4",
+      "title": "Operations Intern",
+      "company": "CyberFrat",
+      "location": "Mumbai",
+      "job_type": "Internship",
+      "stipend_or_salary": "\u20b9 4,000 - 5,000 /month",
+      "url": "https://internshala.com/internship/detail/operations-internship-in-mumbai-at-cyberfrat1791288053",
+      "source": "internshala",
+      "role_category": "general_software",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "Today",
+      "scraped_at": "2026-10-07T11:21:31.583399+00:00"
+    },
+    {
+      "id": "022b6939cb7357800eec1ca5737956796250ff13914d68d104aee3c627dbca13",
+      "title": "Technical Content Intern",
+      "company": "CyberFrat",
+      "location": "Thane, Navi Mumbai, Dombivli, Kalyan, Mumbai",
+      "job_type": "Internship",
+      "stipend_or_salary": "\u20b9 4,000 - 5,000 /month",
+      "url": "https://internshala.com/internship/detail/technical-content-internship-in-multiple-locations-at-cyberfrat1791287977",
+      "source": "internshala",
+      "role_category": "general_software",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "Today",
+      "scraped_at": "2026-10-07T11:21:31.584055+00:00"
+    },
+    {
+      "id": "07f8607c1be20455e95cb2b89229497468d764dd41742ca16f3de396921a8481",
+      "title": "Software Development Intern",
+      "company": "Basti Ki Pathshala Foundation",
+      "location": "Work from home",
+      "job_type": "Internship",
+      "stipend_or_salary": "Unpaid",
+      "url": "https://internshala.com/internship/detail/work-from-home-software-development-internship-at-basti-ki-pathshala-foundation1791203265",
+      "source": "internshala",
+      "role_category": "general_software",
+      "skills": [
+        "JavaScript",
+        "Python",
+        "Java",
+        "HTML/CSS",
+        "MySQL"
+      ],
+      "skills_detailed": [
+        {
+          "name": "JavaScript",
+          "category": "Languages"
+        },
+        {
+          "name": "Python",
+          "category": "Languages"
+        },
+        {
+          "name": "Java",
+          "category": "Languages"
+        },
+        {
+          "name": "HTML/CSS",
+          "category": "Frontend"
+        },
+        {
+          "name": "MySQL",
+          "category": "Database"
+        }
+      ],
+      "posted_at": "1 day ago",
+      "scraped_at": "2026-10-07T11:21:31.585400+00:00"
+    },
+    {
+      "id": "9b9581cb3c6d5d5f1dd0439400333c5808eeb4965fdfc2142ca8f0bce16763fe",
+      "title": "Security Operations Center (SOC) - Cyber Security Intern",
+      "company": "CyberXchange Private Limited",
+      "location": "Work from home",
+      "job_type": "Internship",
+      "stipend_or_salary": "\u20b9 1,000 /month",
+      "url": "https://internshala.com/internship/detail/work-from-home-security-operations-center-soc-cyber-security-internship-at-cyberxchange-private-limited1790135712",
+      "source": "internshala",
+      "role_category": "general_software",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "2 weeks ago",
+      "scraped_at": "2026-10-07T11:21:31.587241+00:00"
+    },
+    {
+      "id": "67aa490fedb9334f54f7cc81dc98e880f38045302418e626c9646bba4824d087",
+      "title": "Cyber Security - Compliance, Security Audit, ISO 27001 Profile Intern",
+      "company": "CyberXchange Private Limited",
+      "location": "Work from home",
+      "job_type": "Internship",
+      "stipend_or_salary": "\u20b9 1,000 /month",
+      "url": "https://internshala.com/internship/detail/work-from-home-cyber-security-compliance-security-audit-iso-27001-profile-internship-at-cyberxchange-private-limited1790136025",
+      "source": "internshala",
+      "role_category": "general_software",
+      "skills": [],
+      "skills_detailed": [],
+      "posted_at": "2 weeks ago",
+      "scraped_at": "2026-10-07T11:21:31.588806+00:00"
+    }
+  ]
+}

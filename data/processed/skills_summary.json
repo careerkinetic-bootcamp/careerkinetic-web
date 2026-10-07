@@ -1,0 +1,435 @@
+{
+  "last_updated": "2026-10-07T11:21:32.598530+00:00",
+  "sample_size": 178,
+  "sources": {
+    "arbeitnow": 30,
+    "hackernews": 30,
+    "remoteok": 30,
+    "weworkremotely": 28,
+    "unstop": 30,
+    "internshala": 30
+  },
+  "roles": {
+    "general_software": [
+      {
+        "skill": "Python",
+        "percentage": 18.8,
+        "category": "Languages"
+      },
+      {
+        "skill": "SQL",
+        "percentage": 12.8,
+        "category": "Languages"
+      },
+      {
+        "skill": "AWS",
+        "percentage": 7.5,
+        "category": "Cloud"
+      },
+      {
+        "skill": "Microservices",
+        "percentage": 6.8,
+        "category": "Architecture"
+      },
+      {
+        "skill": "C++",
+        "percentage": 6.0,
+        "category": "Languages"
+      },
+      {
+        "skill": "HTML/CSS",
+        "percentage": 6.0,
+        "category": "Frontend"
+      },
+      {
+        "skill": "Java",
+        "percentage": 6.0,
+        "category": "Languages"
+      },
+      {
+        "skill": "Git",
+        "percentage": 5.3,
+        "category": "Tools"
+      },
+      {
+        "skill": "GCP",
+        "percentage": 4.5,
+        "category": "Cloud"
+      },
+      {
+        "skill": "REST API",
+        "percentage": 4.5,
+        "category": "Backend"
+      },
+      {
+        "skill": "Kubernetes",
+        "percentage": 3.8,
+        "category": "DevOps"
+      },
+      {
+        "skill": "Go",
+        "percentage": 3.8,
+        "category": "Languages"
+      }
+    ],
+    "fullstack": [
+      {
+        "skill": "TypeScript",
+        "percentage": 66.7,
+        "category": "Languages"
+      },
+      {
+        "skill": "Python",
+        "percentage": 66.7,
+        "category": "Languages"
+      },
+      {
+        "skill": "JavaScript",
+        "percentage": 50.0,
+        "category": "Languages"
+      },
+      {
+        "skill": "Docker",
+        "percentage": 33.3,
+        "category": "DevOps"
+      },
+      {
+        "skill": "Git",
+        "percentage": 33.3,
+        "category": "Tools"
+      },
+      {
+        "skill": "Java",
+        "percentage": 33.3,
+        "category": "Languages"
+      },
+      {
+        "skill": "Kubernetes",
+        "percentage": 33.3,
+        "category": "DevOps"
+      },
+      {
+        "skill": "CI/CD",
+        "percentage": 33.3,
+        "category": "DevOps"
+      },
+      {
+        "skill": "Next.js",
+        "percentage": 33.3,
+        "category": "Frontend"
+      },
+      {
+        "skill": "Redux",
+        "percentage": 33.3,
+        "category": "Frontend"
+      },
+      {
+        "skill": "Node.js",
+        "percentage": 33.3,
+        "category": "Backend"
+      },
+      {
+        "skill": "GraphQL",
+        "percentage": 33.3,
+        "category": "Backend"
+      }
+    ],
+    "devops": [
+      {
+        "skill": "Docker",
+        "percentage": 50.0,
+        "category": "DevOps"
+      },
+      {
+        "skill": "CI/CD",
+        "percentage": 50.0,
+        "category": "DevOps"
+      },
+      {
+        "skill": "Git",
+        "percentage": 50.0,
+        "category": "Tools"
+      },
+      {
+        "skill": "Linux",
+        "percentage": 50.0,
+        "category": "Tools"
+      },
+      {
+        "skill": "Microservices",
+        "percentage": 50.0,
+        "category": "Architecture"
+      },
+      {
+        "skill": "Kubernetes",
+        "percentage": 50.0,
+        "category": "DevOps"
+      },
+      {
+        "skill": "AWS",
+        "percentage": 50.0,
+        "category": "Cloud"
+      },
+      {
+        "skill": "GCP",
+        "percentage": 50.0,
+        "category": "Cloud"
+      }
+    ],
+    "ai_ml": [
+      {
+        "skill": "Python",
+        "percentage": 26.3,
+        "category": "Languages"
+      },
+      {
+        "skill": "SQL",
+        "percentage": 15.8,
+        "category": "Languages"
+      },
+      {
+        "skill": "TypeScript",
+        "percentage": 15.8,
+        "category": "Languages"
+      },
+      {
+        "skill": "JavaScript",
+        "percentage": 15.8,
+        "category": "Languages"
+      },
+      {
+        "skill": "Git",
+        "percentage": 10.5,
+        "category": "Tools"
+      },
+      {
+        "skill": "Java",
+        "percentage": 10.5,
+        "category": "Languages"
+      },
+      {
+        "skill": "Go",
+        "percentage": 10.5,
+        "category": "Languages"
+      },
+      {
+        "skill": "LLM Engineering",
+        "percentage": 10.5,
+        "category": "AI/ML"
+      },
+      {
+        "skill": "HTML/CSS",
+        "percentage": 10.5,
+        "category": "Frontend"
+      },
+      {
+        "skill": "React",
+        "percentage": 5.3,
+        "category": "Frontend"
+      },
+      {
+        "skill": "FastAPI",
+        "percentage": 5.3,
+        "category": "Backend"
+      },
+      {
+        "skill": "Docker",
+        "percentage": 5.3,
+        "category": "DevOps"
+      }
+    ],
+    "backend": [
+      {
+        "skill": "Python",
+        "percentage": 53.8,
+        "category": "Languages"
+      },
+      {
+        "skill": "Rust",
+        "percentage": 30.8,
+        "category": "Languages"
+      },
+      {
+        "skill": "Microservices",
+        "percentage": 30.8,
+        "category": "Architecture"
+      },
+      {
+        "skill": "Kubernetes",
+        "percentage": 23.1,
+        "category": "DevOps"
+      },
+      {
+        "skill": "JavaScript",
+        "percentage": 23.1,
+        "category": "Languages"
+      },
+      {
+        "skill": "TypeScript",
+        "percentage": 23.1,
+        "category": "Languages"
+      },
+      {
+        "skill": "Node.js",
+        "percentage": 23.1,
+        "category": "Backend"
+      },
+      {
+        "skill": "CI/CD",
+        "percentage": 23.1,
+        "category": "DevOps"
+      },
+      {
+        "skill": "SQL",
+        "percentage": 23.1,
+        "category": "Languages"
+      },
+      {
+        "skill": "Docker",
+        "percentage": 15.4,
+        "category": "DevOps"
+      },
+      {
+        "skill": "PyTorch",
+        "percentage": 15.4,
+        "category": "AI/ML"
+      },
+      {
+        "skill": "MySQL",
+        "percentage": 15.4,
+        "category": "Database"
+      }
+    ],
+    "frontend": [
+      {
+        "skill": "JavaScript",
+        "percentage": 80.0,
+        "category": "Languages"
+      },
+      {
+        "skill": "React",
+        "percentage": 80.0,
+        "category": "Frontend"
+      },
+      {
+        "skill": "HTML/CSS",
+        "percentage": 80.0,
+        "category": "Frontend"
+      },
+      {
+        "skill": "TypeScript",
+        "percentage": 60.0,
+        "category": "Languages"
+      },
+      {
+        "skill": "Next.js",
+        "percentage": 40.0,
+        "category": "Frontend"
+      },
+      {
+        "skill": "Node.js",
+        "percentage": 40.0,
+        "category": "Backend"
+      },
+      {
+        "skill": "WebSockets",
+        "percentage": 40.0,
+        "category": "Backend"
+      },
+      {
+        "skill": "GraphQL",
+        "percentage": 40.0,
+        "category": "Backend"
+      },
+      {
+        "skill": "Microservices",
+        "percentage": 20.0,
+        "category": "Architecture"
+      },
+      {
+        "skill": "Kubernetes",
+        "percentage": 20.0,
+        "category": "DevOps"
+      }
+    ]
+  },
+  "top_overall": [
+    {
+      "skill": "Python",
+      "percentage": 23.0,
+      "category": "Languages"
+    },
+    {
+      "skill": "SQL",
+      "percentage": 12.9,
+      "category": "Languages"
+    },
+    {
+      "skill": "JavaScript",
+      "percentage": 9.6,
+      "category": "Languages"
+    },
+    {
+      "skill": "HTML/CSS",
+      "percentage": 9.6,
+      "category": "Frontend"
+    },
+    {
+      "skill": "Microservices",
+      "percentage": 9.6,
+      "category": "Architecture"
+    },
+    {
+      "skill": "AWS",
+      "percentage": 9.0,
+      "category": "Cloud"
+    },
+    {
+      "skill": "TypeScript",
+      "percentage": 8.4,
+      "category": "Languages"
+    },
+    {
+      "skill": "Git",
+      "percentage": 7.9,
+      "category": "Tools"
+    },
+    {
+      "skill": "Java",
+      "percentage": 7.9,
+      "category": "Languages"
+    },
+    {
+      "skill": "Kubernetes",
+      "percentage": 6.7,
+      "category": "DevOps"
+    }
+  ],
+  "synergies": [
+    {
+      "pair": "Python + SQL",
+      "count": 12,
+      "frequency_pct": 6.7
+    },
+    {
+      "pair": "JavaScript + TypeScript",
+      "count": 10,
+      "frequency_pct": 5.6
+    },
+    {
+      "pair": "HTML/CSS + Python",
+      "count": 10,
+      "frequency_pct": 5.6
+    },
+    {
+      "pair": "AWS + Python",
+      "count": 10,
+      "frequency_pct": 5.6
+    },
+    {
+      "pair": "React + TypeScript",
+      "count": 8,
+      "frequency_pct": 4.5
+    }
+  ]
+}
