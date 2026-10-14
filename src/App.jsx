@@ -16,6 +16,7 @@ import { useTheme } from './context/ThemeContext';
 import './App.css';
 
 function App() {
+  const { isLoggedIn, isAdmin, isAuthReady, logout } = useAuth();
   const [currentPage, setCurrentPage] = useState(() => {
     const params = new URLSearchParams(window.location.search);
     if (params.get('error') || sessionStorage.getItem('careerkinetic_auth_error')) {
