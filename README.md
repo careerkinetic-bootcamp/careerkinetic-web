@@ -39,8 +39,9 @@ This will create an optimized frontend application bundle inside the `dist/` dir
 
 The frontend is continuously deployed to **Cloudflare Pages** via GitHub Actions ([.github/workflows/frontend.yml](.github/workflows/frontend.yml)).
 
-- **Production Branch (`main`)**: Deployed as the production release to [careerkinetic.com](https://careerkinetic.com).
-- **Development Branch (`dev`)**: Deployed as the preview release to [dev.careerkinetic.com](https://dev.careerkinetic.com).
+To guarantee complete isolation between environments:
+- **Production (`main` branch)**: Deploys to Pages project **`careerkinetic-web`** → serves [careerkinetic.com](https://careerkinetic.com).
+- **Development (`dev` branch)**: Deploys to Pages project **`careerkinetic-dev`** → serves [dev.careerkinetic.com](https://dev.careerkinetic.com).
 
 ### Cloudflare Pages Configuration
 - **SPA Routing**: Configured via `public/_redirects` (`/* /index.html 200`) so client-side routes (e.g. `/dashboard`, `/mentorship`) reload without 404s.
