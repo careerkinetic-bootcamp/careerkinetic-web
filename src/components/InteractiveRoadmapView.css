@@ -32,8 +32,8 @@
   gap: 0.5rem;
   padding: 0.4rem 1rem;
   border-radius: 9999px;
-  background: rgba(138, 43, 226, 0.15);
-  border: 1px solid var(--border);
+  background: rgba(212, 91, 8, 0.12);
+  border: 1px solid rgba(212, 91, 8, 0.25);
   color: var(--primary);
   font-size: 0.85rem;
   font-weight: 600;
@@ -43,7 +43,7 @@
 
 .track-switcher {
   display: flex;
-  background: rgba(0, 0, 0, 0.35);
+  background: var(--secondary);
   padding: 0.35rem;
   border-radius: 14px;
   border: 1px solid var(--border);
@@ -68,13 +68,14 @@
 
 .track-btn:hover {
   color: var(--foreground);
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(0, 0, 0, 0.04);
 }
 
 .track-btn.active {
-  background: var(--gradient-primary);
+  background: var(--primary);
   color: #ffffff;
-  box-shadow: 0 4px 15px var(--primary-glow);
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(212, 91, 8, 0.35);
 }
 
 /* Progress Tracker Bar */
@@ -97,7 +98,7 @@
 .progress-bar-track {
   width: 100%;
   height: 10px;
-  background: rgba(255, 255, 255, 0.06);
+  background: var(--secondary);
   border-radius: 9999px;
   overflow: hidden;
   border: 1px solid var(--border);
@@ -106,10 +107,10 @@
 
 .progress-bar-fill {
   height: 100%;
-  background: var(--gradient-primary);
+  background: var(--primary);
   border-radius: 9999px;
   transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 0 12px var(--primary-glow);
+  box-shadow: 0 0 10px var(--primary-glow);
 }
 
 /* Methodology & Rules Banner */
@@ -309,8 +310,8 @@
 }
 
 .module-item-card:hover {
-  border-color: rgba(138, 43, 226, 0.4);
-  background: rgba(0, 0, 0, 0.4);
+  border-color: rgba(212, 91, 8, 0.4);
+  background: var(--secondary);
   transform: translateX(4px);
 }
 
@@ -392,9 +393,9 @@
 }
 
 .module-tag.highlight {
-  background: rgba(138, 43, 226, 0.15);
-  border-color: rgba(138, 43, 226, 0.4);
-  color: #c084fc;
+  background: rgba(212, 91, 8, 0.12);
+  border-color: rgba(212, 91, 8, 0.3);
+  color: var(--primary);
 }
 
 /* Production Blueprints & Architectural Projects Showcase */
@@ -437,9 +438,9 @@
   text-transform: uppercase;
   padding: 0.25rem 0.75rem;
   border-radius: 9999px;
-  background: rgba(138, 43, 226, 0.2);
-  color: #c084fc;
-  border: 1px solid rgba(138, 43, 226, 0.3);
+  background: rgba(212, 91, 8, 0.12);
+  color: var(--primary);
+  border: 1px solid rgba(212, 91, 8, 0.25);
 }
 
 .blueprint-card h3 {
@@ -493,7 +494,7 @@
 .hld-tag {
   padding: 0.4rem 0.9rem;
   border-radius: 8px;
-  background: rgba(0, 0, 0, 0.35);
+  background: var(--secondary);
   border: 1px solid var(--border);
   font-size: 0.85rem;
   color: var(--foreground);
@@ -502,8 +503,8 @@
 
 .hld-tag:hover {
   border-color: var(--primary);
-  background: rgba(138, 43, 226, 0.15);
-  color: #c084fc;
+  background: rgba(212, 91, 8, 0.1);
+  color: var(--primary);
 }
 
 /* Responsive queries */

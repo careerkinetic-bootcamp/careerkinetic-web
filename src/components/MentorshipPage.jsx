@@ -19,10 +19,10 @@ const MENTORSHIP_COHORTS = [
     priceFull: 49999,
     priceMonthly: 6999,
     icon: Brain,
-    gradient: 'linear-gradient(135deg, oklch(0.7 0.22 295 / 0.25), oklch(0.72 0.22 330 / 0.25))',
-    badgeBg: 'rgba(236, 72, 153, 0.15)',
-    badgeBorder: 'rgba(236, 72, 153, 0.3)',
-    badgeColor: '#f472b6',
+    gradient: 'linear-gradient(135deg, rgba(212, 91, 8, 0.18), rgba(184, 76, 2, 0.05))',
+    badgeBg: 'rgba(212, 91, 8, 0.12)',
+    badgeBorder: 'rgba(212, 91, 8, 0.3)',
+    badgeColor: 'var(--primary)',
     highlights: [
       'Dedicated 1-on-1 Senior AI/ML Mentor',
       '5 Signature Production Blueprints (GraphRAG, Multi-Agent Mesh, ViT)',
@@ -42,10 +42,10 @@ const MENTORSHIP_COHORTS = [
     priceFull: 39999,
     priceMonthly: 5499,
     icon: Terminal,
-    gradient: 'linear-gradient(135deg, oklch(0.58 0.22 295 / 0.25), oklch(0.41 0.15 240 / 0.25))',
-    badgeBg: 'rgba(99, 102, 241, 0.15)',
-    badgeBorder: 'rgba(99, 102, 241, 0.3)',
-    badgeColor: '#818cf8',
+    gradient: 'linear-gradient(135deg, rgba(56, 189, 248, 0.2), rgba(30, 41, 59, 0.5))',
+    badgeBg: 'rgba(56, 189, 248, 0.12)',
+    badgeBorder: 'rgba(56, 189, 248, 0.3)',
+    badgeColor: '#38bdf8',
     highlights: [
       'Dedicated 1-on-1 Principal Backend Mentor',
       '4 Core Workspace Reference Systems (E-Commerce, MS Teams, GitHub Mesh, ChatGPT Gateway)',
@@ -137,7 +137,7 @@ const MentorshipPage = ({ onPageChange = () => {} }) => {
     setFormData({
       fullName: user?.profile_data?.fullName || user?.full_name || user?.name || '',
       email: user?.email || '',
-      phone: '',
+      phone: user?.profile_data?.phone || '',
       paymentPlan: 'Full Tuition (Instant Seat Access)',
       preferredTime: 'Evening (6:00 PM - 9:00 PM)',
       experience: 'Student / Fresher'
@@ -153,7 +153,7 @@ const MentorshipPage = ({ onPageChange = () => {} }) => {
     setFormData({
       fullName: user?.profile_data?.fullName || user?.full_name || user?.name || '',
       email: user?.email || '',
-      phone: '',
+      phone: user?.profile_data?.phone || '',
       paymentPlan: 'Full Tuition (Instant Seat Access)',
       preferredTime: 'Evening (6:00 PM - 9:00 PM)',
       experience: 'Student / Fresher'

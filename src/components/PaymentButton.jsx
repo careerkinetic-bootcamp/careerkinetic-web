@@ -47,6 +47,38 @@ export default function PaymentButton({
 
     setLoading(true);
 
+    // Instant seamless enrollment for local demo sessions
+    if (localStorage.getItem('careerkinetic_demo_session') === 'true') {
+      setTimeout(() => {
+        try {
+          const raw = localStorage.getItem('careerkinetic_demo_user');
+          if (raw) {
+            const u = JSON.parse(raw);
+            const cohorts = u?.profile_data?.enrolled_cohorts || [];
+            const normalizedId = cohortId?.toLowerCase();
+            if (normalizedId && !cohorts.includes(normalizedId)) {
+              u.profile_data = {
+                ...(u.profile_data || {}),
+                enrolled_cohorts: [...cohorts, normalizedId]
+              };
+              localStorage.setItem('careerkinetic_demo_user', JSON.stringify(u));
+            }
+          }
+        } catch (err) {
+          console.error('Failed to update demo user enrolled_cohorts:', err);
+        }
+        setLoading(false);
+        onSuccess && onSuccess({
+          success: true,
+          payment_id: 'pay_demo_' + Date.now(),
+          order_id: 'order_demo_' + Date.now(),
+          cohort_id: cohortId,
+          cohort_title: title || cohortId,
+        });
+      }, 500);
+      return;
+    }
+
     try {
       // 1. Ensure Razorpay SDK is loaded
       const isLoaded = await loadRazorpaySDK();

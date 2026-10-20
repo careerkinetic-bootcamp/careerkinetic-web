@@ -10,7 +10,7 @@ const ROADMAP_LIST = [
     title: 'Artificial Intelligence & Machine Learning',
     description: 'Master out-of-core data architecture, neural networks, Transformer mechanisms, agentic multi-agent systems, 5 signature blueprints, and 30 HLD whiteboard defenses.',
     icon: Brain,
-    gradient: 'linear-gradient(135deg, oklch(0.7 0.22 295 / 0.2), oklch(0.72 0.22 330 / 0.2))',
+    gradient: 'linear-gradient(135deg, rgba(212, 91, 8, 0.15) 0%, rgba(184, 76, 2, 0.05) 100%)',
     badge: 'Dual Track: SWE Core + Advanced MLOps & GenAI'
   },
   {
@@ -18,7 +18,7 @@ const ROADMAP_LIST = [
     title: 'Software Engineering (SWE) Course',
     description: 'Production resilience, software observability, CS fundamentals, FastAPI backend, LocalStack cloud mocking, 4 core architectural projects, and 30 enterprise HLD case studies.',
     icon: Terminal,
-    gradient: 'linear-gradient(135deg, oklch(0.58 0.22 295 / 0.2), oklch(0.41 0.15 240 / 0.2))',
+    gradient: 'linear-gradient(135deg, rgba(56, 189, 248, 0.15) 0%, rgba(30, 41, 59, 0.4) 100%)',
     badge: '4 Reference Systems • 30 HLDs'
   }
 ];

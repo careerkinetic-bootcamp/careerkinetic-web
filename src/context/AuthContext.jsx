@@ -13,6 +13,39 @@ if (storedToken) {
   axios.defaults.headers.common['Authorization'] = `Bearer ${storedToken}`;
 }
 
+const DEFAULT_DEMO_USER = {
+  id: 'demo-engineer-2026',
+  email: 'dev.user@careerkinetic.com',
+  name: 'Alex Rivera (Demo)',
+  full_name: 'Alex Rivera (Demo)',
+  picture: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&auto=format&fit=crop&q=80',
+  profile_data: {
+    fullName: 'Alex Rivera',
+    email: 'dev.user@careerkinetic.com',
+    phone: '+91 98765 43210',
+    gender: 'Male',
+    background: 'CS',
+    address: 'Bangalore, Karnataka, India',
+    githubUrl: 'https://github.com/alexrivera-dev',
+    linkedinUrl: 'https://linkedin.com/in/alexrivera-dev',
+    leetcodeUrl: 'https://leetcode.com/alexrivera',
+    interests: ['Distributed Systems', 'Agentic MLOps', 'High-Concurrency Backends', 'Transformers'],
+    hobbies: ['Open Source', 'Hackathons', 'Tech Writing'],
+    achievements: ['Top 5% LeetCode Global', 'Built Distributed KV Store in Go', 'AI Hackathon Finalist'],
+    isEmailVerified: true,
+    enrolled_cohorts: ['aiml'],
+    assessmentResult: {
+      track: 'aiml',
+      score: 88,
+      total: 100,
+      level: 'Advanced',
+      date: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
+    },
+    assessmentAttempts: 1,
+    profilePic: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&auto=format&fit=crop&q=80'
+  }
+};
+
 // Create Context
 const AuthContext = createContext();
 
@@ -66,28 +99,72 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  // 2.5 Dev mock login trigger
+  // 2.5 Dev mock login trigger (Seamless with local fallback)
   const signInWithDev = async () => {
     try {
       const resp = await axios.post(`${API_URL}/dev-login`);
       if (resp.data?.access_token) {
         updateToken(resp.data.access_token);
       }
-      setUser(resp.data.user || resp.data);
+      const userData = resp.data.user || resp.data;
+      setUser(userData);
+      localStorage.setItem('careerkinetic_demo_session', 'true');
+      localStorage.setItem('careerkinetic_demo_user', JSON.stringify(userData));
       return resp.data;
     } catch (e) {
-      console.error('Failed to execute Dev sign in:', e);
-      throw e;
+      console.warn('Backend dev-login endpoint unreachable, activating instant local demo session:', e);
+      // Instant seamless offline demo login:
+      const mockToken = 'mock-demo-jwt-token-2026';
+      updateToken(mockToken);
+      const saved = localStorage.getItem('careerkinetic_demo_user');
+      let demoUser = DEFAULT_DEMO_USER;
+      if (saved) {
+        try {
+          demoUser = JSON.parse(saved);
+        } catch {
+          demoUser = DEFAULT_DEMO_USER;
+        }
+      }
+      setUser(demoUser);
+      localStorage.setItem('careerkinetic_demo_session', 'true');
+      localStorage.setItem('careerkinetic_demo_user', JSON.stringify(demoUser));
+      return { access_token: mockToken, user: demoUser };
     }
   };
 
-  // 2.6 Reset Demo purchases trigger
+  // 2.6 Local profile state update for demo session & cloud
+  const updateUserProfile = (newProfileData) => {
+    setUser((prev) => {
+      if (!prev) return prev;
+      const updated = {
+        ...prev,
+        profile_data: {
+          ...(prev?.profile_data || {}),
+          ...newProfileData
+        }
+      };
+      if (localStorage.getItem('careerkinetic_demo_session') === 'true') {
+        localStorage.setItem('careerkinetic_demo_user', JSON.stringify(updated));
+      }
+      return updated;
+    });
+  };
+
+  // 2.7 Reset Demo purchases trigger
   const resetDemoPurchases = async () => {
     try {
+      if (localStorage.getItem('careerkinetic_demo_session') === 'true') {
+        updateUserProfile({ enrolled_cohorts: [] });
+        return true;
+      }
       await axios.post(`${API_URL}/reset-demo`, {}, { withCredentials: true });
       await refreshUser();
       return true;
     } catch (e) {
+      if (localStorage.getItem('careerkinetic_demo_session') === 'true') {
+        updateUserProfile({ enrolled_cohorts: [] });
+        return true;
+      }
       console.error('Failed to reset demo purchases:', e);
       throw e;
     }
@@ -96,10 +173,14 @@ export const AuthProvider = ({ children }) => {
   // 3. Logout trigger
   const logout = async () => {
     try {
-      await axios.post(`${API_URL}/logout`);
+      if (localStorage.getItem('careerkinetic_demo_session') !== 'true') {
+        await axios.post(`${API_URL}/logout`);
+      }
     } catch (e) {
       console.error('Logout request failed:', e);
     } finally {
+      localStorage.removeItem('careerkinetic_demo_session');
+      localStorage.removeItem('careerkinetic_demo_user');
       updateToken(null);
       setUser(null);
     }
@@ -107,6 +188,17 @@ export const AuthProvider = ({ children }) => {
 
   // 4. Refresh / Retrieve profile trigger
   const refreshUser = async () => {
+    if (localStorage.getItem('careerkinetic_demo_session') === 'true') {
+      const saved = localStorage.getItem('careerkinetic_demo_user');
+      if (saved) {
+        try {
+          setUser(JSON.parse(saved));
+          return;
+        } catch {}
+      }
+      setUser(DEFAULT_DEMO_USER);
+      return;
+    }
     try {
       const resp = await axios.get(`${API_URL}/`);
       setUser(resp.data);
@@ -120,6 +212,22 @@ export const AuthProvider = ({ children }) => {
   // 5. Auth validation and code exchange on mount
   useEffect(() => {
     const handleAuth = async () => {
+      // Check for active local demo session first
+      if (localStorage.getItem('careerkinetic_demo_session') === 'true') {
+        const saved = localStorage.getItem('careerkinetic_demo_user');
+        if (saved) {
+          try {
+            setUser(JSON.parse(saved));
+          } catch {
+            setUser(DEFAULT_DEMO_USER);
+          }
+        } else {
+          setUser(DEFAULT_DEMO_USER);
+        }
+        setIsAuthReady(true);
+        return;
+      }
+
       const params = new URLSearchParams(window.location.search);
       const code = params.get('code');
       const state = params.get('state'); // google or github
@@ -184,6 +292,7 @@ export const AuthProvider = ({ children }) => {
     signInWithGoogle,
     signInWithGitHub,
     signInWithDev,
+    updateUserProfile,
     resetPassword: () => Promise.resolve({ error: { message: "Password reset is deprecated." } }),
     logout,
     refreshUser,

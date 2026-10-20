@@ -22,7 +22,7 @@ const Navbar = ({ currentPage = 'home', onPageChange = () => { }, isLoggedIn = f
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  const profileImageUrl = user?.profile_data?.profilePic || user?.profile_data?.picture || user?.picture || `https://ui-avatars.com/api/?name=${user?.email || 'User'}&background=8a2be2&color=fff`;
+  const profileImageUrl = user?.profile_data?.profilePic || user?.profile_data?.picture || user?.picture || `https://ui-avatars.com/api/?name=${user?.email || 'User'}&background=d45b08&color=ffffff`;
 
   return (
     <>

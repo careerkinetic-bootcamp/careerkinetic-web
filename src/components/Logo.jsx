@@ -8,14 +8,14 @@ const Logo = ({ className = '', size = 32, showText = true, iconOnly = false, ve
         display: 'inline-flex', 
         flexDirection: vertical ? 'column' : 'row',
         alignItems: 'center', 
-        gap: vertical ? '12px' : '10px',
+        gap: vertical ? '10px' : '10px',
         textAlign: vertical ? 'center' : 'left'
       }}
     >
       <svg
         width={size}
         height={size}
-        viewBox="0 0 100 100"
+        viewBox="13 4 85 85"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         style={{ flexShrink: 0 }}
@@ -38,7 +38,7 @@ const Logo = ({ className = '', size = 32, showText = true, iconOnly = false, ve
         {/* Orange curved arrow */}
         <path
           d="M36 54 C46 48 58 38 70 28 L68 22 L82 32 L74 44 L72 38 C62 48 50 60 36 70 Z"
-          fill="#F7941D"
+          fill="var(--primary, #d45b08)"
         />
       </svg>
 
@@ -48,17 +48,17 @@ const Logo = ({ className = '', size = 32, showText = true, iconOnly = false, ve
           style={{
             fontFamily: 'var(--font-display)',
             fontWeight: 700,
-            fontSize: vertical ? `calc(${size}px * 0.28)` : `calc(${size}px * 0.75)`,
+            fontSize: vertical ? `clamp(1.5rem, calc(${size}px * 0.3), 1.85rem)` : `calc(${size}px * 0.75)`,
             letterSpacing: '-0.02em',
             display: 'flex',
             alignItems: 'center',
             justifyContent: vertical ? 'center' : 'flex-start',
             color: 'var(--foreground)',
-            marginTop: vertical ? '4px' : '0'
+            lineHeight: 1.2
           }}
         >
           <span style={{ color: 'var(--foreground)' }}>Career</span>
-          <span style={{ color: '#F7941D' }}>K</span>
+          <span style={{ color: 'var(--primary, #d45b08)' }}>K</span>
           <span style={{ color: 'var(--foreground)' }}>inetic</span>
         </span>
       )}

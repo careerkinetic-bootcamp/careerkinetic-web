@@ -127,22 +127,23 @@ const AuthSplitLayout = ({ onPageChange }) => {
                 fontSize: '1rem',
                 fontWeight: '600',
                 letterSpacing: '0.5px',
-                background: 'rgba(255,255,255,0.03)',
-                border: '1px solid var(--glass-border)',
-                color: '#fff',
+                background: 'var(--card)',
+                border: '1px solid var(--border)',
+                color: 'var(--foreground)',
                 cursor: 'pointer',
-                transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)'
+                transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                boxShadow: 'var(--shadow-soft)'
               }}
               disabled={isLoading}
               onMouseEnter={(e) => {
-                e.currentTarget.style.background = 'rgba(255,255,255,0.08)';
+                e.currentTarget.style.background = 'var(--secondary)';
                 e.currentTarget.style.transform = 'translateY(-2px)';
-                e.currentTarget.style.boxShadow = '0 8px 25px rgba(255, 255, 255, 0.05)';
+                e.currentTarget.style.boxShadow = '0 6px 20px rgba(15, 23, 42, 0.08)';
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.background = 'rgba(255,255,255,0.03)';
+                e.currentTarget.style.background = 'var(--card)';
                 e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = 'none';
+                e.currentTarget.style.boxShadow = 'var(--shadow-soft)';
               }}
             >
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style={{ flexShrink: 0 }}>
@@ -171,22 +172,23 @@ const AuthSplitLayout = ({ onPageChange }) => {
                 fontSize: '1rem',
                 fontWeight: '600',
                 letterSpacing: '0.5px',
-                background: 'rgba(255,255,255,0.03)',
-                border: '1px solid var(--glass-border)',
-                color: '#fff',
+                background: 'var(--card)',
+                border: '1px solid var(--border)',
+                color: 'var(--foreground)',
                 cursor: 'pointer',
-                transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)'
+                transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                boxShadow: 'var(--shadow-soft)'
               }}
               disabled={isLoading}
               onMouseEnter={(e) => {
-                e.currentTarget.style.background = 'rgba(255,255,255,0.08)';
+                e.currentTarget.style.background = 'var(--secondary)';
                 e.currentTarget.style.transform = 'translateY(-2px)';
-                e.currentTarget.style.boxShadow = '0 8px 25px rgba(255, 255, 255, 0.05)';
+                e.currentTarget.style.boxShadow = '0 6px 20px rgba(15, 23, 42, 0.08)';
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.background = 'rgba(255,255,255,0.03)';
+                e.currentTarget.style.background = 'var(--card)';
                 e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = 'none';
+                e.currentTarget.style.boxShadow = 'var(--shadow-soft)';
               }}
             >
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
@@ -197,7 +199,7 @@ const AuthSplitLayout = ({ onPageChange }) => {
             </button>
 
             {/* Quick Dev Login for local development */}
-            {import.meta.env.DEV && (
+            {(import.meta.env.DEV || window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') && (
               <div style={{ width: '100%', maxWidth: '360px', marginTop: '0.25rem' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '10px', margin: '0.75rem 0' }}>
                   <div style={{ flex: 1, height: '1px', background: 'rgba(255,255,255,0.1)' }} />
@@ -218,23 +220,23 @@ const AuthSplitLayout = ({ onPageChange }) => {
                     padding: '0.85rem 1.75rem',
                     fontSize: '0.95rem',
                     fontWeight: '600',
-                    background: 'linear-gradient(135deg, rgba(99, 102, 241, 0.25), rgba(168, 85, 247, 0.25))',
-                    border: '1px solid rgba(168, 85, 247, 0.45)',
-                    color: '#e2e8f0',
+                    background: 'rgba(212, 91, 8, 0.15)',
+                    border: '1px solid rgba(212, 91, 8, 0.45)',
+                    color: 'var(--foreground)',
                     cursor: 'pointer',
                     transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-                    boxShadow: '0 4px 15px rgba(124, 58, 237, 0.15)'
+                    boxShadow: '0 4px 15px rgba(212, 91, 8, 0.15)'
                   }}
                   disabled={isLoading}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.background = 'linear-gradient(135deg, rgba(99, 102, 241, 0.4), rgba(168, 85, 247, 0.4))';
+                    e.currentTarget.style.background = 'rgba(212, 91, 8, 0.25)';
                     e.currentTarget.style.transform = 'translateY(-2px)';
-                    e.currentTarget.style.boxShadow = '0 8px 25px rgba(124, 58, 237, 0.3)';
+                    e.currentTarget.style.boxShadow = '0 8px 25px rgba(212, 91, 8, 0.3)';
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.background = 'linear-gradient(135deg, rgba(99, 102, 241, 0.25), rgba(168, 85, 247, 0.25))';
+                    e.currentTarget.style.background = 'rgba(212, 91, 8, 0.15)';
                     e.currentTarget.style.transform = 'translateY(0)';
-                    e.currentTarget.style.boxShadow = '0 4px 15px rgba(124, 58, 237, 0.15)';
+                    e.currentTarget.style.boxShadow = '0 4px 15px rgba(212, 91, 8, 0.15)';
                   }}
                 >
                   <span>⚡</span> Continue as Demo User (Dev)
@@ -252,8 +254,8 @@ const AuthSplitLayout = ({ onPageChange }) => {
         {/* Right Column: Introduction */}
         <div className="intro-panel glass-panel fade-in-up delay-2">
           <div className="intro-content">
-            <Logo size={100} vertical={true} />
-            <p style={{ marginTop: '1.5rem' }}>
+            <Logo size={84} vertical={true} />
+            <p>
               Welcome to CareerKinetic—your gateway to personalized technology learning! Discover interactive skill assessments, connect with industry experts, and follow dynamic roadmaps tailored specifically to your tech career goals.
             </p>
           </div>

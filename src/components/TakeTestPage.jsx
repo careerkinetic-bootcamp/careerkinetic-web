@@ -9,7 +9,7 @@ import { useAuth } from '../context/AuthContext';
 import { QUESTIONS, determineRecommendation } from './assessmentData';
 
 const TakeTestPage = ({ onPageChange }) => {
-  const { isLoggedIn, user, token, refreshUser } = useAuth();
+  const { isLoggedIn, user, token, refreshUser, updateUserProfile } = useAuth();
   
   // Test states: 'welcome' | 'quiz' | 'results'
   const [testState, setTestState] = useState('welcome');
@@ -103,18 +103,27 @@ const TakeTestPage = ({ onPageChange }) => {
 
   const syncResultsToCloud = async (resultData) => {
     setSyncStatus({ loading: true, success: false, error: '' });
+    const currentProfileData = user?.profile_data || {};
+    const currentAttempts = currentProfileData.assessmentAttempts || (currentProfileData.assessmentResult ? 1 : 0);
+    
+    const updatedProfileData = {
+      ...currentProfileData,
+      assessmentAttempts: currentAttempts + 1,
+      assessmentResult: resultData
+    };
+
+    if (localStorage.getItem('careerkinetic_demo_session') === 'true') {
+      updateUserProfile({
+        assessmentAttempts: currentAttempts + 1,
+        assessmentResult: resultData
+      });
+      setSyncStatus({ loading: false, success: true, error: '' });
+      return;
+    }
+
     try {
       const BASE_URL = import.meta.env.VITE_API_URL || '';
       const API_URL = `${BASE_URL ? BASE_URL.replace(/\/$/, '') : ''}/api/auth/profile`;
-      
-      const currentProfileData = user?.profile_data || {};
-      const currentAttempts = currentProfileData.assessmentAttempts || (currentProfileData.assessmentResult ? 1 : 0);
-      
-      const updatedProfileData = {
-        ...currentProfileData,
-        assessmentAttempts: currentAttempts + 1,
-        assessmentResult: resultData
-      };
 
       const headers = {};
       if (token) {
@@ -128,6 +137,14 @@ const TakeTestPage = ({ onPageChange }) => {
       await refreshUser();
       setSyncStatus({ loading: false, success: true, error: '' });
     } catch (e) {
+      if (localStorage.getItem('careerkinetic_demo_session') === 'true') {
+        updateUserProfile({
+          assessmentAttempts: currentAttempts + 1,
+          assessmentResult: resultData
+        });
+        setSyncStatus({ loading: false, success: true, error: '' });
+        return;
+      }
       console.error('Failed to sync assessment results:', e);
       setSyncStatus({ 
         loading: false, 
@@ -213,7 +230,7 @@ const TakeTestPage = ({ onPageChange }) => {
               <p className="text-muted" style={{ fontSize: '0.95rem', lineHeight: 1.5, margin: 0 }}>
                 Our course suggestion rules are simple and helpful:
               </p>
-              <div style={{ background: 'rgba(0,0,0,0.2)', padding: '1rem', borderRadius: '8px', border: '1px solid var(--glass-border)' }}>
+              <div style={{ background: 'var(--secondary)', padding: '1rem', borderRadius: '8px', border: '1px solid var(--border)' }}>
                 <div style={{ marginBottom: '0.75rem', display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
                   <span style={{ background: '#a855f7', color: 'white', padding: '0.1rem 0.5rem', borderRadius: '4px', fontSize: '0.75rem', fontWeight: 'bold', whiteSpace: 'nowrap', flexShrink: 0 }}>AI/ML</span>
                   <p style={{ margin: 0, fontSize: '0.85rem', color: 'var(--text-main)' }}>
@@ -232,7 +249,7 @@ const TakeTestPage = ({ onPageChange }) => {
 
           {/* Past Result Summary (If Available) */}
           {latestResult && (
-            <div className="glass-panel" style={{ padding: '1.5rem', border: '1px solid rgba(138, 43, 226, 0.3)' }}>
+            <div className="glass-panel" style={{ padding: '1.5rem', border: '1px solid var(--border)' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem', flexWrap: 'wrap', gap: '1rem' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                   <Trophy size={20} style={{ color: 'var(--primary)' }} />
@@ -248,7 +265,7 @@ const TakeTestPage = ({ onPageChange }) => {
                 </div>
               </div>
 
-              <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', flexWrap: 'wrap', background: 'rgba(255, 255, 255, 0.02)', padding: '1.25rem', borderRadius: '12px', border: '1px solid var(--glass-border)' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', flexWrap: 'wrap', background: 'var(--secondary)', padding: '1.25rem', borderRadius: '12px', border: '1px solid var(--border)' }}>
                 <div style={{ flex: 1, minWidth: '200px' }}>
                   <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>RECOMMENDED PATHWAY:</div>
                   <div className="text-gradient" style={{ fontSize: '1.6rem', fontWeight: 'bold', margin: '0.2rem 0' }}>
@@ -266,7 +283,7 @@ const TakeTestPage = ({ onPageChange }) => {
                   {Object.entries(latestResult.scores || {}).map(([cat, val]) => {
                     const meta = getCategoryMeta(cat);
                     return (
-                      <div key={cat} style={{ textAlign: 'center', background: 'rgba(0,0,0,0.2)', padding: '0.5rem', borderRadius: '8px' }}>
+                      <div key={cat} style={{ textAlign: 'center', background: 'var(--card)', border: '1px solid var(--border)', padding: '0.5rem', borderRadius: '8px' }}>
                         <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)', textTransform: 'uppercase' }}>{meta.name.split(' ')[0]}</div>
                         <div style={{ fontSize: '1.2rem', fontWeight: 'bold', color: meta.color }}>{val}/5</div>
                       </div>
@@ -396,8 +413,8 @@ const TakeTestPage = ({ onPageChange }) => {
                   key={optionIdx}
                   onClick={() => handleSelectOption(optionIdx)}
                   style={{
-                    background: isSelected ? 'rgba(138, 43, 226, 0.1)' : 'var(--bg-dark)',
-                    border: isSelected ? '2px solid var(--primary)' : '1px solid var(--glass-border)',
+                    background: isSelected ? 'var(--primary-glow)' : 'var(--card)',
+                    border: isSelected ? '2px solid var(--primary)' : '1px solid var(--border)',
                     borderRadius: '12px',
                     padding: '1.1rem 1.5rem',
                     cursor: 'pointer',
@@ -410,14 +427,14 @@ const TakeTestPage = ({ onPageChange }) => {
                   }}
                   onMouseEnter={(e) => {
                     if (!isSelected) {
-                      e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.3)';
-                      e.currentTarget.style.background = 'rgba(255, 255, 255, 0.02)';
+                      e.currentTarget.style.borderColor = 'var(--primary)';
+                      e.currentTarget.style.background = 'var(--secondary)';
                     }
                   }}
                   onMouseLeave={(e) => {
                     if (!isSelected) {
-                      e.currentTarget.style.borderColor = 'var(--glass-border)';
-                      e.currentTarget.style.background = 'var(--bg-dark)';
+                      e.currentTarget.style.borderColor = 'var(--border)';
+                      e.currentTarget.style.background = 'var(--card)';
                     }
                   }}
                 >
@@ -581,7 +598,7 @@ const TakeTestPage = ({ onPageChange }) => {
                 }
 
                 return (
-                  <div key={categoryKey} style={{ background: 'rgba(0,0,0,0.2)', padding: '1.25rem', borderRadius: '12px', border: '1px solid var(--glass-border)', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+                  <div key={categoryKey} style={{ background: 'var(--secondary)', padding: '1.25rem', borderRadius: '12px', border: '1px solid var(--border)', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                       <span style={{ fontWeight: 600, color: 'var(--text-main)', fontSize: '0.95rem' }}>{meta.name}</span>
                       <span style={{ fontWeight: 'bold', color: meta.color, fontSize: '1.1rem' }}>{score}/5</span>
@@ -702,8 +719,8 @@ const TakeTestPage = ({ onPageChange }) => {
                             padding: '0.6rem 1rem',
                             borderRadius: '8px',
                             fontSize: '0.9rem',
-                            border: '1px solid var(--glass-border)',
-                            background: 'rgba(0,0,0,0.15)',
+                            border: '1px solid var(--border)',
+                            background: 'var(--secondary)',
                             color: 'var(--text-muted)'
                           };
 
@@ -726,7 +743,7 @@ const TakeTestPage = ({ onPageChange }) => {
                       </div>
 
                       {/* Explanation box */}
-                      <div style={{ background: 'rgba(255,255,255,0.02)', padding: '0.85rem 1rem', borderRadius: '8px', borderLeft: `3px solid ${meta.color}`, fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: 1.5 }}>
+                      <div style={{ background: 'var(--secondary)', padding: '0.85rem 1rem', borderRadius: '8px', borderLeft: `3px solid ${meta.color}`, fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: 1.5 }}>
                         <span style={{ fontWeight: 600, color: 'var(--text-main)', display: 'block', marginBottom: '0.25rem' }}>Explanation:</span>
                         {q.explanation}
                       </div>

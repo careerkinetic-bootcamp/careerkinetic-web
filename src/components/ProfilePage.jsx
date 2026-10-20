@@ -4,7 +4,7 @@ import { useAuth } from '../context/AuthContext';
 import { User, Globe, Check, Shield } from 'lucide-react';
 
 const ProfilePage = ({ onPageChange }) => {
-  const { user, token, refreshUser } = useAuth();
+  const { user, token, refreshUser, updateUserProfile } = useAuth();
   const [isLoading, setIsLoading] = useState(false);
   const [message, setMessage] = useState({ type: '', text: '' });
   
@@ -56,18 +56,26 @@ const ProfilePage = ({ onPageChange }) => {
     setIsLoading(true);
     setMessage({ type: '', text: '' });
 
+    // Transform strings back to arrays as per the backend schema
+    const payload = {
+      ...formData,
+      interests: formData.interests.split(',').map(i => i.trim()).filter(i => i !== ''),
+      hobbies: formData.hobbies.split(',').map(i => i.trim()).filter(i => i !== ''),
+      achievements: formData.achievements.split(',').map(i => i.trim()).filter(i => i !== ''),
+      isEmailVerified
+    };
+
+    if (localStorage.getItem('careerkinetic_demo_session') === 'true') {
+      updateUserProfile(payload);
+      setMessage({ type: 'success', text: 'Profile updated successfully!' });
+      setIsLoading(false);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+
     try {
       const BASE_URL = import.meta.env.VITE_API_URL || '';
       const API_URL = `${BASE_URL ? BASE_URL.replace(/\/$/, '') : ''}/api/auth/profile`;
-      
-      // Transform strings back to arrays as per the backend schema
-      const payload = {
-        ...formData,
-        interests: formData.interests.split(',').map(i => i.trim()).filter(i => i !== ''),
-        hobbies: formData.hobbies.split(',').map(i => i.trim()).filter(i => i !== ''),
-        achievements: formData.achievements.split(',').map(i => i.trim()).filter(i => i !== ''),
-        isEmailVerified // Explicitly include the verified status if required
-      };
 
       await axios.put(API_URL, { profile_data: payload }, {
         headers: { Authorization: `Bearer ${token}` }
@@ -78,7 +86,13 @@ const ProfilePage = ({ onPageChange }) => {
       setMessage({ type: 'success', text: 'Profile updated successfully!' });
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } catch (err) {
-      setMessage({ type: 'error', text: err.response?.data?.detail || 'Failed to update profile.' });
+      if (localStorage.getItem('careerkinetic_demo_session') === 'true') {
+        updateUserProfile(payload);
+        setMessage({ type: 'success', text: 'Profile updated successfully!' });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        setMessage({ type: 'error', text: err.response?.data?.detail || 'Failed to update profile.' });
+      }
     } finally {
       setIsLoading(false);
     }
@@ -112,7 +126,7 @@ const ProfilePage = ({ onPageChange }) => {
         <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
           <div style={{ position: 'relative', display: 'inline-block' }}>
             <img 
-              src={formData.profilePic || `https://ui-avatars.com/api/?name=${user?.email || 'User'}&background=8a2be2&color=fff`} 
+              src={formData.profilePic || `https://ui-avatars.com/api/?name=${user?.email || 'User'}&background=d45b08&color=ffffff`} 
               alt="Profile" 
               style={{ width: '130px', height: '130px', borderRadius: '50%', objectFit: 'cover', border: '3px solid var(--primary)', boxShadow: '0 0 20px var(--primary-glow)' }} 
             />

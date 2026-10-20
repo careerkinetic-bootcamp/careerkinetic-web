@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
-import { Compass, Zap, Sparkles, ArrowRight, Users, Clock, CheckCircle2 } from 'lucide-react';
+import { Compass, Zap, ArrowRight, Users, Clock, CheckCircle2 } from 'lucide-react';
 import './CoursesPage.css';
 
 import fresherJobsPoster from '../assets/fresher-jobs-2026.png';
@@ -37,8 +37,8 @@ const DashboardPage = ({ onPageChange = () => {} }) => {
       badge: 'Advanced MLOps & GenAI',
       duration: '8 Months Bootcamp',
       desc: 'Master enterprise AI engineering with 1-on-1 guidance from senior ML practitioners. Build GraphRAG, Multi-Agent Mesh, and defend 30 HLD case studies.',
-      badgeColor: '#f472b6',
-      badgeBg: 'rgba(236, 72, 153, 0.15)',
+      badgeColor: 'var(--primary)',
+      badgeBg: 'var(--primary-glow)',
       highlights: [
         'Dedicated 1-on-1 Senior AI/ML Mentor',
         '5 Signature Production Blueprints (GraphRAG, ViT)',
@@ -51,8 +51,8 @@ const DashboardPage = ({ onPageChange = () => {} }) => {
       badge: 'Production Backend & Systems',
       duration: '8 Months Bootcamp',
       desc: 'Master high-concurrency backend architecture with 1-on-1 mentoring. Construct 4 reference systems, analyze distributed trade-offs, and defend 30 HLD scenarios.',
-      badgeColor: '#818cf8',
-      badgeBg: 'rgba(99, 102, 241, 0.15)',
+      badgeColor: '#38bdf8',
+      badgeBg: 'rgba(56, 189, 248, 0.12)',
       highlights: [
         'Dedicated 1-on-1 Principal Backend Mentor',
         '4 Core Reference Systems (Teams, Gateway, Mesh)',
@@ -92,12 +92,6 @@ const DashboardPage = ({ onPageChange = () => {} }) => {
       
       {/* Hero Headline & Value Proposition */}
       <div className="fade-in-up delay-1" style={{ textAlign: 'center', marginBottom: '2.5rem', paddingTop: '0.5rem' }}>
-        <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '0.4rem 1.1rem', borderRadius: '9999px', background: 'rgba(99, 102, 241, 0.12)', border: '1px solid rgba(99, 102, 241, 0.3)', marginBottom: '1.25rem' }}>
-          <Sparkles size={16} style={{ color: 'var(--primary)' }} />
-          <span style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--primary)', letterSpacing: '0.5px' }}>
-            Next-Gen Tech Career Platform
-          </span>
-        </div>
         <h1 className="text-gradient" style={{ fontSize: 'clamp(2.2rem, 5vw, 3.4rem)', fontWeight: 800, lineHeight: 1.15, margin: '0 auto 1.25rem auto', maxWidth: '850px' }}>
           Bridge the Gap to Elite Tech Careers
         </h1>
@@ -107,7 +101,7 @@ const DashboardPage = ({ onPageChange = () => {} }) => {
         <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
           <button 
             className="btn btn-primary" 
-            style={{ borderRadius: '9999px', padding: '0.85rem 2rem', fontSize: '0.98rem', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: '8px', boxShadow: '0 4px 20px rgba(99, 102, 241, 0.35)' }}
+            style={{ borderRadius: '9999px', padding: '0.85rem 2rem', fontSize: '0.98rem', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: '8px', boxShadow: '0 4px 20px rgba(212, 91, 8, 0.35)', color: '#ffffff' }}
             onClick={() => onPageChange(isLoggedIn ? 'test' : 'login')}
           >
             <Zap size={18} /> Take Skill Assessment
@@ -187,11 +181,11 @@ const DashboardPage = ({ onPageChange = () => {} }) => {
           <div 
             style={{ 
               display: 'inline-flex', 
-              background: 'rgba(255, 255, 255, 0.04)', 
+              background: 'var(--secondary)', 
               padding: '6px', 
               borderRadius: '9999px', 
               border: '1px solid var(--border)',
-              boxShadow: '0 4px 20px rgba(0,0,0,0.2)'
+              boxShadow: 'var(--shadow-soft)'
             }}
           >
             <button
@@ -204,12 +198,12 @@ const DashboardPage = ({ onPageChange = () => {} }) => {
                 borderRadius: '9999px',
                 border: 'none',
                 background: activeTab === 'roadmaps' ? 'var(--primary)' : 'transparent',
-                color: activeTab === 'roadmaps' ? '#fff' : 'var(--muted-foreground)',
+                color: activeTab === 'roadmaps' ? '#ffffff' : 'var(--muted-foreground)',
                 fontWeight: 600,
                 fontSize: '0.92rem',
                 cursor: 'pointer',
                 transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-                boxShadow: activeTab === 'roadmaps' ? '0 4px 15px rgba(99, 102, 241, 0.4)' : 'none'
+                boxShadow: activeTab === 'roadmaps' ? '0 2px 10px rgba(212, 91, 8, 0.35)' : 'none'
               }}
             >
               <Compass size={17} />
@@ -226,12 +220,12 @@ const DashboardPage = ({ onPageChange = () => {} }) => {
                 borderRadius: '9999px',
                 border: 'none',
                 background: activeTab === 'cohorts' ? 'var(--primary)' : 'transparent',
-                color: activeTab === 'cohorts' ? '#fff' : 'var(--muted-foreground)',
+                color: activeTab === 'cohorts' ? '#ffffff' : 'var(--muted-foreground)',
                 fontWeight: 600,
                 fontSize: '0.92rem',
                 cursor: 'pointer',
                 transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-                boxShadow: activeTab === 'cohorts' ? '0 4px 15px rgba(99, 102, 241, 0.4)' : 'none'
+                boxShadow: activeTab === 'cohorts' ? '0 2px 10px rgba(212, 91, 8, 0.35)' : 'none'
               }}
             >
               <Users size={17} />
@@ -265,10 +259,10 @@ const DashboardPage = ({ onPageChange = () => {} }) => {
                 }}
               >
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.25rem' }}>
-                  <div style={{ width: '46px', height: '46px', borderRadius: '12px', background: 'rgba(99, 102, 241, 0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid rgba(99, 102, 241, 0.3)' }}>
+                  <div style={{ width: '46px', height: '46px', borderRadius: '12px', background: 'rgba(212, 91, 8, 0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid rgba(212, 91, 8, 0.25)' }}>
                     <Compass size={24} style={{ color: 'var(--primary)' }} />
                   </div>
-                  <span style={{ fontSize: '0.75rem', fontWeight: 700, textTransform: 'uppercase', padding: '0.3rem 0.75rem', borderRadius: '9999px', background: 'rgba(255, 255, 255, 0.05)', color: 'var(--muted-foreground)', border: '1px solid var(--border)' }}>
+                  <span style={{ fontSize: '0.75rem', fontWeight: 700, textTransform: 'uppercase', padding: '0.3rem 0.75rem', borderRadius: '9999px', background: 'var(--secondary)', color: 'var(--muted-foreground)', border: '1px solid var(--border)' }}>
                     Self-Guided Tree
                   </span>
                 </div>
@@ -288,8 +282,8 @@ const DashboardPage = ({ onPageChange = () => {} }) => {
                         fontSize: '0.78rem', 
                         padding: '0.3rem 0.65rem', 
                         borderRadius: '6px', 
-                        background: 'rgba(255,255,255,0.04)', 
-                        border: '1px solid rgba(255,255,255,0.08)', 
+                        background: 'var(--secondary)', 
+                        border: '1px solid var(--border)', 
                         color: 'var(--muted-foreground)' 
                       }}
                     >
@@ -351,7 +345,7 @@ const DashboardPage = ({ onPageChange = () => {} }) => {
                   {cohort.desc}
                 </p>
 
-                <div style={{ marginBottom: '1.5rem', background: 'rgba(0,0,0,0.2)', padding: '1rem', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.05)' }}>
+                <div style={{ marginBottom: '1.5rem', background: 'var(--secondary)', padding: '1rem', borderRadius: '12px', border: '1px solid var(--border)' }}>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '0.55rem' }}>
                     {cohort.highlights.map((highlight, hIdx) => (
                       <div key={hIdx} style={{ display: 'flex', alignItems: 'center', gap: '0.55rem', fontSize: '0.86rem', color: 'var(--muted-foreground)' }}>

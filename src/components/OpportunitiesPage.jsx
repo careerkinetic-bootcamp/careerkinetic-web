@@ -10,7 +10,7 @@ const OpportunitiesPage = () => {
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '2rem', marginBottom: '2.5rem' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
           <Briefcase size={28} style={{ color: 'var(--primary)' }} />
-          <h1 className="text-gradient" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', margin: 0, textDecoration: 'underline' }}>Jobs / Internships :-</h1>
+          <h1 className="text-gradient" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', margin: 0 }}>Career Opportunities</h1>
         </div>
         
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem', flex: 1, minWidth: '280px', maxWidth: '400px' }}>
@@ -21,8 +21,9 @@ const OpportunitiesPage = () => {
             </button>
           </div>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'flex-end', paddingRight: '0.5rem' }}>
-            <span style={{ color: 'var(--primary)', cursor: 'pointer', fontWeight: '500', fontSize: '1.1rem' }}>sort , </span>
-            <span style={{ color: 'var(--primary)', cursor: 'pointer', fontWeight: '500', fontSize: '1.1rem' }}>filter</span>
+            <span style={{ color: 'var(--muted-foreground)', cursor: 'pointer', fontWeight: '500', fontSize: '0.9rem' }}>Sort</span>
+            <span style={{ color: 'var(--muted-foreground)' }}>•</span>
+            <span style={{ color: 'var(--muted-foreground)', cursor: 'pointer', fontWeight: '500', fontSize: '0.9rem' }}>Filter</span>
           </div>
         </div>
       </div>
@@ -36,8 +37,8 @@ const OpportunitiesPage = () => {
                 <h2 style={{ color: 'var(--card-title-color)', fontSize: 'clamp(1.2rem, 3vw, 1.5rem)', margin: '0 0 0.5rem 0' }}>Post {i} - Senior Software Engineer</h2>
                 <p className="text-muted" style={{ margin: 0, fontSize: '0.95rem' }}>TechCorp Industries • Remote • Full-Time</p>
               </div>
-              <span style={{ background: 'rgba(138,43,226,0.15)', color: '#a855f7', padding: '0.4rem 1rem', borderRadius: '20px', fontSize: '0.85rem', fontWeight: 'bold' }}>
-                {i % 2 === 0 ? 'Internship' : 'Job'}
+              <span style={{ background: 'var(--secondary)', color: 'var(--foreground)', border: '1px solid var(--border)', padding: '0.35rem 0.9rem', borderRadius: '20px', fontSize: '0.85rem', fontWeight: '600' }}>
+                {i % 2 === 0 ? 'Internship' : 'Full-Time Job'}
               </span>
             </div>
             

@@ -32,7 +32,7 @@ const FaqPage = () => {
           <div key={index} className="glass-panel fade-in-up" style={{ padding: '0', borderRadius: '16px', overflow: 'hidden', animationDelay: `${0.2 + (index * 0.1)}s` }}>
             <div 
               onClick={() => toggleFaq(index)} 
-              style={{ padding: '1.5rem 2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', cursor: 'pointer', background: openIndex === index ? 'rgba(255,255,255,0.02)' : 'transparent', transition: 'background 0.3s' }}
+              style={{ padding: '1.5rem 2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', cursor: 'pointer', background: openIndex === index ? 'var(--secondary)' : 'transparent', transition: 'background 0.3s' }}
             >
               <h3 style={{ margin: 0, fontSize: '1.25rem', color: openIndex === index ? 'var(--primary)' : 'var(--foreground)', transition: 'color 0.3s' }}>
                 {faq.question}
