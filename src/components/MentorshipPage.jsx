@@ -171,7 +171,7 @@ const MentorshipPage = ({ onPageChange = () => {} }) => {
         <div style={{ background: 'var(--secondary)', padding: '1rem', borderRadius: '50%', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
           <Users size={48} style={{ color: 'var(--primary)' }} />
         </div>
-        <h2 className="text-gradient" style={{ fontSize: '1.8rem', fontWeight: 'bold', margin: 0 }}>Login Required</h2>
+        <h2 style={{ fontSize: '1.8rem', fontWeight: 800, margin: 0, color: 'var(--foreground)' }}>Login Required</h2>
         <p className="text-muted" style={{ fontSize: '1.05rem', lineHeight: 1.6, margin: 0 }}>
           Please log in to your CareerKinetic account to access 1-on-1 industry mentorship cohorts, code defense sessions, and application reviews.
         </p>
@@ -186,232 +186,338 @@ const MentorshipPage = ({ onPageChange = () => {} }) => {
     );
   }
 
+  const renderProjectCard = (proj, pIdx, isSpanFull = false) => (
+    <div 
+      key={pIdx} 
+      className="bento-track-card" 
+      style={{ 
+        padding: '2.25rem',
+        display: 'flex',
+        flexDirection: 'column',
+        gridColumn: isSpanFull ? '1 / -1' : 'auto'
+      }}
+    >
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem', flexWrap: 'wrap', gap: '0.5rem' }}>
+        <span style={{ 
+          fontSize: '0.74rem', 
+          fontWeight: 700, 
+          textTransform: 'uppercase', 
+          letterSpacing: '0.5px',
+          padding: '0.35rem 0.75rem', 
+          borderRadius: '9999px', 
+          background: activeProjectTab === 'swe' ? 'rgba(99, 102, 241, 0.08)' : 'rgba(236, 72, 153, 0.08)', 
+          color: activeProjectTab === 'swe' ? '#6366f1' : '#ec4899',
+          border: `1px solid ${activeProjectTab === 'swe' ? 'rgba(99, 102, 241, 0.22)' : 'rgba(236, 72, 153, 0.22)'}`
+        }}>
+          {proj.number} • {proj.track}
+        </span>
+        <span style={{ fontSize: '0.78rem', color: 'var(--muted-foreground)', display: 'inline-flex', alignItems: 'center', gap: '0.35rem' }}>
+          <Layers size={13} />
+          {proj.visualFoundation}
+        </span>
+      </div>
+
+      <h3 style={{ color: 'var(--foreground)', fontSize: '1.3rem', marginBottom: '0.65rem', fontWeight: 700, lineHeight: 1.3 }}>
+        {proj.title}
+      </h3>
+      <p style={{ fontSize: '0.92rem', color: 'var(--muted-foreground)', marginBottom: '1.5rem', lineHeight: 1.6, flex: 1 }}>
+        {proj.desc}
+      </p>
+
+      {/* Tech Stack Pills */}
+      <div style={{ marginBottom: '1.75rem', display: 'flex', flexWrap: 'wrap', gap: '0.45rem' }}>
+        {proj.tech.map((t, tIdx) => (
+          <span key={tIdx} className="bento-tag">
+            <span className="bento-tag-dot" />
+            {t}
+          </span>
+        ))}
+      </div>
+
+      {/* Whiteboard Defense Callout */}
+      <div style={{ 
+        marginTop: 'auto', 
+        paddingTop: '1rem', 
+        borderTop: '1px solid var(--border)',
+        display: 'flex', 
+        alignItems: 'flex-start', 
+        gap: '0.65rem' 
+      }}>
+        <Shield size={16} style={{ color: '#10b981', flexShrink: 0, marginTop: '2px' }} />
+        <span style={{ fontSize: '0.82rem', color: 'var(--muted-foreground)', lineHeight: 1.5 }}>
+          <strong style={{ color: 'var(--foreground)' }}>Oral Whiteboard Defense:</strong> Unassisted whiteboard explanation of system invariants, failure modes, and hardware trade-offs.
+        </span>
+      </div>
+    </div>
+  );
+
   return (
     <div className="courses-page fade-in-up delay-1" style={{ maxWidth: '1200px', margin: '0 auto', width: '100%', paddingBottom: '4rem' }}>
       
-      {/* Header Banner */}
-      <div className="courses-header glass-panel fade-in-up delay-2" style={{ marginBottom: '2.5rem' }}>
-        <div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.4rem' }}>
-            <Users size={22} style={{ color: 'var(--primary)' }} />
-            <span style={{ fontSize: '0.85rem', fontWeight: 700, textTransform: 'uppercase', color: 'var(--primary)', letterSpacing: '1px' }}>
-              Elite 1-on-1 Coaching
-            </span>
-          </div>
-          <h1 className="text-gradient" style={{ margin: 0, fontSize: 'clamp(1.8rem, 4vw, 2.4rem)' }}>
-            1-on-1 Industry Mentorship & Live Defense
-          </h1>
-          <p className="text-muted" style={{ margin: '0.5rem 0 0 0', fontSize: '1rem', maxWidth: '850px', lineHeight: 1.6 }}>
-            Accelerate your engineering journey with structured mentorship, weekly unassisted code defenses, live architectural reviews, and production-grade project execution.
-          </p>
+      {/* 1. Natural Integrated Page Header */}
+      <div style={{ marginBottom: '2.5rem', textAlign: 'left', paddingTop: '0.5rem' }}>
+        <div style={{ 
+          display: 'inline-flex', 
+          alignItems: 'center', 
+          gap: '8px', 
+          padding: '0.35rem 0.95rem', 
+          borderRadius: '9999px', 
+          background: 'rgba(212, 91, 8, 0.08)', 
+          border: '1px solid rgba(212, 91, 8, 0.2)', 
+          fontSize: '0.75rem', 
+          fontWeight: 700, 
+          color: 'var(--primary)', 
+          letterSpacing: '0.8px', 
+          textTransform: 'uppercase',
+          marginBottom: '0.85rem'
+        }}>
+          <Users size={14} style={{ color: 'var(--primary)' }} />
+          Elite 1-on-1 Coaching
         </div>
+        <h1 style={{ 
+          margin: 0, 
+          fontSize: 'clamp(2rem, 4.2vw, 2.75rem)', 
+          fontWeight: 800, 
+          color: 'var(--foreground)', 
+          letterSpacing: '-0.75px',
+          lineHeight: 1.2
+        }}>
+          1-on-1 Industry Mentorship & Live Defense
+        </h1>
+        <p style={{ 
+          margin: '0.5rem 0 0 0', 
+          fontSize: '1.02rem', 
+          color: 'var(--muted-foreground)', 
+          maxWidth: '850px', 
+          lineHeight: 1.6 
+        }}>
+          Accelerate your engineering journey with structured mentorship, weekly unassisted code defenses, live architectural reviews, and production-grade project execution.
+        </p>
       </div>
 
       {/* Value Pillars */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem', marginBottom: '3rem' }}>
-        <div className="glass-panel" style={{ padding: '1.5rem', borderRadius: '16px', border: '1px solid var(--border)' }}>
-          <div style={{ width: '42px', height: '42px', borderRadius: '10px', background: 'rgba(99, 102, 241, 0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1rem' }}>
-            <Users size={22} style={{ color: '#818cf8' }} />
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem', marginBottom: '3.5rem' }}>
+        <div className="bento-track-card" style={{ padding: '1.75rem' }}>
+          <div style={{ width: '42px', height: '42px', borderRadius: '12px', background: 'rgba(99, 102, 241, 0.08)', border: '1px solid rgba(99, 102, 241, 0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1rem' }}>
+            <Users size={20} style={{ color: '#6366f1' }} />
           </div>
-          <h3 style={{ fontSize: '1.15rem', color: 'var(--foreground)', marginBottom: '0.4rem' }}>1-on-1 Senior Mentors</h3>
-          <p className="text-muted" style={{ fontSize: '0.88rem', lineHeight: 1.5, margin: 0 }}>
+          <h3 style={{ fontSize: '1.15rem', color: 'var(--foreground)', fontWeight: 700, marginBottom: '0.4rem' }}>1-on-1 Senior Mentors</h3>
+          <p style={{ fontSize: '0.9rem', color: 'var(--muted-foreground)', lineHeight: 1.55, margin: 0 }}>
             Paired directly with principal engineers from Tier-1 tech firms for weekly personalized code reviews.
           </p>
         </div>
 
-        <div className="glass-panel" style={{ padding: '1.5rem', borderRadius: '16px', border: '1px solid var(--border)' }}>
-          <div style={{ width: '42px', height: '42px', borderRadius: '10px', background: 'rgba(236, 72, 153, 0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1rem' }}>
-            <Award size={22} style={{ color: '#f472b6' }} />
+        <div className="bento-track-card" style={{ padding: '1.75rem' }}>
+          <div style={{ width: '42px', height: '42px', borderRadius: '12px', background: 'rgba(236, 72, 153, 0.08)', border: '1px solid rgba(236, 72, 153, 0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1rem' }}>
+            <Award size={20} style={{ color: '#ec4899' }} />
           </div>
-          <h3 style={{ fontSize: '1.15rem', color: 'var(--foreground)', marginBottom: '0.4rem' }}>Whiteboard Code Defenses</h3>
-          <p className="text-muted" style={{ fontSize: '0.88rem', lineHeight: 1.5, margin: 0 }}>
+          <h3 style={{ fontSize: '1.15rem', color: 'var(--foreground)', fontWeight: 700, marginBottom: '0.4rem' }}>Whiteboard Code Defenses</h3>
+          <p style={{ fontSize: '0.9rem', color: 'var(--muted-foreground)', lineHeight: 1.55, margin: 0 }}>
             Unassisted oral evaluations at the whiteboard to defend your architectural decisions and system trade-offs.
           </p>
         </div>
 
-        <div className="glass-panel" style={{ padding: '1.5rem', borderRadius: '16px', border: '1px solid var(--border)' }}>
-          <div style={{ width: '42px', height: '42px', borderRadius: '10px', background: 'rgba(16, 185, 129, 0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1rem' }}>
-            <Shield size={22} style={{ color: '#10b981' }} />
+        <div className="bento-track-card" style={{ padding: '1.75rem' }}>
+          <div style={{ width: '42px', height: '42px', borderRadius: '12px', background: 'rgba(16, 185, 129, 0.08)', border: '1px solid rgba(16, 185, 129, 0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1rem' }}>
+            <Shield size={20} style={{ color: '#10b981' }} />
           </div>
-          <h3 style={{ fontSize: '1.15rem', color: 'var(--foreground)', marginBottom: '0.4rem' }}>Mock Technical Interviews</h3>
-          <p className="text-muted" style={{ fontSize: '0.88rem', lineHeight: 1.5, margin: 0 }}>
+          <h3 style={{ fontSize: '1.15rem', color: 'var(--foreground)', fontWeight: 700, marginBottom: '0.4rem' }}>Mock Technical Interviews</h3>
+          <p style={{ fontSize: '0.9rem', color: 'var(--muted-foreground)', lineHeight: 1.55, margin: 0 }}>
             Rigorous technical interviews and resume calibrations to prepare you for high-bar hiring loops.
           </p>
         </div>
       </div>
 
       {/* Production Projects / Enterprise Systems Showcase */}
-      <div className="fade-in-up" style={{ marginTop: '4rem', marginBottom: '4rem' }}>
+      <div className="fade-in-up" style={{ marginTop: '4rem', marginBottom: '4.5rem' }}>
         <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '0.35rem 1rem', borderRadius: '9999px', background: 'rgba(16, 185, 129, 0.12)', border: '1px solid rgba(16, 185, 129, 0.3)', marginBottom: '1rem' }}>
-            <Shield size={16} style={{ color: '#10b981' }} />
-            <span style={{ fontSize: '0.8rem', fontWeight: 700, color: '#10b981', letterSpacing: '1px', textTransform: 'uppercase' }}>
+          <div style={{ 
+            display: 'inline-flex', 
+            alignItems: 'center', 
+            gap: '8px', 
+            padding: '0.35rem 0.95rem', 
+            borderRadius: '9999px', 
+            background: 'rgba(16, 185, 129, 0.08)', 
+            border: '1px solid rgba(16, 185, 129, 0.25)', 
+            marginBottom: '0.85rem' 
+          }}>
+            <Shield size={14} style={{ color: '#10b981' }} />
+            <span style={{ fontSize: '0.75rem', fontWeight: 700, color: '#10b981', letterSpacing: '0.8px', textTransform: 'uppercase' }}>
               Real Enterprise Architectures • Zero Toy Apps
             </span>
           </div>
-          <h2 className="text-gradient" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', margin: '0 0 0.75rem 0', fontWeight: 800 }}>
+          <h2 style={{ 
+            fontSize: 'clamp(1.9rem, 4vw, 2.6rem)', 
+            color: 'var(--foreground)', 
+            fontWeight: 800, 
+            letterSpacing: '-0.75px', 
+            margin: '0 0 0.75rem 0',
+            lineHeight: 1.2
+          }}>
             Systems You Will Build & Orally Defend
           </h2>
-          <p className="text-muted" style={{ fontSize: '1rem', maxWidth: '750px', margin: '0 auto', lineHeight: 1.6 }}>
+          <p style={{ fontSize: '1.02rem', color: 'var(--muted-foreground)', maxWidth: '750px', margin: '0 auto', lineHeight: 1.6 }}>
             Every cohort student constructs these production-grade systems from reference wireframes to deployment, profiling memory bounds and orally defending architectural trade-offs at the whiteboard.
           </p>
         </div>
 
-        {/* Project Track Switcher */}
+        {/* Project Track Switcher - Unified Floating Glass Pill */}
         <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '2.5rem' }}>
-          <div 
-            style={{ 
-              display: 'inline-flex', 
-              background: 'rgba(255, 255, 255, 0.04)', 
-              padding: '6px', 
-              borderRadius: '9999px', 
-              border: '1px solid var(--border)',
-              boxShadow: '0 4px 20px rgba(0,0,0,0.2)'
-            }}
-          >
+          <div className="track-segmented-control">
             <button
               onClick={() => setActiveProjectTab('swe')}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '8px',
-                padding: '0.65rem 1.6rem',
-                borderRadius: '9999px',
-                border: 'none',
-                background: activeProjectTab === 'swe' ? 'var(--primary)' : 'transparent',
-                color: activeProjectTab === 'swe' ? '#fff' : 'var(--muted-foreground)',
-                fontWeight: 600,
-                fontSize: '0.92rem',
-                cursor: 'pointer',
-                transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-                boxShadow: activeProjectTab === 'swe' ? '0 4px 15px rgba(99, 102, 241, 0.4)' : 'none'
-              }}
+              className={`track-segmented-btn ${activeProjectTab === 'swe' ? 'active' : ''}`}
             >
-              <Terminal size={17} />
-              Backend & Distributed Systems
-              <span style={{ fontSize: '0.72rem', opacity: 0.9, background: activeProjectTab === 'swe' ? 'rgba(255,255,255,0.2)' : 'rgba(255,255,255,0.06)', padding: '2px 8px', borderRadius: '10px', marginLeft: '4px' }}>
-                4 Systems
-              </span>
+              <Terminal size={16} />
+              <span>Backend & Distributed Systems</span>
+              <span className="track-pill-count">4 Systems • 2 Sections</span>
             </button>
 
             <button
               onClick={() => setActiveProjectTab('aiml')}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '8px',
-                padding: '0.65rem 1.6rem',
-                borderRadius: '9999px',
-                border: 'none',
-                background: activeProjectTab === 'aiml' ? 'var(--primary)' : 'transparent',
-                color: activeProjectTab === 'aiml' ? '#fff' : 'var(--muted-foreground)',
-                fontWeight: 600,
-                fontSize: '0.92rem',
-                cursor: 'pointer',
-                transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-                boxShadow: activeProjectTab === 'aiml' ? '0 4px 15px rgba(99, 102, 241, 0.4)' : 'none'
-              }}
+              className={`track-segmented-btn ${activeProjectTab === 'aiml' ? 'active' : ''}`}
             >
-              <Brain size={17} />
-              AI/ML & Agentic Blueprints
-              <span style={{ fontSize: '0.72rem', opacity: 0.9, background: activeProjectTab === 'aiml' ? 'rgba(255,255,255,0.2)' : 'rgba(255,255,255,0.06)', padding: '2px 8px', borderRadius: '10px', marginLeft: '4px' }}>
-                5 Blueprints
-              </span>
+              <Brain size={16} />
+              <span>AI/ML & Agentic Blueprints</span>
+              <span className="track-pill-count highlight">5 Blueprints • 2 Sections</span>
             </button>
           </div>
         </div>
 
-        {/* Projects Grid */}
-        <div key={activeProjectTab} className="fade-in" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '1.75rem' }}>
-          {(activeProjectTab === 'swe' ? SWE_CURRICULUM.blueprints : AIML_CURRICULUM.blueprints).map((proj, pIdx) => (
-            <div 
-              key={pIdx} 
-              className="course-card glass-panel" 
-              style={{ 
-                padding: '1.75rem', 
-                borderRadius: 'var(--radius-card)', 
-                display: 'flex', 
-                flexDirection: 'column', 
-                border: '1px solid var(--border)',
-                background: 'rgba(255, 255, 255, 0.02)'
-              }}
-            >
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem', flexWrap: 'wrap', gap: '0.5rem' }}>
-                <span style={{ 
-                  fontSize: '0.75rem', 
-                  fontWeight: 700, 
-                  textTransform: 'uppercase', 
-                  padding: '0.3rem 0.75rem', 
-                  borderRadius: '9999px', 
-                  background: activeProjectTab === 'swe' ? 'rgba(99, 102, 241, 0.15)' : 'rgba(236, 72, 153, 0.15)', 
-                  color: activeProjectTab === 'swe' ? '#818cf8' : '#f472b6',
-                  border: `1px solid ${activeProjectTab === 'swe' ? 'rgba(99, 102, 241, 0.3)' : 'rgba(236, 72, 153, 0.3)'}`
-                }}>
-                  {proj.number} • {proj.track}
-                </span>
-                <span style={{ fontSize: '0.78rem', color: 'var(--muted-foreground)', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
-                  <Layers size={13} />
-                  {proj.visualFoundation}
-                </span>
-              </div>
-
-              <h3 style={{ color: 'var(--foreground)', fontSize: '1.25rem', marginBottom: '0.6rem', fontWeight: 700 }}>
-                {proj.title}
-              </h3>
-              <p className="text-muted" style={{ fontSize: '0.88rem', marginBottom: '1.25rem', lineHeight: 1.55, flex: 1 }}>
-                {proj.desc}
-              </p>
-
-              {/* Tech Stack Pills */}
-              <div style={{ marginBottom: '1.25rem', display: 'flex', flexWrap: 'wrap', gap: '0.4rem' }}>
-                {proj.tech.map((t, tIdx) => (
-                  <span 
-                    key={tIdx} 
-                    style={{ 
-                      fontSize: '0.75rem', 
-                      padding: '0.25rem 0.6rem', 
-                      borderRadius: '6px', 
-                      background: 'rgba(255, 255, 255, 0.04)', 
-                      border: '1px solid rgba(255, 255, 255, 0.08)', 
-                      color: 'var(--foreground)',
-                      fontWeight: 500 
-                    }}
-                  >
-                    {t}
+        {/* 2-Section Systems Layout: 2 Sections of 2 Systems Each */}
+        <div key={activeProjectTab} className="fade-in" style={{ display: 'flex', flexDirection: 'column', gap: '3rem' }}>
+          {activeProjectTab === 'swe' ? (
+            <>
+              {/* Section 1: Phase 1 (2 Systems) */}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.75rem', paddingBottom: '0.75rem', borderBottom: '1px solid var(--border)' }}>
+                  <div>
+                    <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', fontSize: '0.72rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.6px', color: '#6366f1', marginBottom: '0.25rem' }}>
+                      <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#6366f1' }} />
+                      Section 1 • Phase 1 Core Systems (2 Systems)
+                    </div>
+                    <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: 'var(--foreground)', margin: 0 }}>
+                      Core Architecture & Real-Time Event Streaming
+                    </h3>
+                  </div>
+                  <span style={{ fontSize: '0.82rem', color: 'var(--muted-foreground)' }}>
+                    High-throughput ingestion & WebSocket synchronization
                   </span>
-                ))}
+                </div>
+
+                <div className="systems-grid-2col">
+                  {SWE_CURRICULUM.blueprints.slice(0, 2).map((proj, pIdx) => renderProjectCard(proj, pIdx))}
+                </div>
               </div>
 
-              {/* Whiteboard Defense Callout */}
-              <div style={{ marginTop: 'auto', background: 'rgba(16, 185, 129, 0.06)', padding: '0.75rem 1rem', borderRadius: '10px', border: '1px solid rgba(16, 185, 129, 0.18)', display: 'flex', alignItems: 'flex-start', gap: '0.6rem' }}>
-                <Shield size={16} style={{ color: '#10b981', flexShrink: 0, marginTop: '2px' }} />
-                <span style={{ fontSize: '0.8rem', color: '#6ee7b7', lineHeight: 1.4 }}>
-                  <strong>Oral Defense:</strong> Unassisted whiteboard explanation of system invariants, failure modes, and hardware trade-offs.
-                </span>
+              {/* Section 2: Phase 2 (2 Systems) */}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.75rem', paddingBottom: '0.75rem', borderBottom: '1px solid var(--border)' }}>
+                  <div>
+                    <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', fontSize: '0.72rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.6px', color: '#6366f1', marginBottom: '0.25rem' }}>
+                      <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#6366f1' }} />
+                      Section 2 • Phase 2 Distributed Mesh (2 Systems)
+                    </div>
+                    <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: 'var(--foreground)', margin: 0 }}>
+                      Distributed Protocols & Production AI Gateways
+                    </h3>
+                  </div>
+                  <span style={{ fontSize: '0.82rem', color: 'var(--muted-foreground)' }}>
+                    Fault-tolerant RPC meshes & tokenized LLM streaming pipelines
+                  </span>
+                </div>
+
+                <div className="systems-grid-2col">
+                  {SWE_CURRICULUM.blueprints.slice(2, 4).map((proj, pIdx) => renderProjectCard(proj, pIdx + 2))}
+                </div>
               </div>
-            </div>
-          ))}
+            </>
+          ) : (
+            <>
+              {/* Section 1: Phase 1 (2 Systems) */}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.75rem', paddingBottom: '0.75rem', borderBottom: '1px solid var(--border)' }}>
+                  <div>
+                    <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', fontSize: '0.72rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.6px', color: '#ec4899', marginBottom: '0.25rem' }}>
+                      <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#ec4899' }} />
+                      Section 1 • Phase 1 Out-of-Core Data Systems (2 Blueprints)
+                    </div>
+                    <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: 'var(--foreground)', margin: 0 }}>
+                      Out-of-Core Data Architecture & Scalable MLOps
+                    </h3>
+                  </div>
+                  <span style={{ fontSize: '0.82rem', color: 'var(--muted-foreground)' }}>
+                    Constrained RAM pipelines, feature stores & automated drift checks
+                  </span>
+                </div>
+
+                <div className="systems-grid-2col">
+                  {AIML_CURRICULUM.blueprints.slice(0, 2).map((proj, pIdx) => renderProjectCard(proj, pIdx))}
+                </div>
+              </div>
+
+              {/* Section 2: Phase 2 (3 Blueprints) */}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.75rem', paddingBottom: '0.75rem', borderBottom: '1px solid var(--border)' }}>
+                  <div>
+                    <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', fontSize: '0.72rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.6px', color: '#ec4899', marginBottom: '0.25rem' }}>
+                      <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#ec4899' }} />
+                      Section 2 • Phase 2 Deep Learning & Autonomous Mesh (3 Blueprints)
+                    </div>
+                    <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: 'var(--foreground)', margin: 0 }}>
+                      Deep Learning, GraphRAG & Multi-Agent Mesh
+                    </h3>
+                  </div>
+                  <span style={{ fontSize: '0.82rem', color: 'var(--muted-foreground)' }}>
+                    Vision transformers, Neo4j hybrid search & sandboxed code agents
+                  </span>
+                </div>
+
+                <div className="systems-grid-2col">
+                  {AIML_CURRICULUM.blueprints.slice(2, 5).map((proj, pIdx) => 
+                    renderProjectCard(proj, pIdx + 2, pIdx === 2)
+                  )}
+                </div>
+              </div>
+            </>
+          )}
         </div>
       </div>
 
       {/* Cohorts Grid - At the bottom as the primary CTA */}
       <div className="fade-in-up" style={{ marginTop: '5rem', marginBottom: '4rem' }}>
         <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '0.35rem 1rem', borderRadius: '9999px', background: 'rgba(99, 102, 241, 0.12)', border: '1px solid rgba(99, 102, 241, 0.3)', marginBottom: '1rem' }}>
-            <Users size={16} style={{ color: 'var(--primary)' }} />
-            <span style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--primary)', letterSpacing: '1px', textTransform: 'uppercase' }}>
+          <div style={{ 
+            display: 'inline-flex', 
+            alignItems: 'center', 
+            gap: '8px', 
+            padding: '0.35rem 0.95rem', 
+            borderRadius: '9999px', 
+            background: 'rgba(212, 91, 8, 0.08)', 
+            border: '1px solid rgba(212, 91, 8, 0.2)', 
+            marginBottom: '0.85rem' 
+          }}>
+            <Users size={14} style={{ color: 'var(--primary)' }} />
+            <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--primary)', letterSpacing: '0.8px', textTransform: 'uppercase' }}>
               Select Your Specialization
             </span>
           </div>
-          <h2 className="text-gradient" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', margin: '0 0 0.75rem 0', fontWeight: 800 }}>
+          <h2 style={{ 
+            fontSize: 'clamp(1.9rem, 4vw, 2.6rem)', 
+            color: 'var(--foreground)', 
+            fontWeight: 800, 
+            letterSpacing: '-0.75px', 
+            margin: '0 0 0.75rem 0',
+            lineHeight: 1.2
+          }}>
             Choose Your Mentorship Cohort
           </h2>
-          <p className="text-muted" style={{ fontSize: '1rem', maxWidth: '700px', margin: '0 auto', lineHeight: 1.6 }}>
+          <p style={{ fontSize: '1.02rem', color: 'var(--muted-foreground)', maxWidth: '700px', margin: '0 auto', lineHeight: 1.6 }}>
             Limited cohort seats to guarantee dedicated 1-on-1 mentor code reviews, weekly whiteboard defense, and accelerated tech placement.
           </p>
         </div>
 
-        {/* Demo Mode Testing Banner — Only visible when logged in as Demo User */}
+        {/* Demo Mode Testing Banner — Clean subtle card */}
         {user?.email === 'dev.user@careerkinetic.com' && (
           <div 
             className="fade-in-up"
@@ -419,20 +525,19 @@ const MentorshipPage = ({ onPageChange = () => {} }) => {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'space-between',
-              padding: '0.85rem 1.25rem',
-              background: 'linear-gradient(135deg, rgba(99, 102, 241, 0.12), rgba(168, 85, 247, 0.08))',
-              border: '1px solid rgba(99, 102, 241, 0.3)',
+              padding: '0.85rem 1.4rem',
+              background: 'rgba(241, 245, 249, 0.9)',
+              border: '1px solid rgba(203, 213, 225, 0.9)',
               borderRadius: '14px',
               marginBottom: '2rem',
               flexWrap: 'wrap',
-              gap: '0.75rem',
-              boxShadow: '0 4px 20px rgba(99, 102, 241, 0.1)'
+              gap: '0.75rem'
             }}
           >
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', fontSize: '0.9rem', color: 'var(--foreground)' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', fontSize: '0.88rem', color: 'var(--foreground)' }}>
               <span>🧪 <strong>Demo Testing Mode:</strong> Logged in as Demo Student</span>
               {enrolledCohorts.length > 0 && (
-                <span style={{ fontSize: '0.78rem', fontWeight: 600, color: '#10b981', background: 'rgba(16, 185, 129, 0.15)', border: '1px solid rgba(16, 185, 129, 0.3)', padding: '0.2rem 0.6rem', borderRadius: '9999px' }}>
+                <span style={{ fontSize: '0.76rem', fontWeight: 600, color: '#10b981', background: 'rgba(16, 185, 129, 0.12)', border: '1px solid rgba(16, 185, 129, 0.25)', padding: '0.2rem 0.6rem', borderRadius: '9999px' }}>
                   {enrolledCohorts.length} Cohort{enrolledCohorts.length > 1 ? 's' : ''} Enrolled
                 </span>
               )}
@@ -452,7 +557,7 @@ const MentorshipPage = ({ onPageChange = () => {} }) => {
                 style={{
                   padding: '0.45rem 1rem',
                   fontSize: '0.85rem',
-                  borderRadius: '9999px',
+                  borderRadius: '10px',
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: '0.45rem',
@@ -467,188 +572,181 @@ const MentorshipPage = ({ onPageChange = () => {} }) => {
           </div>
         )}
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))', gap: '2rem' }}>
+        <div className="bento-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))', gap: '2rem' }}>
           {MENTORSHIP_COHORTS.map((cohort) => {
             const Icon = cohort.icon;
+            const isAi = cohort.id === 'aiml';
 
             return (
               <div
                 key={cohort.id}
-                className="course-card glass-panel fade-in-up"
-                style={{
-                  borderRadius: 'var(--radius-card)',
-                  border: '1px solid var(--border)',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  overflow: 'hidden',
-                  padding: '0'
-                }}
+                className="bento-track-card"
+                style={{ padding: '2.25rem' }}
               >
-                <div
-                  style={{
-                    height: '140px',
-                    background: cohort.gradient,
-                    borderBottom: '1px solid var(--border)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    position: 'relative'
-                  }}
-                >
-                  <div
-                    style={{
-                      width: '60px',
-                      height: '60px',
-                      borderRadius: '16px',
-                      background: 'rgba(0,0,0,0.35)',
-                      border: '1px solid var(--border)',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      boxShadow: '0 6px 20px rgba(0,0,0,0.3)'
-                    }}
-                  >
-                    <Icon size={30} style={{ color: cohort.badgeColor }} />
+                {/* Modern Card Header: Neat Top-Left Icon Badge + Duration Pill */}
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.25rem', flexWrap: 'wrap', gap: '0.5rem' }}>
+                  <div style={{ 
+                    width: '46px', 
+                    height: '46px', 
+                    borderRadius: '12px', 
+                    background: isAi ? 'rgba(212, 91, 8, 0.08)' : 'rgba(56, 189, 248, 0.08)', 
+                    display: 'flex', 
+                    alignItems: 'center', 
+                    justifyContent: 'center', 
+                    border: isAi ? '1px solid rgba(212, 91, 8, 0.22)' : '1px solid rgba(56, 189, 248, 0.25)' 
+                  }}>
+                    <Icon size={24} style={{ color: isAi ? 'var(--primary)' : '#0284c7' }} />
+                  </div>
+                  <span style={{ 
+                    fontSize: '0.74rem', 
+                    fontWeight: 600, 
+                    letterSpacing: '0.5px',
+                    textTransform: 'uppercase', 
+                    padding: '0.35rem 0.8rem', 
+                    borderRadius: '9999px', 
+                    background: 'rgba(241, 245, 249, 0.9)', 
+                    color: '#475569', 
+                    border: '1px solid rgba(226, 232, 240, 0.9)' 
+                  }}>
+                    {cohort.duration} • Live 1-on-1
+                  </span>
+                </div>
+
+                {/* Subtitle / Badge */}
+                <div style={{ 
+                  fontSize: '0.75rem', 
+                  fontWeight: 700, 
+                  textTransform: 'uppercase', 
+                  letterSpacing: '0.75px', 
+                  color: isAi ? 'var(--primary)' : '#0284c7', 
+                  marginBottom: '0.45rem' 
+                }}>
+                  {cohort.badge}
+                </div>
+
+                {/* Title & Pricing */}
+                <h3 style={{ fontSize: '1.45rem', fontWeight: 800, color: 'var(--foreground)', margin: '0 0 0.5rem 0', letterSpacing: '-0.3px', lineHeight: 1.25 }}>
+                  {cohort.title}
+                </h3>
+                
+                <div style={{ display: 'flex', alignItems: 'baseline', gap: '8px', marginBottom: '1rem' }}>
+                  <span style={{ fontSize: '1.65rem', fontWeight: 800, color: 'var(--foreground)', letterSpacing: '-0.5px' }}>
+                    ₹{cohort.priceFull?.toLocaleString('en-IN')}
+                  </span>
+                  <span style={{ fontSize: '0.85rem', color: 'var(--muted-foreground)' }}>
+                    or ₹{cohort.priceMonthly?.toLocaleString('en-IN')}/mo (EMI)
+                  </span>
+                </div>
+
+                <p style={{ fontSize: '0.92rem', color: 'var(--muted-foreground)', lineHeight: 1.6, marginBottom: '1.75rem' }}>
+                  {cohort.description}
+                </p>
+
+                {/* What You Get in Mentorship: Clean breathing list on white surface, NO gray bubble! */}
+                <div style={{ marginBottom: '2rem' }}>
+                  <span style={{ 
+                    fontSize: '0.74rem', 
+                    fontWeight: 700, 
+                    textTransform: 'uppercase', 
+                    color: '#94a3b8', 
+                    display: 'block', 
+                    marginBottom: '0.9rem', 
+                    letterSpacing: '0.8px' 
+                  }}>
+                    What You Get in Mentorship:
+                  </span>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+                    {cohort.highlights.map((highlight, hIdx) => (
+                      <div key={hIdx} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.65rem', fontSize: '0.88rem', color: 'var(--foreground)', lineHeight: 1.5 }}>
+                        <CheckCircle2 size={16} style={{ color: '#10b981', flexShrink: 0, marginTop: '3px' }} />
+                        <span>{highlight}</span>
+                      </div>
+                    ))}
                   </div>
                 </div>
 
-                <div style={{ padding: '2rem', display: 'flex', flexDirection: 'column', flex: 1 }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '0.75rem' }}>
-                    <span
-                      style={{
-                        fontSize: '0.75rem',
-                        fontWeight: 700,
-                        textTransform: 'uppercase',
-                        padding: '0.3rem 0.8rem',
-                        borderRadius: '9999px',
-                        background: cohort.badgeBg,
-                        border: `1px solid ${cohort.badgeBorder}`,
-                        color: cohort.badgeColor
-                      }}
-                    >
-                      {cohort.badge}
-                    </span>
-                    <span style={{ fontSize: '0.8rem', color: 'var(--muted-foreground)', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
-                      <Clock size={14} />
-                      {cohort.duration}
-                    </span>
-                  </div>
-
-                  <h2 style={{ fontSize: '1.45rem', fontWeight: 700, color: 'var(--foreground)', margin: '0.25rem 0 0.25rem 0' }}>
-                    {cohort.title}
-                  </h2>
-                  <div style={{ display: 'flex', alignItems: 'baseline', gap: '8px', marginBottom: '0.75rem' }}>
-                    <span style={{ fontSize: '1.5rem', fontWeight: 800, color: 'var(--foreground)' }}>
-                      ₹{cohort.priceFull?.toLocaleString('en-IN')}
-                    </span>
-                    <span style={{ fontSize: '0.8rem', color: 'var(--muted-foreground)' }}>
-                      or ₹{cohort.priceMonthly?.toLocaleString('en-IN')}/mo (EMI)
-                    </span>
-                  </div>
-                  <p className="text-muted" style={{ fontSize: '0.9rem', lineHeight: 1.6, marginBottom: '1.5rem' }}>
-                    {cohort.description}
-                  </p>
-
-                  <div style={{ marginBottom: '2rem', background: 'rgba(0,0,0,0.2)', padding: '12px 1.25rem', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.05)' }}>
-                    <span style={{ fontSize: '0.8rem', fontWeight: 700, textTransform: 'uppercase', color: 'var(--foreground)', display: 'block', marginBottom: '0.75rem', letterSpacing: '0.5px' }}>
-                      What You Get in Mentorship:
-                    </span>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
-                      {cohort.highlights.map((highlight, hIdx) => (
-                        <div key={hIdx} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem', fontSize: '0.86rem', color: 'var(--muted-foreground)', lineHeight: 1.4 }}>
-                          <CheckCircle2 size={16} style={{ color: '#10b981', flexShrink: 0, marginTop: '2px' }} />
-                          <span>{highlight}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div style={{ marginTop: 'auto', display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
-                    {isEnrolled(cohort.id) ? (
-                      <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', width: '100%' }}>
-                        <div
-                          style={{
-                            flex: 1,
-                            minWidth: '140px',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            gap: '8px',
-                            padding: '0.75rem 1rem',
-                            borderRadius: '9999px',
-                            background: 'rgba(16, 185, 129, 0.15)',
-                            border: '1px solid rgba(16, 185, 129, 0.4)',
-                            color: '#10b981',
-                            fontWeight: 700,
-                            fontSize: '0.9rem'
-                          }}
-                        >
-                          <CheckCircle2 size={18} /> Enrolled Student
-                        </div>
-                        <button
-                          className="btn btn-outline"
-                          style={{
-                            flex: 1,
-                            minWidth: '140px',
-                            borderRadius: '9999px',
-                            padding: '0.75rem 1rem',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            gap: '0.5rem',
-                            fontWeight: 600,
-                            borderColor: cohort.badgeBorder,
-                            color: cohort.badgeColor
-                          }}
-                          onClick={() => {
-                            setActiveProjectTab(cohort.id);
-                            window.scrollTo({ top: 350, behavior: 'smooth' });
-                          }}
-                        >
-                          View Blueprints <ArrowRight size={15} />
-                        </button>
+                {/* Card Action Buttons (Modern 12px radii, no candy pills) */}
+                <div style={{ marginTop: 'auto', paddingTop: '1.25rem', borderTop: '1px solid var(--border)', display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
+                  {isEnrolled(cohort.id) ? (
+                    <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', width: '100%' }}>
+                      <div
+                        style={{
+                          flex: 1,
+                          minWidth: '140px',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          gap: '8px',
+                          padding: '0.75rem 1rem',
+                          borderRadius: '12px',
+                          background: 'rgba(16, 185, 129, 0.1)',
+                          border: '1px solid rgba(16, 185, 129, 0.3)',
+                          color: '#10b981',
+                          fontWeight: 700,
+                          fontSize: '0.9rem'
+                        }}
+                      >
+                        <CheckCircle2 size={18} /> Enrolled Student
                       </div>
-                    ) : (
-                      <>
-                        <button
-                          className="btn btn-primary"
-                          style={{ 
-                            flex: 1, 
-                            minWidth: '135px', 
-                            borderRadius: '9999px', 
-                            padding: '0.75rem 1.25rem', 
-                            display: 'flex', 
-                            alignItems: 'center', 
-                            justifyContent: 'center', 
-                            gap: '0.5rem', 
-                            fontWeight: 600,
-                            boxShadow: '0 4px 15px rgba(99, 102, 241, 0.35)'
-                          }}
-                          onClick={() => handleBuyNow(cohort)}
-                        >
-                          <CreditCard size={15} /> Buy Now
-                        </button>
-                        <button
-                          className="btn btn-outline"
-                          style={{ 
-                            flex: 1, 
-                            minWidth: '135px', 
-                            borderRadius: '9999px', 
-                            padding: '0.75rem 1.25rem', 
-                            display: 'flex', 
-                            alignItems: 'center', 
-                            justifyContent: 'center', 
-                            gap: '0.5rem', 
-                            fontWeight: 600 
-                          }}
-                          onClick={() => handleRequestCallback(cohort)}
-                        >
-                          <PhoneCall size={15} /> Request CallBack
-                        </button>
-                      </>
-                    )}
-                  </div>
-
+                      <button
+                        className="btn btn-outline"
+                        style={{
+                          flex: 1,
+                          minWidth: '140px',
+                          borderRadius: '12px',
+                          padding: '0.75rem 1rem',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          gap: '0.5rem',
+                          fontWeight: 600
+                        }}
+                        onClick={() => {
+                          setActiveProjectTab(cohort.id);
+                          window.scrollTo({ top: 350, behavior: 'smooth' });
+                        }}
+                      >
+                        View Blueprints <ArrowRight size={15} />
+                      </button>
+                    </div>
+                  ) : (
+                    <>
+                      <button
+                        className="btn btn-primary"
+                        style={{ 
+                          flex: 1, 
+                          minWidth: '135px', 
+                          borderRadius: '12px', 
+                          padding: '0.75rem 1.25rem', 
+                          display: 'flex', 
+                          alignItems: 'center', 
+                          justifyContent: 'center', 
+                          gap: '0.5rem', 
+                          fontWeight: 600
+                        }}
+                        onClick={() => handleBuyNow(cohort)}
+                      >
+                        <CreditCard size={15} /> Buy Now
+                      </button>
+                      <button
+                        className="btn btn-outline"
+                        style={{ 
+                          flex: 1, 
+                          minWidth: '135px', 
+                          borderRadius: '12px', 
+                          padding: '0.75rem 1.25rem', 
+                          display: 'flex', 
+                          alignItems: 'center', 
+                          justifyContent: 'center', 
+                          gap: '0.5rem', 
+                          fontWeight: 600 
+                        }}
+                        onClick={() => handleRequestCallback(cohort)}
+                      >
+                        <PhoneCall size={15} /> Request CallBack
+                      </button>
+                    </>
+                  )}
                 </div>
               </div>
             );

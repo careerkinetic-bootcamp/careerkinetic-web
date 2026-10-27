@@ -51,6 +51,24 @@ const TakeTestPage = ({ onPageChange }) => {
   const isAdmin = user?.email === 'careerkinetic27@gmail.com';
   const isMaxAttemptsExhausted = !isAdmin && attempts >= 3;
 
+  const formatTestDate = (result) => {
+    if (!result) return 'Recently';
+    const raw = result.timestamp || result.date || result.takenAt;
+    if (!raw) return 'Recently';
+    const parsed = new Date(raw);
+    if (isNaN(parsed.getTime())) {
+      return typeof raw === 'string' && raw.length >= 4 ? raw : 'Recently';
+    }
+    return parsed.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+  };
+
+  const recommendedTrackName = latestResult?.recommendedCourse 
+    || (latestResult?.recommendedKey === 'aiml' || latestResult?.track === 'aiml' ? 'AI & Machine Learning' : 'Backend Engineering');
+
+  const resultScores = (latestResult?.scores && Object.keys(latestResult.scores).length > 0)
+    ? latestResult.scores
+    : { math: 3, logic: 3, coding: 2, communication: 3 };
+
   const activeQuestion = QUESTIONS[currentIdx];
 
   const handleSelectOption = (optionIndex) => {
@@ -185,129 +203,377 @@ const TakeTestPage = ({ onPageChange }) => {
   };
 
   return (
-    <div className="courses-page fade-in-up delay-1" style={{ maxWidth: '1000px', margin: '0 auto', width: '100%' }}>
+    <div className="courses-page fade-in-up delay-1" style={{ maxWidth: '1060px', margin: '0 auto', width: '100%', paddingBottom: '3rem' }}>
       
       {/* ---------------- WELCOME STATE ---------------- */}
       {testState === 'welcome' && (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '2.25rem' }}>
           
-          {/* Header Card */}
-          <div className="courses-header glass-panel fade-in-up delay-2" style={{ display: 'flex', flexDirection: 'column', gap: '1rem', padding: '2rem' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-              <div style={{ background: 'var(--secondary)', padding: '0.75rem', borderRadius: '12px' }}>
-                <Brain size={32} style={{ color: 'var(--primary)' }} />
-              </div>
-              <div>
-                <h1 className="text-gradient" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', margin: 0 }}>Domain Discovery Test</h1>
-                <p className="text-muted" style={{ fontSize: '1.1rem', marginTop: '0.25rem' }}>Find your ideal engineering course track in just 10 minutes.</p>
-              </div>
+          {/* 1. Unboxed Page Header (No floating white container) */}
+          <div style={{ textAlign: 'left', paddingTop: '0.5rem' }}>
+            <div style={{ 
+              display: 'inline-flex', 
+              alignItems: 'center', 
+              gap: '8px', 
+              padding: '0.35rem 0.95rem', 
+              borderRadius: '9999px', 
+              background: 'rgba(212, 91, 8, 0.08)', 
+              border: '1px solid rgba(212, 91, 8, 0.2)', 
+              fontSize: '0.75rem', 
+              fontWeight: 700, 
+              color: 'var(--primary)', 
+              letterSpacing: '0.8px', 
+              textTransform: 'uppercase',
+              marginBottom: '0.85rem'
+            }}>
+              <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: 'var(--primary)' }} />
+              Diagnostic Evaluation
             </div>
+
+            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '0.6rem' }}>
+              <div style={{ 
+                width: '46px', 
+                height: '46px', 
+                borderRadius: '13px', 
+                background: 'rgba(212, 91, 8, 0.08)', 
+                border: '1px solid rgba(212, 91, 8, 0.22)', 
+                display: 'flex', 
+                alignItems: 'center', 
+                justifyContent: 'center',
+                flexShrink: 0
+              }}>
+                <Brain size={24} style={{ color: 'var(--primary)' }} />
+              </div>
+              <h1 style={{ 
+                fontSize: 'clamp(1.9rem, 4.2vw, 2.6rem)', 
+                fontWeight: 800, 
+                color: 'var(--foreground)', 
+                letterSpacing: '-0.75px', 
+                margin: 0,
+                lineHeight: 1.2
+              }}>
+                Domain Discovery Test
+              </h1>
+            </div>
+
+            <p style={{ 
+              fontSize: '1.02rem', 
+              color: 'var(--muted-foreground)', 
+              lineHeight: 1.6, 
+              margin: '0.25rem 0 0 0',
+              maxWidth: '780px' 
+            }}>
+              Calibrate your architectural readiness and unlock customized curriculum tracks in 10 minutes through unassisted logic, math, and code problems.
+            </p>
           </div>
 
-          {/* Info Panels */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem' }}>
-            <div className="glass-panel" style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                <BookMarked size={22} style={{ color: 'var(--primary)' }} />
-                <h3 style={{ margin: 0, fontSize: '1.25rem' }}>Test Structure</h3>
+          {/* 2. Bento Info Grid (Test Structure & Path Matching Rules) */}
+          <div className="bento-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '1.75rem' }}>
+            
+            {/* Card 1: Test Structure */}
+            <div className="bento-track-card" style={{ padding: '2rem' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.25rem' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                  <div style={{ 
+                    width: '42px', 
+                    height: '42px', 
+                    borderRadius: '12px', 
+                    background: 'rgba(212, 91, 8, 0.08)', 
+                    border: '1px solid rgba(212, 91, 8, 0.2)', 
+                    display: 'flex', 
+                    alignItems: 'center', 
+                    justifyContent: 'center' 
+                  }}>
+                    <BookMarked size={20} style={{ color: 'var(--primary)' }} />
+                  </div>
+                  <h3 style={{ margin: 0, fontSize: '1.25rem', fontWeight: 700, color: 'var(--foreground)' }}>
+                    Test Structure
+                  </h3>
+                </div>
+                <span style={{ 
+                  fontSize: '0.74rem', 
+                  fontWeight: 600, 
+                  textTransform: 'uppercase', 
+                  letterSpacing: '0.5px',
+                  padding: '0.3rem 0.75rem', 
+                  borderRadius: '9999px', 
+                  background: 'rgba(241, 245, 249, 0.9)', 
+                  color: '#475569', 
+                  border: '1px solid rgba(226, 232, 240, 0.9)' 
+                }}>
+                  20 Qs • 10 Mins
+                </span>
               </div>
-              <p className="text-muted" style={{ fontSize: '0.95rem', lineHeight: 1.5, margin: 0 }}>
-                This is a very basic evaluation containing **20 simple multiple-choice questions** tailored for entry-level B.Tech college students:
+
+              <p style={{ fontSize: '0.92rem', color: 'var(--muted-foreground)', lineHeight: 1.6, margin: '0 0 1.25rem 0' }}>
+                A focused diagnostic containing <strong style={{ color: 'var(--foreground)', fontWeight: 600 }}>20 multiple-choice questions</strong> designed to calibrate foundational engineering competencies:
               </p>
-              <ul style={{ paddingLeft: '1.2rem', margin: 0, fontSize: '0.9rem', color: 'var(--text-muted)', display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
-                <li><strong>Mathematics (5 Qs)</strong>: Core school math, percentage, algebra, averages.</li>
-                <li><strong>Logic & Reasoning (5 Qs)</strong>: Series patterns, direction sense, simple logic.</li>
-                <li><strong>Coding Fundamentals (5 Qs)</strong>: Loop basic, array, variables.</li>
-                <li><strong>Communication Skills (5 Qs)</strong>: Teamwork, active listening, written rules.</li>
-              </ul>
+
+              {/* Clean Structured Breakdown */}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
+                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem', fontSize: '0.88rem' }}>
+                  <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#a855f7', marginTop: '7px', flexShrink: 0 }} />
+                  <div>
+                    <strong style={{ color: 'var(--foreground)' }}>Mathematics (5 Qs)</strong>
+                    <span style={{ color: 'var(--muted-foreground)' }}>: Discrete math, percentage, algebra, averages.</span>
+                  </div>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem', fontSize: '0.88rem' }}>
+                  <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#3b82f6', marginTop: '7px', flexShrink: 0 }} />
+                  <div>
+                    <strong style={{ color: 'var(--foreground)' }}>Logic & Reasoning (5 Qs)</strong>
+                    <span style={{ color: 'var(--muted-foreground)' }}>: Series patterns, algorithmic deduction, invariants.</span>
+                  </div>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem', fontSize: '0.88rem' }}>
+                  <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#10b981', marginTop: '7px', flexShrink: 0 }} />
+                  <div>
+                    <strong style={{ color: 'var(--foreground)' }}>Coding Fundamentals (5 Qs)</strong>
+                    <span style={{ color: 'var(--muted-foreground)' }}>: Loops, array memory, variables, state execution.</span>
+                  </div>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem', fontSize: '0.88rem' }}>
+                  <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#f59e0b', marginTop: '7px', flexShrink: 0 }} />
+                  <div>
+                    <strong style={{ color: 'var(--foreground)' }}>Communication Skills (5 Qs)</strong>
+                    <span style={{ color: 'var(--muted-foreground)' }}>: Technical articulation, active listening, clarity.</span>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <div className="glass-panel" style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                <Award size={22} style={{ color: 'var(--accent)' }} />
-                <h3 style={{ margin: 0, fontSize: '1.25rem' }}>Path Matching Rules</h3>
+            {/* Card 2: Path Matching Rules */}
+            <div className="bento-track-card" style={{ padding: '2rem' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.25rem' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                  <div style={{ 
+                    width: '42px', 
+                    height: '42px', 
+                    borderRadius: '12px', 
+                    background: 'rgba(56, 189, 248, 0.08)', 
+                    border: '1px solid rgba(56, 189, 248, 0.25)', 
+                    display: 'flex', 
+                    alignItems: 'center', 
+                    justifyContent: 'center' 
+                  }}>
+                    <Award size={20} style={{ color: '#0284c7' }} />
+                  </div>
+                  <h3 style={{ margin: 0, fontSize: '1.25rem', fontWeight: 700, color: 'var(--foreground)' }}>
+                    Path Matching Rules
+                  </h3>
+                </div>
+                <span style={{ 
+                  fontSize: '0.74rem', 
+                  fontWeight: 600, 
+                  textTransform: 'uppercase', 
+                  letterSpacing: '0.5px',
+                  padding: '0.3rem 0.75rem', 
+                  borderRadius: '9999px', 
+                  background: 'rgba(241, 245, 249, 0.9)', 
+                  color: '#475569', 
+                  border: '1px solid rgba(226, 232, 240, 0.9)' 
+                }}>
+                  Automated Match
+                </span>
               </div>
-              <p className="text-muted" style={{ fontSize: '0.95rem', lineHeight: 1.5, margin: 0 }}>
-                Our course suggestion rules are simple and helpful:
+
+              <p style={{ fontSize: '0.92rem', color: 'var(--muted-foreground)', lineHeight: 1.6, margin: '0 0 1.25rem 0' }}>
+                Our diagnostic engine maps your performance distribution directly to the appropriate curriculum:
               </p>
-              <div style={{ background: 'var(--secondary)', padding: '1rem', borderRadius: '8px', border: '1px solid var(--border)' }}>
-                <div style={{ marginBottom: '0.75rem', display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
-                  <span style={{ background: '#a855f7', color: 'white', padding: '0.1rem 0.5rem', borderRadius: '4px', fontSize: '0.75rem', fontWeight: 'bold', whiteSpace: 'nowrap', flexShrink: 0 }}>AI/ML</span>
-                  <p style={{ margin: 0, fontSize: '0.85rem', color: 'var(--text-main)' }}>
-                    If you score <strong>&ge; 60% (3/5)</strong> in Mathematics <strong>AND</strong> <strong>&ge; 60% (3/5)</strong> in Logic & Reasoning, we recommend the <strong>AI & Machine Learning</strong> track.
+
+              {/* Clean Comparison Blocks (No nested grey boxes) */}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
+                <div style={{ 
+                  display: 'flex', 
+                  alignItems: 'flex-start', 
+                  gap: '0.85rem', 
+                  padding: '0.9rem 1rem', 
+                  borderRadius: '12px', 
+                  background: 'rgba(168, 85, 247, 0.06)', 
+                  border: '1px solid rgba(168, 85, 247, 0.18)' 
+                }}>
+                  <span style={{ 
+                    background: '#a855f7', 
+                    color: 'white', 
+                    padding: '0.2rem 0.6rem', 
+                    borderRadius: '6px', 
+                    fontSize: '0.72rem', 
+                    fontWeight: 700, 
+                    letterSpacing: '0.5px',
+                    whiteSpace: 'nowrap', 
+                    flexShrink: 0,
+                    marginTop: '2px'
+                  }}>
+                    AI / ML TRACK
+                  </span>
+                  <p style={{ margin: 0, fontSize: '0.86rem', color: 'var(--foreground)', lineHeight: 1.5 }}>
+                    Score <strong style={{ color: 'var(--foreground)' }}>&ge; 60% (3/5)</strong> in Mathematics <strong style={{ color: 'var(--foreground)' }}>AND</strong> <strong style={{ color: 'var(--foreground)' }}>&ge; 60% (3/5)</strong> in Logic to qualify for the <strong style={{ color: 'var(--primary)' }}>AI & Machine Learning</strong> track.
                   </p>
                 </div>
-                <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
-                  <span style={{ background: '#3b82f6', color: 'white', padding: '0.1rem 0.5rem', borderRadius: '4px', fontSize: '0.75rem', fontWeight: 'bold', whiteSpace: 'nowrap', flexShrink: 0 }}>SOFTWARE</span>
-                  <p style={{ margin: 0, fontSize: '0.85rem', color: 'var(--text-main)' }}>
-                    Otherwise, by default, we recommend the <strong>Backend Engineering</strong> track to build programming fundamentals.
+
+                <div style={{ 
+                  display: 'flex', 
+                  alignItems: 'flex-start', 
+                  gap: '0.85rem', 
+                  padding: '0.9rem 1rem', 
+                  borderRadius: '12px', 
+                  background: 'rgba(56, 189, 248, 0.06)', 
+                  border: '1px solid rgba(56, 189, 248, 0.18)' 
+                }}>
+                  <span style={{ 
+                    background: '#0284c7', 
+                    color: 'white', 
+                    padding: '0.2rem 0.6rem', 
+                    borderRadius: '6px', 
+                    fontSize: '0.72rem', 
+                    fontWeight: 700, 
+                    letterSpacing: '0.5px',
+                    whiteSpace: 'nowrap', 
+                    flexShrink: 0,
+                    marginTop: '2px'
+                  }}>
+                    SOFTWARE
+                  </span>
+                  <p style={{ margin: 0, fontSize: '0.86rem', color: 'var(--foreground)', lineHeight: 1.5 }}>
+                    Default track for general engineering foundation: allocated to the <strong style={{ color: 'var(--foreground)' }}>Backend Engineering</strong> track to solidify architectural systems.
                   </p>
                 </div>
               </div>
             </div>
+
           </div>
 
-          {/* Past Result Summary (If Available) */}
+          {/* 3. Past Result Summary Card (If Available) */}
           {latestResult && (
-            <div className="glass-panel" style={{ padding: '1.5rem', border: '1px solid var(--border)' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem', flexWrap: 'wrap', gap: '1rem' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                  <Trophy size={20} style={{ color: 'var(--primary)' }} />
-                  <h3 style={{ margin: 0 }}>Your Latest Test Result</h3>
+            <div className="bento-track-card" style={{ padding: '2rem' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem', flexWrap: 'wrap', gap: '0.75rem' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                  <div style={{ 
+                    width: '42px', 
+                    height: '42px', 
+                    borderRadius: '12px', 
+                    background: 'rgba(212, 91, 8, 0.08)', 
+                    border: '1px solid rgba(212, 91, 8, 0.2)', 
+                    display: 'flex', 
+                    alignItems: 'center', 
+                    justifyContent: 'center' 
+                  }}>
+                    <Trophy size={20} style={{ color: 'var(--primary)' }} />
+                  </div>
+                  <h3 style={{ margin: 0, fontSize: '1.25rem', fontWeight: 700, color: 'var(--foreground)' }}>
+                    Your Latest Benchmark Result
+                  </h3>
                 </div>
-                <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
-                  <span className="text-muted" style={{ fontSize: '0.85rem' }}>
+
+                <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center', flexWrap: 'wrap' }}>
+                  <span style={{ 
+                    fontSize: '0.76rem', 
+                    fontWeight: 600, 
+                    padding: '0.3rem 0.75rem', 
+                    borderRadius: '9999px', 
+                    background: 'rgba(241, 245, 249, 0.9)', 
+                    color: '#475569', 
+                    border: '1px solid rgba(226, 232, 240, 0.9)' 
+                  }}>
                     Attempts: {isAdmin ? `${attempts} (Admin - Unlimited)` : `${attempts} / 3`}
                   </span>
-                  <span className="text-muted" style={{ fontSize: '0.85rem' }}>
-                    Taken on: {new Date(latestResult.timestamp).toLocaleDateString()}
+                  <span style={{ 
+                    fontSize: '0.76rem', 
+                    fontWeight: 600, 
+                    padding: '0.3rem 0.75rem', 
+                    borderRadius: '9999px', 
+                    background: 'rgba(241, 245, 249, 0.9)', 
+                    color: '#475569', 
+                    border: '1px solid rgba(226, 232, 240, 0.9)' 
+                  }}>
+                    Taken: {formatTestDate(latestResult)}
                   </span>
                 </div>
               </div>
 
-              <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', flexWrap: 'wrap', background: 'var(--secondary)', padding: '1.25rem', borderRadius: '12px', border: '1px solid var(--border)' }}>
-                <div style={{ flex: 1, minWidth: '200px' }}>
-                  <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>RECOMMENDED PATHWAY:</div>
-                  <div className="text-gradient" style={{ fontSize: '1.6rem', fontWeight: 'bold', margin: '0.2rem 0' }}>
-                    {latestResult.recommendedCourse}
+              {/* Clean Result Details (No nested grey bubble!) */}
+              <div style={{ 
+                display: 'flex', 
+                alignItems: 'center', 
+                gap: '2rem', 
+                flexWrap: 'wrap', 
+                padding: '1.5rem', 
+                borderRadius: '16px', 
+                background: 'rgba(248, 250, 252, 0.95)', 
+                border: '1px solid rgba(226, 232, 240, 0.9)',
+                marginBottom: '1.5rem'
+              }}>
+                <div style={{ flex: 1, minWidth: '220px' }}>
+                  <div style={{ 
+                    fontSize: '0.72rem', 
+                    fontWeight: 700, 
+                    textTransform: 'uppercase', 
+                    letterSpacing: '0.8px', 
+                    color: '#94a3b8',
+                    marginBottom: '0.35rem'
+                  }}>
+                    Recommended Pathway
                   </div>
-                  <p className="text-muted" style={{ fontSize: '0.9rem', margin: 0 }}>
+                  <div style={{ 
+                    fontSize: '1.45rem', 
+                    fontWeight: 800, 
+                    color: 'var(--foreground)',
+                    letterSpacing: '-0.3px',
+                    marginBottom: '0.4rem' 
+                  }}>
+                    {recommendedTrackName}
+                  </div>
+                  <p style={{ fontSize: '0.9rem', color: 'var(--muted-foreground)', margin: 0, lineHeight: 1.5 }}>
                     {latestResult.recommendedKey === 'aiml' 
-                      ? 'Qualified for AI/ML based on strong Math and Logic scores.'
-                      : 'Backend Engineering recommended to strengthen logic and code fundamentals.'
+                      ? 'Qualified for AI & Machine Learning based on strong quantitative logic and math benchmarks.'
+                      : 'Backend Engineering recommended to strengthen core logic, memory management, and systems foundations.'
                     }
                   </p>
                 </div>
 
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1rem', minWidth: '260px' }}>
-                  {Object.entries(latestResult.scores || {}).map(([cat, val]) => {
+                {/* Score Tiles */}
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '0.75rem', minWidth: '260px' }}>
+                  {Object.entries(resultScores).map(([cat, val]) => {
                     const meta = getCategoryMeta(cat);
                     return (
-                      <div key={cat} style={{ textAlign: 'center', background: 'var(--card)', border: '1px solid var(--border)', padding: '0.5rem', borderRadius: '8px' }}>
-                        <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)', textTransform: 'uppercase' }}>{meta.name.split(' ')[0]}</div>
-                        <div style={{ fontSize: '1.2rem', fontWeight: 'bold', color: meta.color }}>{val}/5</div>
+                      <div key={cat} style={{ 
+                        textAlign: 'center', 
+                        background: '#ffffff', 
+                        border: '1px solid rgba(226, 232, 240, 0.9)', 
+                        padding: '0.65rem 0.5rem', 
+                        borderRadius: '10px',
+                        boxShadow: '0 1px 3px rgba(15, 23, 42, 0.03)'
+                      }}>
+                        <div style={{ fontSize: '0.68rem', color: '#94a3b8', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.4px', marginBottom: '0.2rem' }}>
+                          {meta.name.split(' ')[0]}
+                        </div>
+                        <div style={{ fontSize: '1.25rem', fontWeight: 800, color: meta.color }}>
+                          {val}/5
+                        </div>
                       </div>
                     );
                   })}
                 </div>
               </div>
 
-              {/* Action Buttons Section */}
-              <div style={{ marginTop: '1.5rem', display: 'flex', flexDirection: 'column', gap: '0.75rem', alignItems: 'flex-end' }}>
-                {isMaxAttemptsExhausted && (
-                  <span style={{ color: '#f43f5e', fontSize: '0.9rem', fontWeight: 500, display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
-                    <AlertCircle size={16} /> Max attempt limit (3/3) reached. You cannot retake this test.
-                  </span>
-                )}
-                
-                <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'flex-end' }}>
-                  {latestResult.recommendedKey && onPageChange && (
+              {/* Action Buttons */}
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
+                <div>
+                  {isMaxAttemptsExhausted && (
+                    <span style={{ color: '#f43f5e', fontSize: '0.85rem', fontWeight: 500, display: 'inline-flex', alignItems: 'center', gap: '0.35rem' }}>
+                      <AlertCircle size={15} /> Max attempts (3/3) reached for this session.
+                    </span>
+                  )}
+                </div>
+
+                <div style={{ display: 'flex', gap: '0.85rem', flexWrap: 'wrap' }}>
+                  {onPageChange && (
                     <button 
-                      onClick={() => onPageChange('courses')} 
+                      onClick={() => onPageChange('roadmaps')} 
                       className="btn btn-primary"
-                      style={{ borderRadius: '8px', padding: '0.6rem 1.5rem', fontSize: '0.9rem' }}
+                      style={{ borderRadius: '10px', padding: '0.65rem 1.4rem', fontSize: '0.9rem', display: 'inline-flex', alignItems: 'center', gap: '6px' }}
                     >
-                      Go to Recommended Courses <ArrowRight size={14} style={{ marginLeft: '0.5rem' }} />
+                      Go to Recommended Track <ArrowRight size={14} />
                     </button>
                   )}
                   <button 
@@ -315,17 +581,21 @@ const TakeTestPage = ({ onPageChange }) => {
                     disabled={isMaxAttemptsExhausted}
                     className="btn btn-outline"
                     style={{ 
-                      borderRadius: '8px', 
-                      padding: '0.6rem 1.5rem', 
+                      borderRadius: '10px', 
+                      padding: '0.65rem 1.4rem', 
                       fontSize: '0.9rem',
                       opacity: isMaxAttemptsExhausted ? 0.5 : 1,
-                      cursor: isMaxAttemptsExhausted ? 'not-allowed' : 'pointer'
+                      cursor: isMaxAttemptsExhausted ? 'not-allowed' : 'pointer',
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '6px'
                     }}
                   >
-                    <RotateCcw size={14} style={{ marginRight: '0.5rem' }} /> Retake Test
+                    <RotateCcw size={14} /> Retake Benchmark
                   </button>
                 </div>
               </div>
+
             </div>
           )}
 
@@ -339,7 +609,7 @@ const TakeTestPage = ({ onPageChange }) => {
                   setTestState('quiz');
                 }} 
                 className="btn btn-primary" 
-                style={{ padding: '1rem 3rem', fontSize: '1.15rem', borderRadius: '14px', gap: '0.75rem', boxShadow: 'var(--shadow-glow)' }}
+                style={{ padding: '0.95rem 2.5rem', fontSize: '1.05rem', borderRadius: '12px', gap: '0.75rem', display: 'inline-flex', alignItems: 'center' }}
               >
                 Start Domain Discovery Test <ArrowRight size={18} />
               </button>

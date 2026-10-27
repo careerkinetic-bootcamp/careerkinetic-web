@@ -35,11 +35,12 @@ const DEFAULT_DEMO_USER = {
     isEmailVerified: true,
     enrolled_cohorts: ['aiml'],
     assessmentResult: {
-      track: 'aiml',
-      score: 88,
-      total: 100,
-      level: 'Advanced',
-      date: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
+      recommendedCourse: 'Backend Engineering',
+      recommendedKey: 'se',
+      scores: { math: 3, logic: 3, coding: 2, communication: 3 },
+      totalCorrect: 11,
+      totalQuestions: 20,
+      timestamp: new Date().toISOString()
     },
     assessmentAttempts: 1,
     profilePic: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&auto=format&fit=crop&q=80'
